@@ -76,6 +76,7 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    ffaker (1.32.1)
     hashie (3.4.0)
     hike (1.2.3)
     i18n (0.7.0)
@@ -214,6 +215,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   factory_girl_rails (~> 4.0)
+  ffaker
   jquery-rails
   omniauth
   omniauth-facebook
