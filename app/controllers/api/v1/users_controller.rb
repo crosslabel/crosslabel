@@ -18,7 +18,7 @@ class Api::V1::UsersController < ApplicationController
     if user.update(user_params)
       render json: user, status: 200, location: [:api, user]
     else
-      render json: { erorrs: user.errors }, status: 422
+      render json: { errors: user.errors }, status: 422
     end
   end
 
