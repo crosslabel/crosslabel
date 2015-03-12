@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::UsersController, type: :controller do
-    before(:each) { request.headers['Accept'] = "application/vnd.brandly.v1"}
-
+    
     describe "GET #show" do
       before(:each) do
         @user = FactoryGirl.create :user
