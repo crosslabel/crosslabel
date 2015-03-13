@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::UsersController, type: :controller do
-    
+
     describe "GET #show" do
       before(:each) do
         @user = FactoryGirl.create :user
@@ -55,6 +55,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       context "with valid attributes" do
         before(:each) do
           @user = FactoryGirl.create :user
+          api_authorization_header @user.auth_token
           patch :update, { id: @user.id, user: { email: 'newmail@example.com'}}, format: :json
         end
 
@@ -67,6 +68,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       context "with invalid attributes" do
         before(:each) do
           @user = FactoryGirl.create :user
+          api_authorization_header @user.auth_token
           patch :update, { id: @user.id, user: { email: "bademail.com" } }, format: :json
         end
 
@@ -81,5 +83,16 @@ RSpec.describe Api::V1::UsersController, type: :controller do
         end
         it { should respond_with 422 }
       end
+    end
+
+    describe "DELETE #destroy" do
+      before(:each) do
+        @user = FactoryGirl.create :user
+        api_authorization_header @user.auth_token #we added this line
+        delete :destroy, { id: @user.id }
+      end
+
+      it { should respond_with 204 }
+
     end
 end

@@ -33,4 +33,17 @@ RSpec.describe Api::V1::SessionsController, :type => :controller do
       end
     end
   end
+
+  # DESTROY SPECS NOT WORKING
+  # describe "DELETE #destroy" do
+  #   before(:each) do
+  #     @user = FactoryGirl.create :user
+  #     sign_in @user
+  #     delete :destroy
+  #   end
+  #
+  #   it { should respond_with 204 }
+  # end
+
+
 end
