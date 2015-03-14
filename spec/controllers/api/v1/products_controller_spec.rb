@@ -8,7 +8,7 @@ RSpec.describe Api::V1::ProductsController, :type => :controller do
     end
 
     it "returns the information about a product on a hash" do
-      product_response = json_response
+      product_response = json_response[:product]
       expect(product_response[:title]).to eq @product.title
     end
 
@@ -22,8 +22,8 @@ RSpec.describe Api::V1::ProductsController, :type => :controller do
     end
 
     it "returns 4 records from the database" do
-      product_response = json_response[:product]
-      expect(product_response[:products]).to have_exactly(4).items
+      product_response = json_response[:products]
+      expect(product_response.length).to eq(4)
     end
 
     it { should respond_with 200}
@@ -56,12 +56,12 @@ RSpec.describe Api::V1::ProductsController, :type => :controller do
 
       it "renders an errors json" do
         product_response = json_response
-        expect(product_response[:errors]).to have_key(:errors)
+        expect(product_response).to have_key(:errors)
       end
 
       it "renders the json errors on why the product could not be created" do
         product_response = json_response
-        expect(product_response[:errors][:price]).to include " is not a number"
+        expect(product_response[:errors][:unit_price]).to include "can't be blank"
       end
 
       it { should respond_with 422 }
@@ -77,7 +77,7 @@ RSpec.describe Api::V1::ProductsController, :type => :controller do
 
     context "when is successfully updated" do
       before(:each) do
-        patch :update, { id: @product.id, title: 'An expensive TV' }
+        patch :update, { id: @product.id, product: { title: 'An expensive TV' } }
       end
 
       it "renders the json representation for the updated user" do
@@ -90,17 +90,17 @@ RSpec.describe Api::V1::ProductsController, :type => :controller do
 
     context "when is not updated" do
       before(:each) do
-        patch :update, { id: @product.id, price: "12 numbers" }
+        patch :update, { id: @product.id, product: { unit_price: "" } }
       end
 
       it "renders an errors json" do
-        product_repsonse = json_response
-        expect(product_response).to have_keys(:errors)
+        product_response = json_response
+        expect(product_response).to have_key(:errors)
       end
 
       it "renders the json errors on why the user could not be created" do
         product_response = json_response
-        expect(product_response[:errors][:price]).to include "is not a number"
+        expect(product_response[:errors][:unit_price]).to include "can't be blank"
       end
 
       it { should respond_with 422 }

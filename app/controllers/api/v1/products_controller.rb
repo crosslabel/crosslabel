@@ -35,6 +35,7 @@ class Api::V1::ProductsController < ApplicationController
       head 204
     end
     private
+
     def product_params
       params.require(:product).permit(:title, :description, :image, :link, :unit_price, :sale_price)
     end
