@@ -7,6 +7,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :last_name
       t.string :telelphone
       t.string :country
+      t.string :profile_image
       t.datetime :birth_date
 
       t.timestamps

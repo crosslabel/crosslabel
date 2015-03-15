@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150315194030) do
     t.string   "last_name"
     t.string   "telelphone"
     t.string   "country"
+    t.string   "profile_image"
     t.datetime "birth_date"
     t.datetime "created_at"
     t.datetime "updated_at"

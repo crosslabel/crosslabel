@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     find_with_omniauth(auth).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.profile_picture = auth.info.image # assuming the user model has an image
+      # user.username =
       Profile.create(:user_id => user.id)
     end
   end
