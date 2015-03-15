@@ -1,10 +1,14 @@
 class User < ActiveRecord::Base
   validates :auth_token, uniqueness: true
+
+  has_many :authentications, :dependent => :destroy
+  has_one :profile, :dependent => :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
-  has_many :authentications, :dependent => :destroy
+
   before_create :generate_authentication_token!
 
   def self.find_with_omniauth(auth)
@@ -15,8 +19,8 @@ class User < ActiveRecord::Base
     find_with_omniauth(auth).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      # user.name = auth.info.name   # assuming the user model has a name
       user.profile_picture = auth.info.image # assuming the user model has an image
+      Profile.create(:user_id => user.id)
     end
   end
 
