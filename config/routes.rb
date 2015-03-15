@@ -1,10 +1,13 @@
 require 'api_constraints'
 
 Rails.application.routes.draw do
+  get 'profiles/show'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :products
-  resources :users do
-  end
+
+  get '/:username' => 'profiles#show', as: 'profile'
+
 
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
     scope :module => :v1, constraints: ApiConstraints.new(version: 1, default: true) do

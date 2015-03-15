@@ -1,5 +1,5 @@
 class Profile < ActiveRecord::Base
   validates_presence_of :user_id
-  validates_presence_of :username
-  belong_to :user
+  validates :username, :presence => true, :uniqueness => :true
+  belongs_to :user
 end
