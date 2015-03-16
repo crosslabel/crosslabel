@@ -1,1 +1,10 @@
-<h1>Brandly</h1>
+<div class="products-list row">
+<% @products.each do |product| %>
+  <div class="product col-md-3">
+    <%= link_to product.link do %>
+    <%= image_tag product.image, width: "100%", height: "auto" %>
+    <% end %>
+    <h5><%= product.title %></h5>
+  </div>
+<% end %>
+</div>

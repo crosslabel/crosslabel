@@ -9,4 +9,9 @@ class ProductsController < ApplicationController
       render errors: "Product was not created", status: 402
     end
   end
+
+  private
+  def product_params
+    params.require(:product).params(:title, :image, :link, :unit_price)
+  end
 end
