@@ -1,6 +1,6 @@
 <div class="products-list row">
 <% @products.each do |product| %>
-  <div class="product col-md-3">
+  <div class="product col-sm-6 col-md-4 col-lg-3">
     <%= link_to product.link do %>
     <%= image_tag product.image, width: "100%", height: "auto" %>
     <% end %>
