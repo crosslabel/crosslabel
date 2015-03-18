@@ -1,6 +1,6 @@
-namespace :products do
-  desc "Scraping a-land products"
-    task :scrape_aland => :environment do
+namespace :aland do
+  desc "Scraping a-land tops"
+    task :scrape_tops => :environment do
       require "json"
       require "rest-client"
 
@@ -15,7 +15,9 @@ namespace :products do
       puts JSON.pretty_generate(products)
 
       products.each do |item|
-        Product.create!(:title => item["title"]["text"], :link =>  item["title"]["href"], :image => item["image"]["src"], :unit_price => item["unit_price"])
+        product = Product.create!(:title => item["title"]["text"], :link =>  item["title"]["href"], :image => item["image"]["src"], :unit_price => item["unit_price"])
+        category = Category.find_by(:title => :Tops)
+        category.products << product
       end
   end
 end
