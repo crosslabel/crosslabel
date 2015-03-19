@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  validates :auth_token, uniqueness: true
-
   has_many :authentications, :dependent => :destroy
   has_one :profile, :dependent => :destroy
 
@@ -8,8 +6,14 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+
+  validates :auth_token, uniqueness: true
+  validates :email, :presence => true, :length => { maximum: 256}, :format => { with: VALID_EMAIL_REGEX }, :uniqueness => { case_sensitive: false}
 
   before_create :generate_authentication_token!
+
+
 
   def self.find_with_omniauth(auth)
     where(email: auth.info.email)

@@ -1,5 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @category = FactoryGirl.build(:category)
+  end
+
+  subject { @category }
+
+
+  describe "before save" do
+    it "should downcase the title" do
+      @category.save
+      expect(@category.title).to eq("mytitle")
+    end
+  end
 end
