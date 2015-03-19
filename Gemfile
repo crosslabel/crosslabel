@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bower-rails', "~> 0.9.2"
 
+
+gem 'rest-client'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -40,6 +42,8 @@ group :development, :test do
 end
 
 gem 'rails_12factor', group: :production
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

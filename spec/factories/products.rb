@@ -4,8 +4,8 @@ FactoryGirl.define do
     description "MyText"
     image "MyString"
     link "MyString"
-    unit_price "MyString"
-    sale_price "MyString"
+    unit_price "36,000"
+    sale_price "75,000"
   end
 
 end
