@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.includes(:categories).all
   end
 end

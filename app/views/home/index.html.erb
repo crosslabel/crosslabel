@@ -4,7 +4,7 @@
     <%= link_to product.link do %>
     <%= image_tag product.image, width: "100%", height: "auto" %>
     <% end %>
-    <h5><%= product.title %></h5>
+    <h5><%= product.title %> in <%= link_to product.categories.first.try(:title) %></h5>
   </div>
 <% end %>
 </div>

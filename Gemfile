@@ -25,26 +25,28 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bower-rails', "~> 0.9.2"
 
+# Admin backend
 gem 'rails_admin'
-gem 'cancan'
-gem 'papertrail'
+gem 'cancan' #authorization
+gem 'papertrail' # Lets you track changes to your models' data. Good for audting and versioning.
 
-gem 'rest-client'
+# Authentication
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'uuidtools'
 
-gem 'thin'
+gem 'thin' #web server
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
-  gem "factory_girl_rails", "~> 4.0"
+  gem "factory_girl_rails", "~> 4.0" # fixtures
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'ffaker'
 end
 
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: :production # heroku
 
 
 
