@@ -23,6 +23,8 @@ RSpec.describe User, type: :model do
       end
     end
 
+    describe 
+
     describe "email validation" do
       context "when email format is valid" do
           it "should be valid" do

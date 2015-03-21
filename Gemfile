@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bower-rails', "~> 0.9.2"
 
+gem 'rails_admin'
+gem 'cancan'
+gem 'papertrail'
 
 gem 'rest-client'
 gem 'devise'

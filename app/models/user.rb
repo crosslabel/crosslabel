@@ -12,8 +12,7 @@ class User < ActiveRecord::Base
 
   validates :auth_token, uniqueness: true
   validates :email, :presence => true, :length => { maximum: 256}, :format => { with: VALID_EMAIL_REGEX }, :uniqueness => { case_sensitive: false}
-
-
+  validates :username, :uniqueness => :true
 
   def self.find_with_omniauth(auth)
     where(email: auth.info.email)
@@ -22,6 +21,7 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     find_with_omniauth(auth).first_or_create do |user|
       user.email = auth.info.email
+      user.username = "user" + Devise.friendly_token[0,10]
       user.password = Devise.friendly_token[0,20]
     end
   end
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def create_profile(auth)
-    Profile.create!(:user_id => self.id, :username => "user-#{SecureRandom.hex(5)}", :profile_image => auth.info.image)
+    Profile.create!(:user_id => self.id, :profile_image => auth.try(:info).image || nil)
   end
 
   def generate_authentication_token!
@@ -43,9 +43,5 @@ class User < ActiveRecord::Base
       self.auth_token = Devise.friendly_token
     end while self.class.exists?(auth_token: auth_token)
   end
-
-
-
-
 
 end

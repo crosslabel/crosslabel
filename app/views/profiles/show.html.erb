@@ -1,2 +1,2 @@
-<%= image_tag @user.profile_image %>
+<%= image_tag @user.profile.try(:profile_image) %>
 <%= @user.username %>

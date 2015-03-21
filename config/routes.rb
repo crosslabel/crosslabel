@@ -1,12 +1,15 @@
 require 'api_constraints'
-
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+
   get 'profiles/show'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
   resources :products
 
   get '/:username' => 'profiles#show', as: 'profile'
+
 
 
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
