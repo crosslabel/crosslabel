@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-categories = [{title: "Tops", description: ""}, {title: "t-shirt", description: ""}, {title: "shirt", description: ""}, {title: "knit/cardigan"}, {title: "sweatshirt", description: ""}, {title: "hoodie", description: ""}, {title: "sleeveless", description: ""}, {title: "bottoms", description: ""}, {title: "pants", description: ""}, {title: "jeans", description: ""}, {title: "shorts", description: ""}]
+categories = [{title: "tops", description: ""}, {title: "t-shirt", description: ""}, {title: "shirt", description: ""}, {title: "knit/cardigan"}, {title: "sweatshirt", description: ""}, {title: "hoodie", description: ""}, {title: "sleeveless", description: ""}, {title: "bottoms", description: ""}, {title: "pants", description: ""}, {title: "jeans", description: ""}, {title: "shorts", description: ""}]
 
 Category.create(categories)

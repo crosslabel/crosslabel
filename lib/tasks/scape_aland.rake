@@ -16,7 +16,7 @@ namespace :aland do
 
       products.each do |item|
         product = Product.create!(:title => item["title"]["text"], :link =>  item["title"]["href"], :image => item["image"]["src"], :unit_price => item["unit_price"])
-        category = Category.find_by(:title => :Tops)
+        category = Category.find_by(:title => :tops)
         category.products << product
       end
   end
