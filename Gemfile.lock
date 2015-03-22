@@ -33,7 +33,6 @@ GEM
     bcrypt (3.1.10)
     bower-rails (0.9.2)
     builder (3.2.2)
-    cancan (1.6.10)
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -246,7 +245,6 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.8.0)
   bower-rails (~> 0.9.2)
-  cancan
   capistrano-rails
   capybara
   coffee-rails (~> 4.0.0)
