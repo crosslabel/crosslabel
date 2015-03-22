@@ -28,7 +28,7 @@ gem 'rest-client'
 
 # Admin backend
 gem 'rails_admin'
-# gem 'cancan' #authorization
+gem 'cancan' #authorization
 gem 'papertrail' # Lets you track changes to your models' data. Good for audting and versioning.
 
 # Authentication
