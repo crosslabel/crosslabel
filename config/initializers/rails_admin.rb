@@ -3,6 +3,8 @@ RailsAdmin.config do |config|
   ### Popular gems integration
   config.main_app_name = ["Dashboard"]
 
+  config.included_models = ['User', 'Product', 'Category']
+
   # == Devise ==
   config.authenticate_with do
     warden.authenticate! scope: :user
