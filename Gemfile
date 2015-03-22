@@ -27,9 +27,11 @@ gem 'bower-rails', "~> 0.9.2"
 gem 'rest-client'
 
 # Admin backend
-gem 'rails_admin'
-gem 'cancan' #authorization
-gem 'papertrail' # Lets you track changes to your models' data. Good for audting and versioning.
+gem 'rails_admin', '~>0.6'
+gem 'cancan', '~>1.6.10' #authorization
+gem 'paper_trail', '~> 4.0.0.beta'
+
+ # Lets you track changes to your models' data. Good for audting and versioning.
 
 # Authentication
 gem 'devise'
