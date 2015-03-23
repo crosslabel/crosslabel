@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'profiles/show'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
-  resources :products
+  resources :products do
+    match '/vote' => 'products#vote', via: [:post, :destroy]
+  end
 
   get '/:username' => 'profiles#show', as: 'profile'
 

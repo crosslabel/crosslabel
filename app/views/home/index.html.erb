@@ -5,6 +5,14 @@
     <%= image_tag product.image, width: "100%", height: "auto" %>
     <% end %>
     <h5><%= product.title %> in <%= link_to product.categories.first.try(:title) %></h5>
+    <span><%= link_to product_vote_path(product), :method => :post do %>
+      <i class="fa fa-thumbs-o-up"></i>
+    <% end %></span>
+    <% product.upvotes.each do |upvote| %>
+      <span><%= image_tag upvote.user.profile.profile_image, :class => "product-profile-image"%></span>
+    <% end %>
   </div>
 <% end %>
 </div>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">

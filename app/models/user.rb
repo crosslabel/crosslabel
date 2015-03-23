@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
+  has_many :upvotes, :dependent => :destroy
   has_one :profile, :dependent => :destroy
 
   before_create :generate_authentication_token!
@@ -13,6 +14,7 @@ class User < ActiveRecord::Base
   validates :auth_token, uniqueness: true
   validates :email, :presence => true, :length => { maximum: 256}, :format => { with: VALID_EMAIL_REGEX }, :uniqueness => { case_sensitive: false}
   validates :username, :uniqueness => :true
+
 
   def self.find_with_omniauth(auth)
     where(email: auth.info.email)

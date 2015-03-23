@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :logged_in_user, :only => [:create, :vote]
   def show
     @product = Product.find(params[:id])
   end
@@ -8,6 +9,16 @@ class ProductsController < ApplicationController
     unless @product.save
       render errors: "Product was not created", status: 402
     end
+  end
+
+  def vote
+    product = Product.find(params[:product_id])
+    if vote = product.upvotes.find_by(user_id: current_user.id)
+      vote.destroy
+    else
+      product.upvotes.create!(user_id: current_user.id) rescue "Could not vote!"
+    end
+    redirect_to root_path
   end
 
   private
