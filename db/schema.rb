@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321215008) do
+ActiveRecord::Schema.define(version: 20150323225512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,13 +78,24 @@ ActiveRecord::Schema.define(version: 20150321215008) do
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
   add_index "profiles", ["username"], name: "index_profiles_on_username", using: :btree
 
+  create_table "upvotes", force: true do |t|
+    t.integer  "upvotable_id"
+    t.string   "upvotable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "upvotes", ["upvotable_id", "upvotable_type"], name: "index_upvotes_on_upvotable_id_and_upvotable_type", using: :btree
+  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -95,10 +106,33 @@ ActiveRecord::Schema.define(version: 20150321215008) do
     t.string   "name"
     t.string   "auth_token",             default: ""
     t.string   "username"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "version_associations", force: true do |t|
+    t.integer "version_id"
+    t.string  "foreign_key_name", null: false
+    t.integer "foreign_key_id"
+  end
+
+  add_index "version_associations", ["foreign_key_name", "foreign_key_id"], name: "index_version_associations_on_foreign_key", using: :btree
+  add_index "version_associations", ["version_id"], name: "index_version_associations_on_version_id", using: :btree
+
+  create_table "versions", force: true do |t|
+    t.string   "item_type",      null: false
+    t.integer  "item_id",        null: false
+    t.string   "event",          null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+    t.integer  "transaction_id"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
+  add_index "versions", ["transaction_id"], name: "index_versions_on_transaction_id", using: :btree
 
 end
