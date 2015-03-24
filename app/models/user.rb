@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :length => { maximum: 256}, :format => { with: VALID_EMAIL_REGEX }, :uniqueness => { case_sensitive: false}
   validates :username, :uniqueness => :true
 
-
   def self.find_with_omniauth(auth)
     where(email: auth.info.email)
   end
@@ -36,8 +35,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def create_profile(auth)
-    Profile.create!(:user_id => self.id, :profile_image => auth.try(:info).image || nil)
+  def create_profile(auth = nil)
+    Profile.create!(:user_id => self.id, :profile_image => auth.info.image)
+  end
+
+  def create_default_profile
+    Profile.create!(:user_id => self.id)
   end
 
   def generate_authentication_token!
