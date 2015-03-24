@@ -46,7 +46,11 @@ group :development, :test do
   gem 'ffaker'
 end
 
-gem 'rails_12factor', group: :production # heroku
+group :production do
+  gem 'rails_12factor'#heroku
+  gem 'newrelic_rpm'
+end
+
 
 
 
