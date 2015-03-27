@@ -1,3 +1,78 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+
+body, html {
+  color: #555;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+}
+
+
+h1, h2, h3, h3, h5, h6 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+#product-home {
+  background: #f6f5f6;
+  padding-top: 20px;
+}
+
+.product {
+  background: #fff;
+  padding: 0.5em 0.5em;
+  margin-bottom: 0.5em;
+  border-radius: 3px;
+  height: 420px;
+
+  img.product-image{
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+  }
+}
+
+a {
+  color: #444;
+  &:hover {
+    color: #444;
+    background: none;
+    text-decoration: none;
+  }
+}
+
+button.navbar-toggle, button.navbar-toggle.collapsed {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  padding: 3px 0;
+  border-bottom: 1px solid #eee;
+  ul {
+    li {
+      display: inline;
+    }
+  }
+}
+
+
+.navbar-brand {
+  color: #444;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  &:hover {
+    color: #444;
+  }
+}
+
 .product-profile-image {
   width: 30px;
   border-radius: 50%;

@@ -3,24 +3,15 @@
 <head>
   <title>Brandly</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <%= link_to "Home", root_path %>
-<% if current_user %>
-  <%= link_to current_user.email, profile_path(current_user.username) %>
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%= link_to "Sign up",  new_user_registration_path %>
-  <%= link_to "Log in", new_user_session_path %>
-<% end %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<div class="container">
-  <%= yield %>
-</div>
 
+<%= render partial: 'layouts/header' %>
+
+<%= yield %>
 </body>
 </html>

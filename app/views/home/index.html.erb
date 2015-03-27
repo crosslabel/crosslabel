@@ -1,8 +1,16 @@
+<section id="product-home">
+<div class="container">
+
 <div class="products-list row">
+  <div id="categories">
+  <%= link_to "Trending" %>
+  <%= link_to "New" %>
+  <%= link_to "Following" %>
+</div>
 <% @products.each do |product| %>
   <div class="product col-sm-6 col-md-4 col-lg-3">
     <%= link_to product.link do %>
-    <%= image_tag product.image, width: "100%", height: "auto" %>
+    <%= image_tag product.image, class: 'product-image' %>
     <% end %>
     <h5><%= product.title %> in <%= link_to product.categories.first.try(:title) %></h5>
     <span><%= link_to product_vote_path(product), :method => :post do %>
@@ -14,5 +22,5 @@
   </div>
 <% end %>
 </div>
-
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<div class="container">
+</section>

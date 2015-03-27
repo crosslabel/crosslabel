@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
 
-  get 'profiles/show'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
   resources :products do
@@ -11,8 +10,7 @@ Rails.application.routes.draw do
   end
 
   get '/:username' => 'profiles#show', as: 'profile'
-
-
+  get '/:username/settings' => 'profiles#edit', as: 'user_settings'
 
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
     scope :module => :v1, constraints: ApiConstraints.new(version: 1, default: true) do
