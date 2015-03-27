@@ -6,11 +6,12 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
   resources :products do
-    match '/vote' => 'products#vote', via: [:post, :destroy]
+    post '/vote' => 'votes#create'
+    delete '/vote' => 'votes#destroy'
   end
 
-  get '/:username' => 'profiles#show', as: 'profile'
-  get '/:username/settings' => 'profiles#edit', as: 'user_settings'
+  get '/profiles/:username' => 'profiles#show', as: 'profile'
+  get '/profiles/:username/settings' => 'profiles#edit', as: 'user_settings'
 
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
     scope :module => :v1, constraints: ApiConstraints.new(version: 1, default: true) do

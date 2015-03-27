@@ -17,13 +17,16 @@
     <% end %>
     <h5><%= product.title %> in <%= link_to product.categories.first.try(:title) %></h5>
     <div class="social">
-      <%= link_to product_vote_path(product), :method => :post do %>
-        <i class="fa fa-thumbs-o-up"></i>
-      <% end %>
+      <span><%= product.upvotes.count %></span>
+      <span id="product-<%= product.id %>">
+        <% if product.upvotes.map(&:user_id).include?(current_user.id) %>
+          <%= render :partial => "products/downvote", locals: { product: product }%>
+        <% else %>
+          <%= render :partial => "products/upvote", locals: { product: product }%>
+        <% end %>
+      </span>
     <% product.upvotes.each do |upvote| %>
-      <%= link_to upvote.user.profile do %>
       <%= image_tag upvote.user.profile.profile_image, :class => "product-profile-image"%>
-      <% end %>
     <% end %>
     </div>
   </div>

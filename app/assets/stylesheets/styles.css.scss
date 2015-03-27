@@ -27,7 +27,7 @@ h1, h2, h3, h3, h5, h6 {
 
 .product {
   background: #fff;
-  padding: 0;
+  padding-top: 1em;
   margin-bottom: 0.5em;
   border-radius: 3px;
   height: 450px;
@@ -112,6 +112,7 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
   .input-group {
     width: 100%;
     text-align: left;
+    padding-bottom: 1em;
   }
   .form-control {
     background: rgba(0,0,0,0);
@@ -119,9 +120,12 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
     font-size: 1.1em;
     border-radius: 0;
     border: 0;
-    padding: 0;
+    padding: 1em 0.5em;
     border-bottom: 1px solid #444;
     box-shadow: none;
+    &:focus {
+      background-color: #FFE7BC;
+    }
   }
 }
 
@@ -151,7 +155,7 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
   margin-top: 1em;
   &:hover {
     color: #fff;
-    background: #222;
+    background: #444;
   }
 }
 

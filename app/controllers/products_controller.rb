@@ -11,16 +11,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def vote
-    product = Product.find(params[:product_id])
-    if vote = product.upvotes.find_by(user_id: current_user.id)
-      vote.destroy
-    else
-      product.upvotes.create!(user_id: current_user.id) rescue "Could not vote!"
-    end
-    redirect_to root_path
-  end
-
   private
   def product_params
     params.require(:product).params(:title, :image, :link, :unit_price, :category_ids => [])
