@@ -1,4 +1,4 @@
-<div class="header">
+<header class="header">
   <div class="container">
     <div class="navbar-header">
     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -12,10 +12,10 @@
       <li><%= link_to current_user.email, profile_path(current_user.username) %></li>
       <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
       <% else %>
-      <li><%= link_to "Sign up",  new_user_registration_path %></li>
-      <li><%= link_to "Log in", new_user_session_path %></li>
+      <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <li><%= link_to "Log in",  new_user_session_path %></li>
       <% end %>
       </ul>
     </div>
   </div>
-</div>
+</header>

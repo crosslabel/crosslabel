@@ -1,32 +1,48 @@
-<h2>Sign up</h2>
+<div id="signup-page">
+  <div id="signup-form">
+    <h2>Welcome to Crosshaul</h2>
+    <p>Discover and collect the best brands from around the world</p>
 
-<%= form_for resource, as: resource_name, url: registration_path(resource_name) do |f| %>
-  <%= devise_error_messages! %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <%= form_for resource, as: resource_name, url: registration_path(resource_name) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :username %><br/>
-    <%= f.text_field :username %>
-  </div>
+    <%- if devise_mapping.omniauthable? %>
+      <%- Devise.omniauth_providers.each do |provider| %>
+      <p><%= link_to "Log in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'btn-facebook-login' %></p>
+      <% end -%>
+    <% end -%>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <span>or</span>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class="input-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+    <div class="input-group">
+      <%= f.label :username %><br/>
+      <%= f.text_field :username, class: 'form-control' %>
+    </div>
+
+    <div class="input-group">
+      <%= f.label :password %>
+      <% if @validatable %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+    </div>
+
+    <div class="input-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+    </div>
+
+    <div class="input-group">
+      <%= f.submit "Sign me up!", class: 'btn-signup' %>
+    </div>
+
+    <%= render "users/shared/links" %>
+
+  <% end %>
   </div>
-<% end %>
-<%= render "users/shared/links" %>
+</div>

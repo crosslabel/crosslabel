@@ -14,6 +14,7 @@ body, html {
 }
 
 
+
 h1, h2, h3, h3, h5, h6 {
   font-weight: 700;
   letter-spacing: 1px;
@@ -26,10 +27,10 @@ h1, h2, h3, h3, h5, h6 {
 
 .product {
   background: #fff;
-  padding: 0.5em 0.5em;
+  padding: 0;
   margin-bottom: 0.5em;
   border-radius: 3px;
-  height: 420px;
+  height: 450px;
 
   img.product-image{
     width: 250px;
@@ -70,6 +71,87 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
   letter-spacing: 5px;
   &:hover {
     color: #444;
+  }
+}
+
+#hero {
+  background: url('https://download.unsplash.com/photo-1421809313281-48f03fa45e9f');
+  background-size: cover;
+  width: 100%;
+  height: 500px;
+}
+
+#signup-page, #login-page {
+  background: #eee;
+  background-size: cover;
+  width: 100%;
+  padding-top: 2em;
+}
+
+.modal.custom {
+  .modal-backdrop {
+  }
+  .modal-content {
+    color: #fff;
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+// Forms
+#signup-form, #login-form {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  letter-spacing: 2px;
+  p {
+    margin: 2em 0;
+  }
+  .input-group {
+    width: 100%;
+    text-align: left;
+  }
+  .form-control {
+    background: rgba(0,0,0,0);
+    width: 100%;
+    font-size: 1.1em;
+    border-radius: 0;
+    border: 0;
+    padding: 0;
+    border-bottom: 1px solid #444;
+    box-shadow: none;
+  }
+}
+
+.btn-facebook-login {
+  background: #3b5998;
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  padding: 1em 2em;
+  border-radius: 4px;
+  transition: 1s;
+  &:hover {
+    color: #fff;
+    background: #0b2969;
+  }
+}
+
+.btn-signup, .btn-login {
+  background: #666;
+  width: 100%;
+  color: #fff;
+  height: 50px;
+  padding: 1em;
+  border-radius: 4px;
+  border: 0;
+  transition: 1s;
+  margin-top: 1em;
+  &:hover {
+    color: #fff;
+    background: #222;
   }
 }
 

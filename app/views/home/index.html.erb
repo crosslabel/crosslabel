@@ -1,11 +1,14 @@
+<section id="hero">
+  <span class="callout">Discover and collect the best brands from around the world</span>
+</section>
 <section id="product-home">
 <div class="container">
 
 <div class="products-list row">
   <div id="categories">
+  <%= link_to "Explore" %>
   <%= link_to "Trending" %>
-  <%= link_to "New" %>
-  <%= link_to "Following" %>
+  <%= link_to "Recommended" %>
 </div>
 <% @products.each do |product| %>
   <div class="product col-sm-6 col-md-4 col-lg-3">
@@ -13,14 +16,17 @@
     <%= image_tag product.image, class: 'product-image' %>
     <% end %>
     <h5><%= product.title %> in <%= link_to product.categories.first.try(:title) %></h5>
-    <span><%= link_to product_vote_path(product), :method => :post do %>
-      <i class="fa fa-thumbs-o-up"></i>
-    <% end %></span>
+    <div class="social">
+      <%= link_to product_vote_path(product), :method => :post do %>
+        <i class="fa fa-thumbs-o-up"></i>
+      <% end %>
     <% product.upvotes.each do |upvote| %>
-      <span><%= image_tag upvote.user.profile.profile_image, :class => "product-profile-image"%></span>
+      <%= link_to upvote.user.profile do %>
+      <%= image_tag upvote.user.profile.profile_image, :class => "product-profile-image"%>
+      <% end %>
     <% end %>
+    </div>
   </div>
 <% end %>
 </div>
-<div class="container">
 </section>
