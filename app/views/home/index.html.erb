@@ -29,7 +29,7 @@
     <div class="social">
       <span><%= product.upvotes.count %></span>
     <% product.upvotes.each do |upvote| %>
-      <%= image_tag upvote.user.profile.profile_image, :class => "product-profile-image"%>
+      <%= image_tag upvote.user.try(:profile).try(:profile_image), :class => "product-profile-image"%>
     <% end %>
     </div>
   </div>
