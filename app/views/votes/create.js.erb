@@ -1,0 +1,2 @@
+$("#product-<%= @product.id %>").html("<%= escape_javascript(render partial: 'products/downvote', locals: { product: @product } ) %>");
+$("#product-count-<%= @product.id %>").html("<%= @product.upvotes.count %>");

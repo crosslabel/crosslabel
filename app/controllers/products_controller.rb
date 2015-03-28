@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :logged_in_user, :only => [:create, :vote]
   def show
     @product = Product.find(params[:id])
   end

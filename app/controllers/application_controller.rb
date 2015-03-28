@@ -4,4 +4,22 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   include Authorizable
 
+  def logged_in_user
+    unless current_user
+      flash[:notice] = "Please log in."
+      redirect_to root_path
+    end
+  end
+
+  def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
 end

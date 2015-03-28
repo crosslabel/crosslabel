@@ -1,26 +1,40 @@
-<h2>Log in</h2>
-
+<div id="login-page">
+  <div id="login-form">
+<h2>Welcome back to Crosshaul</h2>
+<p>Check out the latests products</p>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+
+  <%= devise_error_messages! %>
+
+  <%- if devise_mapping.omniauthable? %>
+    <%- Devise.omniauth_providers.each do |provider| %>
+    <p><%= link_to "Log in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'btn-facebook-login' %></p>
+    <% end -%>
+  <% end -%>
+
+  <span>or</span>
+  <div class="input-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="input-group">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
+    <div class="input-group">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log me in!", class: 'btn-login' %>
   </div>
 <% end %>
 
 <%= render "users/shared/links" %>
+</div>
+</div>

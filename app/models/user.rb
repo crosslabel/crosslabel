@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
+  has_many :upvotes, :dependent => :destroy
   has_one :profile, :dependent => :destroy
 
   before_create :generate_authentication_token!
@@ -34,8 +35,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def create_profile(auth)
-    Profile.create!(:user_id => self.id, :profile_image => auth.try(:info).image || nil)
+  def create_profile(auth = nil)
+    Profile.create!(:user_id => self.id, :profile_image => auth.info.image)
+  end
+
+  def create_default_profile
+    Profile.create!(:user_id => self.id)
   end
 
   def generate_authentication_token!
