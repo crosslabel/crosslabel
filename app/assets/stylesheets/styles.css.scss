@@ -26,17 +26,56 @@ h1, h2, h3, h3, h5, h6 {
 }
 
 .product {
+  position: relative;
   background: #fff;
-  padding-top: 1em;
-  margin-bottom: 0.5em;
+  padding: 0;
+  margin-bottom: 1em;
   border-radius: 3px;
-  height: 450px;
+
+  .product-overlay {
+    background: rgba(0, 0, 0, .1);
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 350px;
+    -webkit-transition: opacity .25s ease;
+    -moz-transition: opacity .25s ease;
+    transition: opacity .25s ease;
+  }
+
+  .fa-heart.voted {
+    color: #CF4647;
+    &:hover {
+      color: #999;
+    }
+  }
+  .fa-heart.not-voted {
+    color: #999;
+    &:hover {
+      color: #444;
+    }
+  }
+  .vote {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
 
   img.product-image{
-    width: 250px;
+    width: 100%;
     height: 350px;
     object-fit: cover;
   }
+
+  &:hover .product-overlay {
+    opacity: 1;
+  }
+
+
 }
 
 a {
@@ -62,7 +101,6 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
     }
   }
 }
-
 
 .navbar-brand {
   color: #444;
@@ -102,8 +140,11 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
 
 // Forms
 #signup-form, #login-form {
+  background: #fff;
   width: 30%;
   margin: 0 auto;
+  padding: 1em;
+  border-radius: 5px;
   text-align: center;
   letter-spacing: 2px;
   p {
@@ -115,13 +156,13 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
     padding-bottom: 1em;
   }
   .form-control {
-    background: rgba(0,0,0,0);
+    background: #f9f9f9;
     width: 100%;
     font-size: 1.1em;
     border-radius: 0;
     border: 0;
     padding: 1em 0.5em;
-    border-bottom: 1px solid #444;
+    letter-spacing: 2px;
     box-shadow: none;
     &:focus {
       background-color: #FFE7BC;
@@ -142,7 +183,6 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
     background: #0b2969;
   }
 }
-
 .btn-signup, .btn-login {
   background: #666;
   width: 100%;
