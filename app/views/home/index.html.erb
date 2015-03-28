@@ -11,28 +11,6 @@
   <%= link_to "Recommended" %>
   </div>
 <% @products.each do |product| %>
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="product">
-      <%= link_to product.link do %>
-      <%= image_tag product.image, class: 'product-image' %>
-      <% end %>
-      <div class="product-overlay">
-        <span id="product-<%= product.id %>" class="vote">
-          <% if product.upvotes.map(&:user_id).include?(current_user.try(:id)) %>
-            <%= render :partial => "products/downvote", locals: { product: product }%>
-          <% else %>
-            <%= render :partial => "products/upvote", locals: { product: product }%>
-          <% end %>
-        </span>
-        <h5><%= product.title %> in <%= link_to product.categories.first.try(:title) %></h5>
-      </div>
-    <div class="social">
-      <span><%= product.upvotes.count %></span>
-    <% product.upvotes.each do |upvote| %>
-      <%= image_tag upvote.user.try(:profile).try(:profile_image), :class => "product-profile-image"%>
-    <% end %>
-    </div>
-  </div>
-  </div>
+  <%= render partial: 'products/product_item', locals: {product: product} %>
 <% end %>
 </section>
