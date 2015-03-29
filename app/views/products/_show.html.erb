@@ -1,12 +1,13 @@
 <div class="row">
-  <div class="col-lg-6">
-<%= image_tag @product.image %>
+  <div class="col-lg-6 product-modal-image">
+    <%= image_tag product.image %>
   </div>
-  <div class="col-lg-6">
-  <h3><%= @product.title %></h3>
-  <%= link_to "Buy now for #{product.unit_price}", product.link, class: 'btn-purchase'%>
+  <div class="col-lg-6 product-modal-description">
+  <h3><%= product.title %></h3>
+  <h5>from Aland</h5>
+  <p><%= link_to "Buy from Aland", product.link, class: 'btn-purchase'%></p>
   <% product.upvotes.each do |upvote| %>
-    <%= image_tag upvote.user.profile.profile_image %>
+    <%= image_tag upvote.user.profile.profile_image, class: 'product-modal-profile-image' %>
   <% end %>
   </div>
 </div>
