@@ -1,16 +1,17 @@
-<!-- <section id="hero">
-  <span class="callout">Discover and collect the best brands from around the world</span>
-</section> -->
-<section id="product-home">
-<div class="container">
-
-<div class="row">
-  <div id="categories">
-  <%= link_to "Explore" %>
-  <%= link_to "Trending" %>
-  <%= link_to "Recommended" %>
-  </div>
-<% @products.each do |product| %>
-  <%= render partial: 'products/product_item', locals: {product: product} %>
-<% end %>
+<% unless current_user %>
+<section id="hero" style="text-align:center">
+  <h3 class="cta">Discover and collect the best brands from around the world.</h3>
+  <%= link_to "Sign up now", "#", {:class => 'signup-cta', :remote => true, 'data-toggle' => 'modal', 'data-target' => '#signup-modal'} %>
 </section>
+<% end %>
+
+<!-- Modal -->
+<section id="product-home">
+  <div class="products-list">
+    <div class="container">
+      <%= render @products %>
+    </div>
+  </div>
+</section>
+
+<%= paginate @products %>

@@ -7,13 +7,25 @@
     <%= link_to "Crosshaul", root_path, class: 'navbar-brand' %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Explore", explore_path %></li>
+        <li><%= link_to "Trending", trending_path %></li>
+        <li><%= link_to "Categories", trending_path %></li>
+
+      </ul>
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-      <li><%= link_to current_user.email, profile_path(current_user.username) %></li>
+      <li><%= link_to "#" do %><i class="fa fa-bell fa-lg"></i><% end %></li>
+      <li><%= link_to profile_path(current_user.username) do %>
+          <%= image_tag current_user.profile.profile_image, class: "header-profile-image" %>
+          <% end %>
+      </li>
       <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
       <% else %>
-      <li><%= link_to "Sign up", new_user_registration_path %></li>
-      <li><%= link_to "Log in",  new_user_session_path %></li>
+
+      <li><%= link_to "Sign up", "#", {:remote => true, 'data-toggle' => 'modal', 'data-target' => '#signup-modal'} %></li>
+      <li><%= link_to "Log in", "#", {:remote => true, 'data-toggle' => 'modal', 'data-target' => '#login-modal'} %></li>
+
       <% end %>
       </ul>
     </div>

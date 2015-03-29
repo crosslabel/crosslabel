@@ -1,0 +1,8 @@
+<section id="explore-page">
+    <div class="explore">
+        <%= render partial: "products/product_w2", :collection => @products, as: :product %>
+      </div>
+    </div>
+</section>
+
+<%= paginate @products %>

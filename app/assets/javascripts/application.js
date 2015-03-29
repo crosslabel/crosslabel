@@ -14,3 +14,8 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require_tree .
+//= require jquery.infinitescroll
+
+if (window.location.hash && window.location.hash == '#_=_') {
+    window.location.hash = '';
+}

@@ -29,9 +29,9 @@ gem 'rest-client'
 # Admin backend
 gem 'rails_admin', '~>0.6'
 gem 'cancan', '~>1.6.10' #authorization
-gem 'paper_trail', '~> 4.0.0.beta'
+gem 'paper_trail', '~> 4.0.0.beta'  # Lets you track changes to your models' data. Good for audting and versioning.
 
- # Lets you track changes to your models' data. Good for audting and versioning.
+gem 'kaminari'
 
 # Authentication
 gem 'devise'

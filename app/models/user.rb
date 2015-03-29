@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
   has_many :upvotes, :dependent => :destroy
   has_one :profile, :dependent => :destroy
-
   before_create :generate_authentication_token!
 
   # Include default devise modules. Others available are:

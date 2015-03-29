@@ -1,0 +1,43 @@
+  <h3>Sign up</h3>
+  <%= form_for resource, as: resource_name, url: registration_path(resource_name) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%- if devise_mapping.omniauthable? %>
+    <%- Devise.omniauth_providers.each do |provider| %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn-facebook-login' do %>
+      <%= "Sign up with #{provider.to_s.titleize}" %>
+    <% end %>
+    <% end -%>
+  <% end -%>
+
+  <div class="separator">
+    <span>or</span>
+  </div>
+
+  <div class="input-group">
+    <!-- <%= f.label :email %><br /> -->
+    <%= f.email_field :email, autofocus: true, placeholder: 'Your email', class: 'form-control' %>
+  </div>
+
+  <div class="input-group">
+    <!-- <%= f.label :username %><br/> -->
+    <%= f.text_field :username, placeholder: 'Your username', class: 'form-control' %>
+  </div>
+
+  <div class="input-group">
+    <!-- <%= f.label :password %> -->
+    <%= f.password_field :password, placeholder: 'Your password', autocomplete: "off", class: 'form-control' %>
+  </div>
+
+  <div class="input-group">
+    <!-- <%= f.label :password_confirmation %><br /> -->
+    <%= f.password_field :password_confirmation, placeholder: 'Confirm your password', autocomplete: "off", class: 'form-control' %>
+  </div>
+
+  <div class="input-group">
+    <%= f.submit "Sign me up!", class: 'btn-signup' %>
+  </div>
+
+  <%= render "users/shared/links" %>
+
+<% end %>

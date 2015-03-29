@@ -1,0 +1,31 @@
+<div class=" col-sm-6 col-md-4 col-lg-4">
+  <div class="product-container">
+      <div class="product">
+        <%= image_tag product.image, class: 'product-image' %>
+        <%= link_to "#", class: 'add-to-box' do %>
+        <i class="fa fa-plus-square-o fa-2x"></i>
+        <% end %>
+        <%= link_to "", product_path(product), {:class => 'product-overlay', :remote => true, 'data-toggle' => 'modal', 'data-target' => '#myModal'} %>
+      </div>
+      <div class="product-details">
+          <h5 class="product-heading"><%= product.title %> <small>in <%= link_to product.categories.first.try(:title) %></small></h5>
+        <div class="social">
+          <span id="product-<%= product.id %>" class="vote">
+            <% if product.upvotes.map(&:user_id).include?(current_user.try(:id)) %>
+              <%= render :partial => "products/downvote", locals: { product: product }%>
+            <% else %>
+            <%= render :partial => "products/upvote", locals: { product: product } %>
+            <% end %>
+          </span>
+          <span class="upvote-count" id="upvote-count-<%= product.id %>"><%= product.upvotes.count %></span>
+          <span class="likers" id="likers-<%=product.id %>">
+          <% product.upvotes.each do |upvote| %>
+            <%= link_to upvote.user.profile(upvote.user.profile) do %>
+              <%= image_tag upvote.user.profile.try(:profile_image) %>
+            <% end %>
+          <% end %>
+          </span>
+        </div>
+      </div>
+    </div>
+</div>

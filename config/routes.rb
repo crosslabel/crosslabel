@@ -8,12 +8,16 @@ Rails.application.routes.draw do
     delete '/vote' => 'votes#destroy'
   end
 
+  get '/explore' => 'home#explore', as: 'explore'
+
+  get '/trending' => 'home#trending', as: 'trending'
+
   get '/profiles/:username' => 'profiles#show', as: 'profile'
   get '/profiles/:username/settings' => 'profiles#edit', as: 'user_settings'
 
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
     scope :module => :v1, constraints: ApiConstraints.new(version: 1, default: true) do
-      resources :users, :only => [:show, :create, :update, :destroy]
+      resources :users, :only => [:create, :update, :destroy]
       resources :sessions, :only => [:create, :destroy]
       resources :products
     end
