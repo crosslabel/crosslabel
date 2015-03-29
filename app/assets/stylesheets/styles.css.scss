@@ -172,7 +172,7 @@ a {
 
 
   .fa-smile-o.voted {
-    color: #30EABE; 
+    color: #30EABE;
     -webkit-transition: 1s;
     -moz-transition: 1s;
     transition: 1s;
@@ -204,12 +204,13 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
 }
 
 .header {
+  background: #fff;
   padding: 3px 0;
   ul {
     li {
       display: inline;
       a {
-        color: #888;
+        text-shadow: none;
       }
     }
   }
