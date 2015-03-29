@@ -1,0 +1,28 @@
+<div class="modal fade settings-modal" id="settings-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="login-form-wrapper form-wrapper">
+        <h3>Edit your account</h3>
+        <%= form_for user_settings_path do |f| %>
+          <div class="input-group">
+            <%= f.text_field :first_name, placeholder: 'Firstname', class: 'form-control' %>
+          </div>
+          <div class="input-group">
+            <%= f.text_field :last_name, placeholder: 'Lastname', class: 'form-control' %>
+          </div>
+          <div class="input-group">
+            <%= f.text_field :country, placeholder: 'Country', class: 'form-control'%>
+          </div>
+          <div class="input-group">
+            <%= f.date_field :birth_date, class: 'form-control' %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

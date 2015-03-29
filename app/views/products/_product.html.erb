@@ -1,14 +1,15 @@
 <div class=" col-sm-6 col-md-4 col-lg-4">
   <div class="product-container">
       <div class="product">
-        <%= image_tag product.image, class: 'product-image' %>
-        <%= link_to "#", class: 'add-to-box' do %>
+        <%= link_to "/hello", class: 'add-to-box' do %>
         <i class="fa fa-plus-square-o fa-2x"></i>
         <% end %>
+        <%= image_tag product.image, class: 'product-image' %>
         <%= link_to "", product_path(product), {:class => 'product-overlay', :remote => true, 'data-toggle' => 'modal', 'data-target' => '#myModal'} %>
       </div>
       <div class="product-details">
-          <h5 class="product-heading"><%= product.title %> <small>in <%= link_to product.categories.first.try(:title) %></small></h5>
+        <h5 class="product-heading"><%= product.title %> <small>in <%= link_to product.categories.first.try(:title) %></small></h5>
+        <h6 class="retailer-heading">from <%= link_to "Aland", "#" %></h6>
         <div class="social">
           <span id="product-<%= product.id %>" class="vote">
             <% if product.upvotes.map(&:user_id).include?(current_user.try(:id)) %>
@@ -18,6 +19,16 @@
             <% end %>
           </span>
           <span class="upvote-count" id="upvote-count-<%= product.id %>"><%= product.upvotes.count %></span>
+          <span class="share share-facebook">
+            <%= link_to "#" do %>
+            <i class="fa fa-facebook fa-lg"></i>
+            <% end %>
+          </span>
+          <span class="share share-twitter">
+            <%= link_to "#" do %>
+            <i class="fa fa-twitter fa-lg"></i>
+            <% end %>
+          </span>
           <span class="likers" id="likers-<%=product.id %>">
           <% product.upvotes.each do |upvote| %>
             <%= link_to upvote.user.profile(upvote.user.profile) do %>

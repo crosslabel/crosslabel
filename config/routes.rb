@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
   resources :products do
-    post '/vote' => 'votes#create'
-    delete '/vote' => 'votes#destroy'
+    post '/vote' => 'upvotes#create'
+    delete '/vote' => 'upvotes#destroy'
   end
 
   get '/explore' => 'home#explore', as: 'explore'
@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   get '/trending' => 'home#trending', as: 'trending'
 
   get '/profiles/:username' => 'profiles#show', as: 'profile'
-  get '/profiles/:username/settings' => 'profiles#edit', as: 'user_settings'
-
+  match '/profiles/:username' => 'profiles#update', as: 'user_settings', via: [:post]
+  
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
     scope :module => :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :users, :only => [:create, :update, :destroy]

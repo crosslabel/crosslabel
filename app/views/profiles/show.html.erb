@@ -1,2 +1,28 @@
-<%= image_tag @user.profile.try(:profile_image) %>
-<%= @user.try(:username) %>
+<section class="profile-page">
+  <div class="user-header">
+    <div class="container">
+    <%= image_tag @user.profile.try(:profile_image), class: 'profile-image' %>
+    <div class="user-details">
+      <h4><%= @user.try(:username) %></h4>
+    </div>
+    <div class="user-actions">
+      <%= link_to "Edit", "#", {:class => 'btn-settings', :remote => true, 'data-toggle' => 'modal', 'data-target' => '#settings-modal'} %>
+    </div>
+    <ul class="profile-links">
+      <li class="active"><%= link_to "Recent Activity", "#" %></li>
+      <li><%= link_to "Boxes", "#" %></li>
+    </ul>
+    </div>
+  </div>
+  <div class="favourites">
+    <div class="container">
+    <h3>Recently Liked</h3>
+    <% @user.upvotes.each do |upvote| %>
+      <%= image_tag upvote.upvotable.image %>
+      <%= upvote.upvotable.title %>
+    <% end %>
+    </div>
+  </div>
+</section>
+
+<%= render partial: 'shared/settings_modal' %>

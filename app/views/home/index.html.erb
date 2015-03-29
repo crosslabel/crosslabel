@@ -11,7 +11,12 @@
     <div class="container">
       <%= render @products %>
     </div>
+    <div id="placeholder">
+    </div>
+  </div>
+  <%= link_to "Load more", "#placeholder", :id => 'next' %>
+
+  <div style="display:none">
+  <%= paginate @products %>
   </div>
 </section>
-
-<%= paginate @products %>
