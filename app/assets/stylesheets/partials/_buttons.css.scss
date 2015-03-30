@@ -12,6 +12,7 @@
 }
 
 .btn-facebook-login {
+  @extend .btn;
   background: #3b5998;
   padding: 0.8em 2em;
   &:hover {
@@ -20,6 +21,7 @@
 }
 
 .btn-settings {
+  @extend .btn;
   background: #999;
   width: 100px;
   &:hover {
@@ -28,6 +30,7 @@
 }
 
 .btn-signup, .btn-login {
+  @extend .btn;
   background: #30EABE;
   height: 35px;
   &:hover {
@@ -37,6 +40,7 @@
 }
 
 .btn-purchase {
+  @extend .btn;
   background: #666;
   width: 30%;
   padding: 1.5em 0.5em;
@@ -48,5 +52,6 @@
 }
 
 .fa-facebook {
+  @extend .btn;
   margin-right: 1em;
 }

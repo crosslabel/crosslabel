@@ -1,17 +1,36 @@
 @import "base";
 
-// 1. General Form Styles
+/*****************************************
+1. Default styles
+2. Signup and login forms
+***************************************/
+
+// 1. Default styles
+.input-group {
+  width: 100%;
+  text-align: left;
+  padding-bottom: 1em;
+}
+.form-control {
+  background: #f9f9f9;
+  width: 100%;
+  color: #888;
+  border: 0;
+  padding: 1.5em 1em;
+  letter-spacing: 2px;
+  box-shadow: none;
+  @include border-radius(5px);
+  &:focus {
+    box-shadow: none;
+    background-color: #FFE7BC;
+  }
+}
 // 2. Signup and Login Forms
 
-
-// 1. General Form Styles
-
-// 2. Signup and Login Forms
 .form-wrapper-page {
   margin: 0 auto;
   width: 28%;
   padding: 1em;
-  border-radius: 5px;
   text-align: center;
   h3 {
     margin-top: 0;
@@ -21,27 +40,10 @@
     color: #afb9bf;
     margin: 1em 0;
   }
-  .input-group {
-    width: 100%;
-    text-align: left;
-    padding-bottom: 1em;
-  }
-  .form-control {
-    background: #f9f9f9;
-    width: 100%;
-    color: #888;
-    border-radius: 0;
-    border: 0;
-    padding: 1.5em 1em;
-    letter-spacing: 2px;
-    box-shadow: none;
-    &:focus {
-      background-color: #FFE7BC;
-    }
-  }
 }
 
 .form-wrapper {
+  
 }
 
 .signup-form-wrapper, .login-form-wrapper {
@@ -55,23 +57,5 @@
   .separator{
     color: #afb9bf;
     margin: 1em 0;
-  }
-  .input-group {
-    width: 100%;
-    text-align: left;
-    padding-bottom: 1em;
-  }
-  .form-control {
-    background: #f9f9f9;
-    width: 100%;
-    color: #888;
-    border-radius: 0;
-    border: 0;
-    padding: 1.5em 1em;
-    letter-spacing: 2px;
-    box-shadow: none;
-    &:focus {
-      background-color: #FFE7BC;
-    }
   }
 }
