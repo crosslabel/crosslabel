@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   get '/trending' => 'home#trending', as: 'trending'
 
   get '/profiles/:username' => 'profiles#show', as: 'profile'
-  match '/profiles/:username' => 'profiles#update', as: 'user_settings', via: [:post]
-  
+  match '/profiles/:username' => 'profiles#update', as: 'user_settings', via: [:patch]
+
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
     scope :module => :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :users, :only => [:create, :update, :destroy]

@@ -27,16 +27,6 @@ RSpec.describe User, type: :model do
       end
     end
 
-    describe "after create" do
-      before do
-        user = User.new(:name => "Example User", :username => "Example User", :email => "EXAMPLE@EXAMPLE.COM", :password => "foobarlala", :password_confirmation => "foobarlala")
-        user.save!
-      end
-      it "should create a user profile" do
-        expect(user.profile).to_not be_nil
-      end
-    end
-
     describe "email validation" do
       context "when email format is valid" do
           it "should be valid" do
