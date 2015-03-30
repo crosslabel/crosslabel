@@ -1,7 +1,7 @@
 <section class="profile-page">
   <div class="user-header">
     <div class="container">
-    <%= image_tag @user.profile.try(:profile_image), class: 'profile-image' %>
+    <%= image_tag @user.try(:profile_picture), class: 'profile-image' %>
     <div class="user-details">
       <h4><%= @user.try(:username) %></h4>
     </div>

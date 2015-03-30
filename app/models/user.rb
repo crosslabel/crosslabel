@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :upvotes, :dependent => :destroy
   has_one :profile, :dependent => :destroy
   before_create :generate_authentication_token!
+  after_create :create_profile
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -12,7 +13,7 @@ class User < ActiveRecord::Base
 
   validates :auth_token, uniqueness: true
   validates :email, :presence => true, :length => { maximum: 256}, :format => { with: VALID_EMAIL_REGEX }, :uniqueness => { case_sensitive: false}
-  validates :username, :uniqueness => :true
+  validates :username, :presence => true, :uniqueness => :true
 
   def self.find_with_omniauth(auth)
     where(email: auth.info.email)
@@ -23,6 +24,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.username = "user" + Devise.friendly_token[0,10]
       user.password = Devise.friendly_token[0,20]
+      user.profile_picture = auth.info.image
     end
   end
 
@@ -32,10 +34,6 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
-  end
-
-  def create_profile(auth = nil)
-    Profile.create!(:user_id => self.id, :profile_image => auth.info.image)
   end
 
   def create_default_profile

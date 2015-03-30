@@ -8,6 +8,10 @@ RSpec.describe User, type: :model do
   it { should respond_to(:password)}
   it { should respond_to(:password_confirmation)}
   it { should respond_to(:auth_token)}
+  it { should have_many(:upvotes)}
+  it { should have_many(:authentications)}
+  it { should have_one(:profile)}
+
   it { should validate_uniqueness_of(:auth_token)}
   it { should validate_presence_of(:email)}
   it { should validate_uniqueness_of(:email)}
@@ -17,13 +21,20 @@ RSpec.describe User, type: :model do
 
     describe "before save" do
       it "make all emails lower case" do
-        user = User.new(:name => "Example User", :email => "EXAMPLE@EXAMPLE.COM", :password => "foobar", :password_confirmation => "foobar")
+        user = User.new(:name => "Example User", :username => "Example User", :email => "EXAMPLE@EXAMPLE.COM", :password => "foobarlala", :password_confirmation => "foobarlala")
         user.save
         expect(user.email).to eq('example@example.com')
       end
     end
 
-    describe 
+    describe "after create" do
+      before do
+        user = User.create!(:name => "Example User", :username => "Example User", :email => "EXAMPLE@EXAMPLE.COM", :password => "foobarlala", :password_confirmation => "foobarlala")
+      end
+      it "should create a user profile" do
+        expect {user.profile}.to_not be_nil
+      end
+    end
 
     describe "email validation" do
       context "when email format is valid" do

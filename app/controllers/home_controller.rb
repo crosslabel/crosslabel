@@ -4,7 +4,6 @@ class HomeController < ApplicationController
   end
 
   def explore
-    @products = Product.includes(:categories, :upvotes).page(params[:page]).per(12)
   end
 
   def trending

@@ -7,7 +7,7 @@
   <h5>from Aland</h5>
   <p><%= link_to "Buy from Aland", product.link, class: 'btn btn-purchase'%></p>
   <% product.upvotes.each do |upvote| %>
-    <%= image_tag upvote.user.profile.profile_image, class: 'product-modal-profile-image' %>
+    <%= image_tag upvote.user.profile_picture, class: 'product-modal-profile-image' %>
   <% end %>
   </div>
 </div>

@@ -17,7 +17,7 @@
       <% if current_user %>
       <li><%= link_to "#", class: 'icon-notifications' do %>0<% end %></li>
       <li><%= link_to profile_path(current_user.username) do %>
-          <%= image_tag current_user.profile.profile_image, class: "header-profile-image" %>
+          <%= image_tag current_user.profile_picture, class: "header-profile-image" %>
           <% end %>
       </li>
       <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>

@@ -21,10 +21,11 @@
           <span class="product-upvote-count" id="upvote-count-<%= product.id %>"><%= product.upvotes.count %></span>
           <span class="upvotes" id="upvotes-<%=product.id %>">
           <% product.upvotes.each do |upvote| %>
-            <%= link_to profile_path(upvote.user.username) do %>
-              <%= image_tag upvote.user.profile.try(:profile_image) %>
+            <%= link_to profile_path(upvote.user.try(:username)) do %>
+              <%= image_tag upvote.user.try(:profile_picture) %>
             <% end %>
           <% end %>
+
           </span>
         </div>
       </div>
