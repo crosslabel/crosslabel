@@ -1,0 +1,12 @@
+@import "base";
+@media screen and (min-width: 768px) {
+  .container {
+    width: 83%;
+  }
+	.login-signup-modal .modal-dialog  {
+    width:420px;
+    }
+    .product-modal .modal-dialog  {
+      width:1100px;
+      }
+}

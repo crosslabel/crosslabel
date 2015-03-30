@@ -1,0 +1,28 @@
+@import "base";
+button.navbar-toggle, button.navbar-toggle.collapsed {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  background: #fff;
+  padding: 3px 0;
+  ul {
+    li {
+      display: inline;
+      a {
+        text-shadow: none;
+      }
+    }
+  }
+}
+
+.navbar-brand {
+  color: #444;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  &:hover {
+    color: #444;
+  }
+}

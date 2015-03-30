@@ -1,0 +1,245 @@
+@import "base";
+// Table of Contents
+// 1. Defaults
+// 2. Products
+// 3. User Profiles
+
+// 1. Defaults
+.content-row-1 {
+  background: #f6f6f5;
+  padding: 4em 0;
+}
+
+#hero {
+  background: #f9f9f9;
+  background-size: cover;
+  width: 100%;
+  height: 500px;
+  padding-top: 5em;
+  h3 {
+    margin-bottom: 1em;
+  }
+  .signup-cta {
+    border: 2px solid #ccc;
+    padding: 0.5em 2em;
+    border-radius: 3px;
+  }
+}
+
+#signup-page, #login-page {
+  background: #eee;
+  background-size: cover;
+  width: 100%;
+  padding-top: 2em;
+}
+
+
+// 2. Products
+.product-container {
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom: 3em;
+}
+
+.product {
+  position: relative;
+  height: 300px;
+
+  .product-overlay {
+    background: rgba(0, 0, 0, .1);
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 300px;
+    -webkit-transition: opacity .25s ease;
+    -moz-transition: opacity .25s ease;
+    transition: opacity .25s ease;
+  }
+
+  &:hover .not-voted {
+    opacity: 1;
+  }
+  .add-to-box {
+    opacity: 0;
+    color: #888;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  .price {
+    position: absolute;
+    background: #ccc;
+    color: #444;
+    font-weight: 300;
+    padding: 1em;
+    right: 0;
+    top: 0;
+  }
+
+
+  img.product-image{
+    background: #f5f6f5;
+    width: 100%;
+    height: 300px;
+    object-fit: scale-down;
+  }
+  &:hover .add-to-box {
+    opacity: 1;
+  }
+
+
+  &:hover .product-overlay {
+    opacity: 1;
+  }
+
+
+}
+
+.product-details {
+  min-height: 105px;
+  .retailer-heading {
+    padding-left: 1.2em;
+  }
+  .product-heading {
+    padding: 0 0 0 1em;
+  }
+
+  .social {
+    padding: 0.5em 0 0 1em;
+
+    img {
+      width: 40px;
+      border-radius: 0;
+      transition: 0.1s linear;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .likers {
+      float: right;
+      img {
+        width: 40px;
+      }
+    }
+
+    .share {
+      a {
+      color: #ccc;
+      }
+    }
+
+    .share-facebook {
+      a {
+        margin-left: 1em;
+        &:hover {
+          color: #3b5998;
+        }
+      }
+    }
+    .share-twitter {
+      a {
+        &:hover {
+          color: #4099FF;
+        }
+      }
+    }
+
+    .upvote-count {
+      font-size: 1.2em;
+      font-weight: 400;
+      vertical-align: middle;
+    }
+
+  }
+
+
+
+  .fa-smile-o.voted {
+    color: #30EABE;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+    vertical-align: middle;
+    &:hover {
+      color: #999;
+    }
+  }
+
+  .fa-smile-o.not-voted {
+    color: #999;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+    vertical-align: middle;
+
+    &:hover {
+      -webkit-transform: scale(1.1);
+      -moz-transition: scale(1.1);
+      transform: scale(1.1);
+      color: #30EABE;
+    }
+  }
+}
+
+
+.fa-facebook {
+  margin-right: 1em;
+}
+
+.header-profile-image {
+  width: 30px;
+  border-radius: 50%;
+}
+
+.profile-image {
+  width: 150px;
+  border-radius: 50%;
+  border: 8px solid #fff;
+}
+
+.product-modal-profile-image {
+  width: 70px;
+  border-radius: 20%;
+  border: 8px solid #fff;
+}
+
+ul.profile-links {
+  position: relative;
+  padding: 0;
+  padding-top: 3em;
+  li {
+    display: inline;
+    margin-right: 1em;
+    padding-bottom: 5px;
+  }
+  li.active {
+    border-bottom: 5px solid #666;
+  }
+}
+
+
+// Profile Page
+.profile-page {
+  width: 100%;
+}
+.user-header {
+  width: 100%;
+  background: #f6f5f6;
+  min-height: 200px;
+  padding: 3em 0 0 0;
+}
+
+.user-details {
+  display: inline-block;
+  width: 80%;
+}
+
+.user-profile {
+  background: #f6f5f6;
+  height: 500px;
+}
