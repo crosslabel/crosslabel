@@ -36,9 +36,9 @@ class User < ActiveRecord::Base
     end
   end
 
-  def create_default_profile
-    Profile.create!(:user_id => self.id)
-  end
+  # def create_default_profile
+  #   Profile.create!(:user_id => self.id)
+  # end
 
   def generate_authentication_token!
     begin

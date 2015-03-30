@@ -29,10 +29,11 @@ RSpec.describe User, type: :model do
 
     describe "after create" do
       before do
-        user = User.create!(:name => "Example User", :username => "Example User", :email => "EXAMPLE@EXAMPLE.COM", :password => "foobarlala", :password_confirmation => "foobarlala")
+        user = User.new(:name => "Example User", :username => "Example User", :email => "EXAMPLE@EXAMPLE.COM", :password => "foobarlala", :password_confirmation => "foobarlala")
+        user.save!
       end
       it "should create a user profile" do
-        expect {user.profile}.to_not be_nil
+        expect(user.profile).to_not be_nil
       end
     end
 
