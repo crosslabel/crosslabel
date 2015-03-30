@@ -7,6 +7,17 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
 .header {
   background: #fff;
   padding: 3px 0;
+  
+  .navbar-brand {
+    color: #444;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    &:hover {
+      color: #444;
+    }
+  }
+
   ul {
     li {
       display: inline;
@@ -14,15 +25,5 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
         text-shadow: none;
       }
     }
-  }
-}
-
-.navbar-brand {
-  color: #444;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  &:hover {
-    color: #444;
   }
 }

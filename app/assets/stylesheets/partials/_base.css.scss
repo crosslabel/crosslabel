@@ -1,12 +1,13 @@
 @import"modules/all";
 body, html {
   position: relative;
-  color: #999;
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  font-weight: $regular;
   margin: 0;
   padding: 0;
+  line-height: $base-line-height;
 }
 
 .container {
@@ -14,9 +15,9 @@ body, html {
 }
 
 a {
-  color: #444;
+  color: $default-link-color;
   &:hover {
-    color: #444;
+    color: $default-hover-color;
     background: none;
     text-decoration: none;
   }

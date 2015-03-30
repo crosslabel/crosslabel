@@ -4,7 +4,7 @@
 
   <%- if devise_mapping.omniauthable? %>
     <%- Devise.omniauth_providers.each do |provider| %>
-    <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn-facebook-login' do %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-facebook-login' do %>
       <%= "Sign up with #{provider.to_s.titleize}" %>
     <% end %>
     <% end -%>
@@ -35,7 +35,7 @@
   </div>
 
   <div class="input-group">
-    <%= f.submit "Sign me up!", class: 'btn-signup' %>
+    <%= f.submit "Sign me up!", class: 'btn btn-signup' %>
   </div>
 
   <%= render "users/shared/links" %>

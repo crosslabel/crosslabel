@@ -1,1 +1,52 @@
 @import "base";
+.btn {
+  display: block;
+  width: 100%;
+  color: #fff;
+  border-radius: 3px;
+  border: 0;
+  @include transition(opacity, 1s, ease);
+  &:hover {
+    color: #fff;
+  }
+}
+
+.btn-facebook-login {
+  background: #3b5998;
+  padding: 0.8em 2em;
+  &:hover {
+    background: #0b2969;
+  }
+}
+
+.btn-settings {
+  background: #999;
+  width: 100px;
+  &:hover {
+    background: #555;
+  }
+}
+
+.btn-signup, .btn-login {
+  background: #30EABE;
+  height: 35px;
+  &:hover {
+    color: #fff;
+    background: #27bd99;
+  }
+}
+
+.btn-purchase {
+  background: #666;
+  width: 30%;
+  padding: 1.5em 0.5em;
+  margin: 3em 0 0 0;
+  text-align: center;
+  &:hover {
+    background: #444;
+  }
+}
+
+.fa-facebook {
+  margin-right: 1em;
+}

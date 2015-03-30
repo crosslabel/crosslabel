@@ -5,9 +5,13 @@
 // 3. User Profiles
 
 // 1. Defaults
-.content-row-1 {
+.content-s1 {
   background: #f6f6f5;
   padding: 4em 0;
+}
+
+.content-s2 {
+  
 }
 
 #hero {
@@ -120,14 +124,14 @@
       }
     }
 
-    .likers {
+    .upvotes {
       float: right;
       img {
         width: 40px;
       }
     }
 
-    .share {
+    .social-icon {
       a {
       color: #ccc;
       }
@@ -149,7 +153,7 @@
       }
     }
 
-    .upvote-count {
+    .product-upvote-count {
       font-size: 1.2em;
       font-weight: 400;
       vertical-align: middle;
@@ -193,18 +197,18 @@
 
 .header-profile-image {
   width: 30px;
-  border-radius: 50%;
+  @include border-radius(20%);
 }
 
 .profile-image {
   width: 150px;
-  border-radius: 50%;
+  @include border-radius(20%);
   border: 8px solid #fff;
 }
 
 .product-modal-profile-image {
   width: 70px;
-  border-radius: 20%;
+  @include border-radius(20%);
   border: 8px solid #fff;
 }
 
