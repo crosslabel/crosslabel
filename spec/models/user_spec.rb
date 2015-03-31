@@ -27,6 +27,12 @@ RSpec.describe User, type: :model do
       end
     end
 
+    describe "after create" do
+      it "should create a profile" do
+        
+      end
+    end
+
     describe "email validation" do
       context "when email format is valid" do
           it "should be valid" do

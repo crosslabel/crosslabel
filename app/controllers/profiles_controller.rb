@@ -12,7 +12,9 @@ class ProfilesController < ApplicationController
     @profile = Profile.find_by(user_id: current_user)
     if @profile.update(profile_params)
       redirect_to @profile
+      flash[:success] = "Your account has been updated."
     else
+      flash[:danger] = "Something went wrong."
       render :edit
     end
   end

@@ -6,9 +6,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    unless @product.save
-      render errors: "Product was not created", status: 402
-    end
+    @produce.save
   end
 
   private
