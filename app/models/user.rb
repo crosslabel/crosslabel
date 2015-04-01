@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     find_with_omniauth(auth).first_or_create do |user|
       user.email = auth.info.email
-      user.username = "user" + Devise.friendly_token[0,10]
+      user.username = "user" + Digest::SHA1.base64digest(auth.uid)
       user.password = Devise.friendly_token[0,20]
       user.profile_picture = auth.info.image
     end

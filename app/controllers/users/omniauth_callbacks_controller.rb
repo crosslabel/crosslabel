@@ -4,7 +4,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     auth = request.env["omniauth.auth"]
     @user = User.from_omniauth(auth)
     if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+      sign_in @user, :event => :authentication #this will throw if @user is not activated
+      redirect_to after_sign_in_path_for(@user)
       flash[:success] = "Welcome back, #{@user.username}"
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]
@@ -12,4 +13,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
+
+  private
+
+  def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || stored_location_for(resource) || explore_path
+  end
+
+
 end

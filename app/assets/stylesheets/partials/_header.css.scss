@@ -6,8 +6,7 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
 
 header.header {
   background: #fff;
-  padding: 3px 0;
-
+  border-bottom: 1px solid rgba(230, 230, 230, 0.7);
   .navbar-brand {
     color: #444;
     font-weight: 700;
@@ -22,8 +21,14 @@ header.header {
     li {
       display: inline;
       a {
+        color: $default-link-color;
         text-shadow: none;
       }
     }
   }
+}
+
+.header-profile-image {
+  width: 30px;
+  @include border-radius(50%);
 }

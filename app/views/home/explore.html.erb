@@ -1,8 +1,15 @@
-<section id="explore-page">
-    <div class="explore">
-        <%= render partial: "products/product_w2", :collection => @products, as: :product %>
-      </div>
+<!-- Modal -->
+<section id="product-home" class="content-s1">
+  <div class="products-list">
+    <div class="container">
+      <%= render @products %>
     </div>
-</section>
+    <div id="placeholder">
+    </div>
+  </div>
+  <%= link_to "Load more", "#placeholder", :id => 'next' %>
 
-<%= paginate @products %>
+  <div style="display:none">
+  <%= paginate @products %>
+  </div>
+</section>

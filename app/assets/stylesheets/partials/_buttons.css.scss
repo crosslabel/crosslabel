@@ -31,11 +31,11 @@
 
 .btn-signup, .btn-login {
   @extend .btn;
-  background: #30EABE;
+  background: #444;
   height: 35px;
   &:hover {
     color: #fff;
-    background: #27bd99;
+    background: #444;
   }
 }
 
