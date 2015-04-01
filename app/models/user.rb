@@ -5,6 +5,14 @@ class User < ActiveRecord::Base
   before_create :generate_authentication_token!
   after_create :create_profile
 
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_attachment :avatar, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
+  validates_with AttachmentPresenceValidator, :attributes => :avatar
+  validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 1.megabytes
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,6 +22,9 @@ class User < ActiveRecord::Base
   validates :auth_token, uniqueness: true
   validates :email, :presence => true, :length => { maximum: 256}, :format => { with: VALID_EMAIL_REGEX }, :uniqueness => { case_sensitive: false}
   validates :username, :presence => true, :uniqueness => :true
+
+
+
 
   def self.find_with_omniauth(auth)
     where(email: auth.info.email)
