@@ -42,6 +42,8 @@ gem 'uuidtools'
 gem 'thin' #web server
 
 gem 'paperclip', '~>3.5'
+gem 'aws-sdk', '< 2.0'
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
