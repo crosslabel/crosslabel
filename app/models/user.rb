@@ -5,9 +5,8 @@ class User < ActiveRecord::Base
   before_create :generate_authentication_token!
   after_create :create_profile
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/avatar_missing.jpg"
+  has_attached_file :avatar, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => "/images/:style/avatar_missing.jpg"
   validates_attachment :avatar, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
-  validates_with AttachmentPresenceValidator, :attributes => :avatar
   validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 3.megabytes
 
 
@@ -70,9 +69,14 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def create_default_profile
-  #   Profile.create!(:user_id => self.id)
-  # end
+  def remove_avatar
+    update_attribute(:avatar, nil)
+  end
+
+  def set_default_facebook_photo
+    auth = self.authentications.find_by(provider: "facebook")
+    update_attribute(:avatar, "https://graph.facebook.com/" + auth.uid + "/picture?type=large")
+  end
 
   def generate_authentication_token!
     begin

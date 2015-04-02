@@ -22,7 +22,7 @@
           <span class="upvotes" id="upvotes-<%=product.id %>">
           <% product.upvotes.each do |upvote| %>
             <%= link_to profile_path(upvote.user.try(:username)) do %>
-              <%= image_tag upvote.user.try(:profile_picture) %>
+              <%= image_tag upvote.user.try(:avatar).url(:thumb) %>
             <% end %>
           <% end %>
 

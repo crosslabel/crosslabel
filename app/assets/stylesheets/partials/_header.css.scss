@@ -30,5 +30,6 @@ header.header {
 
 .header-profile-image {
   width: 30px;
+  height: 30px;
   @include border-radius(50%);
 }

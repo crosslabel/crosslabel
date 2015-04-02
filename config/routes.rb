@@ -13,9 +13,14 @@ Rails.application.routes.draw do
   get '/trending' => 'home#trending', as: 'trending'
 
 
+
+
+
   post '/:username/upload_avatar' => 'users#upload_avatar', :as => :upload_avatar
   get '/profiles/:username' => 'users#show', as: 'profile'
   match '/profiles/:username' => 'users#update', as: 'user_settings', via: [:patch]
+  post '/:username/remove_avatar' => 'users#remove_avatar', as: 'remove_avatar'
+  post '/:username/set_facebook_photo' => 'users#set_default_facebook_photo', as: 'set_default_facebook_photo'
 
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
     scope :module => :v1, constraints: ApiConstraints.new(version: 1, default: true) do

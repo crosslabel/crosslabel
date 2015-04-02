@@ -12,6 +12,9 @@
           <%= submit_tag "Go" %>
         </div>
       <% end %>
+      <% if current_user.authentications.find_by(provider: "facebook") %>
+      <%= link_to "Set to default facebook photo", set_default_facebook_photo_path, method: :post %>
+      <% end %>
       <%= link_to "Edit", "#", {:class => 'btn-settings', :remote => true, 'data-toggle' => 'modal', 'data-target' => '#settings-modal'} %>
     </div>
     <ul class="profile-links">
