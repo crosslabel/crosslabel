@@ -41,7 +41,8 @@ gem 'uuidtools'
 
 gem 'thin' #web server
 
-gem 'paperclip', '~>4.2'
+gem 'paperclip', '~>3.5'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem "factory_girl_rails", "~> 4.0" # fixtures

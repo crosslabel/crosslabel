@@ -15,7 +15,7 @@ Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   config.omniauth :facebook, Rails.application.secrets.facebook_app_key, Rails.application.secrets.facebook_secret_key,
-  :scope => 'email, user_relationships', :display => 'popup', :image_size => 'large'
+  :scope => 'email, user_relationships', :display => 'popup', :image_size => 'large', :secure_image_url => true
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

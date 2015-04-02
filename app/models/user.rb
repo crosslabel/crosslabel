@@ -5,12 +5,11 @@ class User < ActiveRecord::Base
   before_create :generate_authentication_token!
   after_create :create_profile
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/avatar_missing.jpg"
   validates_attachment :avatar, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
-  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
   validates_with AttachmentPresenceValidator, :attributes => :avatar
-  validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 1.megabytes
+  validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 3.megabytes
+
 
 
   # Include default devise modules. Others available are:
@@ -23,14 +22,38 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :length => { maximum: 256}, :format => { with: VALID_EMAIL_REGEX }, :uniqueness => { case_sensitive: false}
   validates :username, :presence => true, :uniqueness => :true
 
+  SOCIALS = {
+    facebook: 'facebook',
+    google_oauth2: 'google',
+    linkedin: 'linkedin'
+  }
 
-
+  def self.from_omniauth(auth, current_user)
+    authentication = Authentication.where(:provider => auth.provider, :uid => auth.uid.to_s,
+                                      :token => auth.credentials.token,
+                                      :secret => auth.credentials.secret).first_or_initialize
+    if authentication.user.blank?
+      user = current_user.nil? ? User.where('email = ?', auth['info']['email']).first : current_user
+      if user.blank?
+        user = User.new
+        user.password = Devise.friendly_token[0, 20]
+        user.email = auth.info.email
+        user.username = "user" + Digest::SHA1.base64digest(auth.uid)
+        user.password = Devise.friendly_token[0,20]
+        user.avatar = URI.parse(auth.info.image)
+        user.save!
+      end
+      authentication.user = user
+      authentication.save
+    end
+    authentication.user
+  end
 
   def self.find_with_omniauth(auth)
     where(email: auth.info.email)
   end
 
-  def self.from_omniauth(auth)
+  def self.create_with_omniauth(auth)
     find_with_omniauth(auth).first_or_create do |user|
       user.email = auth.info.email
       user.username = "user" + Digest::SHA1.base64digest(auth.uid)
