@@ -1,2 +1,6 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<div class="container">
+<h1><%= @category.title %></h1>
+<% @category.products.each do |product| %>
+<%= render partial: "products/product_w2", locals: { product: product }%>
+<% end %>
+</div>
