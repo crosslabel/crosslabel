@@ -6,6 +6,7 @@ FactoryGirl.define do
     link "MyString"
     unit_price "36,000"
     sale_price "75,000"
+    upvotes_count 0
   end
 
 end

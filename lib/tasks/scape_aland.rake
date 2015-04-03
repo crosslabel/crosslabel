@@ -14,10 +14,17 @@ namespace :aland do
 
       puts JSON.pretty_generate(products)
 
-      products.each do |item|
-        product = Product.create!(:title => item["title"]["text"], :link =>  item["title"]["href"], :image => item["image"]["src"], :unit_price => item["unit_price"])
-        category = Category.find_by(:title => :tops)
-        category.products << product
+      shop = Shop.find_by(name: "A-Land")
+      category = Category.find_by(:title => :tops)
+
+      if shop.present? && category.present?
+        products.each do |item|
+          product = Product.create!(:title => item["title"]["text"], :link =>  item["title"]["href"], :shop_id => shop.id, :image => item["image"]["src"], :unit_price => item["unit_price"])
+          category.products << product
+        end
+      else
+        puts "Shop or category was not found"
+        break
       end
   end
 end

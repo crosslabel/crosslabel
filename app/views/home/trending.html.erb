@@ -1,0 +1,8 @@
+<section class="trending">
+<div class="container">
+<% @products.each do |product| %>
+<h5><%= product.title %></h5>
+<p><%= product.upvotes_count %><p>
+<% end %>
+</div>
+</section>

@@ -9,7 +9,7 @@
       </div>
       <div class="product-details">
         <h5 class="product-heading"><%= product.title %> <small>in <%= link_to product.categories.first.try(:title) %></small></h5>
-        <h6 class="retailer-heading">from <%= link_to "Aland", "#" %></h6>
+        <h6 class="retailer-heading">from <%= link_to "Aland", shop_path(product.shop_id) %></h6>
         <div class="social">
           <span id="product-<%= product.id %>" class="vote">
             <% if product.upvotes.map(&:user_id).include?(current_user.try(:id)) %>

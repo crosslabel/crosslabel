@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+
+  get 'categories/show'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
@@ -6,6 +10,9 @@ Rails.application.routes.draw do
     post '/vote' => 'upvotes#create'
     delete '/vote' => 'upvotes#destroy'
   end
+
+  resources :categories, param: :title
+
 
   get '/explore' => 'home#explore', as: 'explore'
 
