@@ -8,6 +8,9 @@ class Product < ActiveRecord::Base
   scope :trending, lambda { order(upvotes_count: :asc).limit(50) }
 
   class << self
+    def search(search)
+      where("title like ?", "%#{search}%")
+    end
   end
   # def upvotable(opts={})
   #   type = opts[:type] ? opts[:type] : :product

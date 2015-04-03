@@ -1,5 +1,17 @@
 <!-- Modal -->
 <section id="product-home" class="content-s1">
+  <div class="search">
+    <div class="container">
+      <%= form_tag products_path, :class => "form-search", :method => 'get' do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Search by shop, brand or type of item" %>
+        <div class="input-group-btn">
+          <%= submit_tag "Search", :class=> "btn btn-search", :name => nil %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
   <div class="products-list">
     <div class="container">
       <%= render @products %>
