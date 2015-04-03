@@ -9,4 +9,6 @@
 
 categories = [{title: "tops", description: ""}, {title: "t-shirt", description: ""}, {title: "shirt", description: ""}, {title: "knit/cardigan"}, {title: "sweatshirt", description: ""}, {title: "hoodie", description: ""}, {title: "sleeveless", description: ""}, {title: "bottoms", description: ""}, {title: "pants", description: ""}, {title: "jeans", description: ""}, {title: "shorts", description: ""}]
 
-Category.create(categories)
+Category.create!(categories)
+shops = [{name: "Aland", description: "Aland Co. has been presenting a variety of fashion cultures to many people as a multi-brand store with new fashion designers. Now we are selling everything—clothes, shoes, bags and stationary items—can be touched by designer's sense.", website: "http://www.a-land.co.kr/shop/main/index.php/", facebook_url: "https://www.facebook.com/pages/%EB%AA%85%EB%8F%99A-Land/347084205351376?fref=ts&rf=551345544892298"}]
+Shop.create!(shops)

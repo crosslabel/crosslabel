@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
   validates_attachment :avatar, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
   validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 3.megabytes
 
-
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

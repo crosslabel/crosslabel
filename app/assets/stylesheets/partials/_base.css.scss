@@ -5,6 +5,9 @@ body, html {
   font-family: $base-font-family;
   font-size: $base-font-size;
   font-weight: $regular;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
   margin: 0;
   padding: 0;
   line-height: $base-line-height;

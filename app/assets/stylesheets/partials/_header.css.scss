@@ -3,17 +3,27 @@ button.navbar-toggle, button.navbar-toggle.collapsed {
   padding: 0;
   margin: 0;
 }
+div#bs-example-navbar-collapse-1.collapse.navbar-collapse {
+  padding: 0;
+  height: 40px;
+}
 
+ul.nav.navbar-nav.navbar-right {
+  height: 40px;
+}
 header.header {
   background: #fff;
   border-bottom: 1px solid rgba(230, 230, 230, 0.7);
+  .container {
+    padding: 0;
+  }
   .navbar-brand {
     color: #444;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 5px;
     &:hover {
-      color: #444;
+      color: #888;
     }
   }
 
@@ -21,8 +31,11 @@ header.header {
     li {
       display: inline;
       a {
-        color: $default-link-color;
+        color: #444;
         text-shadow: none;
+        &:hover {
+          background: none;
+        }
       }
     }
   }
