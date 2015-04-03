@@ -56,6 +56,9 @@ end
 group :production do
   gem 'rails_12factor'#heroku
   gem 'newrelic_rpm'
+  gem 'elasticsearch-model'
+  gem 'elasticsearch-rails'
+  gem 'bonsai-elasticsearch-rails'
 end
 
 
