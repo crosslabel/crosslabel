@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'categories/index'
-
-  get 'categories/show'
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
@@ -21,13 +17,12 @@ Rails.application.routes.draw do
 
   resources :shops
 
-
-
+  resources :users, param: :username
   post '/:username/upload_avatar' => 'users#upload_avatar', :as => :upload_avatar
-  get '/profiles/:username' => 'users#show', as: 'profile'
-  match '/profiles/:username' => 'users#update', as: 'user_settings', via: [:patch]
   post '/:username/remove_avatar' => 'users#remove_avatar', as: 'remove_avatar'
   post '/:username/set_facebook_photo' => 'users#set_default_facebook_photo', as: 'set_default_facebook_photo'
+
+
   #
   # namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
   #   scope :module => :v1, constraints: ApiConstraints.new(version: 1, default: true) do

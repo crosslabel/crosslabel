@@ -15,7 +15,7 @@
       <% if current_user.authentications.find_by(provider: "facebook") %>
       <%= link_to "Set to default facebook photo", set_default_facebook_photo_path, method: :post %>
       <% end %>
-      <%= link_to "Edit", "#", {:class => 'btn-settings', :remote => true, 'data-toggle' => 'modal', 'data-target' => '#settings-modal'} %>
+      <%= link_to "Edit", edit_user_path(@user.username) %>
     </div>
     <ul class="profile-links">
       <li class="active"><%= link_to "Recent Activity", "#" %></li>
@@ -33,5 +33,3 @@
     </div>
   </div>
 </section>
-
-<%= render partial: 'shared/settings_modal' %>
