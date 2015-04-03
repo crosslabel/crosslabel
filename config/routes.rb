@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :products do
     post '/vote' => 'upvotes#create'
     delete '/vote' => 'upvotes#destroy'
+    collection do
+      get :autocomplete
+    end
   end
 
   resources :categories, param: :title

@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  searchkick
+  searchkick autocomplete: ['title']
   has_many :upvotes, as: :upvotable
   has_and_belongs_to_many :categories
   validates_presence_of :unit_price, :title, :image, :link

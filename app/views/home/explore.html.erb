@@ -4,7 +4,7 @@
     <div class="container">
       <%= form_tag products_path, :class => "form-search", :method => 'get' do %>
       <div class="input-group">
-        <%= text_field_tag :query, params[:query], class: 'form-control', placeholder: "Search by shop, brand or type of item" %>
+        <%= text_field_tag :query, params[:query], class: 'form-control', id: 'product-search', autocomplete: 'off', placeholder: "Search by shop, brand or type of item" %>
         <div class="input-group-btn">
           <%= submit_tag "Search", :class=> "btn btn-search", :name => nil %>
         </div>

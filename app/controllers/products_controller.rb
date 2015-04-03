@@ -8,6 +8,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def autocomplete
+    render json: Product.search(params[:query], autocomplete: true, limit: 10).map(&:title)
+  end
+
   def show
     @product = Product.find(params[:id])
   end
