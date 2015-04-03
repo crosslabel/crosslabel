@@ -1,9 +1,13 @@
 class ProductsController < ApplicationController
   before_action :logged_in_user, :only => [:create, :vote]
   def index
-    @products = Product.search(params[:search]).order("created_at DESC")
+    if params[:query].present?
+      @products = Product.search(params[:query], page: params[:page])
+    else
+      @products = Product.all.page params[:page]
+    end
   end
-  
+
   def show
     @product = Product.find(params[:id])
   end

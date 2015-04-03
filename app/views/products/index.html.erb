@@ -1,3 +1,6 @@
+<div class="container">
+<h3>Search results for <%= params[:query] %></h3>
 <% @products.each do |product| %>
-  <%= product.title %>
+  <%= render partial: 'products/product_w2', locals: {product: product} %>
 <% end %>
+</div>

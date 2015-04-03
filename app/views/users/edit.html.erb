@@ -1,4 +1,8 @@
 <h3>Edit</h3>
 <%= form_for @user do |f| %>
 <%= f.email_field :email %>
+<%= f.text_field :username %>
+
+<%= f.submit "Update my account" %>
+
 <% end %>
