@@ -1,4 +1,3 @@
-require 'api_constraints'
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
   get '/trending' => 'home#trending', as: 'trending'
 
 
+  resources :shops
 
 
 
@@ -21,14 +21,15 @@ Rails.application.routes.draw do
   match '/profiles/:username' => 'users#update', as: 'user_settings', via: [:patch]
   post '/:username/remove_avatar' => 'users#remove_avatar', as: 'remove_avatar'
   post '/:username/set_facebook_photo' => 'users#set_default_facebook_photo', as: 'set_default_facebook_photo'
+  #
+  # namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
+  #   scope :module => :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+  #     resources :users, :only => [:create, :update, :destroy]
+  #     resources :sessions, :only => [:create, :destroy]
+  #     resources :products
+  #   end
+  # end
 
-  namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: '/' do
-    scope :module => :v1, constraints: ApiConstraints.new(version: 1, default: true) do
-      resources :users, :only => [:create, :update, :destroy]
-      resources :sessions, :only => [:create, :destroy]
-      resources :products
-    end
-  end
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401140854) do
+ActiveRecord::Schema.define(version: 20150403070822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,10 +57,12 @@ ActiveRecord::Schema.define(version: 20150401140854) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "for_men",     default: false
+    t.integer  "shop_id"
   end
 
   add_index "products", ["for_men"], name: "index_products_on_for_men", using: :btree
   add_index "products", ["retailer_id"], name: "index_products_on_retailer_id", using: :btree
+  add_index "products", ["shop_id"], name: "index_products_on_shop_id", using: :btree
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
@@ -77,6 +79,16 @@ ActiveRecord::Schema.define(version: 20150401140854) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
   add_index "profiles", ["username"], name: "index_profiles_on_username", using: :btree
+
+  create_table "shops", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "website"
+    t.string   "twitter_url"
+    t.string   "facebook_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "upvotes", force: true do |t|
     t.integer  "upvotable_id"
