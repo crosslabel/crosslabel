@@ -1,6 +1,4 @@
-<% unless current_user %>
-<section id="hero" style="text-align:center">
+<section id="hero">
   <h3>Discover and collect the best brands from around the world.</h3>
   <%= link_to "Sign up now", "#", {:class => 'signup-cta', :remote => true, 'data-toggle' => 'modal', 'data-target' => '#signup-modal'} %>
 </section>
-<% end %>

@@ -4,10 +4,11 @@
       <%= image_tag product.image %>
     </div>
   <div class="product-modal-description">
+  <h3><%= product.title %></h3>
   <h4>Item Description</h4>
-  <h4><%= product.title %></h4>
+
   <h5>from <%= link_to product.shop.name, product.shop %></h5>
-  <p><%= product.unit_price %></p>
+  <p>$<%= product.unit_price %></p>
   <%= product.upvotes_count %>
   <%= link_to "Get it", product.link, class: 'btn btn-purchase' %>
   </div>
