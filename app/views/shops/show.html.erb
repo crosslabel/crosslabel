@@ -1,2 +1,8 @@
+<div class="container">
 <h1><%= @shop.name %></h1>
 <p><%= @shop.description %></p>
+
+<% @shop.products.each do |product| %>
+  <%= render partial: 'products/product', locals: {product: product} %>
+<% end %>
+</div>
