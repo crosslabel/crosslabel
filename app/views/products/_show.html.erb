@@ -1,24 +1,46 @@
 <div class="product-modal">
 <div class="row">
-    <div class="product-modal-image">
+    <div class="product-modal-image col-lg-6">
       <%= image_tag product.image %>
     </div>
-  <div class="product-modal-description">
+  <div class="product-modal-description col-lg-6">
   <h3><%= product.title %></h3>
-  <h4>Item Description</h4>
-
   <h5>from <%= link_to product.shop.name, product.shop %></h5>
-  <p>$<%= product.unit_price %></p>
-  <%= product.upvotes_count %>
   <%= link_to "Get it", product.link, class: 'btn btn-purchase' %>
+
+  <h4 style="padding-top: 1em;">Item Description</h4>
+  <p>$<%= product.unit_price %></p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+    <th>Size</th>
+    <th>Length</th>
+    <th>Width</th>
+    <th>Sleeve length</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </tbody>
+  </table>
+  <div id="upvotes">
+  <h4><%= product.upvotes_count %> upvotes</h4>
+  <% product.upvotes.limit(10).each do |upvote| %>
+    <%= image_tag upvote.user.avatar, class: 'product-modal-profile-image' %>
+  <% end %>
+  </div>
   </div>
 </div>
-</div>
-<!--
 <div class="row">
-  <div class="product-modal-meta">
-    <% product.upvotes.each do |upvote| %>
-      <%= image_tag upvote.user.avatar, class: 'product-modal-profile-image' %>
-    <% end %>
-  </div>
-</div> -->
+  <div class="col-lg-12">
+
+  <h3>Related items</h3>
+</div>
+
+</div>
+</div>

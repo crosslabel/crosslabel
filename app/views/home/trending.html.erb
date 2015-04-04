@@ -1,8 +1,7 @@
-<section class="trending">
-<div class="container">
-<% @products.each do |product| %>
-<h5><%= product.title %></h5>
-<p><%= product.upvotes_count %><p>
-<% end %>
-</div>
+<section id="trending" class="content-s1">
+  <div class="container">
+  <% @products.each do |product| %>
+  <%= render partial: 'products/product_w2', locals: {product: product} %>
+  <% end %>
+</div>s
 </section>
