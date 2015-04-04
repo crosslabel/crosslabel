@@ -45,6 +45,7 @@
   margin-bottom: 3em;
 }
 
+
 .product {
   position: relative;
   height: 300px;
@@ -96,6 +97,13 @@
   // min-height: 105px;
   .product-heading {
     color: #6f6f6f;
+  }
+  .product-upvote-count {
+
+    color: #666;
+    float: right;
+    font-size: 0.9em;
+    font-weight: 200;
   }
 
   .social {
@@ -149,12 +157,6 @@
 
     .upvotes {
       float: right;
-    }
-
-    .product-upvote-count {
-      font-size: 1.2em;
-      font-weight: 400;
-      vertical-align: middle;
     }
 
   }

@@ -14,7 +14,18 @@ body, html {
 }
 
 .container {
-  width: 85%;
+  width: 80%;
+  padding: 0;
+}
+
+.col-xs-20,
+.col-sm-20,
+.col-md-20,
+.col-lg-20 {
+   position: relative;
+   min-height: 1px;
+   padding-right: 10px;
+   padding-left: 10px;
 }
 
 a {
