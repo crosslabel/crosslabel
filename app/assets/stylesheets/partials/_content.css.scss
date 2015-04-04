@@ -169,11 +169,13 @@
 }
 
 
+// Profile Page
+
 
 .profile-image {
   width: 150px;
-  @include border-radius(20%);
-  border: 8px solid #fff;
+  @include border-radius(50%);
+  border: 3px solid #fff;
 }
 
 ul.profile-links {
@@ -191,15 +193,22 @@ ul.profile-links {
 }
 
 
-// Profile Page
 .profile-page {
+  background: #f6f5f6;
   width: 100%;
 }
 .user-header {
-  width: 100%;
-  background: #f6f5f6;
   min-height: 200px;
   padding: 3em 0 0 0;
+  .container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.favourites {
+  background: #fff;
 }
 
 .user-details {

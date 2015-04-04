@@ -2,33 +2,16 @@
   <div class="user-header">
     <div class="container">
     <%= image_tag @user.try(:avatar).url(:medium), class: 'profile-image' %>
-    <div class="user-details">
-      <h4><%= @user.try(:username) %></h4>
-    </div>
-    <div class="user-actions">
-      <%= form_tag({:action => :upload_avatar}, multipart: true) do %>
-        <div class="input-group">
-          <%= file_field_tag :avatar, class: 'form-control' %>
-          <%= submit_tag "Go" %>
-        </div>
-      <% end %>
-      <% if current_user.authentications.find_by(provider: "facebook") %>
-      <%= link_to "Set to default facebook photo", set_default_facebook_photo_path, method: :post %>
-      <% end %>
-      <%= link_to "Edit", edit_user_path(@user.username) %>
-    </div>
-    <ul class="profile-links">
-      <li class="active"><%= link_to "Recent Activity", "#" %></li>
-      <li><%= link_to "Boxes", "#" %></li>
-    </ul>
+      <div class="user-details">
+        <h4><%= @user.try(:username) %></h4>
+      </div>
     </div>
   </div>
   <div class="favourites">
     <div class="container">
     <h3>Recently Liked</h3>
     <% @user.upvotes.each do |upvote| %>
-      <%= image_tag upvote.upvotable.image %>
-      <%= upvote.upvotable.title %>
+      <%= render partial: 'products/product_w2', locals: {product: upvote.upvotable } %>
     <% end %>
     </div>
   </div>
