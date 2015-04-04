@@ -1,13 +1,23 @@
+<div class="product-modal">
 <div class="row">
-  <div class="col-lg-6 product-modal-image">
-    <%= image_tag product.image %>
-  </div>
-  <div class="col-lg-6 product-modal-description">
-  <h3><%= product.title %></h3>
-  <h5>from Aland</h5>
-  <p><%= link_to "Buy from Aland", product.link, class: 'btn btn-purchase'%></p>
-  <% product.upvotes.each do |upvote| %>
-    <%= image_tag upvote.user.profile_picture, class: 'product-modal-profile-image' %>
-  <% end %>
+    <div class="product-modal-image">
+      <%= image_tag product.image %>
+    </div>
+  <div class="product-modal-description">
+  <h4>Item Description</h4>
+  <h4><%= product.title %></h4>
+  <h5>from <%= link_to product.shop.name, product.shop %></h5>
+  <p><%= product.unit_price %></p>
+  <%= product.upvotes_count %>
+  <%= link_to "Get it", product.link, class: 'btn btn-purchase' %>
   </div>
 </div>
+</div>
+<!--
+<div class="row">
+  <div class="product-modal-meta">
+    <% product.upvotes.each do |upvote| %>
+      <%= image_tag upvote.user.avatar, class: 'product-modal-profile-image' %>
+    <% end %>
+  </div>
+</div> -->

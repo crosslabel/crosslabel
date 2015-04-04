@@ -75,7 +75,7 @@
   }
 
 
-  img.product-image{
+  img{
     background: #fff;
     width: 100%;
     height: 300px;
@@ -171,12 +171,6 @@
 
 .profile-image {
   width: 150px;
-  @include border-radius(20%);
-  border: 8px solid #fff;
-}
-
-.product-modal-profile-image {
-  width: 70px;
   @include border-radius(20%);
   border: 8px solid #fff;
 }

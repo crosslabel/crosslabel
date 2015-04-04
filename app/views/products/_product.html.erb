@@ -1,6 +1,6 @@
   <div class="product-container col-sm-6 col-md-4 col-lg-20">
       <div class="product">
-        <%= link_to "", product_path(product), {:class => 'product-overlay', :remote => true, 'data-toggle' => 'modal', 'data-target' => '#product-modal'} %>
+        <%= link_to "", product_path(product), {:class => 'product-overlay cd-btn', :remote => true} %>
 
         <%= image_tag product.image, class: 'product-image' %>
       </div>

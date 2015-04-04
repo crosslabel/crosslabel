@@ -21,6 +21,7 @@
 }
 
 .btn-search {
+  background: #00b27f;
   width: 120px;
   height: 48px;
   font-size: 22px;
@@ -47,13 +48,12 @@
 
 .btn-purchase {
   @extend .btn;
-  background: #666;
-  width: 30%;
-  padding: 1.5em 0.5em;
-  margin: 3em 0 0 0;
+  background: #00b27f;
+  width: 20%;
+  font-size: 1.2em;
   text-align: center;
   &:hover {
-    background: #444;
+    background: #00b27f;
   }
 }
 
