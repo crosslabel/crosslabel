@@ -6,7 +6,7 @@
       <div class="input-group">
         <%= text_field_tag :query, params[:query], class: 'form-control', id: 'product-search', autocomplete: 'off', placeholder: "Search by shop, brand or type of item" %>
         <div class="input-group-btn">
-          <%= submit_tag "Search", :class=> "btn btn-search", :name => nil %>
+            <button type="submit" class="btn btn-search" value="Search"><i class="fa fa-search"></i></button>
         </div>
       </div>
       <% end %>

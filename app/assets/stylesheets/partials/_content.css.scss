@@ -6,7 +6,7 @@
 
 // 1. Defaults
 .content-s1 {
-  background: #f5f6f5;
+  background: #fff;
   padding: 4em 0;
 }
 
@@ -41,36 +41,26 @@
 // 2. Products
 .product-container {
   background: #fff;
+  max-height: 380px;
   margin-bottom: 3em;
 }
 
 .product {
   position: relative;
-  height: 200px;
+  height: 300px;
 
   .product-overlay {
-    background: rgba(0, 0, 0, .1);
+    background: rgba(255,255,255,0.5);
     position: absolute;
     text-align: center;
     top: 0;
     left: 0;
     opacity: 0;
     width: 100%;
-    height: 200px;
+    height: 300px;
     -webkit-transition: opacity .25s ease;
     -moz-transition: opacity .25s ease;
     transition: opacity .25s ease;
-  }
-
-  &:hover .not-voted {
-    opacity: 1;
-  }
-  .add-to-box {
-    opacity: 0;
-    color: #888;
-    position: absolute;
-    left: 10px;
-    top: 10px;
   }
 
   .price {
@@ -85,10 +75,10 @@
 
 
   img.product-image{
-    background: #f5f6f5;
+    background: #fff;
     width: 100%;
-    height: 200px;
-    object-fit: scale-down;
+    height: 300px;
+    object-fit: cover;
   }
   &:hover .add-to-box {
     opacity: 1;
@@ -104,23 +94,56 @@
 
 .product-details {
   // min-height: 105px;
-  .retailer-heading {
-    padding-left: 1.2em;
-  }
   .product-heading {
-    padding: 0 0 0 1em;
+    color: #6f6f6f;
   }
 
   .social {
-    padding: 0.5em 0 0 1em;
-
+    font-size: 0.9em;
+    vertical-align: bottom;
     img {
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
       @include border-radius(50%);
       transition: 0.1s linear;
       &:first-child {
         margin-left: 0;
+      }
+    }
+
+    .fa-smile-o.voted {
+      color: #0eb477;
+      -webkit-transition: 1s;
+      -moz-transition: 1s;
+      transition: 1s;
+      vertical-align: middle;
+      &:hover {
+        color: #999;
+      }
+    }
+
+    #fav-text {
+      opacity: 0.1;
+      -webkit-transition: opacity .25s ease;
+      -moz-transition: opacity .25s ease;
+      transition: opacity .25s ease;
+    }
+
+    .fa-smile-o.not-voted {
+      color: #999;
+      -webkit-transition: 1s;
+      -moz-transition: 1s;
+      transition: 1s;
+      vertical-align: middle;
+
+      &:hover {
+        -webkit-transform: scale(1.1);
+        -moz-transition: scale(1.1);
+        transform: scale(1.1);
+        color: #0eb477;
+      }
+      &:hover #fav-text {
+        opacity: 1;
       }
     }
 
@@ -134,34 +157,6 @@
       vertical-align: middle;
     }
 
-  }
-
-
-
-  .fa-smile-o.voted {
-    color: #0eb477;
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    transition: 1s;
-    vertical-align: middle;
-    &:hover {
-      color: #999;
-    }
-  }
-
-  .fa-smile-o.not-voted {
-    color: #999;
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    transition: 1s;
-    vertical-align: middle;
-
-    &:hover {
-      -webkit-transform: scale(1.1);
-      -moz-transition: scale(1.1);
-      transform: scale(1.1);
-      color: #0eb477;
-    }
   }
 }
 

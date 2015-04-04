@@ -1,16 +1,15 @@
-<div class=" col-sm-6 col-md-4 col-lg-4">
+<div class=" col-sm-6 col-md-4 col-lg-3">
   <div class="product-container">
       <div class="product">
-        <%= link_to "/hello", class: 'add-to-box' do %>
-        <i class="fa fa-plus-square-o fa-2x"></i>
-        <% end %>
-        <%= image_tag product.image, class: 'product-image' %>
         <%= link_to "", product_path(product), {:class => 'product-overlay', :remote => true, 'data-toggle' => 'modal', 'data-target' => '#product-modal'} %>
+
+        <%= image_tag product.image, class: 'product-image' %>
       </div>
       <div class="product-details">
         <h5 class="product-heading"><%= product.title %> <small>in <%= link_to product.categories.first.try(:title), category_path(product.categories.first.title) %></small></h5>
         <h6 class="retailer-heading">from <%= link_to "Aland", shop_path(product.shop_id) %></h6>
         <div class="social">
+          <span class="product-upvote-count" id="upvote-count-<%= product.id %>"><%= product.upvotes_count %></span>
           <span id="product-<%= product.id %>" class="vote">
             <% if product.upvotes.map(&:user_id).include?(current_user.try(:id)) %>
               <%= render :partial => "products/downvote", locals: { product: product }%>
@@ -18,7 +17,7 @@
             <%= render :partial => "products/upvote", locals: { product: product } %>
             <% end %>
           </span>
-          <span class="product-upvote-count" id="upvote-count-<%= product.id %>"><%= product.upvotes_count %></span>
+          <span id="fav-text">Favourite</span>
           <span class="upvotes" id="upvotes-<%=product.id %>">
           <% product.upvotes.each do |upvote| %>
             <%= link_to user_path(upvote.user.try(:username)) do %>
