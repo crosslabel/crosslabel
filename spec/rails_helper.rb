@@ -46,10 +46,15 @@ RSpec.configure do |config|
 
   config.before(:each, type: :mailer) do
     Excon.defaults[:mock] = true
-    Excon.stub({}, {body: '{}', status: 200})
+    Excon.stub({}, {body: '{
+        "email": "recipient.email@example.com",
+        "status": "sent",
+        "reject_reason": "hard-bounce",
+        "_id": "abc123abc123abc123abc123abc123"
+    }', status: 200})
     stub_request(:post, "https://mandrillapp.com/api/1.0/messages/send-template.json").
          with(:body => "{\"template_name\":\"test-email\",\"template_content\":[],\"message\":{},\"async\":false,\"ip_pool\":null,\"send_at\":null,\"key\":\"12314893hfadsfdasab\"}",
-              :headers => {'Content-Type'=>'application/json', 'Host'=>'mandrillapp.com:443', 'User-Agent'=>'ruby'}).
+              :headers => {'Content-Type'=>'application/json', 'Host'=>'mandrillapp.com:443', 'User-Agent'=>'excon/0.45.1'}).
          to_return(:status => 200, :body => "", :headers => {})
   end
 

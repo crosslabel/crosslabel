@@ -19,15 +19,15 @@ RSpec.describe UserMailer, type: :mailer do
       }
       api_key = "thisisafakeapikey"
       mandrill_client = Mandrill::API.new(api_key)
-      @object = mandrill_client.messages.send_template template_name, template_content, message
+      @json_response = mandrill_client.messages.send_template template_name, template_content, message
     end
 
     it "sends an email" do
-      expect(@object).to eq(1)
+      expect(@json_response).to_not be_nil
     end
 
     it "renders the receiver email" do
-      # expect(@mandrill_client.messages).to eq(user.email)
+      expect(@json_response["status"]).to eq("sent")
     end
   end
 end
