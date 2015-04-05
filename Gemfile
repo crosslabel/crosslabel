@@ -44,6 +44,7 @@ gem 'thin' #web server
 gem 'paperclip', '~>3.5'
 gem 'aws-sdk', '< 2.0'
 
+gem 'mandrill-api', '~> 1.0.53', require: "mandrill" # transactional emails
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
@@ -51,6 +52,8 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'ffaker'
+  gem 'webmock'
+  gem 'excon'
 end
 
 group :production do

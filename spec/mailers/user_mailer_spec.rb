@@ -5,18 +5,29 @@ RSpec.describe UserMailer, type: :mailer do
 
   describe "welcome email" do
     before(:each) do
-      UserMailer.welcome_email(user).deliver
+      template_name = "test-email"
+      template_content = []
+      message = {
+        to: [{email: user.email}],
+        subject: "Welcome to Brandly!",
+        merge_vars: [
+          {rcpt: user.email,
+          vars: [
+            {name: "WELCOME_EMAIL_HEADING", content: "Welcome #{user.email}"}
+            ]}
+        ]
+      }
+      api_key = "thisisafakeapikey"
+      mandrill_client = Mandrill::API.new(api_key)
+      @object = mandrill_client.messages.send_template template_name, template_content, message
     end
 
-    after(:each) do
-      ActionMailer::Base.deliveries.clear
-    end
     it "sends an email" do
-      expect(ActionMailer::Base.deliveries.count).to eq(1)
+      expect(@object).to eq(1)
     end
 
     it "renders the receiver email" do
-      expect(ActionMailer::Base.deliveries.first.to[0]).to eq(user.email)
+      # expect(@mandrill_client.messages).to eq(user.email)
     end
   end
 end

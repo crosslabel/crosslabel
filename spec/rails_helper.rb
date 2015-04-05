@@ -3,6 +3,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
+require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true)
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -35,6 +37,25 @@ RSpec.configure do |config|
   config.include Request::JsonHelpers, :type => :controller
   config.include Devise::TestHelpers, :type => :controller
 
+  config.before(:each, type: :feature) do
+    stub_request(:get, /api.github.com/).
+      with(headers: {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
+      to_return(status: 200, body: "stubbed response", headers: {})
+  end
+
+
+  config.before(:each, type: :mailer) do
+    Excon.defaults[:mock] = true
+    Excon.stub({}, {body: '{}', status: 200})
+    stub_request(:post, "https://mandrillapp.com/api/1.0/messages/send-template.json").
+         with(:body => "{\"template_name\":\"test-email\",\"template_content\":[],\"message\":{},\"async\":false,\"ip_pool\":null,\"send_at\":null,\"key\":\"12314893hfadsfdasab\"}",
+              :headers => {'Content-Type'=>'application/json', 'Host'=>'mandrillapp.com:443', 'User-Agent'=>'ruby'}).
+         to_return(:status => 200, :body => "", :headers => {})
+  end
+
+  config.after(:each, type: :mailer) do
+    Excon.stubs.clear
+  end
 
   config.before(:each, type: :controller) do
     include_default_accept_headers

@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
   port: 587,
   enable_starttls_auto: true,
   user_name: "kareem.kwong@gmail.com",
-  password: "7n9BJ502xJxqUih4ut5kpg",
+  password: Rails.application.secrets.mandrill_api_key,
   authentication: "login"
 }
 
