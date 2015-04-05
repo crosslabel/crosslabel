@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
         user.avatar = URI.parse(auth.info.image)
         user.save!
+        user.send_welcome_email
       end
       authentication.user = user
       authentication.save
@@ -80,6 +81,10 @@ class User < ActiveRecord::Base
     begin
       self.auth_token = Devise.friendly_token
     end while self.class.exists?(auth_token: auth_token)
+  end
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver
   end
 
 end

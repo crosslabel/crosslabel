@@ -23,13 +23,23 @@ RSpec.describe User, type: :model do
       it "make all emails lower case" do
         user = User.new(:name => "Example User", :username => "Example User", :email => "EXAMPLE@EXAMPLE.COM", :password => "foobarlala", :password_confirmation => "foobarlala")
         user.save
-        expect(user.email).to eq('example@example.com')
+        expect(subject.email).to eq('example@example.com')
       end
     end
 
-    describe "after create" do
-      it "should create a profile" do
-        
+    describe "registrations" do
+      before(:each) do
+        ActionMailer::Base.delivery_method = :test
+        ActionMailer::Base.perform_deliveries = true
+        ActionMailer::Base.deliveries = []
+      end
+
+      after(:each) do
+        ActionMailer::Base.deliveries.clear
+      end
+
+      it "should send welcome email" do
+        expect { user.send_welcome_email }.to change { ActionMailer::Base.deliveries.count}.by(1)
       end
     end
 
