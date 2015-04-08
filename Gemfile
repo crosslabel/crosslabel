@@ -33,6 +33,7 @@ gem 'paper_trail', '~> 4.0.0.beta'  # Lets you track changes to your models' dat
 
 gem 'kaminari'
 gem 'searchkick'
+
 # Authentication
 gem 'devise'
 gem 'omniauth'
@@ -44,6 +45,7 @@ gem 'thin' #web server
 gem 'paperclip', '~>3.5'
 gem 'aws-sdk', '< 2.0'
 
+gem "redis", "~> 3.0.1"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
