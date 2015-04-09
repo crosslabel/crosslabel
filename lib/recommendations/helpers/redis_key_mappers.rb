@@ -16,15 +16,11 @@ module Recommendations
           [redis_namespace, ratable_namespace(klass), id, 'liked_by'].compact.join(':')
         end
 
-        def disliked_by_set_for(klass, id)
-          [redis_namespace, ratable_namespace(klass),id, 'disliked_by'].compact.join(':')
-        end
-
         def score_set_for(klass)
-          [redis_namespace, ratable_namespace(klass)]
+          [redis_namespace, ratable_namespace(klass), 'scores'].join(':')
         end
 
-        def temp_set_for(klass)
+        def temp_set_for(klass, id)
           [redis_namespace, ratable_namespace(klass), id, 'temp'].compact.join(':')
         end
 

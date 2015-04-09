@@ -5,7 +5,7 @@ module Recommendable
 
     def recommendable?() self.class.recommendable? end
 
-    module class_methods
+    module ClassMethods
       # Adds class to
       def make_recommendable!
         Recommendations.configure { |config| config.ratable_classes << self }
