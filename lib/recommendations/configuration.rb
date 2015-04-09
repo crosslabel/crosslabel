@@ -40,13 +40,16 @@ module Recommendations
       @furthest_neighbours = nil
       @recommendations_to_store = 100
     end
+  end
 
-    class << self
-      def configure
-        @config ||= Configuration.new
-        yield @config
-      end
+  class << self
+    def configure
+      @config ||= Configuration.new
+      yield @config
     end
 
+    def config
+      @config ||= Configuration.new
+    end
   end
 end
