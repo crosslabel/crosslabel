@@ -1,6 +1,6 @@
 module Recommendations
   module Rater
-    module Recommendar
+    module Recommender
     end
   end
 end

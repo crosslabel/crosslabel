@@ -29,8 +29,8 @@
     </tbody>
   </table>
   <div id="upvotes">
-  <h4><%= product.upvotes_count %> upvotes</h4>
-  <% product.upvotes.limit(10).each do |upvote| %>
+  <!-- <h4><%= product.likes_count %> upvotes</h4> -->
+  <% product.likes.limit(10).each do |upvote| %>
     <%= image_tag upvote.user.avatar, class: 'product-modal-profile-image' %>
   <% end %>
   </div>

@@ -5,13 +5,13 @@
       <%= image_tag product.image, class: 'product-image' %>
     </div>
     <div class="product-details">
-      <div class="product-upvote-count" id="upvote-count-<%= product.id %>"><%= product.upvotes_count %> likes</div>
+      <div class="product-upvote-count" id="upvote-count-<%= product.id %>"><%= product.liked_by_count %> likes</div>
       <h5 class="product-heading"><%= product.title %><small>in <%= link_to product.categories.first.try(:title), category_path(product.categories.first.title) %></small></h5>
       <h6 class="retailer-heading">from <%= link_to "Aland", shop_path(product.shop_id) %></h6>
       <!-- <span class="price">$<%= product.unit_price %></span>s -->
       <div class="social">
         <span id="product-<%= product.id %>" class="vote">
-          <% if product.upvotes.map(&:user_id).include?(current_user.try(:id)) %>
+          <% if product.liked_by.include?(current_user) %>
             <%= render :partial => "products/downvote", locals: { product: product }%>
           <% else %>
           <%= render :partial => "products/upvote", locals: { product: product } %>
@@ -19,9 +19,9 @@
         </span>
         <span id="fav-text">Favourite</span>
         <span class="upvotes" id="upvotes-<%=product.id %>">
-        <% product.upvotes.each do |upvote| %>
-          <%= link_to user_path(upvote.user.try(:username)) do %>
-            <%= image_tag upvote.user.try(:avatar).url(:thumb) %>
+        <% product.liked_by.each do |user| %>
+          <%= link_to user_path(user.try(:username)) do %>
+            <%= image_tag user.try(:avatar).url(:thumb) %>
           <% end %>
         <% end %>
 

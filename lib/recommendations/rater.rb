@@ -15,7 +15,14 @@ module Recommendations
 
         things.each { |thing| thing.to_s.classify.constantize.make_recommendable! }
 
-        
+
+        class_eval do
+          include Upvoter
+          include Viewer
+          include Recommender
+        end
+
+
       end
     end
   end

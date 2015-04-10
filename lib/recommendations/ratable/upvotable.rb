@@ -2,7 +2,7 @@ module Recommendations
   module Ratable
     module Upvotable
       def liked_by
-        Recommendations.config.user_class.where(:id => liked_by_ids)
+        Recommendations.config.user_class.where(:id =>  liked_by_ids)
       end
 
       # Get the number of users that have liked this item

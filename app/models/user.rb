@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
     linkedin: 'linkedin'
   }
 
+  recommends :products
+
   def self.from_omniauth(auth, current_user)
     authentication = Authentication.where(:provider => auth.provider, :uid => auth.uid.to_s,
                                       :token => auth.credentials.token,

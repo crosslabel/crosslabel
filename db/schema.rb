@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403092408) do
+ActiveRecord::Schema.define(version: 20150409132026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,16 +91,25 @@ ActiveRecord::Schema.define(version: 20150403092408) do
     t.datetime "updated_at"
   end
 
-  create_table "upvotes", force: true do |t|
-    t.integer  "upvotable_id"
-    t.string   "upvotable_type"
-    t.integer  "user_id"
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
     t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
-  add_index "upvotes", ["upvotable_id", "upvotable_type"], name: "index_upvotes_on_upvotable_id_and_upvotable_type", using: :btree
-  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id", using: :btree
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

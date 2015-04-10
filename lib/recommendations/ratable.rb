@@ -1,5 +1,5 @@
 require 'recommendations/ratable/upvotable'
-module Recommendable
+module Recommendations
   module Ratable
     extend ActiveSupport::Concern
 
@@ -12,6 +12,7 @@ module Recommendable
 
         class_eval do
           # Whether or not items belonging to this class can be recommended.
+          include Upvotable
 
           def self.recommendable?() true end
             # Returns the class that has been explicitly been made ratable, whether it is this
@@ -19,9 +20,8 @@ module Recommendable
               # considered the same type of ratable and give recommendations from the base class
               # or any of the subclasses.
           def self.ratable_class
-            ancestors.find { |klass| Recommendable.config.ratable_classes.include?(klass) }
+            ancestors.find { |klass| Recommendations.config.ratable_classes.include?(klass) }
           end
-
         end
       end
     end

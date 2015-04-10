@@ -1,6 +1,5 @@
 class Product < ActiveRecord::Base
   searchkick autocomplete: ['title']
-  has_many :upvotes, as: :upvotable
   has_and_belongs_to_many :categories
   belongs_to :shop
   validates_presence_of :unit_price, :title, :image, :link
@@ -12,5 +11,5 @@ class Product < ActiveRecord::Base
     order(upvotes_count: :asc).limit(50)
   end
 
-  
+
 end

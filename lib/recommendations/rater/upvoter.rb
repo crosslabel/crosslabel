@@ -2,30 +2,39 @@ module Recommendations
   module Rater
     module Upvoter
       # like an object
-      def upvote(obj)
+      def like(obj)
         raise(ArgumentError, 'Object is not ratable.') unless obj.respond_to?(:recommendable?) && obj.recommendable?
-        return if upvoted?(obj)
+        return if liked?(obj)
 
         Recommendations.redis.sadd(Recommendations::Helpers::RedisKeyMapper.liked_set_for(obj.class, id), obj.id)
         Recommendations.redis.sadd(Recommendations::Helpers::RedisKeyMapper.liked_by_set_for(obj.class, obj.id), id)
-
       end
 
       # check whether user has liked object
-      def upvoted?(obj)
+      def liked?(obj)
         Recommendations.redis.sismember(Recommendations::Helpers::RedisKeyMapper.liked_set_for(obj.class, id), obj.id)
       end
 
       # Remove object from users set of likes
-      def unvote
-        return unless upvoted?(obj)
+      def unlike(obj)
+        return unless liked?(obj)
         Recommendations.redis.srem(Recommendations::Helpers::RedisKeyMapper.liked_set_for(obj.class, id), obj.id)
         Recommendations.redis.srem(Recommendations::Helpers::RedisKeyMapper.liked_by_set_for(obj.class, obj.id), id)
       end
 
       # Retrieve an array of objects the user has liked
-      def upvoted
+      def likes
         Recommendations.config.ratable_classes.map { |klass| liked_for(klass)}.flatten
+      end
+
+      def likes_in_common_with(user)
+        Recommendations.config.ratable_classes.map { |klass| liked_in_common_with(klass, user)}.flatten
+      end
+
+      def likes_count
+        Recommendations.config.ratable_classes.inject(0) do |sum, klass|
+          sum + liked_count_for(klass)
+        end
       end
 
       private

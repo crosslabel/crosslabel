@@ -1,6 +1,10 @@
 require 'redis'
+require 'active_record'
 
-Recommendations::Configuration.configure do |config|
+ActiveRecord::Base.send(:include, Recommendations::Rater)
+ActiveRecord::Base.send(:include, Recommendations::Ratable)
+
+Recommendations.configure do |config|
   # Recommendable's connection to Redis
   config.redis = Redis.new(:host => 'localhost', :port => 6379, :db => 0)
 
