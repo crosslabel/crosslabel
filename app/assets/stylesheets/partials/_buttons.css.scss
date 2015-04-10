@@ -49,11 +49,12 @@
 .btn-purchase {
   @extend .btn;
   background: #00b27f;
-  width: 120px;
+  width: 220px;
+  padding: 0.7em 0;
   font-size: 1.2em;
   text-align: center;
   &:hover {
-    background: #00b27f;
+    background: #00a072;
   }
 }
 

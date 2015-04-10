@@ -1,45 +1,25 @@
-<div class="product-modal">
+<div id="product-page">
+<div class="container">
 <div class="row">
-    <div class="product-modal-image col-lg-6">
-      <%= image_tag product.image %>
+  <div class="product-modal-image col-lg-5">
+    <%= image_tag @product.image %>
+  </div>
+  <div class="product-info col-lg-7">
+    <h3 class="product-heading"><%= @product.title %></h3>
+    <h5 class="shop-heading">from <%= link_to @product.shop.name, @product.shop %></h5>
+    <div class="goto-shop-container">
+    <%= link_to "$#{@product.unit_price} on #{@product.shop.name}", @product.link, class: 'btn btn-purchase' %>
     </div>
-  <div class="product-modal-description col-lg-6">
-  <h3><%= product.title %></h3>
-  <h5>from <%= link_to product.shop.name, product.shop %></h5>
-  <%= link_to "Get it", product.link, class: 'btn btn-purchase' %>
-
-  <h4 style="padding-top: 1em;">Item Description</h4>
-  <p>$<%= product.unit_price %></p>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-    <th>Size</th>
-    <th>Length</th>
-    <th>Width</th>
-    <th>Sleeve length</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </tbody>
-  </table>
-  <div id="upvotes">
-  <% product.liked_by.limit(10).each do |user| %>
-    <%= image_tag user.avatar, class: 'product-modal-profile-image' %>
-  <% end %>
-  </div>
+    <div class="product-description">
+      <h4 style="">Item Description</h4>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam.</p>
+    </div>
+    <div id="product-social">
+    <% @product.liked_by.limit(10).each do |user| %>
+      <%= image_tag user.avatar, class: 'product-modal-profile-image' %>
+    <% end %>
+    </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-lg-12">
-
-  <h3>Related items</h3>
-</div>
-
 </div>
 </div>

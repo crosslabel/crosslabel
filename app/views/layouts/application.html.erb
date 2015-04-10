@@ -13,20 +13,19 @@
 
 <%= render partial: 'layouts/header' %>
 <%= yield %>
-
-<div class="cd-panel from-right">
-	<div class="cd-panel-container">
-    <a href="#0" class="cd-panel-close">Close</a>
-
-		<div class="cd-panel-content">
-
-			<!-- your side content here -->
-		</div> <!-- cd-panel-content -->
-	</div> <!-- cd-panel-container -->
-</div> <!-- cd-panel -->
-
 <%= render partial: 'layouts/footer' %>
-</body>
+<div class="modal fade" id="product-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times fa-lg"></i></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
 <%= render partial: 'shared/login_modal' %>
 <%= render partial: 'shared/signup_modal' %>
+</body>
 </html>

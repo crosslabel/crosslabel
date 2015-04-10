@@ -1,0 +1,35 @@
+<div id="product-header" class="row">
+  <div class="product-modal-left col-lg-5">
+    <div class="product-modal-image">
+      <%= image_tag product.image %>
+    </div>
+    <!-- <div id="product-<%= product.id %>" class="vote">
+      <% if product.liked_by.include?(current_user) %>
+        <%= render :partial => "products/downvote", locals: { product: product }%>
+      <% else %>
+      <%= render :partial => "products/upvote", locals: { product: product } %>
+      <% end %>
+    </div> -->
+  </div>
+  <div class="product-info col-lg-7">
+    <h3 class="product-heading"><%= product.title %></h3>
+    <h5 class="shop-heading">from <%= link_to product.shop.name, product.shop %></h5>
+    <div class="goto-shop-container">
+    <%= link_to "$#{product.unit_price} on #{product.shop.name}", product.link, class: 'btn btn-purchase' %>
+    </div>
+    <div class="product-description">
+      <h4 style="">Item Description</h4>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam.</p>
+    </div>
+    <div class="liked-users">
+    <% product.liked_by.limit(10).each do |user| %>
+      <%= image_tag user.avatar, class: 'product-modal-profile-image' %>
+    <% end %>
+    </div>
+  </div>
+</div>
+<!-- <div id="related-products" class="row">
+  <h3>Related products</h3>
+  <div id="list-of-products">
+  </div>
+</div> -->

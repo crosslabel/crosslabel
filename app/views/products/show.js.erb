@@ -1,1 +1,9 @@
-$('.cd-panel-content').html("<%= escape_javascript(render partial: 'show', locals: { product: @product }) %>");
+// $(document).ajaxSend(function(event, request, settings) {
+//   $('#loader').show();
+// });
+//
+// $(document).ajaxComplete(function(event, request, settings) {
+//   $('#loader').hide();
+// });
+
+$('#product-modal .modal-body').html("<%= escape_javascript(render partial: 'show', locals: { product: @product }) %>");
