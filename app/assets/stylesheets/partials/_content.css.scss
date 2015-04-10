@@ -14,6 +14,10 @@
 
 }
 
+.product-container.w2 {
+  padding: 20px;
+}
+
 #hero {
   background: #f9f9f9;
   background-size: cover;
@@ -48,12 +52,13 @@
 
 .product {
   position: relative;
+
   .product-image {
     position: relative;
-    height: 260px;
+    height: 300px;
     img {
       width: 100%;
-      height: 260px;
+      height: 300px;
       object-fit: cover;
     }
     &:hover .card-hover {
@@ -66,7 +71,7 @@
       background: rgba(255,255,255, 0.9);
       position: absolute;
       width: 100%;
-      height: 260px;
+      height: 300px;
       top: 0;
       left: 0;
       opacity: 0;
@@ -102,9 +107,10 @@
 
 .product-details {
   background: #fff;
-  border: 1px solid rgba(230, 230, 230, 0.5);
   border-top: 0;
   padding: 0.5em 1em;
+  border: 1px solid rgba(230, 230, 230, 0.5);
+
 
 
 
