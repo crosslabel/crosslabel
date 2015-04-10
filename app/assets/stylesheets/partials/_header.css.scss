@@ -47,6 +47,17 @@ header.header {
   }
 }
 
+.dropdown-menu {
+  border: 0;
+  box-shadow: none;
+  li {
+    a {
+      &:hover {
+        color: #777;
+      }
+    }
+  }
+}
 .header-profile-image {
   width: 30px;
   height: 30px;
