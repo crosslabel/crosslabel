@@ -6,7 +6,7 @@
 
 // 1. Defaults
 .content-s1 {
-  background: #fff;
+  background: #f9f9f9;
   padding: 4em 0;
 }
 
@@ -41,78 +41,78 @@
 
 // 2. Products
 .product-container {
-  background: #fff;
-  max-height: 380px;
+  padding: 5px;
   margin-bottom: 3em;
 }
 
 
 .product {
   position: relative;
-  height: 300px;
+  .product-image {
+    position: relative;
+    height: 260px;
+    img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+    &:hover .card-hover {
+      opacity: 1;
+    }
+    &:hover .product-overlay {
+      opacity: 1;
+    }
+    .product-overlay {
+      background: rgba(255,255,255, 0.9);
+      position: absolute;
+      width: 100%;
+      height: 260px;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      @include transition(opacity, 0.5s, ease);
 
-  .product-overlay {
-    background: rgba(255,255,255,0.5);
-    position: absolute;
-    text-align: center;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    width: 100%;
-    height: 300px;
-    -webkit-transition: opacity .25s ease;
-    -moz-transition: opacity .25s ease;
-    transition: opacity .25s ease;
-  }
+    }
+    .card-hover {
+      position: absolute;
+      width: 100%;
+      color: #6f6f6f;
+      opacity: 0;
+      bottom: 40%;
+      text-align: center;
+      @include transition(opacity, 1s, ease);
+      .product-heading {
+        font-weight: $regular;
+        font-size: 1em;
+        margin: 0;
+      }
+      .retailer {
+        font-weight: $regular;
+        a {
+          text-decoration: underline;
+        }
+      }
 
-  .price {
-    position: absolute;
-    background: #ccc;
-    color: #444;
-    font-weight: 300;
-    padding: 1em;
-    right: 0;
-    top: 0;
-  }
+    }
 
-
-  img{
-    background: #fff;
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-  }
-  &:hover .add-to-box {
-    opacity: 1;
-  }
-
-
-  &:hover .product-overlay {
-    opacity: 1;
   }
 
 
 }
 
 .product-details {
-  // min-height: 105px;
-  .product-heading {
-    color: #6f6f6f;
-  }
-  .product-upvote-count {
+  background: #fff;
+  border: 1px solid rgba(230, 230, 230, 0.5);
+  border-top: 0;
 
-    color: #666;
-    float: right;
-    font-size: 0.9em;
-    font-weight: 200;
-  }
+
 
   .social {
     font-size: 0.9em;
-    vertical-align: bottom;
+    padding: 0.5em 1em;
     img {
-      width: 25px;
-      height: 25px;
+      width: 30px;
+      height: 30px;
       @include border-radius(50%);
       transition: 0.1s linear;
       &:first-child {

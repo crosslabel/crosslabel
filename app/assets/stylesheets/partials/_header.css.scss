@@ -13,6 +13,8 @@ ul.nav.navbar-nav.navbar-right {
 }
 header.header {
   background: #fff;
+  padding: 3px 0;
+  letter-spacing: 1px;
   border-bottom: 1px solid rgba(230, 230, 230, 0.7);
   .container {
     padding: 0;
@@ -25,6 +27,10 @@ header.header {
     &:hover {
       color: #888;
     }
+  }
+  a.dropdown-toggle {
+    padding-top: 10px;
+    padding-bottom: 0;
   }
 
   ul {

@@ -1,31 +1,31 @@
-  <div class="product-container col-sm-6 col-md-4 col-lg-20">
+  <div class="product-container col-sm-6 col-md-3 animated fadeIn">
       <div class="product">
-        <%= link_to "", product_path(product), {:class => 'product-overlay cd-btn', :remote => true} %>
-
-        <%= image_tag product.image, class: 'product-image' %>
-      </div>
-      <div class="product-details">
-        <div class="product-upvote-count" id="upvote-count-<%= product.id %>"><%= product.liked_by_count %> likes</div>
-        <h5 class="product-heading"><%= product.title %><small>in <%= link_to product.categories.first.try(:title), category_path(product.categories.first.title) %></small></h5>
-        <h6 class="retailer-heading">from <%= link_to "Aland", shop_path(product.shop_id) %></h6>
-        <!-- <span class="price">$<%= product.unit_price %></span>s -->
-        <div class="social">
-          <span id="product-<%= product.id %>" class="vote">
-            <% if product.liked_by.include?(current_user) %>
-              <%= render :partial => "products/downvote", locals: { product: product }%>
-            <% else %>
-            <%= render :partial => "products/upvote", locals: { product: product } %>
+        <div class="product-image">
+          <%= image_tag product.image %>
+          <%= link_to "", product_path(product), {:class => 'product-overlay cd-btn'} %>
+          <div class="card-hover">
+            <h5 class="product-heading"><%= link_to product.title, product_path(product) %></h5>
+            <span class="retailer">from <%= link_to product.shop.name, shop_path(product.shop) %></span>
+          </div>
+        </div>
+        <div class="product-details">
+          <div class="social">
+            <%= product.liked_by_count %>
+            <span id="product-<%= product.id %>" class="vote">
+              <% if product.liked_by.include?(current_user) %>
+                <%= render :partial => "products/downvote", locals: { product: product }%>
+              <% else %>
+              <%= render :partial => "products/upvote", locals: { product: product } %>
+              <% end %>
+            </span>
+            <span class="upvotes" id="upvotes-<%=product.id %>">
+            <% product.liked_by.limit(5).each do |user| %>
+              <%= link_to user_path(user.try(:username)) do %>
+                <%= image_tag user.try(:avatar).url(:thumb) %>
+              <% end %>
             <% end %>
-          </span>
-          <span id="fav-text">Favourite</span>
-          <span class="upvotes" id="upvotes-<%=product.id %>">
-          <% product.liked_by.each do |user| %>
-            <%= link_to user_path(user.try(:username)) do %>
-              <%= image_tag user.try(:avatar).url(:thumb) %>
-            <% end %>
-          <% end %>
-
-          </span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
