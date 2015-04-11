@@ -13,8 +13,12 @@
 //= require jquery
 //= require bootstrap
 //= require jquery_ujs
-//= require_tree .
 //= require jquery.infinitescroll
+//= require masonry/jquery.masonry
+//= require jquery.turbolinks
+//= require_tree .
+
+
 
 if (window.location.hash && window.location.hash == '#_=_') {
     window.location.hash = '';

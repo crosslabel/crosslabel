@@ -9,7 +9,12 @@ div#bs-example-navbar-collapse-1.collapse.navbar-collapse {
 }
 
 ul.nav.navbar-nav.navbar-right {
-  height: 40px;
+  li#nav-username {
+    padding-right: 13px;
+  }
+  li {
+    padding-top: 13px;
+  }
 }
 header.header {
   background: #fff;
@@ -28,8 +33,7 @@ header.header {
     }
   }
   a.dropdown-toggle {
-    padding-top: 10px;
-    padding-bottom: 0;
+    padding: 0;
   }
 
   ul {
