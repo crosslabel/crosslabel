@@ -27,7 +27,7 @@
         </div>
         <div class="product-details">
           <h5 class="product-heading"><%= truncate(product.title, length: 25) %></h5>
-          <span class="retailer">from <%= product.shop.name %></span>
+          <span class="retailer">from <%= link_to product.shop.name, shop_path(product.shop) %></span>
         </div>
       </div>
     </div>
