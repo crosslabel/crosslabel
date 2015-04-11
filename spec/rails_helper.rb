@@ -3,6 +3,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
+require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true)
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -35,6 +37,11 @@ RSpec.configure do |config|
   config.include Request::JsonHelpers, :type => :controller
   config.include Devise::TestHelpers, :type => :controller
 
+  config.before(:each, type: :feature) do
+    stub_request(:get, /api.github.com/).
+      with(headers: {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
+      to_return(status: 200, body: "stubbed response", headers: {})
+  end
 
   config.before(:each, type: :controller) do
     include_default_accept_headers

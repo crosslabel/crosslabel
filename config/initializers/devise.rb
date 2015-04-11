@@ -12,7 +12,7 @@ Devise.setup do |config|
   # with default "from" parameter.
 
   config.scoped_views = true
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'Kareem at Brandly <kareem@brandly.com>'
 
   config.omniauth :facebook, Rails.application.secrets.facebook_app_key, Rails.application.secrets.facebook_secret_key,
   :scope => 'email, user_relationships', :display => 'popup', :image_size => 'large', :secure_image_url => true
