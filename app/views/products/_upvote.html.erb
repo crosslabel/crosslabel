@@ -1,6 +1,6 @@
 <% if current_user %>
   <%= link_to product_vote_path(product.id), remote: true, method: :post do %>
-   <i class="fa fa-smile-o not-voted fa-2x"></i>
+   <i class="fa fa-smile-o not-voted fa-2x"><span style="font-size:14px;padding-left: 5px;vertical-align:middle;">Like</span></i>
   <% end %>
 <% else %>
   <%= link_to "#", {:remote => true, 'data-toggle' => 'modal', 'data-target' => '#signup-modal'} do %>

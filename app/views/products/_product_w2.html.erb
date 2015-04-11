@@ -1,15 +1,11 @@
-<div class="product-container w2 col-sm-6 col-md-4 animated fadeIn">
+<div class="product-container col-sm-6 col-md-4 animated fadeIn">
     <div class="product">
-      <div class="product-image">
-        <%= image_tag product.image %>
+      <div class="product-image-container">
+        <%= image_tag product.image, class: 'product-image' %>
         <%= link_to product_path(product), {:class => 'product-overlay', 'data-toggle': 'modal', 'data-target': '#product-modal', :remote => true} do %>
         <div class="card-hover">
-          <h5 class="product-heading"><%= product.title %></h5>
-          <span class="retailer">from <%= product.shop.name %></span>
+          <h5 class="product-heading">FROM KOREA</h5>
         </div>
-        <% end %>
-      </div>
-      <div class="product-details">
         <div class="social">
           <span id="product-<%= product.id %>" class="vote">
             <% if product.liked_by.include?(current_user) %>
@@ -18,16 +14,20 @@
             <%= render :partial => "products/upvote", locals: { product: product } %>
             <% end %>
           </span>
-          <div class="liked-users" id="liked-users-<%=product.id %>">
-          <span class="liked-by-count"><%= product.liked_by_count %></span>
-
-          <% product.liked_by.limit(5).each do |user| %>
-            <%= link_to user_path(user.try(:username)) do %>
-              <%= image_tag user.try(:avatar).url(:thumb) %>
-            <% end %>
-          <% end %>
-          </div>
         </div>
+        <div class="liked-users" id="liked-users-<%=product.id %>">
+
+        <% product.liked_by.limit(5).each do |user| %>
+          <%= link_to user_path(user.try(:username)) do %>
+            <%= image_tag user.try(:avatar).url(:thumb), class: 'liked-user-image' %>
+          <% end %>
+        <% end %>
+        </div>
+        <% end %>
+      </div>
+      <div class="product-details">
+        <h5 class="product-heading"><%= truncate(product.title, length: 25) %></h5>
+        <span class="retailer">from <%= product.shop.name %></span>
       </div>
     </div>
   </div>
