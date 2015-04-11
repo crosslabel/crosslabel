@@ -10,6 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.persisted?
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
+        resources.send_welcome_email
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
       else

@@ -29,6 +29,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.7)
     arel (5.0.1.20140414130214)
     aws-sdk (1.63.0)
       aws-sdk-v1 (= 1.63.0)
@@ -67,6 +68,8 @@ GEM
       execjs
     coffee-script-source (1.9.1)
     colorize (0.7.5)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     daemons (1.2.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -88,6 +91,7 @@ GEM
       multi_json
     erubis (2.7.0)
     eventmachine (1.0.7)
+    excon (0.45.1)
     execjs (2.4.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -122,8 +126,14 @@ GEM
     magnific-popup-rails (0.9.9.1)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+<<<<<<< HEAD
     masonry-rails (0.2.4)
       railties
+=======
+    mandrill-api (1.0.53)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
+>>>>>>> emails
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
@@ -281,6 +291,9 @@ GEM
     uuidtools (2.1.5)
     warden (1.2.3)
       rack (>= 1.0)
+    webmock (1.20.4)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -296,13 +309,18 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
   devise
+  excon
   factory_girl_rails (~> 4.0)
   ffaker
   jquery-rails
   jquery-turbolinks
   kaminari
+<<<<<<< HEAD
   magnific-popup-rails (~> 0.9.9.1)
   masonry-rails
+=======
+  mandrill-api (~> 1.0.53)
+>>>>>>> emails
   newrelic_rpm
   omniauth
   omniauth-facebook
@@ -323,3 +341,4 @@ DEPENDENCIES
   thin
   uglifier (>= 1.3.0)
   uuidtools
+  webmock
