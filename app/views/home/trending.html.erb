@@ -1,4 +1,15 @@
 <section id="trending" class="content-s1">
+  <div id="explore-nav">
+    <div class="container">
+      <nav>
+      <ul>
+        <li><%= link_to "New", "#" %></li>
+        <li><%= link_to "Trending", trending_path %></li>
+        <li><%= link_to "Following", "#" %></li>
+
+      </ul>
+    </div>
+  </div>
   <div class="container">
   <% @products.each do |product| %>
   <%= render partial: 'products/product_w2', locals: {product: product} %>

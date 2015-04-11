@@ -7,7 +7,7 @@
 // 1. Defaults
 .content-s1 {
   background: #f9f9f9;
-  padding: 4em 0;
+  padding: 2.5em 0;
 }
 
 .content-s2 {
@@ -202,6 +202,24 @@
 }
 
 
+#explore-nav {
+  padding-bottom: 1.5em;
+  ul {
+    padding: 0;
+    li {
+      display: inline;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      padding-left: 15px;
+      &:first-child {
+        padding-left: 0;
+      }
+      a {
+        color: #888;
+      }
+    }
+  }
+}
 // Profile Page
 
 
