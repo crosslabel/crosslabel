@@ -2,6 +2,6 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "bootstrap": "latest",
-    "packery": "latest"
+    "Hover": "latest"
   }
 }
