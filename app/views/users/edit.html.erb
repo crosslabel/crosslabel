@@ -1,32 +1,41 @@
-<div class="container">
-  <h3>Account Settings</h3>
-
+<div id="user-settings-page" class="container">
+<h3>Account Settings</h3>
+<div id="upload-avatar-form-wrapper">
 <h4>Update your profile photo</h4>
+
 <%= form_tag({:action => :upload_avatar}, multipart: true) do %>
     <div class="input-group">
       <%= file_field_tag :avatar, class: 'form-control' %>
-      <%= submit_tag "Upload photo", class: 'btn btn-purchase'%>
     </div>
+  <%= submit_tag "Upload photo", class: 'btn-settings'%>
   <% end %>
-  <% if current_user.authentications.find_by(provider: "facebook") %>
   <p>or</p>
-  <%= link_to "Set to default facebook photo", set_default_facebook_photo_path, method: :post %>
+  <% if current_user.authentications.find_by(provider: "facebook") %>
+  <%= link_to "Set to default facebook photo", set_default_facebook_photo_path, class: 'btn-fb-photo', method: :post %>
   <% end %>
-  <h4>Your personal information</h4>
-  <%= form_for @user do |f| %>
+</div>
+<div id="user-settings-form-wrapper">
+<h4>Your personal information</h4>
+
+<%= form_for @user, url: user_path(@user.username) do |f| %>
 <div class="input-group">
+<%= f.label :email %>
 <%= f.email_field :email, class: 'form-control' %>
 </div>
 <div class="input-group">
+  <%= f.label :username %>
 <%= f.text_field :username, class: 'form-control' %>
 </div>
 <div class="input-group">
+  <%= f.label :password %>
 <%= f.password_field :password, class: 'form-control' %>
 </div>
 <div class="input-group">
+  <%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation, class: 'form-control' %>
 </div>
-<%= f.submit "Update my account", class: 'btn btn-purchase' %>
+<%= f.submit "Update my account", class: 'btn-settings' %>
 
 <% end %>
+</div>
 </div>

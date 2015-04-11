@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(username: params[:username])
-    if @user.update(user_params)
-      redirect_to @user
+    if @user.update_without_password(user_params)
+      redirect_to user_path(@user.username)
       flash[:success] = "Your account has been updated."
     else
       flash[:danger] = "Something went wrong."

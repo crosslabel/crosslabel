@@ -35,11 +35,18 @@
   }
 }
 
-#signup-page, #login-page {
+#signup-page, #login-page, #reset-page {
   background: #f5f5f6;
   background-size: cover;
   width: 100%;
-  padding-top: 2em;
+  padding: 2em;
+}
+
+#features {
+  padding-left: 4em;
+  #features-heading {
+    margin-top: 10px;
+  }
 }
 
 

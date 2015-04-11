@@ -16,10 +16,12 @@
         <span>or</span>
     </div>
     <div class="input-group">
-      <%= f.email_field :email, placeholder: 'Your email', autofocus: true, class: 'form-control' %>
+      <%= f.label :email %>
+      <%= f.email_field :email, placeholder: 'Your email', class: 'form-control' %>
     </div>
 
     <div class="input-group">
+      <%= f.label :password %>
       <%= f.password_field :password, placeholder: 'Your password', autocomplete: "off", class: 'form-control' %>
     </div>
 

@@ -14,6 +14,7 @@
 .btn-facebook-login {
   @extend .btn;
   background: #3b5998;
+  margin: 0 auto;
   padding: 0.8em 2em;
   &:hover {
     background: #0b2969;
@@ -36,10 +37,10 @@
   }
 }
 
-.btn-signup, .btn-login {
+.btn-signup, .btn-login, .btn-reset {
   @extend .btn;
   background: #444;
-  height: 35px;
+  padding: 12px 0;
   &:hover {
     color: #fff;
     background: #444;
@@ -58,6 +59,29 @@
   }
 }
 
+.btn-settings {
+  @extend .btn;
+  background: #00b27f;
+  width: 220px;
+  padding: 0.7em 0;
+  font-size: 1.2em;
+  text-align: center;
+  &:hover {
+    background: #00a072;
+  }
+}
+
+.btn-fb-photo {
+  @extend .btn;
+  display: inline;
+  background: #00b27f;
+  padding: 0.7em;
+  font-size: 1.2em;
+  text-align: center;
+  &:hover {
+    background: #00a072;
+  }
+}
 .fa-facebook {
   @extend .btn;
   margin-right: 1em;
