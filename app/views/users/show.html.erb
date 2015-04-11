@@ -1,18 +1,20 @@
 <section class="profile-page">
-  <div class="user-header">
-    <div class="container">
-    <%= image_tag @user.try(:avatar).url(:medium), class: 'profile-image' %>
-      <div class="user-details">
-        <h4><%= @user.try(:username) %></h4>
+  <div class="cover-photo" class="row">
+  </div>
+    <div id="user-header" class="row">
+      <div class="container">
+        <%= image_tag @user.try(:avatar).url(:medium), class: 'profile-image' %>
+          <div id="user-details">
+            <h4><%= @user.try(:username) %></h4>
+          </div>
       </div>
     </div>
-  </div>
-  <div class="favourites">
-    <div class="container">
-    <h3>Recently Liked</h3>
+    <div id="user-favourites">
+      <div class="container">
+      <h4>Recently Liked</h4>
     <% @user.likes.each do |item| %>
       <%= render partial: 'products/product_w2', locals: {product: item } %>
     <% end %>
+      </div>
     </div>
-  </div>
 </section>

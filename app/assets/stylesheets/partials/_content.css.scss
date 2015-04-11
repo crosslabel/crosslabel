@@ -188,47 +188,25 @@
 
 
 .profile-image {
-  width: 150px;
+  width: 100px;
   @include border-radius(50%);
   border: 3px solid #fff;
 }
-
-ul.profile-links {
-  position: relative;
-  padding: 0;
-  padding-top: 3em;
-  li {
-    display: inline;
-    margin-right: 1em;
-    padding-bottom: 5px;
-  }
-  li.active {
-    border-bottom: 5px solid #666;
-  }
-}
-
 
 .profile-page {
   background: #f6f5f6;
   width: 100%;
 }
-.user-header {
-  min-height: 200px;
-  padding: 3em 0 0 0;
-  .container {
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-  }
+#user-header {
+  text-align: center;
+  padding: 2em 1em 2em 1em;
 }
 
 .favourites {
   background: #fff;
 }
 
-.user-details {
-  display: inline-block;
-  width: 80%;
+#user-details {
 }
 
 .user-profile {
