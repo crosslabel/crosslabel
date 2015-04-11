@@ -12,6 +12,7 @@ body, html {
   margin: 0;
   padding: 0;
   line-height: $base-line-height;
+  overflow-x: hidden;
 }
 
 .container {
