@@ -19,10 +19,32 @@ ul.nav.navbar-nav.navbar-right {
     padding-top: 0;
   }
 }
+header.home-header {
+  padding-top: 1em;
+  .navbar-brand {
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+
+  }
+  ul {
+    li {
+      a {
+        color: #fff;
+        text-shadow: none;
+        &:hover {
+          background: none;
+        }
+      }
+    }
+  }
+}
+
 header.header {
-  background: #fff;
-  padding: 3px 0;
-  border-bottom: 1px solid rgba(230, 230, 230, 0.7);
+  background: none;
+  padding: 3px 1em;
   .container {
     padding: 0;
   }
@@ -32,7 +54,7 @@ header.header {
     padding-left: 0;
     padding-right: 0;
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     &:hover {
       color: #888;
     }

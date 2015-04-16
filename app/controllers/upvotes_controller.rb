@@ -3,25 +3,20 @@ class UpvotesController < ApplicationController
   def create
     @votable = find_upvotable
     current_user.like(@votable)
-    # @vote = @votable.upvotes.build(user_id: current_user.id)
-    #   if @vote.save
-    #     respond_to do |format|
-    #     format.js
-    #     format.html { redirect_to root_path }
-    #     end
-    #  end
+    respond_to do |format|
+     format.js
+     format.html { redirect_to root_path }
+    end
   end
 
   def destroy
     @votable = find_upvotable
     current_user.unlike(@votable)
-    
-    # respond_to do |format|
-    #   if @vote.destroy
-    #     format.js
-    #     format.html { redirect_to root_path }
-    #   end
-    # end
+
+    respond_to do |format|
+      format.js
+      format.html { redirect_to root_path }
+    end
   end
 
   private

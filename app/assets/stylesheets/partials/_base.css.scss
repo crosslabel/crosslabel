@@ -1,7 +1,6 @@
 @import"modules/all";
 body, html {
   position: relative;
-  background: #f5f6f5;
   color: $base-font-color;
   font-family: $base-font-family;
   font-size: $base-font-size;
@@ -13,10 +12,11 @@ body, html {
   padding: 0;
   line-height: $base-line-height;
   overflow-x: hidden;
+
 }
 
 .container {
-  width: 80%;
+  width: 90%;
   padding: 0;
 }
 

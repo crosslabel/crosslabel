@@ -2,9 +2,9 @@
     <div class="product">
       <div class="product-image-container">
         <%= image_tag product.image, class: 'product-image' %>
-        <%= link_to product_path(product), {:class => 'product-overlay', 'data-toggle': 'modal', 'data-target': '#product-modal', :remote => true} do %>
+        <!-- 'data-toggle': 'modal', 'data-target': '#product-modal', :remote => true -->
+        <%= link_to product_path(product), :class => 'product-overlay' do %>
         <div class="card-hover">
-          <h5 class="product-heading">FROM KOREA</h5>
         </div>
         <div class="social">
           <span id="product-<%= product.id %>" class="vote">
@@ -27,7 +27,7 @@
       </div>
       <div class="product-details">
         <h5 class="product-heading"><%= truncate(product.title, length: 25) %></h5>
-        <span class="retailer">from <%= product.shop.name %></span>
+        <span class="retailer">from <%= link_to product.shop.name, shop_path(product.shop) %></span>
       </div>
     </div>
   </div>
