@@ -13,7 +13,6 @@
 *= require bootstrap.min
 *= require bootstrap-theme.min
  *= require animate
- *= require hover
  *= require 'masonry/transitions'
  *= require_tree .
  *= require_self
