@@ -163,9 +163,21 @@
 .trending {
   padding: 0 1em;
   .shops, .cities {
+    padding: 0;
+  }
+  ul {
+    padding: 0;
+    li {
+      color: #999;
+      list-style: none;
+      margin: 0;
+    }
   }
 }
 
+.home {
+  padding: 1em 0;
+}
 .recommended-items {
   h4 {
     padding: 0 1em;
@@ -309,9 +321,7 @@
 .tiny-list {
   padding: 1em 1em;
 }
-.tiny-items {
-  padding: 0 1em;
-}
+
 .tiny-container.col-md-1 {
   width: 100px;
   display: inline-block;
