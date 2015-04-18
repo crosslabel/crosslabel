@@ -62,7 +62,7 @@ end
 
 group :production do
   gem 'rails_12factor'#heroku
-  gem 'newrelic_rpm'
+  gem 'newrelic_rpm'_
 end
 
 gem 'masonry-rails'

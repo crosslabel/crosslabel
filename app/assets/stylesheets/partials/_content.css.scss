@@ -296,6 +296,7 @@
 
 .profile-image {
   width: 100px;
+  height: 100px;
   @include border-radius(50%);
   border: 3px solid #fff;
 }
@@ -399,6 +400,7 @@ ul.product-meta {
 
 .product-modal-profile-image {
 	width: 30px;
+  height: 30px;
 	@include border-radius(50%);
 
 }
