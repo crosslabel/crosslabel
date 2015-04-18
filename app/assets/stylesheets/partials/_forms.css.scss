@@ -63,11 +63,20 @@
 
 }
 
+.user-settings-form-wrapper, .upload-avatar-form-wrapper {
+  width: 40%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+
 @media (max-width: 768px) {
   .container {
     width: 100%;
   }
   .form-wrapper-page {
+    width: 100%;
+  }
+  .user-settings-form-wrapper, .upload-avatar-form-wrapper {
     width: 100%;
   }
 }

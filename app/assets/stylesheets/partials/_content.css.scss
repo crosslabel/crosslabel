@@ -60,14 +60,43 @@
 
 .section-intro {
   text-align: center;
+  margin-bottom: 2em;
   .secondary-heading {
     color: #888;
   }
 }
 
 #home-trending-cities {
-  padding: 2em 0;
-  text-align: center;
+  position: relative;
+  padding: 1em 0;
+
+  .cities-item {
+    margin-bottom: 1em;
+  }
+  .city-overlay {
+    background: rgba(0,0,0, 0.3);
+    position: relative;
+    width: 100%;
+    height: inherit;
+    top: 0;
+    @include border-radius(15px);
+  }
+  .city {
+    width: 100%;
+    background: #f9f9f9;
+    height: 240px;
+    @include border-radius(15px);
+    .city-heading {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      top: 45%;
+      font-size: 1.6em;
+      font-weight: $bold;
+      z-index: 100;
+    }
+  }
 }
 
 #home-trending-products {
@@ -296,10 +325,14 @@
 
 .product-detail-page {
   padding-top: 2em;
+  .product {
+    margin: 0 auto;
+  }
 }
 
 .product-modal-image {
   padding: 0;
+  text-align: right;
 }
 
 ul.product-meta {
@@ -368,4 +401,8 @@ ul.product-meta {
 	width: 30px;
 	@include border-radius(50%);
 
+}
+
+// User settings page
+.user-settings-page {
 }

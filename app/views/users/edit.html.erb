@@ -1,8 +1,10 @@
-<div id="user-settings-page" class="container">
+<div class="user-settings-page">
+  <div class="container">
+<div class="upload-avatar-form-wrapper">
 <h3>Account Settings</h3>
-<div id="upload-avatar-form-wrapper">
-<h4>Update your profile photo</h4>
 
+<h4>Update your profile photo</h4>
+<%= image_tag current_user.avatar.url, class: 'profile-image' %>
 <%= form_tag({:action => :upload_avatar}, multipart: true) do %>
     <div class="input-group">
       <%= file_field_tag :avatar, class: 'form-control' %>
@@ -14,7 +16,9 @@
   <%= link_to "Set to default facebook photo", set_default_facebook_photo_path, class: 'btn-fb-photo', method: :post %>
   <% end %>
 </div>
-<div id="user-settings-form-wrapper">
+</div>
+<div class="user-settings-form-wrapper">
+  <div class="container">
 <h4>Your personal information</h4>
 
 <%= form_for @user, url: user_path(@user.username) do |f| %>
@@ -37,5 +41,6 @@
 <%= f.submit "Update my account", class: 'btn-settings' %>
 
 <% end %>
+</div>
 </div>
 </div>

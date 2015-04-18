@@ -1,20 +1,35 @@
 <% if current_user %>
-<% content_for :title do %> Explore <% end %>
+<% content_for :title do %> Home <% end %>
 <!-- Modal -->
-<%= render partial: 'nav' %>
 
 <section id="product-home" class="content-s1">
-  <div class="container">
-  <h3>Recommended</h3>
-  <div class="trending">
-    <h3>Trending</h3>
-      <% Product.all.limit(4).each do |product| %>
-      <div class="product-container col-sm-6 col-md-3 animated fadeIn">
-        <%= render partial: 'products/product', locals: {product: product} %>
+    <div class="recommended">
+      <div class="container">
+        <h3>Recommended</h3>
+        <div class="row">
+        <% Product.all.limit(4).each do |product| %>
+        <div class="product-container col-sm-6 col-md-3 animated fadeIn">
+          <%= render partial: 'products/product', locals: {product: product} %>
+        </div>
+        <% end %>
+        </div>
+        <a class="btn" style="width:240px;">See more</a>
+
       </div>
-      <% end %>
     </div>
-  </div>
+    <div class="trending">
+      <div class="container">
+      <h3>Trending</h3>
+      <div class="row">
+        <% Product.all.limit(4).each do |product| %>
+        <div class="product-container col-sm-6 col-md-3 animated fadeIn">
+          <%= render partial: 'products/product', locals: {product: product} %>
+        </div>
+        <% end %>
+      </div>
+      <a class="btn" style="width:240px;">See more</a>
+      </div>
+    </div>
 </section>
 
 <% else %>
@@ -61,16 +76,56 @@
   </div>
 </section>
 <section id="home-trending-cities">
-  <div class="container">
     <div class="section-intro">
-      <h3>Trending cities</h3>
-      <h5 class="secondary-heading">What people are buying from which cities.</h5>
+      <h3 class="primary-heading">Trending cities</h3>
+      <h5 class="secondary-heading">Which cities are currently most popular.</h5>
     </div>
-  </div>
+    <div class="cities">
+      <div class="container">
+      <div class="row">
+        <div class="cities-item col-sm-6 col-md-3 animated fadeIn">
+          <div class="city" style="background:url('https://d13yacurqjgara.cloudfront.net/users/120724/screenshots/1444317/wall_street_thumb_1x.png');background-size:cover;">
+            <span class="city-heading">New York</span>
+            <div class="city-overlay"></div>
+          </div>
+        </div>
+        <div class="cities-item col-sm-6 col-md-3 animated fadeIn">
+          <div class="city" style="background:url('https://d13yacurqjgara.cloudfront.net/users/24177/screenshots/1019646/osaka_1x.png');background-size:cover;">
+            <span class="city-heading">Tokyo</span>
+            <div class="city-overlay"></div>
+          </div>
+        </div>
+        <div class="cities-item col-sm-6 col-md-3 animated fadeIn">
+          <div class="city" style="background:url('https://d13yacurqjgara.cloudfront.net/users/396000/screenshots/1546266/bigben_dribbble-01_1x.png');background-size:cover;">
+            <span class="city-heading">London</span>
+            <div class="city-overlay"></div>
+          </div>
+        </div>
+        <div class="cities-item col-sm-6 col-md-3 animated fadeIn">
+          <div class="city" style="background:url('https://d13yacurqjgara.cloudfront.net/users/36598/screenshots/1577412/sans_titre_-_2-01.jpg');background-size:cover;">
+            <span class="city-heading">Montreal</span>
+            <div class="city-overlay"></div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
 </section>
 <section id="home-trending-products">
   <div class="section-intro">
     <h3>Loved products</h3>
+    <h5 class="secondary-heading">Some items currently trending around the world.</h5>
+  </div>
+  <div class="trending">
+    <div class="container">
+    <div class="row">
+      <% Product.all.limit(5).each do |product| %>
+      <div class="product-container col-sm-6 col-md-20 animated fadeIn">
+        <%= render partial: 'products/product', locals: {product: product} %>
+      </div>
+      <% end %>
+    </div>
+    </div>
   </div>
 </section>
 <% end %>
