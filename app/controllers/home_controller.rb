@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   def index
-    render :layout => "home_index"
+    @products = Product.includes(:categories).order(created_at: :desc).page(params[:page]).per(16)
+
+    unless current_user
+      render :layout => "home_index"
+    end
   end
 
   def explore

@@ -1,10 +1,12 @@
 @import "base";
 .btn {
   display: block;
-  width: 100%;
   color: #fff;
   border-radius: 3px;
+  font-weight: $medium;
   border: 0;
+  letter-spacing: 2px;
+  @include border-radius(3px);
   @include transition(opacity, 1s, ease);
   &:hover {
     color: #fff;
@@ -13,9 +15,10 @@
 
 .btn-facebook-login {
   @extend .btn;
+  width: 265px;
   background: #3b5998;
-  margin: 0 auto;
-  padding: 0.8em 2em;
+  padding: 0.8em 2.5em;
+  text-align: center;
   &:hover {
     background: #0b2969;
   }
@@ -39,23 +42,27 @@
 
 .btn-signup, .btn-login, .btn-reset {
   @extend .btn;
-  background: #444;
-  padding: 12px 0;
+  width: 150px;
+  color: #fff;
+  background: #16A085;
+  padding: 0.8em 1.5em;
   &:hover {
     color: #fff;
-    background: #444;
+    background: #019875;
   }
 }
 
 .btn-purchase {
   @extend .btn;
-  background: #00b27f;
+  color: #444;
+  background: #effa8d;
   width: 220px;
-  padding: 0.7em 0;
-  font-size: 1.2em;
+  padding: 0.3em;
+  font-size: 1.1em;
   text-align: center;
   &:hover {
-    background: #00a072;
+    color: #333;
+    background: #f9f075;
   }
 }
 

@@ -3,6 +3,8 @@ class UpvotesController < ApplicationController
   def create
     @votable = find_upvotable
     current_user.like(@votable)
+    Analytics.track(user_id: "#{current_user.id}", anonymous_id: 'anonymous_user', event: 'Liked Product', properties: { id: "#{@votable.id}", name: "#{@votable.title}", price: "#{@votable.unit_price}", category: "#{@votable.categories.first.title}", retailer: "#{@votable.shop.name}"})
+
     respond_to do |format|
      format.js
      format.html { redirect_to root_path }

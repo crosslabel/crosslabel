@@ -48,8 +48,9 @@ gem 'aws-sdk', '< 2.0'
 
 gem "redis", "~> 3.0.1"
 gem 'mandrill-api', '~> 1.0.53', require: "mandrill" # transactional emails
+gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 
-group :development, :test do
+group :test do
   gem 'rspec-rails', '~> 3.0'
   gem "factory_girl_rails", "~> 4.0" # fixtures
   gem 'capybara'

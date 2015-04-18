@@ -3,6 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     user = User.from_omniauth(env['omniauth.auth'], current_user)
     if user.persisted?
       sign_in user
+      Analytics.track(user_id: "#{current_user.try(:id)}", anonymous_id: "anonymous_user", event: "Logged In", properties: {})
       flash[:notice] = t('devise.omniauth_callbacks.success', :kind => User::SOCIALS[params[:action].to_sym])
       if user.sign_in_count == 1
         redirect_to after_sign_in_path_for(user)
@@ -13,7 +14,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session['devise.user_attributes'] = user.attributes
       redirect_to new_user_registration_url
     end
-
   end
 
   User::SOCIALS.each do |k, _|

@@ -20,6 +20,7 @@ ul.nav.navbar-nav.navbar-right {
   }
 }
 header.home-header {
+  background: none;
   padding-top: 1em;
   .navbar-brand {
     color: #fff;
@@ -43,7 +44,6 @@ header.home-header {
 }
 
 header.header {
-  background: none;
   padding: 3px 1em;
   .container {
     padding: 0;

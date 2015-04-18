@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :logged_in_user, :only => [:create, :vote]
+  before_action :logged_in_user, :only => [:create]
   def index
     if params[:query].present?
       @products = Product.search(params[:query], page: params[:page])
@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    Analytics.track(user_id: "#{current_user.try(:id)}", anonymous_id: "anonymous_user", event: 'Viewed Product', properties: { id: "#{@product.id}", name: "#{@product.title}", price: "#{@product.unit_price}", category: "#{@product.categories.first.title}", retailer: "#{@product.shop.name}"})
   end
 
   def create
