@@ -48,16 +48,12 @@
   }
 }
 
-.search {
-  padding-bottom: 4em;
-}
-
 .form-search {
-  margin: 0 auto;
-  width: 65%;
+  width: 500px;
   input.form-control {
+    width: 40%;
     background: #f9f9f9;
-    font-size: 1.6em;
+    font-size: 1em;
     padding: 1em 1em;
   }
 

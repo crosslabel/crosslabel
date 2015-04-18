@@ -26,10 +26,12 @@
 }
 
 .btn-search {
+  @extend .btn;
+  display: inline;  
   background: #00b27f;
   width: 120px;
-  height: 48px;
-  font-size: 22px;
+  font-size: 1em;
+  margin: 0;
 }
 
 .btn-settings {

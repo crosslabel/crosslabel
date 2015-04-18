@@ -1,35 +1,57 @@
 <% if current_user %>
-<% content_for :title do %> Home <% end %>
 <!-- Modal -->
+<% content_for :title do %> Explore <% end %>
+<!-- Modal -->
+<%= render partial: 'nav' %>
 
 <section id="product-home" class="content-s1">
-    <div class="recommended">
-      <div class="container">
-        <h3>Recommended</h3>
-        <div class="row">
-        <% Product.all.limit(4).each do |product| %>
-        <div class="product-container col-sm-6 col-md-3 animated fadeIn">
-          <%= render partial: 'products/product', locals: {product: product} %>
-        </div>
-        <% end %>
-        </div>
-        <a class="btn" style="width:240px;">See more</a>
+  <div class="featured-shops">
+    <div class="container">
+      <h4>Today's featured shop - A-Land</h4>
+    </div>
+  </div>
+  <div class="trending">
+    <div class="container">
+      <h4>Trending</h4>
+      <div class="shops">
+        <h5>Shops</h5>
+      </div>
+      <div class="cities">
+        <h5>Cities</h5>
+      </div>
+    </div>
+  </div>
 
-      </div>
-    </div>
-    <div class="trending">
-      <div class="container">
-      <h3>Trending</h3>
-      <div class="row">
-        <% Product.all.limit(4).each do |product| %>
-        <div class="product-container col-sm-6 col-md-3 animated fadeIn">
-          <%= render partial: 'products/product', locals: {product: product} %>
+  <div class="tiny-list">
+    <div class="container">
+        <h4>Tiny view</h4>
+        <% @tiny.each do |product| %>
+        <div class="tiny-container col-md-1 animated fadeIn">
+          <%= render partial: 'products/tiny', locals: { product: product } %>
         </div>
         <% end %>
-      </div>
-      <a class="btn" style="width:240px;">See more</a>
-      </div>
     </div>
+  </div>
+
+  <div class="product-list">
+    <div class="container">
+      <div class="recommended-items">
+      <h4>Recommended</h4>
+      <% @products.each do |product| %>
+      <div class="product-container col-sm-6 col-md-3 animated fadeIn">
+        <%= render partial: 'products/product', locals: { product: product } %>
+      </div>
+      <% end %>
+    </div>
+    <div id="placeholder">
+    </div>
+
+  </div>
+  <%= link_to "Load more", "#placeholder", :id => 'next' %>
+
+  <div style="display:none">
+  <%= paginate @products %>
+  </div>
 </section>
 
 <% else %>

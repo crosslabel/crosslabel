@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 
   get '/explore' => 'home#explore', as: 'explore'
-
+  get '/recommended' => 'home#recommended', as: 'recommended'
   get '/trending' => 'home#trending', as: 'trending'
 
 

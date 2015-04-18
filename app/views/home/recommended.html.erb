@@ -1,0 +1,34 @@
+<% content_for :title do %> Recommended <% end %>
+<!-- Modal -->
+<%= render partial: 'nav' %>
+
+<section id="product-home" class="content-s1">
+  <!-- <div class="search">
+    <div class="container">
+      <%= form_tag products_path, :class => "form-search", :method => 'get' do %>
+      <div class="input-group">
+        <%= text_field_tag :query, params[:query], class: 'form-control', id: 'product-search', autocomplete: 'off', placeholder: "Search by shop, brand or type of item" %>
+        <div class="input-group-btn">
+            <button type="submit" class="btn btn-search" value="Search"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div> -->
+  <div id="products-list">
+    <div class="container">
+      <% @products.each do |product| %>
+      <div class="product-container col-sm-6 col-md-3 animated fadeIn">
+        <%= render partial: 'products/product', locals: { product: product } %>
+      </div>
+      <% end %>
+    </div>
+    <div id="placeholder">
+    </div>
+  </div>
+  <%= link_to "Load more", "#placeholder", :id => 'next' %>
+
+  <div style="display:none">
+  <%= paginate @products %>
+  </div>
+</section>
