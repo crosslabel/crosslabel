@@ -73,30 +73,30 @@
   .cities-item {
     margin-bottom: 1em;
   }
-  .city-overlay {
-    background: rgba(0,0,0, 0.3);
-    position: relative;
-    width: 100%;
-    height: inherit;
-    top: 0;
-    @include border-radius(15px);
-  }
   .city {
     width: 100%;
     background: #f9f9f9;
     height: 240px;
     @include border-radius(15px);
+  }
+  .city-overlay {
+    background: rgba(0,0,0, 0.3);
+    position: relative;
+    width: 100%;
+    height: inherit;
+    text-align: center;
+    top: 0;
+    @include border-radius(15px);
     .city-heading {
-      position: absolute;
-      width: 100%;
-      text-align: center;
       color: #fff;
-      top: 45%;
       font-size: 1.6em;
+      position: relative;
+      top: 45%;
       font-weight: $bold;
       z-index: 100;
     }
   }
+
 }
 
 #home-trending-products {
