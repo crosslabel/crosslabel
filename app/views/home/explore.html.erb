@@ -17,7 +17,11 @@
   </div> -->
   <div id="products-list">
     <div class="container">
-      <%= render @products %>
+      <% @products.each do |product| %>
+      <div class="product-container col-sm-6 col-md-3 animated fadeIn">
+        <%= render partial: 'products/product', locals: { product: product } %>
+      </div>
+      <% end %>
     </div>
     <div id="placeholder">
     </div>

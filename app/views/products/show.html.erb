@@ -3,10 +3,10 @@
 <div class="product-detail-page">
   <div class="container">
     <div class="row">
-      <div class="product-modal-image col-lg-4 col-lg-offset-1">
+      <div class="product-modal-image col-lg-3">
         <%= image_tag @product.image %>
       </div>
-      <div class="product-info col-lg-6">
+      <div class="product-info col-lg-7 col-lg-offset-1">
         <h3 class="product-heading"><%= @product.title %></h3>
         <h5 class="shop-heading">from <%= link_to @product.shop.name, @product.shop %></h5>
         <div class="product-actions-container">

@@ -1,6 +1,8 @@
 <div class="container">
 <h1><%= @category.title %></h1>
 <% @category.products.each do |product| %>
-<%= render partial: "products/product_w2", locals: { product: product }%>
+  <div class="product-container col-sm-6 col-md-4 animated fadeIn">
+    <%= render partial: "products/product", locals: { product: product }%>
+  </div>
 <% end %>
 </div>

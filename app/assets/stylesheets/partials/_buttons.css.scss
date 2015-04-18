@@ -54,15 +54,15 @@
 
 .btn-purchase {
   @extend .btn;
-  color: #444;
-  background: #effa8d;
+  color: #fff;
+  background: #16A085;
   width: 220px;
-  padding: 0.3em;
+  padding: 0.5em;
   font-size: 1.1em;
   text-align: center;
   &:hover {
-    color: #333;
-    background: #f9f075;
+    color: #fff;
+    background: #019875;
   }
 }
 
