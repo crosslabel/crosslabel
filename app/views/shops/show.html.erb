@@ -3,6 +3,8 @@
 <p><%= @shop.description %></p>
 
 <% @shop.products.each do |product| %>
-  <%= render partial: 'products/product', locals: {product: product} %>
+<div class="col-md-20">
+  <%= render partial: 'products/product_w2', locals: {product: product} %>
+</div>
 <% end %>
 </div>

@@ -11,6 +11,7 @@
   @include transition(opacity, 1s, ease);
   &:hover {
     color: #fff;
+    background: #777;
   }
 }
 
@@ -27,7 +28,7 @@
 
 .btn-search {
   @extend .btn;
-  display: inline;  
+  display: inline;
   background: #00b27f;
   width: 120px;
   font-size: 1em;

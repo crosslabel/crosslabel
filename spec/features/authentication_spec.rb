@@ -10,6 +10,8 @@ feature 'User signing in with email' do
       click_button 'Log me in!'
     end
 
-    expect(page).to_not have_content('Discover')
+    expect(page).to_not have_content('Trending cities')
   end
+
+
 end

@@ -16,6 +16,7 @@
 //= require jquery.infinitescroll
 //= require masonry/jquery.masonry
 //= require jquery.turbolinks
+//= require packery.pkgd.min.js
 //= require_tree .
 
 

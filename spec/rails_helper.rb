@@ -33,8 +33,9 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  config.include Request::HeaderHelpers, :type => :controller
-  config.include Request::JsonHelpers, :type => :controller
+  config.include Omniauth::AuthenticationHelpers, :type => :feature
+  # config.include Request::HeaderHelpers, :type => :controller
+  # config.include Request::JsonHelpers, :type => :controller
   config.include Devise::TestHelpers, :type => :controller
 
   config.before(:each, type: :feature) do
@@ -43,9 +44,9 @@ RSpec.configure do |config|
       to_return(status: 200, body: "stubbed response", headers: {})
   end
 
-  config.before(:each, type: :controller) do
-    include_default_accept_headers
-  end
+  # config.before(:each, type: :controller) do
+  #   include_default_accept_headers
+  # end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

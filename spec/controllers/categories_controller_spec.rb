@@ -1,19 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
+  let(:category) { FactoryGirl.create(:category)}
 
   describe "GET #index" do
-    it "returns http success" do
-      get :index
-      expect(response).to have_http_status(:success)
+    context "visiting index page" do
+      it "returns the index view" do
+        get :index
+        expect(response).to render_template(:index)
+      end
     end
   end
 
   describe "GET #show" do
-    it "returns http success" do
-      get :show
-      expect(response).to have_http_status(:success)
+    context "visiting show page" do
+      it "returns the index view" do
+        get :show, title: category.title
+        expect(response).to render_template(:show)
+      end
     end
   end
-
 end

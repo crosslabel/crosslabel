@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @products = Product.includes(:categories).order(created_at: :desc).page(params[:page]).per(16)
-    @tiny = Product.all.limit(48)
+    @products = Product.includes(:categories).order(created_at: :desc).limit(16)
+    @tiny = Product.all.limit(24)
     unless current_user
       render :layout => "home_index"
     end
