@@ -27,7 +27,7 @@
         </div>
         <div class="row">
         <% @tiny.each do |product| %>
-        <div class="tiny-container col-md-1 animated fadeIn">
+        <div class="tiny-item col-md-1 animated fadeIn">
           <%= render partial: 'products/tiny', locals: { product: product } %>
         </div>
         <% end %>
