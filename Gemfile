@@ -66,6 +66,7 @@ group :production do
 end
 
 gem 'wicked'
+gem 'money-rails'
 gem 'masonry-rails'
 gem 'jquery-turbolinks'
 
