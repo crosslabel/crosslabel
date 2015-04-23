@@ -65,6 +65,7 @@ group :production do
   gem 'newrelic_rpm'
 end
 
+gem 'wicked'
 gem 'masonry-rails'
 gem 'jquery-turbolinks'
 
