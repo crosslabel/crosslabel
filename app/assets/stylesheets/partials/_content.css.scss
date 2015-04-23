@@ -77,7 +77,6 @@
     width: 100%;
     background: #f9f9f9;
     height: 240px;
-    @include border-radius(15px);
   }
   .city-overlay {
     background: rgba(0,0,0, 0.3);
@@ -86,7 +85,6 @@
     height: inherit;
     text-align: center;
     top: 0;
-    @include border-radius(15px);
     .city-heading {
       color: #fff;
       font-size: 1.6em;
@@ -102,13 +100,37 @@
 #home-trending-products {
   padding: 2em 0;
 }
-.signup-page, #login-page, #reset-page {
-  background: #fff;
+
+.login-page, .signup-page, .password-page {
+  background: #f5f6f5 url('https://unsplash.imgix.net/photo-1421809313281-48f03fa45e9f?fit=crop&fm=jpg&h=750&q=75&w=1050');
   background-size: cover;
+  color: #fff;
+  height: 1000px;
+  text-align: center;
+  h3 {
+    color: #fff;
+    font-weight: 700;
+  }
+  p {
+    font-size: 1.1em;
+  }
+  .login-links {
+    margin-top: 1em;
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
 }
 
-
-
+.login-overlay {
+  background: rgba(0,0,0, 0.2);
+  position: absolute;
+  width: 100%;
+  height: inherit;
+  top: 0;
+  left: 0;
+}
 
 // 2. Products
 

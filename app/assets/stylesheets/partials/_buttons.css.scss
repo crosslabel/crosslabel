@@ -3,6 +3,7 @@
   display: block;
   background: #999;
   color: #fff;
+  font-size: 1em;
   border-radius: 3px;
   font-weight: $medium;
   border: 0;
@@ -17,9 +18,9 @@
 
 .btn-facebook-login {
   @extend .btn;
-  width: 80%;
   background: #3b5998;
   padding: 0.8em 2.5em;
+  margin-top: 1.5em;
   text-align: center;
   &:hover {
     background: #0b2969;
@@ -46,7 +47,7 @@
 
 .btn-signup, .btn-login, .btn-reset {
   @extend .btn;
-  width: 150px;
+  width: 100%;
   color: #fff;
   background: #16A085;
   padding: 0.8em 1.5em;

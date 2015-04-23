@@ -12,15 +12,14 @@
   padding-bottom: 1em;
   label {
     font-size: 0.9em;
-    text-transform: uppercase;
     letter-spacing: 1px;
   }
 }
 .form-control {
-  background: #f7f7f7;
+  background: #fff;
   width: 100%;
   color: #929292;
-  font-size: 1.1em;
+  font-size: 1em;
   border: 0;
   padding: 24px 18px;
   letter-spacing: 2.5px;
@@ -35,7 +34,7 @@
 // 2. Signup and Login Forms
 
 .form-wrapper-page {
-  width: 35%;
+  width: 450px;
   margin: 0 auto;
   padding: 1em;
   h2 {

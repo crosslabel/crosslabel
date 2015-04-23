@@ -18,4 +18,16 @@ class HomeController < ApplicationController
   def recommended
     @products = Product.trending.page(params[:page]).per(16)
   end
+
+  def login
+    render :layout => "home_index"
+  end
+
+  def signup
+    render :layout => "home_index"
+  end
+
+  def reset_password
+    render :layout => "home_index"
+  end
 end

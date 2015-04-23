@@ -1,6 +1,6 @@
-  <h2>Log in</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<h3>Explore CrossLabel</h3>
+  <p>Immediately start discovering thousands of products from around the world</p>
     <%= devise_error_messages! %>
 
     <%- if devise_mapping.omniauthable? %>
@@ -16,12 +16,10 @@
         <span>or</span>
     </div>
     <div class="input-group">
-      <%= f.label :email %>
       <%= f.email_field :email, placeholder: 'Your email', class: 'form-control' %>
     </div>
 
     <div class="input-group">
-      <%= f.label :password %>
       <%= f.password_field :password, placeholder: 'Your password', autocomplete: "off", class: 'form-control' %>
     </div>
 
@@ -35,6 +33,9 @@
     <div class="actions">
       <%= f.submit "Log me in!", class: 'btn-login' %>
     </div>
-  <% end %>
 
-  <%= render "users/shared/links" %>
+    <div class="login-links">
+      <p>Don't have an account? <%= link_to "Sign up", signup_path, id: 'signup-link' %><br /></p>
+      <%= link_to "Forgot your password?", reset_password_path %>
+    </div>
+  <% end %>
