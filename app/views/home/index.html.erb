@@ -1,56 +1,5 @@
-<% if current_user %>
 <!-- Modal -->
 <% content_for :title do %> Explore <% end %>
-<!-- Modal -->
-<section class="home">
-  <div class="trending">
-    <div class="container">
-      <div class="row">
-
-      <h4>Trending</h4>
-        <% Product.all.limit(3).each do |product| %>
-          <div class="col-md-4 animated fadeIn">
-            <%= render partial: 'products/product', locals: { product: product } %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="tiny-list">
-    <div class="container">
-        <div class="row">
-        <h4>Featured shop - A-Land</h4>
-        <h6>Korea</h6>
-        </div>
-        <div class="row">
-        <% @tiny.each do |product| %>
-        <div class="tiny-item col-md-1 animated fadeIn">
-          <%= render partial: 'products/tiny', locals: { product: product } %>
-        </div>
-        <% end %>
-        </div>
-        <br/>
-        <%= link_to "Visit A-Land", shop_path(1), :class => "btn" %>
-    </div>
-  </div>
-
-  <div class="product-list">
-    <div class="container">
-      <div class="recommended-items row">
-      <h4>Recommended</h4>
-      <% @products.each do |product| %>
-      <div class="product-container col-sm-6 col-md-3 animated fadeIn">
-        <%= render partial: 'products/product', locals: { product: product } %>
-      </div>
-      <% end %>
-    </div>
-    <%= link_to "Explore", explore_path, :class => "btn" %>
-  </div>
-</section>
-
-<% else %>
-
 <section id="hero">
   <div class="hero-overlay">
   <%= render partial: 'shared/header_secondary' %>
@@ -112,4 +61,3 @@
     </div>
   </div>
 </section>
-<% end %>

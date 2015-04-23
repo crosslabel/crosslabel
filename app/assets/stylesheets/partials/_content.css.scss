@@ -215,26 +215,12 @@
 }
 .product {
   position: relative;
+  height: 400px;
 
   .product-image-container {
     position: relative;
     height: 287px;
-    .liked-users {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-    img.liked-user-image {
-      width: 32px;
-      height: 32px;
-      @include border-radius(50%);
-      transition: 0.1s linear;
-      border: 1px solid #fff;
-      margin-left: -3px;
-      &:first-child {
-        margin-left: 0;
-      }
-    }
+
     img.product-image {
       width: 100%;
       height: inherit;
@@ -249,6 +235,15 @@
 
     &:hover .heart.not-voted {
       opacity: 1;
+    }
+
+    .price {
+      background: #A8A6A6;
+      color: #fff;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 2px 10px;
     }
     .product-overlay {
       background: rgba(255,255,255, 0.4);
@@ -277,44 +272,37 @@
 
 }
 
+.liked-users {
+}
+img.liked-user-image {
+  width: 32px;
+  height: 32px;
+  @include border-radius(50%);
+  transition: 0.1s linear;
+  border: 1px solid #fff;
+  margin-left: -3px;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
 .product-details {
   border-top: 0;
   padding: 10px 0 0 0;
-  ul.meta {
-    color: #6f6f6f;
-    font-size: 0.8em;
-    margin-top: 10px;
-    padding: 0;
-    text-transform: uppercase;
-    @include border-radius(3px);
+  .retailer {
+    color: #706D6D;
+    font-weight: 1.1em;
+    font-weight: $regular;
+    margin: 0;
     a {
-      color: #6f6f6f;
-    }
-    svg {
-      vertical-align: middle;
-      margin-right: 5px;
-    }
-    .nc-icon.outline {
-      stroke: red;
-    }
-    li {
-      display: inline;
-      margin-right: 10px;
     }
   }
   .product-heading {
-    font-size: 1em;
-    color: #333;
-    letter-spacing: 1px;
-    font-weight: 400;
-    margin-bottom: 0.3em;
-  }
-  .retailer {
+    color: #252525;
+    font-size: 1.2em;
     font-weight: $regular;
-    color: #888;
-    font-size: 0.9em;
-    a {
-    }
+    letter-spacing: 1px;
+    margin-bottom: 0.3em;
   }
 }
 
@@ -474,7 +462,6 @@ ul.product-meta {
 .product-heading {
 	margin: 0;
 	font-size: 2em;
-	font-weight: $light;
 }
 
 .product-description {
@@ -511,4 +498,10 @@ ul.product-meta {
 
 .trending-page {
   padding: 2em 0;
+}
+
+// Shops
+.shop-container {
+  background: #f9f9f9;
+  height: 308px;
 }

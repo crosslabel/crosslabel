@@ -41,9 +41,22 @@ header.home-header {
       }
     }
   }
+  .dropdown-menu {
+    padding: 0;
+    li {
+      padding: 0;
+    }
+    a {
+      color: #444;
+    }
+  }
 }
 
+ul.nav.navbar-nav.navbar-right ul li {
+  padding: 0;
+}
 header.header {
+  background: transparent;
   padding: 3px 1em;
   border-bottom: 1px solid rgba(230,230,230,0.7);
 
@@ -77,7 +90,6 @@ header.header {
 }
 
 .dropdown-menu {
-  border: 0;
   box-shadow: none;
   li {
     a {

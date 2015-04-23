@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations", :password => "users/passwords" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions", :registrations => "users/registrations", :passwords => "users/passwords" }
+  devise_scope :user do
+    get "/login" => "devise/sessions#new", as: 'login'
+    get "/signup" => "devise/registrations#new", as: 'signup'
+    get '/resetpassword' => "devise/passwords#new", as: 'reset_password'
+  end
   resources :products do
     post '/vote' => 'upvotes#create'
     delete '/vote' => 'upvotes#destroy'
@@ -11,9 +16,6 @@ Rails.application.routes.draw do
   end
 
   resources :categories, param: :title
-  get '/login' => 'home#login', as: 'login'
-  get '/signup' => 'home#signup', as: 'signup'
-  get '/resetpassword' => 'home#reset_password', as: 'reset_password'
   get '/explore' => 'home#explore', as: 'explore'
   get '/recommended' => 'home#recommended', as: 'recommended'
   get '/trending' => 'home#trending', as: 'trending'

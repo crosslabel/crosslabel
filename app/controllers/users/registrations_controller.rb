@@ -2,7 +2,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-
   def create
     build_resource(sign_up_params)
     resource.save
