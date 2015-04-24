@@ -1,12 +1,14 @@
 class HomeController < ApplicationController
   def index
     @products = Product.includes(:categories).order(created_at: :desc).limit(16)
-    @tiny = Product.all.limit(24)
-    render :layout => "home_index"
+    render :layout => "transparent_header"
   end
 
   def explore
     @products = Product.includes(:categories).order(created_at: :desc).page(params[:page]).per(20)
+    @categories = Category.all
+    @shops = Shop.all.limit(10)
+    render :layout => "transparent_header"
   end
 
   def trending

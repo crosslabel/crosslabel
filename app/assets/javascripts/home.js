@@ -4,7 +4,7 @@
 // Kaminari pagination
 $(document).ready(function() {
   $('#next').click(function() {
-    $("#product-home #products-list").infinitescroll({
+    $(".products-list").infinitescroll({
       loading: {
         finishedMsg: '<p>No more items :(</p>',
         img: "",
@@ -12,14 +12,14 @@ $(document).ready(function() {
       },
       navSelector: "nav.pagination",
       nextSelector: "nav.pagination a[rel=next]",
-      itemSelector: "#product-home #products-list",
+      itemSelector: ".products-list",
       });
   });
 
   $(window).unbind('.infscr');
 
   $('#next').click(function() {
-    $("#product-home #products-list").infinitescroll('retrieve');
+    $(".products-list").infinitescroll('retrieve');
     $("#next").fadeOut();
   });
   return false;

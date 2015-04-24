@@ -4,6 +4,7 @@ require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'webmock/rspec'
+require "money-rails/test_helpers"
 WebMock.disable_net_connect!(:allow_localhost => true)
 
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -33,6 +34,7 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
+  config.include MoneyRails::TestHelpers, :type => :model
   config.include Omniauth::AuthenticationHelpers, :type => :feature
   # config.include Request::HeaderHelpers, :type => :controller
   # config.include Request::JsonHelpers, :type => :controller

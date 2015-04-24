@@ -13,7 +13,7 @@
       <div class="container">
       <h4>Recently Liked</h4>
     <% @user.likes.each do |item| %>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= render partial: 'products/product_w2', locals: {product: item } %>
     </div>
 

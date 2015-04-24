@@ -1,6 +1,13 @@
 <% content_for :title do %> Explore <% end %>
 <!-- Modal -->
-
+<section class="explore-hero">
+  <div class="hero-overlay">
+    <%= render partial: 'shared/header_secondary' %>
+    <div class="hero-content">
+      <h3 class="explore-hero-heading">Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.</h3>
+    </div>
+  </div>
+</section>
 <section class="explore-page">
   <!-- <div class="search">
     <div class="container">
@@ -14,20 +21,39 @@
       <% end %>
     </div>
   </div> -->
-  <div id="products-list">
-    <div class="container">
-      <% @products.each do |product| %>
-      <div class="product-container col-sm-6 col-md-20 animated fadeIn">
+  <div class="container">
+    <div class="col-lg-2">
+      <%= render partial: "sidebar" %>
+    </div>
+    <div class="col-lg-10">
+    <h3 class="explore-heading">Trending products</h3>
+
+    <div class="row">
+    <% @products.limit(3).each do |product| %>
+      <div class="product-container col-sm-4">
         <%= render partial: 'products/product', locals: { product: product } %>
       </div>
-      <% end %>
+    <% end %>
     </div>
-    <div id="placeholder">
+    <h3 class="explore-heading">Recommended items</h3>
+    <div class="row">
+      <div class="products-list">
+          <% @products.each do |product| %>
+          <div class="product-container col-sm-6 col-md-20 animated fadeIn">
+            <%= render partial: 'products/product', locals: { product: product } %>
+          </div>
+          <% end %>
+        <div id="placeholder">
+        </div>
+      </div>
     </div>
-  </div>
-  <%= link_to "Load more", "#placeholder", :id => 'next' %>
+    <%= link_to "Load more", "#placeholder", :id => 'next' %>
 
+    </div>
+
+  </div>
   <div style="display:none">
   <%= paginate @products %>
   </div>
+
 </section>

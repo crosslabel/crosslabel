@@ -102,7 +102,7 @@
 }
 
 .login-page, .signup-page, .password-page {
-  background: #f5f6f5 url('https://unsplash.imgix.net/photo-1421809313281-48f03fa45e9f?fit=crop&fm=jpg&h=750&q=75&w=1050');
+  background: #f5f6f5 image-url('login_page.jpg');
   background-size: cover;
   color: #fff;
   height: 1000px;
@@ -132,6 +132,7 @@
   left: 0;
 }
 
+
 // 2. Products
 
 
@@ -141,12 +142,6 @@
   left: 10px;
   font-size: 0.9em;
 
-  #fav-text {
-    opacity: 0.1;
-    -webkit-transition: opacity .25s ease;
-    -moz-transition: opacity .25s ease;
-    transition: opacity .25s ease;
-  }
 }
 
 
@@ -237,14 +232,12 @@
       opacity: 1;
     }
 
-    .price {
-      background: #A8A6A6;
-      color: #fff;
+    .liked-users {
       position: absolute;
-      top: 0;
-      right: 0;
-      padding: 2px 10px;
+      top: 5px;
+      right: 5px;
     }
+
     .product-overlay {
       background: rgba(255,255,255, 0.4);
       position: absolute;
@@ -299,7 +292,7 @@ img.liked-user-image {
   }
   .product-heading {
     color: #252525;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: $regular;
     letter-spacing: 1px;
     margin-bottom: 0.3em;
@@ -411,6 +404,33 @@ img.liked-user-image {
   .product {
     margin: 0 auto;
   }
+  .product-heading {
+  	margin: 0;
+  	font-size: 2em;
+    font-weight: $light;
+  }
+
+  .product-description {
+
+  	p {
+  		color: #777;
+  	}
+  }
+  .shop-heading {
+  	color: #888;
+  	text-transform: uppercase;
+  }
+
+  .goto-shop-container {
+  	padding: 2em 0;
+  }
+
+  .product-modal-profile-image {
+  	width: 30px;
+    height: 30px;
+  	@include border-radius(50%);
+
+  }
 }
 
 .product-modal-image {
@@ -419,17 +439,18 @@ img.liked-user-image {
 }
 
 ul.product-meta {
-  padding: 2em 0;
+  padding: 0.5em 0;
   li {
+    font-size: 0.8em;
     display: inline-block;
-    margin-right: 1em;
+    margin-right: 2px;
     &:last-child {
       margin-right: 0;
     }
   }
   svg {
-    vertical-align: middle;
-    margin-right: 0.5em;
+    vertical-align: bottom;
+    margin-right: 3px;
   }
   .price {
 
@@ -459,32 +480,6 @@ ul.product-meta {
     opacity: 1;
   }
 }
-.product-heading {
-	margin: 0;
-	font-size: 2em;
-}
-
-.product-description {
-
-	p {
-		color: #777;
-	}
-}
-.shop-heading {
-	color: #888;
-	text-transform: uppercase;
-}
-
-.goto-shop-container {
-	padding: 2em 0;
-}
-
-.product-modal-profile-image {
-	width: 30px;
-  height: 30px;
-	@include border-radius(50%);
-
-}
 
 // User settings page
 .user-settings-page {}
@@ -492,12 +487,94 @@ ul.product-meta {
 // Explore page
 .explore-page {
   padding: 2em 0;
+  .explore-heading {
+    font-weight: $light;
+    margin-top: 0;
+    padding-bottom: 10px;
+  }
+}
+
+.explore-hero {
+  background: #ccc url('https://ununsplash.imgix.net/reserve/IPEivX6xSBaiYOukY88V_DSC06462_tonemapped.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050');
+  background-position: 25% 75%;
+  background-size: cover;
+  width: 100%;
+  height: 350px;
+  text-align: center;
+  .hero-overlay {
+    background: rgba(0,0,0, 0.15);
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    top: 0;
+    left: 0;
+  }
+  .explore-hero-heading {
+    color: #fff;
+    font-weight: $light;
+    padding-bottom: 10px;
+  }
+
+  .hero-content {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 3em;
+  }
+}
+
+.explore-sidebar {
+  background: #f9f9f9;
+  padding: 1em 2em;
+  margin: 0;
+  @include border-radius(5px);
+  .sidebar-heading {
+    margin-bottom: 10px;
+    h3 {
+      display: inline;
+      font-weight: $light;
+    }
+  }
+  svg {
+    vertical-align: bottom;
+  }
+  ul {
+    padding: 0;
+    list-style: none;
+    li {
+      padding: 2px 0;
+      font-weight: $light;
+      text-transform: capitalize;
+      padding: 5px 0;
+      border-bottom: 1px solid #eee;
+    }
+    li.active {
+      font-weight: $regular;
+      a {
+        color: #16A085;
+      }
+    }
+  }
 }
 
 // Trending page
 
 .trending-page {
   padding: 2em 0;
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 2em;
+  .secondary-heading {
+    color: #888;
+  }
+}
+
+// Categories
+.category-heading {
+  font-weight: $light;
+  margin: 0;
+  text-transform: capitalize;
 }
 
 // Shops

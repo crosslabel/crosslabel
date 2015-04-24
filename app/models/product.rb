@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
   scope :mens, lambda { where(for_men: true)}
   scope :womens, lambda { where(for_men: false )}
 
+  monetize :unit_price, with_currency: :usd
+
   def self.trending
     all
   end
