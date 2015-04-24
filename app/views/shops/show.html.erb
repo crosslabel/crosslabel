@@ -24,20 +24,21 @@
       <%= render partial: 'home/sidebar' %>
     </div>
     <div class="col-lg-10">
-    <h3 class="explore-heading">Trending products</h3>
-    <div class="row">
-    <% @products.limit(3).each do |product| %>
-      <div class="product-container col-sm-4">
-        <%= render partial: 'products/product', locals: { product: product } %>
+      <div class="row" style="padding-bottom:20px;">
+        <div class="col-lg-2">
+        <%= image_tag "http://www.a-land.co.kr/shop/data/skin/apple_tree/img/common/logo_A_bubble.gif", width: "160px", height: "133px" %>
+        </div>
+        <div class="col-lg-10">
+          <h3 class="explore-heading"><%= @shop.name %></h3>
+          <h5><%= @shop.description %></h5>
+        </div>
       </div>
-    <% end %>
-    </div>
     <h3 class="explore-heading">Recommended items</h3>
     <div class="row">
       <div id="products-list">
           <% @products.each do |product| %>
           <div class="product-container col-sm-6 col-md-20 animated fadeIn">
-            <%= render partial: 'products/product', locals: { product: product } %>
+            <%= render partial: 'products/product_w2', locals: { product: product } %>
           </div>
           <% end %>
         <div id="placeholder">

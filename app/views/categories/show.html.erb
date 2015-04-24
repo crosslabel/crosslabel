@@ -1,3 +1,4 @@
+<% content_for :title do %><%= @category.title.capitalize %><% end %>
 <section class="explore-hero">
   <div class="hero-overlay">
     <%= render partial: 'shared/header_secondary' %>
@@ -28,7 +29,7 @@
     <div class="row">
     <% @products.limit(3).each do |product| %>
       <div class="product-container col-sm-4">
-        <%= render partial: 'products/product', locals: { product: product } %>
+        <%= render partial: 'products/product_w2', locals: { product: product } %>
       </div>
     <% end %>
     </div>
