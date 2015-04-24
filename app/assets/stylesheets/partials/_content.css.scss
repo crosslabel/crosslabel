@@ -488,7 +488,7 @@ ul.product-meta {
 .explore-page {
   padding: 2em 0;
   .explore-heading {
-    font-weight: $light;
+    font-weight: $regular;
     margin-top: 0;
     padding-bottom: 10px;
   }
@@ -496,7 +496,7 @@ ul.product-meta {
 
 .explore-hero {
   background: #ccc url('https://download.unsplash.com/31/iqlYdAAYQiaOCoKnT6jE_kabia.jpg');
-  background-position: 25% 60%;
+  background-position: 25% 45%;
   background-size: cover;
   width: 100%;
   min-height: 250px;
@@ -518,7 +518,7 @@ ul.product-meta {
   .hero-content {
     width: 50%;
     margin: 0 auto;
-    padding-top: 3em;
+    padding-top: 2em;
   }
 }
 
@@ -528,9 +528,13 @@ ul.product-meta {
   margin: 0;
   @include border-radius(5px);
   .sidebar-heading {
+    vertical-align: middle;
     margin-bottom: 10px;
     h3 {
+      position: relative;
+      top: 5px;
       display: inline;
+      font-size: 1.2em;
       font-weight: $light;
     }
   }

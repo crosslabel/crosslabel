@@ -1,7 +1,8 @@
 <section class="trending-page" class="content-s1">
   <div class="container">
+  <h3>Trending products</h3>
   <% @products.each do |product| %>
-    <div class="col-md-4">
+    <div class="col-md-20">
   <%= render partial: 'products/product', locals: {product: product} %>
   </div>
   <% end %>

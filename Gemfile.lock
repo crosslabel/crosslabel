@@ -72,6 +72,7 @@ GEM
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     daemons (1.2.2)
+    database_cleaner (1.4.1)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -318,6 +319,7 @@ DEPENDENCIES
   capistrano-rails
   capybara
   coffee-rails (~> 4.0.0)
+  database_cleaner (~> 1.4.1)
   devise
   excon
   factory_girl_rails (~> 4.0)

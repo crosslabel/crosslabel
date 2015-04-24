@@ -58,6 +58,7 @@ group :test do
   gem 'ffaker'
   gem 'webmock'
   gem 'excon'
+  gem 'database_cleaner', '~> 1.4.1'
 end
 
 group :production do

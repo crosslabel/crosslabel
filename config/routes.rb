@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  devise_for :users, :skip => [:sessions], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations", :passwords => "users/passwords" }
+  devise_for :users, :skip => [:sessions, :registrations], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :passwords => "users/passwords" }
   as :user do
-    get 'signin' => 'users/sessions#new', :as => :new_user_session
-    post 'signin' => 'users/sessions#create', :as => :user_session
-    delete 'signout' => 'users/sessions#destroy', :as => :destroy_user_session
-  end
-
+      get 'signup' => 'users/registrations#new', :as => :new_user_registration
+      post 'signup' => 'users/registrations#create', :as => :user_registration
+      get 'signin' => 'users/sessions#new', :as => :new_user_session
+      post 'signin' => 'users/sessions#create', :as => :user_session
+      delete 'signout' => 'users/sessions#destroy', :as => :destroy_user_session
+    end
   resources :products do
     post '/vote' => 'upvotes#create'
     delete '/vote' => 'upvotes#destroy'

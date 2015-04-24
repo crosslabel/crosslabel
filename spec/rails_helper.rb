@@ -46,6 +46,19 @@ RSpec.configure do |config|
       to_return(status: 200, body: "stubbed response", headers: {})
   end
 
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
   # config.before(:each, type: :controller) do
   #   include_default_accept_headers
   # end
