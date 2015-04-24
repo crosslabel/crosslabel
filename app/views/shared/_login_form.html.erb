@@ -35,7 +35,7 @@
     </div>
 
     <div class="login-links">
-      <p>Don't have an account? <%= link_to "Sign up", signup_path, id: 'signup-link' %><br /></p>
-      <%= link_to "Forgot your password?", reset_password_path %>
+      <p>Don't have an account? <%= link_to "Sign up", new_user_registration_path, id: 'signup-link' %><br /></p>
+      <%= link_to "Forgot your password?", new_user_password_path %>
     </div>
   <% end %>

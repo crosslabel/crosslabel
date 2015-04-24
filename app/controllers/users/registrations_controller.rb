@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.persisted?
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
-        resources.send_welcome_email
+        resource.send_welcome_email
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
         Analytics.track(user_id: "#{current_user.try(:id)}", anonymous_id: "anonymous_user", event: "Signed Up", properties: {})
@@ -24,11 +24,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  private
 
-  def after_sign_up_path_for(resource)
-    redirect_to explore_path
-  end
+
+  private
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation) }
