@@ -16,7 +16,8 @@
 //= require jquery.infinitescroll
 //= require masonry/jquery.masonry
 //= require jquery.turbolinks
-//= require formValidation.popular
+//= require validations/formValidation.popular
+//= require validations/bootstrap
 //= require_tree .
 
 

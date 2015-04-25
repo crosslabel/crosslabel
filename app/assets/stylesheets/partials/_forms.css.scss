@@ -6,15 +6,6 @@
 ***************************************/
 
 // 1. Default styles
-.input-group {
-  width: 100%;
-  text-align: left;
-  padding-bottom: 1em;
-  label {
-    font-size: 0.9em;
-    letter-spacing: 1px;
-  }
-}
 .form-control {
   background: #fff;
   width: 100%;
@@ -46,7 +37,27 @@
     margin: 1em 0;
   }
 }
-
+.glyphicon {
+  font-size: 1.5em;
+  padding-top: 5px;
+}
+.has-error {
+  .help-block {
+    background: #E74C3C;
+    padding: 0;
+    color: #fff;
+    font-weight: $light;
+    padding: 0.5em 0;
+    margin: 0;
+    font-size: 1em;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+}
 .form-search {
   width: 500px;
   input.form-control {
@@ -56,6 +67,21 @@
     padding: 1em 1em;
   }
 
+}
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .user-settings-form-wrapper, .upload-avatar-form-wrapper {

@@ -102,11 +102,15 @@
 }
 
 .login-page, .signup-page, .password-page {
-  background: #f5f6f5 image-url('login_page.jpg');
+  background: #f5f6f5;
   background-size: cover;
   color: #fff;
   height: 100%;
   text-align: center;
+  padding-bottom: 10em;
+  .hero-overlay {
+    height: inherit;
+  }
   h3 {
     color: #fff;
     font-weight: 700;

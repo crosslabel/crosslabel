@@ -15,23 +15,23 @@
     <span>or</span>
   </div>
 
-  <div class="input-group">
+  <div class="form-group">
     <%= f.email_field :email, autofocus: true, placeholder: 'e.g. example@example.com', class: 'form-control' %>
   </div>
 
-  <div class="input-group">
+  <div class="form-group">
     <%= f.text_field :username, placeholder: 'Choose a username', class: 'form-control' %>
   </div>
 
-  <div class="input-group">
+  <div class="form-group">
     <%= f.password_field :password, placeholder: 'Your password', autocomplete: "off", class: 'form-control' %>
   </div>
 
-  <div class="input-group">
+  <div class="form-group">
     <%= f.password_field :password_confirmation, placeholder: 'Confirm your password', autocomplete: "off", class: 'form-control' %>
   </div>
 
-  <div class="input-group">
+  <div class="form-group">
     <%= f.submit "Sign me up!", class: 'btn-signup' %>
   </div>
 
@@ -39,3 +39,63 @@
     <p>Already have an account? <%= link_to "Login", new_user_session_path, id: 'login-form-link' %></p>
   </div>
 <% end %>
+
+<script>
+$(document).ready(function() {
+    $('form#new_user').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            'user[email]': {
+              validators: {
+                emailAddress: {
+                  message: 'The value is not a valid email address'
+                },
+                notEmpty: {
+                  message: 'An email is required'
+                }
+              }
+            },
+            'user[username]': {
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: 'The username can only consist of alphabetical, number and underscore'
+                    }
+                }
+            },
+            'user[password]': {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    },
+                    stringLength: {
+                        min: 8,
+                        message: 'Your password must be at least 8 characters'
+                    }
+                }
+            },
+            'user[password_confirmation]': {
+              validators: {
+                identical: {
+                  field: 'password',
+                  message: "Your passwords don't match"
+                }
+              }
+            }
+        }
+    });
+});
+</script>
