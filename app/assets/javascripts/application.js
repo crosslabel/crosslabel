@@ -16,7 +16,7 @@
 //= require jquery.infinitescroll
 //= require masonry/jquery.masonry
 //= require jquery.turbolinks
-//= require packery.pkgd.min.js
+//= require formValidation.popular
 //= require_tree .
 
 
