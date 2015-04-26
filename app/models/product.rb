@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
   searchkick autocomplete: ['title']
   has_many :categories
-  has_many :product_images
+  has_many :product_variations
   belongs_to :category
   belongs_to :retailer
   validates_presence_of :unit_price, :title, :image, :link
