@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    Analytics.track(user_id: "#{current_user.try(:id)}", anonymous_id: "anonymous_user", event: 'Viewed Product', properties: { id: "#{@product.id}", name: "#{@product.title}", price: "#{@product.unit_price}", category: "#{@product.categories.first.title}", retailer: "#{@product.shop.name}"})
+    # Analytics.track(user_id: "#{current_user.try(:id)}", anonymous_id: "anonymous_user", event: 'Viewed Product', properties: { id: "#{@product.id}", name: "#{@product.title}", price: "#{@product.unit_price}", category: "#{@product.categories.first.title}", retailer: "#{@product.shop.name}"})
   end
 
   def create
@@ -24,6 +24,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).params(:title, :image, :link, :unit_price, :category_ids => [])
+    params.require(:product).params(:title, :homepage_product_link, :original_price, :category_ids => [])
   end
 end
