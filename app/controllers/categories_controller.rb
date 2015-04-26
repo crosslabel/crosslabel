@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
   def show
-    @category = Category.find_by(title: params[:title])
+    @category = Category.find_by(name: params[:name])
     @products = @category.products.order(created_at: :desc).page(params[:page]).per(20)
     @categories = Category.all
     @shops = Retailer.all
