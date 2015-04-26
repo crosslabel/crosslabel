@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post 'signin' => 'users/sessions#create', :as => :user_session
     delete 'signout' => 'users/sessions#destroy', :as => :destroy_user_session
   end
-  
+
   resources :products do
     post '/vote' => 'upvotes#create'
     delete '/vote' => 'upvotes#destroy'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, param: :title
+  resources :categories, param: :name
   get '/explore' => 'home#explore', as: 'explore'
   get '/recommended' => 'home#recommended', as: 'recommended'
   get '/trending' => 'home#trending', as: 'trending'
