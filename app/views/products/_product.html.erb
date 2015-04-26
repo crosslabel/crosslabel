@@ -1,6 +1,6 @@
       <div class="product">
         <div class="product-image-container">
-          <%= image_tag product.try(:product_variations).first.try(:product_images).first, class: 'product-image' %>
+          <%= image_tag product.try(:product_variations).first.try(:product_images).first.try(:filepath), class: 'product-image' %>
           <%= link_to product_path(product), :class => 'product-overlay' do %>
           <div class="card-hover">
           </div>
