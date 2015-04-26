@@ -18,7 +18,7 @@
     </div>
     <ul>
     <% @retailers.each do |retailer| %>
-      <li class="<%= is_active?(shop_path(shop)) %>"><%= link_to retailer.name, retailer_path(retailer) %></li>
+      <li class="<%= is_active?(retailer_path(retailer)) %>"><%= link_to retailer.name, retailer_path(retailer) %></li>
     <% end %>
     </ul>
   </div>
