@@ -16,7 +16,6 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'magnific-popup-rails', '~> 0.9.9.1'
 
 gem 'active_model_serializers', '~>0.8.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -67,7 +66,7 @@ end
 
 gem 'wicked'
 gem 'money-rails'
-gem 'masonry-rails'
+gem 'gretel'
 gem 'jquery-turbolinks'
 
 
