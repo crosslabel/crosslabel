@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def explore
-    @products = Product.all.order(created_at: :desc).page(params[:page]).per(20)
+    @products = Product.all.order("RANDOM()").page(params[:page]).per(20)
     @categories = Category.all
     @retailers = Retailer.all.limit(10)
   end
