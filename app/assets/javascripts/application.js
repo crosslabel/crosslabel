@@ -14,7 +14,6 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require jquery.infinitescroll
-//= require masonry/jquery.masonry
 //= require jquery.turbolinks
 //= require validations/formValidation.popular
 //= require validations/bootstrap

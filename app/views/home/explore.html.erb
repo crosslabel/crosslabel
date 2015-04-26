@@ -23,6 +23,7 @@
   </div> -->
   <div class="container">
     <%= render partial: 'shared/filter' %>
+
     <h3 class="explore-heading">Trending products</h3>
     <div class="row">
     <% @products.limit(3).each do |product| %>

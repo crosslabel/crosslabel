@@ -1,3 +1,4 @@
+<% breadcrumb @category %>
 <% content_for :title do %><%= @category.name.capitalize %><% end %>
 <section class="explore-hero">
   <div class="hero">
@@ -20,7 +21,10 @@
     </div>
   </div> -->
   <div class="container">
+
     <%= render partial: 'shared/filter' %>
+    <%= breadcrumbs style: :bootstrap, separator: " &rsaquo; " %>
+
     <h3 class="explore-heading">Trending <%= @category.name.capitalize %></h3>
     <div class="row">
     <% @products.limit(3).each do |product| %>

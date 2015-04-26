@@ -4,12 +4,10 @@ class Product < ActiveRecord::Base
   has_many :product_variations
   belongs_to :category
   belongs_to :retailer
-  validates_presence_of :unit_price, :title, :image, :link
-  before_save { self.unit_price = self.unit_price.gsub(/[^0-9]/,'').to_i }
+  validates_presence_of :original_price, :title, :homepage_product_link
   scope :mens, lambda { where(for_men: true)}
   scope :womens, lambda { where(for_men: false )}
 
-  monetize :unit_price, with_currency: :usd
 
   def self.trending
     all
@@ -21,8 +19,11 @@ class Product < ActiveRecord::Base
     if time_diff > 1
       score = num_of_likes * time_diff
     end
-
     score
+  end
+
+  def similar_items
+    Product.where(category_id: self.category_id).limit(5).order('created_at ASC')
   end
 
 

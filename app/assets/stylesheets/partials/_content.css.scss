@@ -6,6 +6,11 @@
 // 4. Product Detail Page
 
 // 1. Defaults
+
+div.breadcrumbs {
+  font-size: 1em;
+  padding-bottom: 1em;
+}
 .content-s1 {
   background: #fff;
 }
@@ -243,7 +248,7 @@
     }
 
     .product-overlay {
-      background: rgba(255,255,255, 0.4);
+      background: rgba(255,255,255, 0.2);
       position: absolute;
       width: 100%;
       height: 300px;
@@ -405,17 +410,17 @@ img.liked-user-image {
 // 4. Product Detail Page
 
 .product-detail-page {
-  padding-top: 2em;
+  padding: 2em 0 5em 0;
   .product {
     margin: 0 auto;
   }
-  .product-heading {
+  .product-detail-heading {
   	margin: 0;
   	font-size: 2em;
     font-weight: $light;
   }
 
-  .product-description {
+  .product-detail-description {
 
   	p {
   		color: #777;
@@ -445,7 +450,7 @@ img.liked-user-image {
 ul.product-meta {
   padding: 0.5em 0;
   li {
-    font-size: 0.8em;
+    font-size: 0.9em;
     display: inline-block;
     margin-right: 2px;
     &:last-child {

@@ -12,17 +12,15 @@
     </div>
   </div> -->
   <div class="container">
-      <%= render partial: 'shared/filter' %>
-      <div class="row" style="padding-bottom:20px;">
-        <div class="col-lg-2">
-        <%= image_tag "http://www.a-land.co.kr/retailer/data/skin/apple_tree/img/common/logo_A_bubble.gif", width: "160px", height: "133px" %>
-        </div>
-        <div class="col-lg-10">
-          <h3 class="explore-heading"><%= @retailer.name %></h3>
-        </div>
+      <div class="row">
+        <%= render partial: 'shared/filter' %>
       </div>
-    <h3 class="explore-heading">Recommended items</h3>
+      <div class="row" style="padding-bottom:20px;">
+          <h3 class="explore-heading"><%= @retailer.name %></h3>
+      </div>
     <div class="row">
+      <h3 class="explore-heading">Recommended items</h3>
+
       <div id="products-list">
           <% @products.each do |product| %>
           <div class="product-container col-sm-6 col-md-20 animated fadeIn">
