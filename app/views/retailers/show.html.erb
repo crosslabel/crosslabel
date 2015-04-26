@@ -2,7 +2,7 @@
   <div class="hero-overlay">
     <%= render partial: 'shared/header_secondary' %>
     <div class="hero-content">
-      <h1 class="explore-hero-heading"><%= @shop.name.capitalize %></h1>
+      <h1 class="explore-hero-heading"><%= @retailer.name.capitalize %></h1>
     </div>
   </div>
 </section>
@@ -11,7 +11,7 @@
     <div class="container">
       <%= form_tag products_path, :class => "form-search", :method => 'get' do %>
       <div class="input-group">
-        <%= text_field_tag :query, params[:query], class: 'form-control', id: 'product-search', autocomplete: 'off', placeholder: "Search by shop, brand or type of item" %>
+        <%= text_field_tag :query, params[:query], class: 'form-control', id: 'product-search', autocomplete: 'off', placeholder: "Search by retailer, brand or type of item" %>
         <div class="input-group-btn">
             <button type="submit" class="btn btn-search" value="Search"><i class="fa fa-search"></i></button>
         </div>
@@ -26,11 +26,11 @@
     <div class="col-lg-10">
       <div class="row" style="padding-bottom:20px;">
         <div class="col-lg-2">
-        <%= image_tag "http://www.a-land.co.kr/shop/data/skin/apple_tree/img/common/logo_A_bubble.gif", width: "160px", height: "133px" %>
+        <%= image_tag "http://www.a-land.co.kr/retailer/data/skin/apple_tree/img/common/logo_A_bubble.gif", width: "160px", height: "133px" %>
         </div>
         <div class="col-lg-10">
-          <h3 class="explore-heading"><%= @shop.name %></h3>
-          <h5><%= @shop.description %></h5>
+          <h3 class="explore-heading"><%= @retailer.name %></h3>
+          <h5><%= @retailer.description %></h5>
         </div>
       </div>
     <h3 class="explore-heading">Recommended items</h3>

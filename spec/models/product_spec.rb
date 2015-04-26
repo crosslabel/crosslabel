@@ -6,7 +6,8 @@ RSpec.describe Product, type: :model do
 
   subject { @product }
   it { should respond_to(:title)}
-  it { should respond_to(:unit_price)}
+  it { should respond_to(:original_price)}
+  it { should respond_to(:sale_price)}
   it { should respond_to(:image)}
   it { should respond_to(:link)}
   it { should validate_presence_of(:link) }

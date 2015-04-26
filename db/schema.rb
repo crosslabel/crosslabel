@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426054633) do
+ActiveRecord::Schema.define(version: 20150426070747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,16 +101,6 @@ ActiveRecord::Schema.define(version: 20150426054633) do
 
   add_index "products", ["retailer_id"], name: "index_products_on_retailer_id", using: :btree
 
-  create_table "retailer_social_media", force: true do |t|
-    t.integer  "social_media_id"
-    t.integer  "retailer_id"
-    t.text     "social_media_link"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "retailer_social_media", ["retailer_id"], name: "index_retailer_social_media_on_retailer_id", using: :btree
-
   create_table "retailers", force: true do |t|
     t.string   "name"
     t.text     "homepage_link"
@@ -121,7 +111,17 @@ ActiveRecord::Schema.define(version: 20150426054633) do
 
   add_index "retailers", ["city_id"], name: "index_retailers_on_city_id", using: :btree
 
-  create_table "social_media", force: true do |t|
+  create_table "retailers_social_medias", force: true do |t|
+    t.integer  "social_media_id"
+    t.integer  "retailer_id"
+    t.text     "social_media_link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "retailers_social_medias", ["retailer_id"], name: "index_retailers_social_medias_on_retailer_id", using: :btree
+
+  create_table "social_medias", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

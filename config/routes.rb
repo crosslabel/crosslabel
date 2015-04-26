@@ -2,12 +2,13 @@ Rails.application.routes.draw do
 
   devise_for :users, :skip => [:sessions, :registrations], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :passwords => "users/passwords" }
   as :user do
-      get 'signup' => 'users/registrations#new', :as => :new_user_registration
-      post 'signup' => 'users/registrations#create', :as => :user_registration
-      get 'signin' => 'users/sessions#new', :as => :new_user_session
-      post 'signin' => 'users/sessions#create', :as => :user_session
-      delete 'signout' => 'users/sessions#destroy', :as => :destroy_user_session
-    end
+    get 'signup' => 'users/registrations#new', :as => :new_user_registration
+    post 'signup' => 'users/registrations#create', :as => :user_registration
+    get 'signin' => 'users/sessions#new', :as => :new_user_session
+    post 'signin' => 'users/sessions#create', :as => :user_session
+    delete 'signout' => 'users/sessions#destroy', :as => :destroy_user_session
+  end
+  
   resources :products do
     post '/vote' => 'upvotes#create'
     delete '/vote' => 'upvotes#destroy'
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   get '/trending' => 'home#trending', as: 'trending'
 
 
-  resources :shops
+  resources :retailers
 
   resources :users, param: :username
   post '/:username/upload_avatar' => 'users#upload_avatar', :as => :upload_avatar

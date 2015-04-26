@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   def explore
     @products = Product.includes(:categories).order(created_at: :desc).page(params[:page]).per(20)
     @categories = Category.all
-    @shops = Retailer.all.limit(10)
+    @retailers = Retailer.all.limit(10)
     render :layout => "transparent_header"
   end
 

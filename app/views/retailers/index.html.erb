@@ -1,9 +1,9 @@
 <div class="container">
 <h1>Retailers</h1>
-<% @shops.each do |shop| %>
+<% @retailers.each do |retailer| %>
   <div class="col-lg-4">
     <div class="shop-container">
-    <%= link_to shop.name, shop %>
+    <%= link_to retailer.name, retailer %>
     </div>
   </div>
 <% end %>

@@ -1,9 +1,6 @@
 class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
-  has_many :upvotes, :dependent => :destroy
-  has_one :profile, :dependent => :destroy
   before_create :generate_authentication_token!
-  after_create :create_profile
 
   has_attached_file :avatar, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => "/images/:style/avatar_missing.jpg"
   validates_attachment :avatar, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
