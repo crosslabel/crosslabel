@@ -54,7 +54,7 @@
     <div class="row">
       <% Product.all.limit(5).each do |product| %>
       <div class="product-container col-sm-6 col-md-20 animated fadeIn">
-        <%= render partial: 'products/product_w2', locals: {product: product} %>
+        <%= render partial: 'products/product', locals: {product: product} %>
       </div>
       <% end %>
     </div>
