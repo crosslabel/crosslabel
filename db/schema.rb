@@ -56,14 +56,14 @@ ActiveRecord::Schema.define(version: 20150426070747) do
   end
 
   create_table "human_demographics_categories", force: true do |t|
-    t.integer  "product_variation_id"
+    t.integer  "human_demographic_id"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "human_demographics_categories", ["category_id"], name: "index_human_demographics_categories_on_category_id", using: :btree
-  add_index "human_demographics_categories", ["product_variation_id"], name: "index_human_demographics_categories_on_product_variation_id", using: :btree
+  add_index "human_demographics_categories", ["human_demographic_id"], name: "index_human_demographics_categories_on_human_demographic_id", using: :btree
 
   create_table "product_images", force: true do |t|
     t.integer  "product_variation_id"
@@ -95,10 +95,12 @@ ActiveRecord::Schema.define(version: 20150426070747) do
     t.string   "origin_id"
     t.integer  "category_id"
     t.boolean  "active",                default: true
+    t.integer  "upvotes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["retailer_id"], name: "index_products_on_retailer_id", using: :btree
 
   create_table "retailers", force: true do |t|

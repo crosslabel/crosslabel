@@ -10,10 +10,12 @@ class CreateProducts < ActiveRecord::Migration
       t.string :origin_id
       t.integer :category_id
       t.boolean :active, default: true
+      t.integer :upvotes
 
       t.timestamps
     end
 
     add_index :products, :retailer_id
+    add_index :products, :category_id
   end
 end
