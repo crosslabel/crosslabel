@@ -1,9 +1,8 @@
 <% content_for :title do %><%= @category.name.capitalize %><% end %>
 <section class="explore-hero">
-  <div class="hero-overlay">
-    <%= render partial: 'shared/header_secondary' %>
+  <div class="hero">
     <div class="hero-content">
-      <h1 class="explore-hero-heading"><%= @category.name.capitalize %></h1>
+      <h3 class="explore-hero-heading"><%= @category.name.capitalize %></h3>
     </div>
   </div>
 </section>
@@ -21,10 +20,7 @@
     </div>
   </div> -->
   <div class="container">
-    <div class="col-lg-2">
-      <%= render partial: 'home/sidebar' %>
-    </div>
-    <div class="col-lg-10">
+    <%= render partial: 'shared/filter' %>
     <h3 class="explore-heading">Trending <%= @category.name.capitalize %></h3>
     <div class="row">
     <% @products.limit(3).each do |product| %>

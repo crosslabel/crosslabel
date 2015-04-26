@@ -1,6 +1,15 @@
 @import "base";
 
 footer.footer {
-  background: #272b35;
+  background: #f0f0f0;
   min-height: 300px;
+  padding-top: 2em;
+  ul {
+    list-style: none;
+    padding: 0;
+    li {}
+  }
+  a {
+    color: #808080;
+  }
 }

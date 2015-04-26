@@ -1,11 +1,3 @@
-<section class="explore-hero">
-  <div class="hero-overlay">
-    <%= render partial: 'shared/header_secondary' %>
-    <div class="hero-content">
-      <h1 class="explore-hero-heading"><%= @retailer.name.capitalize %></h1>
-    </div>
-  </div>
-</section>
 <section class="explore-page">
   <!-- <div class="search">
     <div class="container">
@@ -20,10 +12,7 @@
     </div>
   </div> -->
   <div class="container">
-    <div class="col-lg-2">
-      <%= render partial: 'home/sidebar' %>
-    </div>
-    <div class="col-lg-10">
+      <%= render partial: 'shared/filter' %>
       <div class="row" style="padding-bottom:20px;">
         <div class="col-lg-2">
         <%= image_tag "http://www.a-land.co.kr/retailer/data/skin/apple_tree/img/common/logo_A_bubble.gif", width: "160px", height: "133px" %>

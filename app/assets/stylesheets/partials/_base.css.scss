@@ -16,7 +16,7 @@ body, html {
 }
 
 .container {
-  width: 95%;
+  width: 80%;
 }
 
 .col-xs-20,
@@ -47,4 +47,22 @@ a {
   color: #fff;
   text-align: center;
   padding: 0.5em 0;
+}
+.filters {
+  padding-bottom: 2em;
+}
+.btn-group {
+  padding: 0 1em;
+  &:first-child {
+    padding-left: 0;
+  }
+  a {
+    color: #656565;
+  }
+}
+.filter-item {
+  font-size: 1.2em;
+  .dropdown-menu {
+    margin: 0 1em;
+  }
 }
