@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424000607) do
+ActiveRecord::Schema.define(version: 20150426054633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,95 +29,111 @@ ActiveRecord::Schema.define(version: 20150424000607) do
   end
 
   create_table "categories", force: true do |t|
-    t.string   "title"
-    t.text     "description"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "categories_products", force: true do |t|
-    t.integer  "product_id"
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cities", ["country_id"], name: "index_cities_on_country_id", using: :btree
+
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "human_demographics", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "human_demographics_categories", force: true do |t|
+    t.integer  "product_variation_id"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "categories_products", ["category_id"], name: "index_categories_products_on_category_id", using: :btree
-  add_index "categories_products", ["product_id"], name: "index_categories_products_on_product_id", using: :btree
+  add_index "human_demographics_categories", ["category_id"], name: "index_human_demographics_categories_on_category_id", using: :btree
+  add_index "human_demographics_categories", ["product_variation_id"], name: "index_human_demographics_categories_on_product_variation_id", using: :btree
+
+  create_table "product_images", force: true do |t|
+    t.integer  "product_variation_id"
+    t.text     "filepath"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "product_images", ["product_variation_id"], name: "index_product_images_on_product_variation_id", using: :btree
+
+  create_table "product_variations", force: true do |t|
+    t.integer  "product_id"
+    t.string   "origin_id"
+    t.string   "name"
+    t.text     "swatch_filepath"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "product_variations", ["product_id"], name: "index_product_variations_on_product_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "image"
-    t.string   "link"
-    t.string   "unit_price"
-    t.string   "sale_price"
+    t.text     "homepage_product_link"
+    t.float    "original_price"
+    t.float    "sale_price"
     t.integer  "retailer_id"
-    t.boolean  "archived",      default: false
+    t.string   "origin_id"
+    t.integer  "category_id"
+    t.boolean  "active",                default: true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "for_men",       default: false
-    t.integer  "shop_id"
-    t.integer  "upvotes_count"
   end
 
-  add_index "products", ["for_men"], name: "index_products_on_for_men", using: :btree
   add_index "products", ["retailer_id"], name: "index_products_on_retailer_id", using: :btree
-  add_index "products", ["shop_id"], name: "index_products_on_shop_id", using: :btree
 
-  create_table "profiles", force: true do |t|
-    t.integer  "user_id"
-    t.string   "username"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "telelphone"
-    t.string   "country"
-    t.string   "profile_image"
-    t.datetime "birth_date"
+  create_table "retailer_social_media", force: true do |t|
+    t.integer  "social_media_id"
+    t.integer  "retailer_id"
+    t.text     "social_media_link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
-  add_index "profiles", ["username"], name: "index_profiles_on_username", using: :btree
+  add_index "retailer_social_media", ["retailer_id"], name: "index_retailer_social_media_on_retailer_id", using: :btree
 
-  create_table "shops", force: true do |t|
+  create_table "retailers", force: true do |t|
     t.string   "name"
-    t.text     "description"
-    t.string   "website"
-    t.string   "twitter_url"
-    t.string   "facebook_url"
+    t.text     "homepage_link"
+    t.integer  "city_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "taggings", force: true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       limit: 128
+  add_index "retailers", ["city_id"], name: "index_retailers_on_city_id", using: :btree
+
+  create_table "social_media", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
-
-  create_table "tags", force: true do |t|
-    t.string  "name"
-    t.integer "taggings_count", default: 0
-  end
-
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -128,7 +144,6 @@ ActiveRecord::Schema.define(version: 20150424000607) do
     t.string   "name"
     t.string   "auth_token",             default: ""
     t.string   "username"
-    t.boolean  "admin",                  default: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -139,26 +154,22 @@ ActiveRecord::Schema.define(version: 20150424000607) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "version_associations", force: true do |t|
-    t.integer "version_id"
-    t.string  "foreign_key_name", null: false
-    t.integer "foreign_key_id"
-  end
-
-  add_index "version_associations", ["foreign_key_name", "foreign_key_id"], name: "index_version_associations_on_foreign_key", using: :btree
-  add_index "version_associations", ["version_id"], name: "index_version_associations_on_version_id", using: :btree
-
-  create_table "versions", force: true do |t|
-    t.string   "item_type",      null: false
-    t.integer  "item_id",        null: false
-    t.string   "event",          null: false
-    t.string   "whodunnit"
-    t.text     "object"
+  create_table "variation_sizes", force: true do |t|
+    t.integer  "product_variation_id"
+    t.string   "size"
     t.datetime "created_at"
-    t.integer  "transaction_id"
+    t.datetime "updated_at"
   end
 
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
-  add_index "versions", ["transaction_id"], name: "index_versions_on_transaction_id", using: :btree
+  create_table "variation_stocks", force: true do |t|
+    t.integer  "product_variation_id"
+    t.integer  "min"
+    t.integer  "max"
+    t.boolean  "has_more"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "variation_stocks", ["product_variation_id"], name: "index_variation_stocks_on_product_variation_id", using: :btree
 
 end

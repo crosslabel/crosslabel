@@ -3,12 +3,13 @@ class CreateProducts < ActiveRecord::Migration
     create_table :products do |t|
       t.string :title
       t.text :description
-      t.string :image
-      t.string :link
-      t.string :unit_price
-      t.string :sale_price
+      t.text :homepage_product_link
+      t.float :original_price
+      t.float :sale_price
       t.integer :retailer_id
-      t.boolean :archived, default: false
+      t.string :origin_id
+      t.integer :category_id
+      t.boolean :active, default: true
 
       t.timestamps
     end

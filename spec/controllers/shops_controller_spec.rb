@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ShopsController, type: :controller do
+RSpec.describe RetailersController, type: :controller do
   let(:shop) { FactoryGirl.create(:shop)}
 
   describe "GET #index" do

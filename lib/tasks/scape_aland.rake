@@ -14,7 +14,7 @@ namespace :aland do
 
       puts JSON.pretty_generate(products)
 
-      shop = Shop.find_by(name: "A-Land")
+      shop = Retailer.find_by(name: "A-Land")
       category = Category.find_by(:title => :tops)
 
       if shop.present? && category.present?
@@ -23,7 +23,7 @@ namespace :aland do
           category.products << product
         end
       else
-        puts "Shop or category was not found"
+        puts "Retailer or category was not found"
         break
       end
   end

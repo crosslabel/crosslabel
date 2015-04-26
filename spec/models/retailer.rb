@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Shop, type: :model do
-  let(:shop) { FactoryGirl.create(:shop)}
+RSpec.describe Retailer, type: :model do
+  let(:retailer) { FactoryGirl.create(:retailer)}
   subject { shop }
   it { should respond_to(:name)}
   it { should respond_to(:website)}

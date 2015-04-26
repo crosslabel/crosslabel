@@ -103,10 +103,6 @@ GEM
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     ffaker (2.0.0)
-    font-awesome-rails (4.3.0.0)
-      railties (>= 3.2, < 5.0)
-    haml (4.0.6)
-      tilt
     hashie (3.4.1)
     hike (1.2.3)
     http-cookie (1.0.2)
@@ -118,8 +114,6 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
-    jquery-ui-rails (5.0.3)
-      railties (>= 3.2.16)
     json (1.8.2)
     jwt (1.4.1)
     kaminari (0.16.3)
@@ -148,7 +142,6 @@ GEM
     multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    nested_form (0.3.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -183,9 +176,6 @@ GEM
       mime-types
     pg (0.18.1)
     rack (1.5.2)
-    rack-pjax (0.8.0)
-      nokogiri (~> 1.5)
-      rack (~> 1.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.1.6)
@@ -201,20 +191,6 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_admin (0.6.7)
-      builder (~> 3.1)
-      coffee-rails (~> 4.0)
-      font-awesome-rails (>= 3.0, < 5)
-      haml (~> 4.0)
-      jquery-rails (>= 3.0, < 5)
-      jquery-ui-rails (~> 5.0)
-      kaminari (~> 0.14)
-      nested_form (~> 0.3)
-      rack-pjax (~> 0.7)
-      rails (~> 4.0)
-      remotipart (~> 1.0)
-      safe_yaml (~> 1.0)
-      sass-rails (>= 4.0, < 6)
     rails_serve_static_assets (0.0.4)
     rails_stdout_logging (0.0.3)
     railties (4.1.6)
@@ -225,7 +201,6 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
     redis (3.0.7)
-    remotipart (1.2.1)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rest-client (1.8.0)
@@ -339,7 +314,6 @@ DEPENDENCIES
   pg
   rails (= 4.1.6)
   rails_12factor
-  rails_admin (~> 0.6)
   redis (~> 3.0.1)
   rest-client
   rspec-rails (~> 3.0)
