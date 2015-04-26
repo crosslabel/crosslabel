@@ -1,7 +1,6 @@
       <div class="product">
         <div class="product-image-container">
           <%= image_tag product.product_images.first, class: 'product-image' %>
-          <!-- 'data-toggle': 'modal', 'data-target': '#product-modal', :remote => true -->
           <%= link_to product_path(product), :class => 'product-overlay' do %>
           <div class="card-hover">
           </div>

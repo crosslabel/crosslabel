@@ -1,7 +1,6 @@
 <div class="product">
   <div class="product-image-container">
-    <%= image_tag product.image, class: 'product-image' %>
-    <!-- 'data-toggle': 'modal', 'data-target': '#product-modal', :remote => true -->
+    <%= image_tag product.product_images.first, class: 'product-image' %>
     <%= link_to product_path(product), :class => 'product-overlay' do %>
     <div class="card-hover">
     </div>
@@ -24,7 +23,7 @@
     </div>
   </div>
   <div class="product-details">
-      <h6 class="retailer"><%= link_to product.shop.name, shop_path(product.shop) %></h6>
+      <h6 class="retailer"><%= link_to product.retailer.name, retailer_path(product.retailer) %></h6>
       <h5 class="product-heading"><%= truncate(product.title, length: 25) %></h5>
   </div>
   <ul class="product-meta">
