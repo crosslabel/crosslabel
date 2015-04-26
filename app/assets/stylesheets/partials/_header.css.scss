@@ -7,7 +7,9 @@ div#bs-example-navbar-collapse-1.collapse.navbar-collapse {
   padding: 0;
   height: 40px;
 }
-
+.navbar-header, .navbar-left, .navbar-right {
+  height: 48px;
+}
 ul.nav.navbar-nav.navbar-right {
   li#nav-username {
     padding-right: 13px;
@@ -78,6 +80,7 @@ header.header {
     font-weight: 700;
     padding-left: 0;
     padding-right: 0;
+    font-size: 1.1em;
     text-transform: uppercase;
     letter-spacing: 2px;
     &:hover {
@@ -92,7 +95,6 @@ header.header {
     li {
       display: inline;
       a {
-        font-size: 0.9em;
         color: #8B909A;
         text-shadow: none;
         &:hover {
@@ -114,6 +116,8 @@ header.header {
   }
 }
 .header-profile-image {
+  position: relative;
+  bottom: 5px;
   width: 30px;
   height: 30px;
   @include border-radius(50%);
