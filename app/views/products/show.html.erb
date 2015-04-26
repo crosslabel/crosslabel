@@ -9,8 +9,8 @@
     <div class="product-images row">
     <div class="product-variations col-lg-3" style="padding:0;">
         <% @product.product_variations.each do |variation| %>
-          <% variation.product_images.each do |product_image| %>
-          <a href="#"><%= image_tag "#{product_image.filepath}", width: "60px", height: "80px", :class => "product-variation-image" %></a>
+          <% variation.product_images.limit(5).each do |image| %>
+          <a href="#"><%= image_tag "#{image.filepath}", width: "60px", height: "80px", :class => "product-variation-image" %></a>
           <% end %>
         <% end %>
     </div>

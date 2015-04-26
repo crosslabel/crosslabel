@@ -24,8 +24,9 @@ div.breadcrumbs {
 }
 
 #hero {
-  background: #ccc url('https://download.unsplash.com/31/iqlYdAAYQiaOCoKnT6jE_kabia.jpg');
+  background: #ccc image-url('home_page.jpg');
   background-size: cover;
+  background-position: 40% 40%;
   width: 100%;
   height: 700px;
   text-align: center;
@@ -527,7 +528,7 @@ ul.product-meta {
 }
 
 .explore-hero {
-  background: #ccc url('https://download.unsplash.com/31/iqlYdAAYQiaOCoKnT6jE_kabia.jpg');
+  background: #ccc image-url('explore-hero.jpg');
   background-position: 25% 45%;
   background-size: cover;
   width: 100%;

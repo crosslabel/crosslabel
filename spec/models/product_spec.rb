@@ -14,15 +14,22 @@ RSpec.describe Product, type: :model do
   it { should be_valid }
 
   describe "before save" do
-    it "should transform the unit price string into integer" do
+    it "transform the unit price string into integer" do
       @product.save
       expect(@product.original_price).to be_kind_of(Float)
     end
   end
 
+  describe "product variation images" do
+    it "returns all the images of the product" do
+      product = FactoryGirl.create(:product_with_variation)
+      expect(product.product_variation_images).to eq([])
+    end
+  end
+
   describe "get similar items" do
     context "other items in category" do
-      it "return array of items items in same category" do
+      it "returns array of items items in same category" do
         product1 = FactoryGirl.create(:product, :category_id => 1)
         product2 = FactoryGirl.create(:product, :category_id => 1)
         product3 = FactoryGirl.create(:product, :category_id => 2)
@@ -34,7 +41,7 @@ RSpec.describe Product, type: :model do
     end
 
     context "no other items in category" do
-      it "should return an empty array" do
+      it "returns an empty array" do
         product2 = FactoryGirl.create(:product, :category_id => 2)
         product2 = FactoryGirl.create(:product, :category_id => 4)
 

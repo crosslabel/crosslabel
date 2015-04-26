@@ -9,6 +9,11 @@ FactoryGirl.define do
     category_id 1
     active true
     upvotes 0
+    factory :product_with_variation do
+      after(:create) do
+        create(:variation_with_images)
+      end
+    end
   end
 
 end
