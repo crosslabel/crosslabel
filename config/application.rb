@@ -23,7 +23,7 @@ module Brandly
   config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "bootstrap", "dist", "fonts")
   config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "bootstrap", "dist", "css")
   config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "bootstrap", "dist", "js")
-  config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "hover", "css")
+  config.assets.paths << Rails.root.join("vendor", "assets", "fonts")
 
   config.autoload_paths << Rails.root.join('lib')
 
