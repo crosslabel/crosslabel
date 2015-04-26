@@ -31,7 +31,7 @@
     </div>
     <h3 class="explore-heading">Recommended items</h3>
     <div class="row">
-      <div id="products-list">
+      <div class="products-list">
           <% @products.each do |product| %>
           <div class="product-container col-sm-6 col-md-20 animated fadeIn">
             <%= render partial: 'products/product', locals: { product: product } %>
@@ -44,7 +44,6 @@
     <%= link_to "Load more", "#placeholder", :id => 'next' %>
 
     </div>
-
   </div>
   <div style="display:none">
   <%= paginate @products %>

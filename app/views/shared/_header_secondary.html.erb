@@ -13,6 +13,11 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
+      <li>
+        <%= link_to user_path(current_user.username) do %>
+        <svg class="nc-icon glyph" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="18px" viewBox="0 0 24 24"><g> <path fill="#d94052" d="M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z"></path> </g></svg>
+        <span class="header-likes-count"><%= current_user.likes.count %></span>
+        <% end %></li>
       <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= image_tag current_user.try(:avatar), class: "header-profile-image" %></a>
           <ul class="dropdown-menu" role="menu">

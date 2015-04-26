@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     @products = Product.all.order("RANDOM()").page(params[:page]).per(20)
     @categories = Category.all
     @retailers = Retailer.all.limit(10)
+    render :layout => 'transparent_header'
   end
 
   def trending

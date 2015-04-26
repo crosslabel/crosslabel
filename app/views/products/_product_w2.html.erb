@@ -24,7 +24,7 @@
   </div>
   <div class="product-details">
       <h6 class="retailer"><%= link_to product.try(:retailer).name, retailer_path(product.retailer) %></h6>
-      <h5 class="product-heading"><%= truncate(product.title, length: 20) %></h5>
+      <h5 class="product-heading"><%= truncate(product.title, length: 30) %></h5>
   </div>
   <ul class="product-meta">
     <li><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="18px" viewBox="0 0 24 24"> <g> <polyline data-cap="butt" data-color="color-2" fill="none" stroke="#888888" stroke-width="2" stroke-miterlimit="10" points="9.9,17 5,17 2,23 22,23 19,17 14.1,17 " stroke-linejoin="round" stroke-linecap="round"></polyline> <path fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M19,8c0,4.3-7,11.4-7,11.4 S5,12.3,5,8c0-4.4,3.6-7,7-7S19,3.6,19,8z" stroke-linejoin="round"></path> <circle fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="12" cy="8" r="2" stroke-linejoin="round"></circle> </g></svg>Korea </li>
