@@ -21,32 +21,39 @@
       <% end %>
     </div>
   </div> -->
-  <div class="container">
+    <div class="container">
     <%= render partial: 'shared/filter' %>
-
-    <h3 class="explore-heading">Trending products</h3>
-    <div class="row">
-    <% @products.limit(3).each do |product| %>
-      <div class="product-container col-sm-4">
-        <%= render partial: 'products/product_w2', locals: { product: product } %>
-      </div>
-    <% end %>
     </div>
-    <h3 class="explore-heading">Recommended items</h3>
-    <div class="row">
-      <div class="products-list">
-          <% @products.each do |product| %>
-          <div class="product-container col-sm-6 col-md-20 animated fadeIn">
-            <%= render partial: 'products/product', locals: { product: product } %>
+
+    <div class="container">
+      <h3 class="explore-heading">Trending products</h3>
+      <div class="row">
+
+      <% @products.limit(5).each do |product| %>
+        <div class="product-container col-sm-20">
+          <%= render partial: 'products/product', locals: { product: product } %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+
+    <div class="container">
+      <h3 class="explore-heading">Recommended items</h3>
+
+      <div class="row">
+        <div class="products-list">
+            <% @products.each do |product| %>
+            <div class="product-container col-sm-6 col-md-20 animated fadeIn">
+              <%= render partial: 'products/product', locals: { product: product } %>
+            </div>
+            <% end %>
+          <div id="placeholder">
           </div>
-          <% end %>
-        <div id="placeholder">
         </div>
       </div>
     </div>
     <%= link_to "Load more", "#placeholder", :id => 'next' %>
 
-    </div>
 
   </div>
   <div style="display:none">

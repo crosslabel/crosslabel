@@ -1,10 +1,10 @@
 <div class="container">
-<h1>Retailers</h1>
-<% @retailers.each do |retailer| %>
-  <div class="col-lg-4">
-    <div class="shop-container">
-    <%= link_to retailer.name, retailer %>
-    </div>
+  <div class="row">
+    <h1>Shops</h1>
+    <% @retailers.each do |retailer| %>
+        <div class="retailer-container">
+            <%= link_to retailer.name, retailer %>
+        </div>
+    <% end %>
   </div>
-<% end %>
 </div>

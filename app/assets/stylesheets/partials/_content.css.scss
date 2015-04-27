@@ -8,17 +8,9 @@
 // 1. Defaults
 
 div.breadcrumbs {
-  font-size: 1em;
+  font-size: 1.1em;
   padding-bottom: 1em;
 }
-.content-s1 {
-  background: #fff;
-}
-
-.content-s2 {
-
-}
-
 .product-container.w2 {
   padding: 20px;
 }
@@ -519,7 +511,7 @@ ul.product-meta {
 // Explore page
 .explore-page {
   background: #fff;
-  padding: 2em 0;
+  padding: 2em 0 6em 0;
   .explore-heading {
     font-weight: $regular;
     margin-top: 0;
@@ -532,8 +524,9 @@ ul.product-meta {
   background-position: 25% 45%;
   background-size: cover;
   width: 100%;
-  min-height: 250px;
+  min-height: 350px;
   text-align: center;
+  padding-bottom: 2em;
   .hero-overlay {
     background: rgba(0,0,0, 0.15);
     position: absolute;
@@ -615,7 +608,10 @@ ul.product-meta {
 }
 
 // Retailers
-.shop-container {
+.retailer-container {
+  display: inline-block;
   background: #f9f9f9;
-  height: 308px;
+  width: 80px;
+  height: 80px;
+  @include border-radius(4px);
 }

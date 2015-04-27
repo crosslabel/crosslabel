@@ -21,7 +21,7 @@ ul.nav.navbar-nav.navbar-right {
     padding-top: 0;
   }
 }
-header.home-header {
+header.header-secondary {
   background: none;
   padding-top: 1em;
   @include transition(all, 1s, ease);
@@ -63,7 +63,7 @@ header.home-header {
   }
 }
 
-header.home-header.sticky {
+header.header-secondary.sticky {
   background: #fff;
   position: fixed;
   width: 100%;

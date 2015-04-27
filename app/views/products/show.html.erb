@@ -4,29 +4,29 @@
 <div class="product-detail-page">
   <div class="container" style="width:80%;">
     <div class="row">
-    <%= breadcrumbs style: :bootstrap, separator: " &rsaquo; " %>
+    <%= breadcrumbs separator: " &rsaquo; " %>
     </div>
     <div class="product-images row">
-    <div class="product-variations col-lg-3" style="padding:0;">
-        <% @product.product_variations.each do |variation| %>
-          <% variation.product_images.limit(5).each do |image| %>
-          <a href="#"><%= image_tag "#{image.filepath}", width: "60px", height: "80px", :class => "product-variation-image" %></a>
+      <div class="product-variations col-lg-3" style="padding:0;">
+          <% @product.product_variations.each do |variation| %>
+            <% variation.product_images.limit(5).each do |image| %>
+            <a href="#"><%= image_tag "#{image.filepath}", width: "60px", height: "80px", :class => "product-variation-image" %></a>
+            <% end %>
           <% end %>
-        <% end %>
-    </div>
-    <div class="main-image-container col-lg-4">
-      <%= image_tag @product.try(:product_variations).first.try(:product_images).first.try(:filepath), class: 'main-product-image' %>
-    </div>
-    <div class="product-info col-lg-4">
-      <h3 class="product-detail-heading"><%= @product.title %></h3>
-      <h5 class="shop-heading">from <%= link_to @product.retailer.name, @product.retailer %></h5>
-      <div class="price" style="font-size:1.5em;">$<%= @product.original_price %></div>
-        <%= link_to "Buy from #{@product.retailer.name}", @product.homepage_product_link, :class => "btn-purchase" %>
-        <div class="product-description">
-          <h4>Item Description</h4>
-          <p><%= @product.description.html_safe %></p>
-        </div>
       </div>
+      <div class="main-image-container col-lg-4">
+        <%= image_tag @product.try(:product_variations).first.try(:product_images).first.try(:filepath), class: 'main-product-image' %>
+      </div>
+      <div class="product-info col-lg-4">
+        <h3 class="product-detail-heading"><%= @product.title %></h3>
+        <h5 class="shop-heading">from <%= link_to @product.retailer.name, @product.retailer %></h5>
+        <div class="price" style="font-size:1.5em;">$<%= @product.original_price %></div>
+          <%= link_to "Buy from #{@product.retailer.name}", @product.homepage_product_link, :class => "btn-purchase" %>
+          <div class="product-description">
+            <h4>Item Description</h4>
+            <p><%= @product.description.html_safe %></p>
+          </div>
+        </div>
     </div>
     <div class="row">
       <h3>Some other items you might like</h3>
@@ -36,8 +36,6 @@
         </div>
       <% end %>
     </div>
-  </div>
-  </div>
   </div>
 </div>
 
