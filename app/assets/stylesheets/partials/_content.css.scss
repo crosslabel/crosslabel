@@ -388,8 +388,10 @@ img.liked-user-image {
   padding: 2em 1em 2em 1em;
 }
 
-.favourites {
-  background: #fff;
+.user-favourites {
+  h4 {
+    padding-left: 15px;
+  }
 }
 
 #user-details {
@@ -506,7 +508,9 @@ ul.product-meta {
 }
 
 // User settings page
-.user-settings-page {}
+.user-settings-page {
+  padding: 2em 0 4em;
+}
 
 // Explore page
 .explore-page {
@@ -515,6 +519,7 @@ ul.product-meta {
   .explore-heading {
     font-weight: $regular;
     margin-top: 0;
+    padding-left: 15px;
     padding-bottom: 1em;
   }
 }
@@ -614,4 +619,34 @@ ul.product-meta {
   width: 80px;
   height: 80px;
   @include border-radius(4px);
+}
+
+
+.retailer-hero {
+  background: #ccc image-url('retailer_hero.jpg');
+  background-position: 25% 35%;
+  background-size: cover;
+  width: 100%;
+  min-height: 350px;
+  text-align: center;
+  padding-bottom: 2em;
+  .hero-overlay {
+    background: rgba(0,0,0, 0.15);
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    top: 0;
+    left: 0;
+  }
+  .explore-hero-heading {
+    color: #fff;
+    font-weight: $light;
+    padding-bottom: 10px;
+  }
+
+  .hero-content {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 4em;
+  }
 }

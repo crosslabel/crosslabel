@@ -1,10 +1,18 @@
-<div class="container">
-  <div class="row">
-    <h1>Shops</h1>
-    <% @retailers.each do |retailer| %>
-        <div class="retailer-container">
-            <%= link_to retailer.name, retailer %>
-        </div>
-    <% end %>
+<section class="retailer-hero">
+  <div class="hero">
+    <%= render partial: 'shared/header_secondary' %>
+    <div class="hero-content">
+      <h3 class="explore-hero-heading">All journeys have secret destinations of which the traveler is unaware.</h3>
+    </div>
   </div>
-</div>
+</section>
+<section class="retailers-list">
+  <div class="container">
+      <h1>Shops</h1>
+      <% @retailers.each do |retailer| %>
+          <div class="retailer-container">
+              <%= link_to retailer.name, retailer %>
+          </div>
+      <% end %>
+  </div>
+</section>

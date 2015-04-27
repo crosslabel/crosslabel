@@ -1,6 +1,7 @@
 class RetailersController < ApplicationController
   def index
     @retailers = Retailer.all
+    render layout: 'transparent_header'
   end
 
   def show

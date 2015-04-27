@@ -28,6 +28,10 @@ body, html {
   width: 80%;
 }
 
+col-md-3 {
+
+}
+
 
 .col-xs-20,
 .col-sm-20,
@@ -58,15 +62,29 @@ a {
   text-align: center;
   padding: 0.5em 0;
 }
+.col-md-3, .col-sm-3, .col-lg-3 {
+  padding-left: 25px;
+  padding-right: 25px
+}
 .filters {
+  padding-left: 15px;
   padding-bottom: 2em;
 }
 .btn-group {
+  background: #16A085;
+  margin: 0 0.5em;
+  cursor: pointer;
+  @include border-radius(15px);
   &:first-child {
-    padding-left: 0;
+    margin-left: 0;
   }
   a {
-    color: #656565;
+    padding: 5px 15px;
+    color: #fff;
+  }
+  ul.dropdown-menu {
+    background: #f1f1f1;
+    border: 0;
   }
 }
 .filter-item {

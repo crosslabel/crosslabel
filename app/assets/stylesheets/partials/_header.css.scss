@@ -80,14 +80,14 @@ ul.nav.navbar-nav.navbar-right ul li {
 }
 header.header {
   background: none;
-  border-bottom: 1px solid rgba(230,230,230,0.7);
+  border-bottom: 1px solid rgba(204,204,204,0.7);
 
   .navbar-brand {
     color: #444;
     font-weight: 700;
+    font-family: 'loveloblack', 'sans-serif';
     padding-left: 0;
     padding-right: 0;
-    font-size: 1.1em;
     text-transform: uppercase;
     letter-spacing: 2px;
     &:hover {
@@ -110,7 +110,7 @@ header.header {
     li {
       display: inline;
       a {
-        color: #8B909A;
+        color: #252525;
         text-shadow: none;
         &:hover {
           background: none;

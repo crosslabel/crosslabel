@@ -22,10 +22,6 @@ class Product < ActiveRecord::Base
     score
   end
 
-  def product_variation_images
-
-  end
-
   def similar_items
     Product.where(category_id: self.category_id).limit(5).order('created_at ASC')
   end
