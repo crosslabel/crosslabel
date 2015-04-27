@@ -88,6 +88,13 @@ a {
   ul.dropdown-menu {
     background: #f1f1f1;
     border: 0;
+    a {
+      color: #444;
+      font-size: 1.2em;
+      &:hover {
+        color: #999;
+      }
+    }
   }
 }
 .filter-item {
