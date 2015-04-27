@@ -405,7 +405,7 @@ img.liked-user-image {
 // 4. Product Detail Page
 
 .product-detail-page {
-  padding: 2em 0 5em 0;
+  padding: 2em 0 0 0;
   .product {
     margin: 0 auto;
   }
@@ -504,6 +504,15 @@ ul.product-meta {
   }
   .heart.not-voted {
     opacity: 1;
+  }
+}
+
+.similar-items {
+  background: #f9f9f9;
+  margin-top: 1em;
+  padding: 1em 0;
+  h3 {
+    margin-bottom: 1em;
   }
 }
 
