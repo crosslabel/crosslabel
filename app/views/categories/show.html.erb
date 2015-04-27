@@ -23,18 +23,18 @@
   <div class="container">
 
     <%= render partial: 'shared/filter' %>
-    <%= breadcrumbs style: :bootstrap, separator: " &rsaquo; " %>
-
-    <h3 class="explore-heading">Trending <%= @category.name.capitalize %></h3>
+    <%= breadcrumbs separator: " &rsaquo; " %>
     <div class="row">
+      <h3 class="explore-heading">Trending <%= @category.name.capitalize %></h3>
+
     <% @products.limit(3).each do |product| %>
       <div class="product-container col-sm-4">
         <%= render partial: 'products/product_w2', locals: { product: product } %>
       </div>
     <% end %>
     </div>
-    <h3 class="explore-heading">Recommended items</h3>
     <div class="row">
+      <h3 class="explore-heading">Recommended items</h3>
       <div class="products-list">
           <% @products.each do |product| %>
           <div class="product-container col-sm-6 col-md-20 animated fadeIn">
