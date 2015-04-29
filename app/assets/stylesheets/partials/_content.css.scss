@@ -462,29 +462,15 @@ ul.product-meta {
 
 }
 
+.main-product-image {
+  width: 100%;
+}
+.viewing {
+  border: 4px solid #eee;
+}
+
 .product-variations {
   /*  */
-}
-
-.product-images {
-  img {
-    text-align: left;
-  }
-  div.main-image-container.col-lg-4 {
-    padding: 0;
-  }
-
-  .main-product-image {
-    width: 100%;
-  }
-  .viewing {
-    border: 4px solid #eee;
-  }
-  padding-bottom: 2em;
-}
-
-.product-info {
-  position:relative;
 }
 
 .product-actions-container {

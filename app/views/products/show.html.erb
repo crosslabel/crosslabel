@@ -3,8 +3,9 @@
 <% content_for :title do %><%= @product.title %><% end %>
 <div class="product-detail-page">
   <div class="container">
+    <div class="row">
     <%= breadcrumbs separator: " &rsaquo; " %>
-      <div class="product-variations col-lg-3" style="padding:0;">
+      <div class="product-variations col-lg-2">
           <% @product.product_variations.each do |variation| %>
             <% variation.product_images.limit(5).each do |image| %>
             <a href="#"><%= image_tag "#{image.filepath}", width: "60px", height: "80px", :class => "product-variation-image" %></a>
@@ -14,7 +15,7 @@
       <div class="main-image-container col-lg-4">
         <%= image_tag @product.try(:product_variations).first.try(:product_images).first.try(:filepath), class: 'main-product-image' %>
       </div>
-      <div class="product-info col-lg-5">
+      <div class="product-info col-lg-6">
         <h3 class="product-detail-heading"><%= @product.title %></h3>
         <h5 class="shop-heading">from <%= link_to @product.retailer.name, @product.retailer %></h5>
         <div class="price" style="font-size:1.5em;">$<%= @product.original_price %></div>
@@ -25,6 +26,7 @@
           </div>
         </div>
     </div>
+  </div>
 
     <div class="similar-items">
       <div class="container">
