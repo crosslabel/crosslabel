@@ -46,6 +46,7 @@ gem 'aws-sdk', '< 2.0'
 
 gem "redis", "~> 3.0.1"
 gem 'mandrill-api', '~> 1.0.53', require: "mandrill" # transactional emails
+gem 'resque', '~> 1.25.2'
 gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 
 group :test do
