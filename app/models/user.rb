@@ -67,6 +67,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def recently_viewed_product_ids
+    $redis.smembers "users::viewedrecently::#{self.id}"
+  end
+
+  def recently_viewed_products
+    Product.where(:id => recently_viewed_product_ids)
+  end
+
   def remove_avatar
     update_attribute(:avatar, nil)
   end

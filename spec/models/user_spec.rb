@@ -9,7 +9,6 @@ RSpec.describe User, type: :model do
   it { should respond_to(:password_confirmation)}
   it { should respond_to(:auth_token)}
   it { should have_many(:authentications)}
-  it { should have_one(:profile)}
 
   it { should validate_uniqueness_of(:auth_token)}
   it { should validate_presence_of(:email)}
@@ -22,9 +21,10 @@ RSpec.describe User, type: :model do
       it "make all emails lower case" do
         user = User.new(:name => "Example User", :username => "Example User", :email => "EXAMPLE@EXAMPLE.COM", :password => "foobarlala", :password_confirmation => "foobarlala")
         user.save
-        expect(subject.email).to eq('example@example.com')
+        expect(user.email).to eq('example@example.com')
       end
     end
+
 
     describe "registrations" do
       before(:each) do
@@ -93,6 +93,16 @@ RSpec.describe User, type: :model do
       existing_user = FactoryGirl.create(:user, auth_token: "auniquetoken123")
       user.generate_authentication_token!
       expect(user.auth_token).not_to eql existing_user.auth_token
+    end
+  end
+
+  describe "recently viewed products" do
+    it "returns recently viewed products" do
+      product1 = FactoryGirl.create(:product)
+      product2 = FactoryGirl.create(:product)
+      product1.viewed(user)
+      product2.viewed(user)
+      expect(user.recently_viewed_products).to eq([product1, product2])
     end
   end
 end

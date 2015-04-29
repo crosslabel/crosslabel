@@ -19,16 +19,37 @@ RSpec.describe Product, type: :model do
       expect(@product.original_price).to be_kind_of(Float)
     end
   end
+  #
+  # describe "product variation images" do
+  #   it "returns all the images of the product" do
+  #     product = FactoryGirl.create(:product_with_variation)
+  #     expect(product.product_variation_images).to eq([])
+  #   end
+  # end
+  describe "view products" do
+    before do
+      @user = FactoryGirl.create(:user)
+      @product1 = FactoryGirl.create(:product)
+      @product2 = FactoryGirl.create(:product)
+    end
 
-  describe "product variation images" do
-    it "returns all the images of the product" do
-      product = FactoryGirl.create(:product_with_variation)
-      expect(product.product_variation_images).to eq([])
+    it "should add product to user's set" do
+      @product1.viewed(@user)
+      @product2.viewed(@user)
+      expect(@user.recently_viewed_product_ids).to eql([@product1.id.to_s, @product2.id.to_s])
+    end
+
+    it "stores unique members" do
+      @product1.viewed(@user)
+      @product2.viewed(@user)
+      @product2.viewed(@user)
+      expect(@user.recently_viewed_product_ids).to eql([@product1.id.to_s, @product2.id.to_s])
     end
   end
 
+
   describe "get similar items" do
-    context "other items in category" do
+    context "items in category" do
       it "returns array of items items in same category" do
         product1 = FactoryGirl.create(:product, :category_id => 1)
         product2 = FactoryGirl.create(:product, :category_id => 1)

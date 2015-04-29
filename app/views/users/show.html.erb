@@ -9,15 +9,28 @@
     </div>
     <div class="user-favourites">
     <div class="container">
+      <h4>Liked</h4>
       <div class="row">
-          <h4>Liked</h4>
           <% @user.likes.each do |item| %>
           <div class="col-md-3">
             <%= render partial: 'products/product_w2', locals: {product: item } %>
           </div>
-
           <% end %>
         </div>
       </div>
     </div>
+    <% if current_user == @user %>
+    <div class="user-recently-viewed">
+    <div class="container">
+      <h4>Recently viewed</h4>
+      <div class="row">
+          <% @user.recently_viewed_products.each do |item| %>
+          <div class="col-md-3">
+            <%= render partial: 'products/product_w2', locals: {product: item } %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
 </section>

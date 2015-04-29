@@ -129,6 +129,7 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.6.0)
+    mock_redis (0.14.0)
     monetize (1.1.0)
       money (~> 6.5.0)
     money (6.5.1)
@@ -303,6 +304,7 @@ DEPENDENCIES
   jquery-turbolinks
   kaminari
   mandrill-api (~> 1.0.53)
+  mock_redis
   money-rails
   newrelic_rpm
   omniauth

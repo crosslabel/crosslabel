@@ -22,6 +22,12 @@ class Product < ActiveRecord::Base
     score
   end
 
+  def viewed(user)
+    $redis.sadd "users::viewedrecently::#{user.id}", self.id
+  end
+
+
+
   def similar_items
     Product.where(category_id: self.category_id).limit(5).order('created_at ASC')
   end

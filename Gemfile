@@ -57,6 +57,7 @@ group :test do
   gem 'webmock'
   gem 'excon'
   gem 'database_cleaner', '~> 1.4.1'
+  gem 'mock_redis'
 end
 
 group :production do
