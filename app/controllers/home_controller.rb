@@ -5,14 +5,14 @@ class HomeController < ApplicationController
   end
 
   def explore
-    @products = Product.all.order("RANDOM()").page(params[:page]).per(20)
+    @trending_products = Product.trending
+    @recommended_products = Product.all.page(params[:page]).per(20)
     @categories = Category.all
     @retailers = Retailer.all.limit(10)
     render :layout => 'transparent_header'
   end
 
   def trending
-    @products = Product.trending
   end
 
   def recommended

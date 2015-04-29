@@ -47,6 +47,12 @@ RSpec.describe Product, type: :model do
     end
   end
 
+  # describe "trendiness score" do
+  #   it "should return a score based on created at, views and likes" do
+  #     expect(product1.set_trendiness_score).to eql()
+  #   end
+  # end
+
 
   describe "get similar items" do
     context "items in category" do

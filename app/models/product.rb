@@ -10,20 +10,21 @@ class Product < ActiveRecord::Base
 
 
   def self.trending
-    all
-  end
-
-  def hotness
-    num_of_likes = self.liked_by_count
-    time_diff = (Time.now - self.created_at)
-    if time_diff > 1
-      score = num_of_likes * time_diff
-    end
-    score
+    Product.all.order(trendiness_score: :desc)
   end
 
   def viewed(user)
     $redis.sadd "users::viewedrecently::#{user.id}", self.id
+  end
+
+  def set_trendiness_score
+    num_of_likes = self.liked_by_count
+    # time_diff = Time.now - self.created_at
+    # if time_diff > 1
+
+      score = num_of_likes + self.viewed_count
+    # end
+    update_attribute(:trendiness_score, score)
   end
 
 
