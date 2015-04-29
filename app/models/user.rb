@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
   before_create :generate_authentication_token!
 
-  has_attached_file :avatar, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => "/images/default_:style_avatar.jpg"
+  has_attached_file :avatar, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => ":style/default_avatar.jpg"
   validates_attachment :avatar, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
   validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 3.megabytes
 
