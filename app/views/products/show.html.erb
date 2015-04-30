@@ -3,8 +3,8 @@
 <% content_for :title do %><%= @product.title %><% end %>
 <div class="product-detail-page">
   <div class="container">
-    <div class="row">
     <%= breadcrumbs separator: " &rsaquo; " %>
+    <div class="row">
       <div class="product-variations col-lg-2">
           <% @product.product_variations.each do |variation| %>
             <% variation.product_images.limit(5).each do |image| %>
