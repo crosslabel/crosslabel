@@ -6,7 +6,12 @@ ActiveRecord::Base.send(:include, Recommendations::Ratable)
 
 Recommendations.configure do |config|
   # Recommendation's connection to Redis
-  config.redis = $redis
+  if ENV["REDISCLOUD_URL"]
+    config.redis = Redis.new(:url => ENV["REDISCLOUD_URL"])
+  else
+    config.redis = Redis.new(:host => 'localhost', :port => 6379, :db => 0)
+  end
+
 
   # A prefix for all keys Recommendable uses
   config.redis_namespace = :recommendations
