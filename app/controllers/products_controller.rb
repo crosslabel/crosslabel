@@ -18,7 +18,28 @@ class ProductsController < ApplicationController
     if current_user
       @product.viewed(current_user)
     end
-    # Analytics.track(user_id: "#{current_user.try(:id)}", anonymous_id: "anonymous_user", event: 'Viewed Product', properties: { id: "#{@product.id}", name: "#{@product.title}", price: "#{@product.unit_price}", category: "#{@product.categories.first.title}", retailer: "#{@product.shop.name}"})
+
+
+    Analytics.track(user_id: "#{current_user.try(:id)}", anonymous_id: "anonymous_user", event: 'Viewed Product', properties: { user: { id: "#{current_user.try(:id)}", name: "#{current_user.try(:name)}", email: "#{current_user.try(:email)}" }, product: { id: "#{@product.id}", title: "#{@product.title}", original_price: "#{@product.original_price}", category: "#{@product.category.name}", retailer: "#{@product.retailer.name}" }, keen: {
+        addons: [
+            {
+                name: "keen:ip_to_geo",
+                input: {
+                    ip: "ip_address"
+                },
+                output: "ip_geo_info"
+            },
+            {
+                name: "keen:ua_parser",
+                input: {
+                    ua_string: "user_agent"
+                },
+                output: "parsed_user_agent"
+            }
+        ]
+    },
+    ip_address: "${keen.ip}",
+    user_agent: "${keen.user_agent}"})
   end
 
   def create
