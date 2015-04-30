@@ -1,0 +1,7 @@
+set_product_trendiness:
+  every:
+    - "30s"
+  class: "ProductTrendinessCalculator"
+  queue: low
+  description: "This job will recalculate the score of every product every 30 mins"
+  

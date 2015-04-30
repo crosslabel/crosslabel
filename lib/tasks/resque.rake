@@ -1,3 +1,17 @@
 require "resque/tasks"
+require 'resque/scheduler/tasks'
+namespace :resque do
+  task :setup => :environment do
 
-task "resque:setup" => :environment # Load up rails environment when worker starts up. Have access to all models in workers.
+  end
+
+  task :setup_product_trendiness => :setup do
+    require 'resque_scheduler'
+
+    Resque.schedule = YAML.load_file('resque_schedule.yml')
+
+    require 'ProductTrendinessCalculator'
+  end
+
+  task :scheduler => :setup_product_trendiness
+end
