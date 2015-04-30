@@ -15,7 +15,9 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     Resque.enqueue(ProductViewsCounter, @product.id)
-    @product.viewed(current_user)
+    if current_user
+      @product.viewed(current_user)
+    end
     # Analytics.track(user_id: "#{current_user.try(:id)}", anonymous_id: "anonymous_user", event: 'Viewed Product', properties: { id: "#{@product.id}", name: "#{@product.title}", price: "#{@product.unit_price}", category: "#{@product.categories.first.title}", retailer: "#{@product.shop.name}"})
   end
 
