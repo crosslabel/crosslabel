@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: brandly_production
-  username: brandly
-  password: <%= ENV['BRANDLY_DATABASE_PASSWORD'] %>
+  database: crosslabel_production
+  username: crosslabel
+  password: <%= ENV['CROSSLABEL_DATABASE_PASSWORD'] %>
