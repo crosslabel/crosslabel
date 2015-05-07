@@ -10,7 +10,6 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.secret_key = '834a9eaabe4dce9c4b9abc0880805c887b82c1e1d19a9897f75c2068c76ff0a32d7606f9c025c27c3dc555ee52311e8adec313ebd9ac03f9982621837424caf8'
   config.secret_key = Rails.application.secrets.devise_secret_key
   config.scoped_views = true
   config.mailer_sender = 'Kareem at Crosslabel <kareem@crosslabel.com>'
