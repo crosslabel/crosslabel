@@ -71,6 +71,10 @@ gem 'money-rails'
 gem 'gretel'
 gem 'jquery-turbolinks'
 
+# JavaScript runtime
+gem 'execjs'
+gem 'therubyracer'
+
 group :development do
   gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-bundler', '~> 1.1.2'
