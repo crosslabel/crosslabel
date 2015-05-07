@@ -3,9 +3,9 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['AWS_BUCKET'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      :bucket =>  Rails.application.secrets.aws_bucket,
+      :access_key_id =>  Rails.application.secrets.aws_access_key_id,
+      :secret_access_key => Rails.application.aws_secret_access_key
     }
   }
   # Code is not reloaded between requests.
