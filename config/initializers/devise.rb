@@ -10,9 +10,9 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-
+  # config.secret_key = Rails.application.secrets.devise_secret_key
   config.scoped_views = true
-  config.mailer_sender = 'Kareem at Brandly <kareem@brandly.com>'
+  config.mailer_sender = 'Kareem at Crosslabel <kareem@crosslabel.com>'
 
   config.omniauth :facebook, Rails.application.secrets.facebook_app_key, Rails.application.secrets.facebook_secret_key,
   :scope => 'email, user_relationships', :image_size => 'large', :secure_image_url => true

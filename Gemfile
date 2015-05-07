@@ -71,7 +71,16 @@ gem 'money-rails'
 gem 'gretel'
 gem 'jquery-turbolinks'
 
+# JavaScript runtime
+gem 'execjs'
+gem 'therubyracer'
 
+group :development do
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rbenv', '~> 2.0'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -80,7 +89,7 @@ gem 'jquery-turbolinks'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano-rails', group: :development
+# Add this if you're using rbenv
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

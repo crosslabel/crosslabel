@@ -59,6 +59,11 @@ test:
   <<: *default
   database: brandly_test
 
+staging:
+  <<: *default
+  database: crosslabel_staging
+  user: deploy
+  password: deploy
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -80,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: brandly_production
-  username: brandly
-  password: <%= ENV['BRANDLY_DATABASE_PASSWORD'] %>
+  database: crosslabel_production
+  username: crosslabel
+  password: <%= ENV['CROSSLABEL_DATABASE_PASSWORD'] %>
