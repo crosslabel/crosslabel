@@ -208,7 +208,7 @@ div.breadcrumbs {
     }
 
     .product-overlay {
-      background: rgba(255,255,255, 0.2);
+      background: rgba(255,255,255, 0.3);
       position: absolute;
       width: 100%;
       height: 100%;
@@ -323,11 +323,17 @@ img.liked-user-image {
 // 4. Product Detail Page
 
 .product-detail-page {
+  position: relative;
   padding: 0 0 4em 0;
   .product {
     margin: 0 auto;
   }
-  
+
+  .product-display {
+    position: relative;
+    margin-bottom: 1em;
+  }
+
   div.slick-slide {
     opacity: 0.5;
   }

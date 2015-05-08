@@ -29,3 +29,19 @@ svg.product-upvote-icon {
   margin: 0 3px;
   vertical-align: middle;
 }
+
+.slider-nav-icon {
+  cursor: pointer;
+}
+
+.left.slider-nav-icon {
+  position: absolute;
+  top: 15%;
+  left: 2%;
+}
+
+.right.slider-nav-icon {
+  position: absolute;
+  top: 15%;
+  right: 2%;
+}

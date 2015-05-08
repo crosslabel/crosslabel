@@ -15,11 +15,12 @@
       <% end %>
     <% end %>
   </div>
+  <span class="left slider-nav-icon"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"> <circle data-color="color-2" fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22" stroke-linejoin="miter"></circle> <polyline fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="28,32 20,24 28,16 " stroke-linejoin="miter"></polyline> </g></svg></span>
+  <span class="right slider-nav-icon"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"> <circle data-color="color-2" fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22" stroke-linejoin="miter"></circle> <polyline fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="20,16 28,24 20,32 " stroke-linejoin="miter"></polyline> </g></svg></span>
   <div class="container">
     <!-- <%= breadcrumbs separator: " &rsaquo; " %> -->
     <div class="row">
       <div class="product-info col-lg-10">
-        <h4 style="margin-top:0;">Description</h4>
         <h3 class="product-detail-heading"><%= @product.title %></h3>
         <h5 class="shop-heading">from <%= link_to @product.retailer.name, @product.retailer %></h5>
         <div class="product-info-social" style="padding-top: 0.5em;">
@@ -62,6 +63,7 @@ $(document).ready(function() {
   centerPadding: '0px',
   slidesToShow: 3,
   variableWidth: true,
+  arrows: false,
   responsive: [
     {
       breakpoint: 768,
@@ -82,6 +84,14 @@ $(document).ready(function() {
       }
     }
   ]
-});
+  });
+
+$('.left').on('click', function(){
+  $('.product-display').slick('slickPrev');
+})
+
+$('.right').on('click', function(){
+  $('.product-display').slick('slickNext');
+})
 });
 </script>
