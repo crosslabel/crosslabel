@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css"/>
+</head>
+
 <% breadcrumb @product %>
 
 <% content_for :title do %><%= @product.title %><% end %>
@@ -5,7 +9,9 @@
   <div class="product-display">
     <% @product.product_variations.each do |variation| %>
       <% variation.product_images.each do |image| %>
+        <div>
         <%= image_tag "#{image.filepath}", :class => "product-image" %>
+        </div>
       <% end %>
     <% end %>
   </div>
@@ -53,8 +59,9 @@
 $(document).ready(function() {
   $('.product-display').slick({
   centerMode: true,
-  centerPadding: '60px',
+  centerPadding: '0px',
   slidesToShow: 3,
+  variableWidth: true,
   responsive: [
     {
       breakpoint: 768,

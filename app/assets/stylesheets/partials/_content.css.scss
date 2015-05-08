@@ -327,10 +327,11 @@ img.liked-user-image {
   .product {
     margin: 0 auto;
   }
-  img.slick-slide {
+  
+  div.slick-slide {
     opacity: 0.5;
   }
-  img.slick-active.slick-center {
+  div.slick-active.slick-center {
     opacity: 1;
   }
   .product-detail-heading {
