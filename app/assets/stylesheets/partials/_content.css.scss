@@ -1,4 +1,3 @@
-@import "base";
 // Table of Contents
 // 1. Defaults
 // 2. Products
@@ -241,7 +240,7 @@ div.breadcrumbs {
       background: rgba(255,255,255, 0.2);
       position: absolute;
       width: 100%;
-      height: 300px;
+      height: 100%;
       top: 0;
       left: 0;
       opacity: 0;
@@ -281,93 +280,37 @@ img.liked-user-image {
 
 .product-details {
   border-top: 0;
-  padding: 0px 0 0 0;
-  .retailer-name {
-    font-size: 0.9em;
-    font-weight: $regular;
+  padding: 10px 0 0 0;
+  .product-heading {
+    font-size: 1em;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  .product-retailer-heading {
+    font-size: 0.8em;
+    font-weight: $bold;
     letter-spacing: 1px;
     text-transform: uppercase;
     margin: 0;
-    a {
-      color: #706D6D;
+    a:hover {
+      opacity: 0.7;
     }
   }
-  .product-heading {
-    color: #252525;
-    font-size: 1em;
-    font-weight: $regular;
-    letter-spacing: 1px;
-    margin-bottom: 0.3em;
+  .product-meta {
+    margin-top: 3px;
   }
-}
-
-.explore-nav {
-  background: #f0f0f0;
-  padding-top: 6px;
-  ul {
-    padding: 0;
-    li {
-      display: inline;
-      font-size: 1.1em;
-      padding-left: 1em;
-      &:first-child {
-        padding-left: 0;
-      }
-      a {
-        color: #888;
-        &:hover {
-          color: #2c2c2c;
-        }
-      }
-    }
-  }
-}
-
-.tiny-list {
-  padding: 1em 1em;
-}
-
-.tiny-item.col-md-1 {
-  width: 100px;
-  display: inline-block;
-  padding: 0;
-}
-
-.tiny-product {
-  position: relative;
-
-  .tiny-image-container {
-    width: 100px;
-    height: 100px;
-    margin: 0;
-    img.product-image {
-      width: inherit;
-      height: inherit;
-      object-fit: cover;
-    }
-    &:hover .product-overlay {
-      opacity: 1;
-    }
-
-    &:hover .heart.not-voted {
-      opacity: 1;
-    }
-    .product-overlay {
-      background: rgba(255,255,255, 0.4);
-      position: absolute;
-      width: inherit;
-      height: inherit;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      @include transition(opacity, 0.5s, ease);
-
-    }
+  .product-country-heading {
 
   }
 
+  .product-price {
 
+  }
+  svg {
+    vertical-align: middle;
+  }
 }
+
 // Profile Page
 
 
@@ -439,26 +382,6 @@ img.liked-user-image {
 
 .product-show-image {
   padding: 0;
-}
-
-ul.product-meta {
-  padding: 0.5em 0;
-  li {
-    font-size: 0.9em;
-    display: inline-block;
-    margin-right: 2px;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-  svg {
-    vertical-align: bottom;
-    margin-right: 3px;
-  }
-  .price {
-
-  }
-
 }
 
 .main-product-image {
