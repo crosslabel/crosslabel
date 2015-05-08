@@ -37,13 +37,9 @@
           <div id="placeholder">
           </div>
         </div>
+        <%= paginate @recommended_products %>
+
     </div>
-    <%= link_to "Load more", "#placeholder", :id => 'next' %>
-
-
-  </div>
-  <div style="display:none">
-  <%= paginate @recommended_products %>
   </div>
 
 </section>

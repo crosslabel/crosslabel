@@ -7,5 +7,5 @@
     remote:        data-remote
 -%>
 <span class="next">
-  <%= link_to_unless current_page.last?, t('views.pagination.next').html_safe, url, :rel => 'next', :remote => remote %>
+  <%= link_to_unless current_page.last?, '<svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g> <circle data-color="color-2" fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22"></circle> <polygon fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="18,32 18,16 30,24 "></polygon> </g></svg>'.html_safe, url, :rel => 'next', :remote => remote %>
 </span>
