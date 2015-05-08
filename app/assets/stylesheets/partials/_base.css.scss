@@ -74,16 +74,13 @@ a {
   padding-bottom: 2em;
 }
 .btn-group {
-  background: #16A085;
   margin: 0 0.5em;
   cursor: pointer;
-  @include border-radius(15px);
   &:first-child {
     margin-left: 0;
   }
   a {
-    padding: 5px 15px;
-    color: #fff;
+    color: #888;
   }
   ul.dropdown-menu {
     background: #f1f1f1;

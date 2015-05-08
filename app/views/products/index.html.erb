@@ -1,6 +1,8 @@
 <div class="container">
 <h3>Search results for <%= params[:query] %></h3>
 <% @products.each do |product| %>
+<div class="col-lg-3">
   <%= render partial: 'products/product_w2', locals: {product: product} %>
+</div>
 <% end %>
 </div>

@@ -27,8 +27,8 @@
     <div class="row">
       <h3 class="explore-heading">Trending <%= @category.name.capitalize %></h3>
 
-    <% @products.limit(3).each do |product| %>
-      <div class="product-container col-sm-4">
+    <% @products.limit(4).each do |product| %>
+      <div class="product-container col-sm-3">
         <%= render partial: 'products/product_w2', locals: { product: product } %>
       </div>
     <% end %>

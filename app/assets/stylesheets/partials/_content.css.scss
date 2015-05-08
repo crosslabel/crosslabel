@@ -94,8 +94,8 @@ div.breadcrumbs {
 
 }
 
-#home-trending-products {
-  padding: 2em 0;
+#home-page {
+  padding: 2em 0 4em 0;
 }
 
 .login-page, .signup-page, .password-page {
@@ -407,7 +407,7 @@ img.liked-user-image {
 
 // Explore page
 .explore-page {
-  background: #fff;
+  background: #f5f6f5;
   padding: 2em 0 6em 0;
   .explore-heading {
     font-weight: $regular;
