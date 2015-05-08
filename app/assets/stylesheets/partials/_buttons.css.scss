@@ -51,6 +51,7 @@
   color: #fff;
   background: #16A085;
   padding: 0.8em 1.5em;
+  @include border-radius(0);
   &:hover {
     color: #fff;
     background: #019875;

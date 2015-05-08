@@ -2,52 +2,79 @@
 
 <% content_for :title do %><%= @product.title %><% end %>
 <div class="product-detail-page">
+  <div class="product-display">
+    <% @product.product_variations.each do |variation| %>
+      <% variation.product_images.each do |image| %>
+        <%= image_tag "#{image.filepath}", :class => "product-image" %>
+      <% end %>
+    <% end %>
+  </div>
   <div class="container">
-    <%= breadcrumbs separator: " &rsaquo; " %>
+    <!-- <%= breadcrumbs separator: " &rsaquo; " %> -->
     <div class="row">
-      <div class="product-variations col-lg-2">
-          <% @product.product_variations.each do |variation| %>
-            <% variation.product_images.limit(5).each do |image| %>
-            <a href="#"><%= image_tag "#{image.filepath}", width: "60px", height: "80px", :class => "product-variation-image" %></a>
-            <% end %>
-          <% end %>
-      </div>
-      <div class="main-image-container col-lg-4">
-        <%= image_tag @product.try(:product_variations).first.try(:product_images).first.try(:filepath), class: 'main-product-image' %>
-      </div>
-      <div class="product-info col-lg-6">
+      <div class="product-info col-lg-10">
+        <h4 style="margin-top:0;">Description</h4>
         <h3 class="product-detail-heading"><%= @product.title %></h3>
         <h5 class="shop-heading">from <%= link_to @product.retailer.name, @product.retailer %></h5>
-        <div class="price" style="font-size:1.5em;">$<%= @product.original_price %></div>
-          <%= link_to "Buy from #{@product.retailer.name}", @product.homepage_product_link, :class => "btn-purchase" %>
+        <div class="product-info-social" style="padding-top: 0.5em;">
+          <span class="product-social-item"><svg class="product-downvote-icon nc-icon glyph" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24"><g> <path fill="#d94052" d="M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z"></path></g></svg><%= pluralize(@product.liked_by_count, "like") %></span>
+          <span class="product-country-heading product-social-item"><svg class="product-country-icon nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24"> <g transform="translate(0, 0)"> <path fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M20,9c0,4.9-8,13-8,13 S4,13.9,4,9c0-5.1,4.1-8,8-8S20,3.9,20,9z" stroke-linejoin="miter"></path> <circle data-color="color-2" fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="12" cy="9" r="3" stroke-linejoin="miter"></circle> </g> </svg>US</span>
+          <span class="product-social-item"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M2,12c0,0,4-6,10-6 c6,0,10,6,10,6s-4,6-10,6C6,18,2,12,2,12z" stroke-linejoin="miter"></path> <circle fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="12" cy="10" r="4" stroke-linejoin="miter"></circle> </g></svg>Viewed <%= pluralize(@product.viewed_count, "time") %></span>
+        </div>
+        <div class="product-info-price" style="font-size:1.5em;">$<%= @product.original_price %></div>
           <div class="product-description">
-            <h4>Item Description</h4>
+            <h4>Features</h4>
             <p><%= @product.description.html_safe %></p>
           </div>
         </div>
+      <div class="col-lg-2">
+        <%= link_to "Buy from #{@product.retailer.name}", @product.homepage_product_link, :class => "btn-purchase" %>
+
+      </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="similar-items">
+        <div class="container">
+            <h3 style="padding-left:15px;">Some other items you might like</h3>
+            <% @product.similar_items.each do |similar_item| %>
+              <div class="col-lg-20">
+                <%= render partial: "products/product", locals: { product: similar_item} %>
+              </div>
+            <% end %>
+        </div>
+    </div>
     </div>
   </div>
 
-    <div class="similar-items">
-      <div class="container">
-        <div class="row">
-          <h3 style="padding-left:15px;">Some other items you might like</h3>
-          <% @product.similar_items.each do |similar_item| %>
-            <div class="col-lg-20">
-              <%= render partial: "products/product", locals: { product: similar_item} %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-
 </div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
 <script>
-  $(document).ready(function() {
-    $('.product-variation-image').on('click', function() {
-      image_link = $(this).attr('src');
-      $('.main-product-image').attr('src', image_link);
-      $('.product-variations').children().children('img').removeClass('viewing');
-      $(this).addClass('viewing');
-    })
-  });
+$(document).ready(function() {
+  $('.product-display').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+});
 </script>

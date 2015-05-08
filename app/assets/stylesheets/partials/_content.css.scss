@@ -323,14 +323,33 @@ img.liked-user-image {
 // 4. Product Detail Page
 
 .product-detail-page {
-  padding: 2em 0 0 0;
+  padding: 0 0 4em 0;
   .product {
     margin: 0 auto;
   }
+  img.slick-slide {
+    opacity: 0.5;
+  }
+  img.slick-active.slick-center {
+    opacity: 1;
+  }
   .product-detail-heading {
   	margin: 0;
-  	font-size: 2em;
+  	font-size: 1.6em;
     font-weight: $light;
+  }
+
+  .product-info {
+    svg {
+      vertical-align: middle;
+      margin-right: 3px;
+    }
+    .product-social-item {
+      margin-right: 10px;
+    }
+    .product-info-price {
+      margin: 1em 0;
+    }
   }
 
   .product-detail-description {
@@ -368,7 +387,7 @@ img.liked-user-image {
 }
 
 .product-variations {
-  /*  */
+  padding: 1em 0;
 }
 
 .product-actions-container {
@@ -407,7 +426,6 @@ img.liked-user-image {
 
 // Explore page
 .explore-page {
-  background: #f5f6f5;
   padding: 2em 0 6em 0;
   .explore-heading {
     font-weight: $regular;
