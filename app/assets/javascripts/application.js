@@ -21,7 +21,9 @@
 //= require validations/bootstrap
 //= require_tree .
 
-
+$(document).ready(function() {
+  $("img").unveil();
+});
 
 if (window.location.hash && window.location.hash == '#_=_') {
     window.location.hash = '';

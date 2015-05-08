@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
   def explore
     @trending_products = Product.trending
-    @recommended_products = Product.all.page(params[:page]).per(20)
+    @recommended_products = Product.includes(:retailer, :category).all.page(params[:page]).per(20)
     @categories = Category.all
     @retailers = Retailer.all.limit(10)
     render :layout => 'transparent_header'
