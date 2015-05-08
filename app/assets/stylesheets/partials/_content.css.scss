@@ -207,20 +207,17 @@ div.breadcrumbs {
   padding: 1em 0;
 }
 
-.product-container {
-  margin-bottom: 1em;
-}
+
 .product {
   position: relative;
-  height: 400px;
+  margin-bottom: 3em;
 
   .product-image-container {
     position: relative;
-    height: 287px;
+    height: auto;
 
     img.product-image {
       width: 100%;
-      height: inherit;
       object-fit: cover;
     }
     &:hover .card-hover {
@@ -284,13 +281,15 @@ img.liked-user-image {
 
 .product-details {
   border-top: 0;
-  padding: 10px 0 0 0;
-  .retailer {
-    color: #706D6D;
-    font-weight: 1.1em;
+  padding: 0px 0 0 0;
+  .retailer-name {
+    font-size: 0.9em;
     font-weight: $regular;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     margin: 0;
     a {
+      color: #706D6D;
     }
   }
   .product-heading {
