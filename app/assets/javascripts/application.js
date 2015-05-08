@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery.infinitescroll
 //= require jquery.turbolinks
+//= require mousetrap.min
 //= require validations/formValidation.popular
 //= require validations/bootstrap
 //= require_tree .
@@ -23,4 +24,17 @@
 
 if (window.location.hash && window.location.hash == '#_=_') {
     window.location.hash = '';
+}
+
+Mousetrap.bind('right', nextPage);
+Mousetrap.bind('prev', prevPage);
+
+function nextPage() {
+  host = window.location.host
+  window.location.href = host + "/";
+}
+
+function prevPage() {
+  host = window.location.host
+  window.location.href = host + "/";
 }
