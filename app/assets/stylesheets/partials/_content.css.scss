@@ -45,7 +45,7 @@ div.breadcrumbs {
     color: #fff;
     background: #16A085;
     font-size: 1.2em;
-    padding: 0.5em 2em;
+    padding: 0.5em 1em;
     letter-spacing: 1px;
     @include border-radius(3px);
     &:hover {
@@ -145,35 +145,6 @@ div.breadcrumbs {
 
 }
 
-
-.heart.voted {
-    color: #D94052;
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    transition: 1s;
-    vertical-align: middle;
-    &:hover {
-      color: #999;
-    }
-}
-
-
-.heart.not-voted {
-  color: #999;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  transition: 1s;
-  opacity: 0;
-  vertical-align: middle;
-
-  &:hover {
-    color: #D94052;
-  }
-  &:hover #fav-text {
-    opacity: 1;
-  }
-}
-
 .featured-shops {
   padding: 0 1em;
 }
@@ -226,7 +197,7 @@ div.breadcrumbs {
       opacity: 1;
     }
 
-    &:hover .heart.not-voted {
+    &:hover svg.product-upvote-icon {
       opacity: 1;
     }
 
@@ -298,16 +269,21 @@ img.liked-user-image {
   }
   .product-meta {
     margin-top: 3px;
+    .product-meta-item {
+      margin-right: 5px;
+    }
+    svg {
+      margin-right: 2px;
+      vertical-align: middle;
+
+    }
   }
   .product-country-heading {
 
   }
 
   .product-price {
-
-  }
-  svg {
-    vertical-align: middle;
+    float: right;
   }
 }
 
