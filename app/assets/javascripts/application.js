@@ -16,6 +16,7 @@
 //= require jquery.infinitescroll
 //= require jquery.turbolinks
 //= require mousetrap.min
+//= require unveil.js
 //= require validations/formValidation.popular
 //= require validations/bootstrap
 //= require_tree .
