@@ -14,6 +14,9 @@
   }
 }
 
+.card-hover svg {
+  vertical-align: middle;
+}
 svg.product-upvote-icon {
   color: #999;
   -webkit-transition: 1s;
@@ -23,11 +26,6 @@ svg.product-upvote-icon {
   &:hover {
     color: #fff;
   }
-}
-
-.card-hover svg {
-  margin: 0 3px;
-  vertical-align: middle;
 }
 
 .slider-nav-icon {
