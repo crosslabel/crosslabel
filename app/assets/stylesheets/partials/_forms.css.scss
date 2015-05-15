@@ -8,32 +8,72 @@
 .form-control {
   background: #fff;
   width: 100%;
-  color: #929292;
-  font-size: 1em;
+  color: #353535;
+  font-size: 1.1em;
   border: 0;
-  padding: 24px 18px;
+  padding: 1.2em 0.8em;
   letter-spacing: 2.5px;
   box-shadow: none;
   font-weight: $regular;
-  @include border-radius(1px);
+  border: 1px solid #d7d9de;
+  @include border-radius(3px);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
   &:focus {
     box-shadow: none;
     background-color: #FFE7BC;
   }
 }
+
+.form-links {
+  padding-top: 1em;
+  a {
+    font-size: 0.9em;
+  }
+}
+
+.separator {
+  padding: 1em 0 1.2em 0;
+  text-align: center;
+}
+
+.divider{
+    color:#ccc;
+    font-size: 1.1em;
+    width:70%;
+    margin:20px auto;
+    overflow:hidden;
+    text-align:center;
+    line-height:1.2em;
+    padding: 2em 0;
+}
+
+.divider:before, .divider:after{
+    content:"";
+    vertical-align:top;
+    display:inline-block;
+    width:45%;
+    height:0.65em;
+    border-bottom:1px solid #ccc;
+    margin:0 2% 0 -55%;
+}
+.divider:after{
+    margin:0 -55% 0 2%;
+}
 // 2. Signup and Login Forms
 
 .form-wrapper-page {
-  width: 450px;
+  width: 435px;
   margin: 0 auto;
-  padding: 1em;
-  h2 {
+  padding: 3em 0;
+  h1 {
     margin-top: 0;
-    margin-bottom: 1em;
+    font-weight: 700;
   }
-  .separator{
-    color: #afb9bf;
-    margin: 1em 0;
+
+}
+.remember-me {
+  label {
+    font-weight: $light;
   }
 }
 .glyphicon {
@@ -64,12 +104,18 @@
   input.form-control {
     background: #f9f9f9;
     font-size: 1.2em;
+    height: 50px;
     padding: 1.3em 1em;
     @include border-radius(5px);
+    border: 0;
   }
   .input-group-btn {
     width: 1%;
     font-size: 1.2em;
+    padding: 0;
+    button.btn-search {
+      height: 50px;
+    }
   }
 
 }

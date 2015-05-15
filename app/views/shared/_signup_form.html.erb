@@ -1,6 +1,7 @@
 <%= form_for resource, as: resource_name, url: registration_path(resource_name) do |f| %>
-<h3>Explore CrossLabel</h3>
-<p>We help you discover great products you'll love and</p>
+
+<h1>Welcome to CrossLabel</h1>
+<p>Already have an account? <%= link_to "Login", new_user_session_path, id: 'login-form-link' %></p>
   <%= devise_error_messages! %>
 
   <%- if devise_mapping.omniauthable? %>
@@ -12,31 +13,32 @@
   <% end -%>
 
   <div class="separator">
-    <span>or</span>
+    <span class="divider">or</span>
   </div>
 
+
   <div class="form-group">
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, placeholder: 'e.g. example@example.com', class: 'form-control' %>
   </div>
 
   <div class="form-group">
+    <%= f.label :username %>
     <%= f.text_field :username, placeholder: 'Choose a username', class: 'form-control' %>
   </div>
 
   <div class="form-group">
+    <%= f.label :password %>
     <%= f.password_field :password, placeholder: 'Your password', autocomplete: "off", class: 'form-control' %>
   </div>
 
   <div class="form-group">
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, placeholder: 'Confirm your password', autocomplete: "off", class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.submit "Sign me up!", class: 'btn-signup' %>
-  </div>
-
-  <div class="login-links">
-    <p>Already have an account? <%= link_to "Login", new_user_session_path, id: 'login-form-link' %></p>
   </div>
 <% end %>
 

@@ -30,8 +30,11 @@
 <script>$(window).scroll(function() {
     if ($(this).scrollTop() > 350){
         $('header.header-secondary').addClass("sticky");
+        $('.hero').addClass("sticky");
+
     }
     else{
         $('header.header-secondary').removeClass("sticky");
+        $('.hero').removeClass("sticky");
     }
 });</script>

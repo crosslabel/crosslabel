@@ -4,10 +4,9 @@
   color: #fff;
   font-size: 1em;
   border-radius: 3px;
-  font-weight: $medium;
   border: 0;
-  letter-spacing: 2px;
-  @include border-radius(3px);
+  font-weight: $medium;
+  @include border-radius(999px);
   @include transition(opacity, 1s, ease);
   &:hover {
     color: #fff;
@@ -18,7 +17,7 @@
 .btn-facebook-login {
   @extend .btn;
   background: #3b5998;
-  padding: 0.8em 2.5em;
+  padding: 0.8em 1em;
   margin-top: 1.5em;
   text-align: center;
   &:hover {
@@ -34,6 +33,7 @@
   padding-left: 1.5em;
   padding-right: 1.5em;
   margin: 0;
+  @include border-radius(3px);
 }
 
 .btn-settings {
@@ -51,10 +51,9 @@
   color: #fff;
   background: #16A085;
   padding: 0.8em 1.5em;
-  @include border-radius(0);
   &:hover {
     color: #fff;
-    background: #019875;
+    background: #16A085;
   }
 }
 

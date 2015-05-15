@@ -44,13 +44,13 @@ div.breadcrumbs {
   .cta {
     color: #fff;
     background: #16A085;
-    font-size: 1.2em;
-    padding: 0.5em 1em;
+    padding: 0.6em 2.5em;
+    font-weight: $medium;
     letter-spacing: 1px;
-    @include border-radius(3px);
+    @include border-radius(999px);
     &:hover {
       color: #fff;
-      background: #019875;
+      background: #16A085;
     }
   }
 }
@@ -99,24 +99,24 @@ div.breadcrumbs {
 }
 
 .login-page, .signup-page, .password-page {
-  background: #f5f6f5;
+  background: #f7fafa;
   background-size: cover;
-  color: #fff;
+  color: #252525;
   height: 100%;
-  text-align: center;
-  padding-bottom: 10em;
+  padding: 2em 0 5em 0;
+  h1 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
   .hero-overlay {
     height: inherit;
-  }
-  h3 {
-    color: #fff;
-    font-weight: 700;
   }
   p {
     font-size: 1.1em;
   }
   .login-links {
-    margin-top: 1em;
     a {
       color: #fff;
       text-decoration: underline;
@@ -125,7 +125,7 @@ div.breadcrumbs {
 }
 
 .login-overlay {
-  background: rgba(0,0,0, 0.2);
+  // background: rgba(0,0,0, 0.2);
   position: absolute;
   width: 100%;
   height: inherit;
@@ -253,13 +253,13 @@ img.liked-user-image {
   border-top: 0;
   padding: 10px 0 0 0;
   .product-heading {
-    font-size: 1em;
+    font-size: 1.1em;
     margin-top: 0;
+    font-weight: $medium;
     margin-bottom: 5px;
   }
   .product-retailer-heading {
     font-size: 0.8em;
-    font-weight: $bold;
     letter-spacing: 1px;
     text-transform: uppercase;
     margin: 0;
@@ -537,34 +537,4 @@ img.liked-user-image {
   width: 80px;
   height: 80px;
   @include border-radius(4px);
-}
-
-
-.retailer-hero {
-  background: #ccc image-url('retailer_hero.jpg');
-  background-position: 25% 35%;
-  background-size: cover;
-  width: 100%;
-  min-height: 350px;
-  text-align: center;
-  padding-bottom: 2em;
-  .hero-overlay {
-    background: rgba(0,0,0, 0.15);
-    position: absolute;
-    width: 100%;
-    height: inherit;
-    top: 0;
-    left: 0;
-  }
-  .explore-hero-heading {
-    color: #fff;
-    font-weight: $light;
-    padding-bottom: 10px;
-  }
-
-  .hero-content {
-    width: 50%;
-    margin: 0 auto;
-    padding-top: 4em;
-  }
 }

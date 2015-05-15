@@ -1,0 +1,78 @@
+.hero {
+  padding-top: 1em;
+}
+
+.hero.sticky {
+  padding-top: 0;
+}
+
+.retailer-hero {
+  background: #ccc image-url('retailer_hero.jpg');
+  background-position: 25% 35%;
+  background-size: cover;
+  width: 100%;
+  min-height: 350px;
+  text-align: center;
+  padding-bottom: 2em;
+  .hero-overlay {
+    background: rgba(0,0,0, 0.15);
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    top: 0;
+    left: 0;
+  }
+  .explore-hero-heading {
+    color: #fff;
+    font-weight: $light;
+    padding-bottom: 10px;
+  }
+
+  .hero-content {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 4em;
+  }
+}
+
+
+.home-hero {
+  background: #ccc image-url('home_page.jpg');
+  background-size: cover;
+  background-position: 40% 40%;
+  width: 100%;
+  height: 700px;
+  text-align: center;
+  .hero-overlay {
+    background: rgba(0,0,0, 0.15);
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    top: 0;
+    left: 0;
+  }
+  .hero-content {
+    padding-top: 6em;
+  }
+  h1 {
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  h4 {
+    color: #fff;
+    margin-bottom: 2em;
+  }
+  .cta {
+    color: #fff;
+    background: #16A085;
+    padding: 0.6em 2.5em;
+    font-weight: $medium;
+    letter-spacing: 1px;
+    @include border-radius(999px);
+    &:hover {
+      color: #fff;
+      background: #16A085;
+    }
+  }
+}
