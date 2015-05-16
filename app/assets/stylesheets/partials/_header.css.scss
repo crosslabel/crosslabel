@@ -72,6 +72,11 @@ header.header-secondary {
     box-shadow: 0 0 0 1px rgba(100,100,100,0.2);
     border: 0;
     @include border-radius(4px);
+    .arrow {
+      position: absolute;
+      top: -18px;
+      left: 118px;
+    }
     svg {
       margin-right: 10px;
     }
@@ -147,6 +152,11 @@ header.header {
     box-shadow: 0 0 0 1px rgba(100,100,100,0.2);
     border: 0;
     @include border-radius(4px);
+    .arrow {
+      position: absolute;
+      top: -18px;
+      left: 118px;
+    }
     svg {
       margin-right: 10px;
     }

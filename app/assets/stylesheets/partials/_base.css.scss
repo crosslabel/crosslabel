@@ -17,6 +17,10 @@ body, html {
   line-height: $base-line-height;
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 .wrapper {
   min-height: 100%;
   height: auto !important;
