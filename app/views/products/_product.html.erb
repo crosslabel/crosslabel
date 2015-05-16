@@ -12,7 +12,9 @@
           <div class="liked-users" id="liked-users-<%=product.id %>">
             <% product.liked_by.limit(5).each do |user| %>
               <%= link_to user_path(user.try(:username)) do %>
+                <a href="<%= user_path(user.username) %>" class="product-user-image" data-container="body" data-toggle="popover" data-placement="bottom" data-content='<a href="<%= user_path(user.username) %>"><%= image_tag user.try(:avatar).url(:thumb), class: "popover-user-image" %></a><h5 class="popover-username"><%= user.username %></h5><a href="<%= user_path(user.username) %>" class="btn-popover">View profile</a>'>
                 <%= image_tag user.try(:avatar).url(:thumb), class: 'liked-user-image' %>
+                </a>
               <% end %>
             <% end %>
           </div>

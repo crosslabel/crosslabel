@@ -6,6 +6,7 @@
   border-radius: 3px;
   border: 0;
   font-weight: $medium;
+  letter-spacing: 1px;
   @include border-radius(999px);
   @include transition(opacity, 1s, ease);
   &:hover {
@@ -70,6 +71,13 @@
     color: #fff;
     background: #019875;
   }
+}
+
+.btn-popover {
+  @extend .btn;
+  background: $default-btn-color;
+  margin-top: 2em;
+  font-weight: $bold;
 }
 
 .btn-settings {

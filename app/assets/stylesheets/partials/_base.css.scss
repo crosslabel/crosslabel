@@ -32,6 +32,27 @@ body, html {
   width: 90%;
 }
 
+.popover{
+    width:220px;
+    min-height: 250px;
+    box-shadow: none;
+    text-align: center;
+
+    .popover-content {
+      overflow: hidden;
+      padding-top: 1.5em;
+    }
+    .popover-username {
+      font-weight: $medium;
+      font-size: 1.1em;
+    }
+    .popover-user-image {
+      width: 80px;
+      height: 80px;
+      @include border-radius(50%);
+    }
+}
+
 col-md-3 {
 
 }
@@ -104,9 +125,18 @@ a {
     margin: 0 1em;
   }
 }
-
 .prev {
   margin-right: 2em;
+}
+.prev, .next {
+  a {
+    display: inline-block;
+    width: 100px;
+    color: #252525;
+    border: 1px solid #252525;
+    padding: 0.5em 1em;
+    @include border-radius(999px);
+  }
 }
 
 .pagination {

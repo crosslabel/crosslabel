@@ -29,6 +29,30 @@ if (window.location.hash && window.location.hash == '#_=_') {
     window.location.hash = '';
 }
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
+
+$(function() {
+  $('.product-user-image').popover({
+    html: true,
+    trigger: "manual focus"
+  }).on("mouseenter", function () {
+    var _this = this;
+    $(this).popover("show");
+    $(".popover").on("mouseleave", function () {
+        $(_this).popover('hide');
+    });
+    }).on("mouseleave", function () {
+    var _this = this;
+    setTimeout(function () {
+        if (!$(".popover:hover").length) {
+            $(_this).popover("hide");
+        }
+    }, 300);
+});
+});
+
 Mousetrap.bind('right', nextPage);
 Mousetrap.bind('prev', prevPage);
 
