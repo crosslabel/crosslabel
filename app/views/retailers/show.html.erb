@@ -1,23 +1,8 @@
 <section class="explore-page">
-  <!-- <div class="search">
-    <div class="container">
-      <%= form_tag products_path, :class => "form-search", :method => 'get' do %>
-      <div class="input-group">
-        <%= text_field_tag :query, params[:query], class: 'form-control', id: 'product-search', autocomplete: 'off', placeholder: "Search by retailer, brand or type of item" %>
-        <div class="input-group-btn">
-            <button type="submit" class="btn btn-search" value="Search"><i class="fa fa-search"></i></button>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div> -->
   <div class="container">
-      <div class="row">
-        <%= render partial: 'shared/filter' %>
-      </div>
-      <div class="row" style="padding-bottom:20px;">
-          <h3 class="explore-heading"><%= @retailer.name %></h3>
-      </div>
+    <div class="row">
+        <h3 class="explore-heading"><%= @retailer.name %></h3>
+    </div>
     <div class="row">
       <h3 class="explore-heading">Recommended items</h3>
 
