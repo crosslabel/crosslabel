@@ -30,7 +30,7 @@
           <h4>Features</h4>
           <p><%= @product.description.html_safe %></p>
         </div>
-        <%= link_to "Buy from #{@product.retailer.name}", @product.homepage_product_link, :class => "btn-purchase" %>
+        <%= link_to "Buy from #{@product.retailer.name}", @product.homepage_product_link, :class => "btn-purchase", :target => "_blank" %>
         <div class="product-footer">
           <ul class="product-footer-nav">
             <li>

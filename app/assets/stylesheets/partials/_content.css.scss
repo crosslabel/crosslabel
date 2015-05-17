@@ -155,6 +155,10 @@ div.breadcrumbs {
       opacity: 1;
     }
 
+    &:hover img.liked-user-image {
+      margin: 0;
+    }
+
     .liked-users {
       position: absolute;
       top: 5px;
@@ -199,10 +203,7 @@ img.liked-user-image {
   @include border-radius(50%);
   transition: 0.1s linear;
   border: 1px solid #fff;
-  margin-left: -10px;
-  &:first-child {
-    margin-left: 0;
-  }
+  margin-left: -20px;
 }
 
 .product-details {
