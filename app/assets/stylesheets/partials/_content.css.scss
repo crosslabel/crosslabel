@@ -335,6 +335,14 @@ img.liked-user-image {
         }
 
     }
+    .product-liked-users {
+      padding-top: 1em;
+    }
+    .product-user-image {
+      width: 30px;
+      height: 30px;
+      @include border-radius(50%);
+    }
   }
 
   .product-detail-description {
