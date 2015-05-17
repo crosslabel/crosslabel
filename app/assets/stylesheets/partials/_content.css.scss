@@ -288,9 +288,13 @@ img.liked-user-image {
 
 .product-detail-page {
   position: relative;
-  padding: 0 0 4em 0;
+  padding: 2em 0 4em 0;
   .product {
     margin: 0 auto;
+  }
+
+  .product-main-content {
+    padding-bottom: 2em;
   }
 
   .product-display {
@@ -310,10 +314,8 @@ img.liked-user-image {
   }
 
   .product-info {
-    width: 60%;
     margin: 0 auto;
-    padding: 1em 0 2em 0;
-    text-align: center;
+    padding-bottom: 2em;
     svg {
       vertical-align: middle;
       margin-right: 3px;
@@ -328,6 +330,7 @@ img.liked-user-image {
 
   .product-footer {
     padding: 4em 0 2em 0;
+    text-align: center;
     ul.product-footer-nav {
         list-style: none;
         padding-left: 0;
