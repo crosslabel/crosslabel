@@ -1,7 +1,7 @@
 <div class="tiny-product">
   <div class="tiny-image-container">
     <%= image_tag product.image, class: 'product-image' %>
-    <%= link_to product_path(product), :class => 'product-overlay' do %>
+    <%= link_to retailer_product_path(product), :class => 'product-overlay' do %>
     <div class="card-hover">
     </div>
     <% end %>

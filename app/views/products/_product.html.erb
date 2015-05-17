@@ -1,7 +1,7 @@
       <div class="product">
         <div class="product-image-container">
           <%= image_tag product.try(:product_variations).first.try(:product_images).first.try(:filepath), class: 'product-image' %>
-          <%= link_to product_path(product), :class => 'product-overlay' do %>
+          <%= link_to retailer_product_path(product.retailer.name, product), :class => 'product-overlay' do %>
             <div class="card-hover">
             </div>
           <% end %>
@@ -29,7 +29,7 @@
         </div>
         <div class="product-details">
             <h5 class="product-heading"><%= truncate(product.title, length: 20) %></h5>
-            <span class="product-retailer-heading" style="display:block;"><%= link_to product.try(:retailer).name, retailer_path(product.retailer) %></span>
+            <span class="product-retailer-heading" style="display:block;"><%= link_to product.try(:retailer).name, retailer_path(product.retailer.name) %></span>
             <div class="product-meta">
               <span class="product-meta-item"><svg class="product-downvote-icon nc-icon glyph" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24"><g> <path fill="#d94052" d="M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z"></path></g></svg><%= product.liked_by_count %></span>
               <span class="product-meta-item"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M2,12c0,0,4-6,10-6 c6,0,10,6,10,6s-4,6-10,6C6,18,2,12,2,12z" stroke-linejoin="miter"></path> <circle fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="12" cy="10" r="4" stroke-linejoin="miter"></circle> </g></svg><%= product.viewed_count %></span>

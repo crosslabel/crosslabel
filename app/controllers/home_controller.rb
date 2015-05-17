@@ -12,10 +12,4 @@ class HomeController < ApplicationController
     render :layout => 'transparent_header'
   end
 
-  def trending
-  end
-
-  def recommended
-    @products = Product.trending.page(params[:page]).per(16)
-  end
 end

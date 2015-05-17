@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#index'
 
   devise_for :users, :skip => [:sessions, :registrations], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :passwords => "users/passwords" }
   as :user do
@@ -8,7 +9,9 @@ Rails.application.routes.draw do
     post 'signin' => 'users/sessions#create', :as => :user_session
     delete 'signout' => 'users/sessions#destroy', :as => :destroy_user_session
   end
-
+  resources :retailers, param: :name do
+    resources :products
+  end
   resources :products do
     post '/vote' => 'upvotes#create'
     delete '/vote' => 'upvotes#destroy'
@@ -17,10 +20,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, param: :name
-  get '/explore' => 'home#explore', as: 'explore'
-  get '/recommended' => 'home#recommended', as: 'recommended'
-  get '/trending' => 'home#trending', as: 'trending'
+  get '/categories' => 'categories#index', as: :categories
+  get '/categories/:name(/page/:page)' => 'categories#show', as: :category, :page => 1
+  get '/explore(/page/:page)' => 'home#explore', as: 'explore', :page => 1
 
 
   resources :retailers
@@ -40,7 +42,6 @@ Rails.application.routes.draw do
   #   end
   # end
 
-  root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

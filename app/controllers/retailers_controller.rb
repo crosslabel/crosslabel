@@ -5,7 +5,7 @@ class RetailersController < ApplicationController
   end
 
   def show
-    @retailer = Retailer.find(params[:id])
+    @retailer = Retailer.find_by(name: params[:name])
     @products = @retailer.products.order(created_at: :desc).page(params[:page]).per(20)
     @categories = Category.all
     @retailers = Retailer.all

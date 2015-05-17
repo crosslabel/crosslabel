@@ -11,7 +11,7 @@
       <h1>Shops</h1>
       <% @retailers.each do |retailer| %>
           <div class="retailer-container">
-              <%= link_to retailer.name, retailer %>
+              <%= link_to retailer.name, retailer_path(retailer.name) %>
           </div>
       <% end %>
   </div>
