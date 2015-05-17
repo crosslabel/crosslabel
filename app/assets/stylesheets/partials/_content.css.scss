@@ -109,10 +109,8 @@ div.breadcrumbs {
 }
 
 .trending {
-  padding: 0 1em;
-  .shops, .cities {
-    padding: 0;
-  }
+  padding: 1em 0;
+
   ul {
     padding: 0;
     li {
@@ -231,7 +229,7 @@ img.liked-user-image {
       margin-right: 5px;
     }
     svg {
-      margin-right: 2px;
+      margin-right: 5px;
       vertical-align: middle;
 
     }
@@ -489,10 +487,6 @@ img.liked-user-image {
 }
 
 // Trending page
-
-.trending-page {
-  padding: 2em 0;
-}
 
 .section-intro {
   text-align: center;
