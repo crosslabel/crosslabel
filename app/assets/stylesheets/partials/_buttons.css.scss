@@ -80,25 +80,11 @@
   font-weight: $bold;
 }
 
-.btn-settings {
-  @extend .btn;
-  background: #00b27f;
-  width: 220px;
-  padding: 0.7em 0;
-  font-size: 1.2em;
-  text-align: center;
-  &:hover {
-    background: #00a072;
-  }
-}
 
 .btn-fb-photo {
   @extend .btn;
-  display: inline;
-  background: #00b27f;
-  padding: 0.7em;
-  font-size: 1.2em;
-  text-align: center;
+  display: inline-block;
+  background: $default-btn-color;
   &:hover {
     background: #00a072;
   }

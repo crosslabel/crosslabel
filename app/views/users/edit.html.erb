@@ -18,7 +18,6 @@
             <%= submit_tag "Upload photo", class: 'btn'%>
             <% end %>
             <% if current_user.authentications.find_by(provider: "facebook") %>
-            <p>or</p>
             <%= link_to "Set to default facebook photo", set_default_facebook_photo_path, class: 'btn-fb-photo', method: :post %>
             <% end %>
         </div>
