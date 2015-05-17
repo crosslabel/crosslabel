@@ -145,6 +145,7 @@ div.breadcrumbs {
 
     img.product-image {
       width: 100%;
+      height: 278px;
       object-fit: cover;
     }
     &:hover .product-overlay {
@@ -253,13 +254,21 @@ img.liked-user-image {
   border: 3px solid #fff;
 }
 
+
 .profile-page {
   width: 100%;
-  padding: 2em 0;
+  padding-bottom: 2em;
   .user-heading-title {
     margin-top: 0;
   }
-
+  .profile-user-header {
+    padding: 2em 0;
+  }
+  .profile-user-content {
+  }
+  .profile-main-content {
+    padding: 2em 0 2em 0;
+  }
 }
 .user-details {
   text-align: center;
@@ -446,12 +455,6 @@ img.liked-user-image {
     color: #fff;
     font-weight: $light;
     padding-bottom: 10px;
-  }
-
-  .hero-content {
-    width: 50%;
-    margin: 0 auto;
-    padding-top: 4em;
   }
 }
 

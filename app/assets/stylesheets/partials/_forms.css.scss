@@ -98,16 +98,31 @@
   }
 }
 .form-search {
-  margin: 0 auto;
   margin-top: 1.3em;
-  width: 60%;
   input.form-control {
-    background: #f9f9f9;
+    background: transparent;
+    width: 100%;
+    color: #fff;
     font-size: 1.2em;
     height: 50px;
     padding: 1.3em 1em;
-    @include border-radius(5px);
+    @include border-radius(0);
+    box-shadow: none;
     border: 0;
+    border-style: double-underline;
+    border-bottom: 1px solid #fff;
+  }
+  input::-webkit-input-placeholder {
+	color: #fff;
+  }
+  input::-moz-placeholder {
+  	color: #fff;
+  }
+  input:-moz-placeholder {   /* Older versions of Firefox */
+  	color: #fff;
+  }
+  input:-ms-input-placeholder {
+  	color: #fff;
   }
   .input-group-btn {
     width: 1%;
