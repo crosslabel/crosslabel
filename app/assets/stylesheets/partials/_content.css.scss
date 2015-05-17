@@ -513,12 +513,39 @@ img.liked-user-image {
 }
 
 // Retailers
-.retailer-container {
-  display: inline-block;
+.retailer-page {
+  padding: 2em 0 4em 0;
+  .retailer-heading {
+    padding-left: 13px;
+  }
+}
+.retailer-cover {
+  position: relative;
   background: #f9f9f9;
-  width: 80px;
-  height: 80px;
-  @include border-radius(4px);
+  height: 400px;
+  .retailer-card {
+    position: absolute;
+    bottom: 100px;
+    .retailer-social-icon {
+      margin-right: 20px;
+      .fa-facebook-official {
+        color: #3b5998;
+      }
+      .fa-twitter {
+        color: #00aced;
+      }
+      svg {
+        position: relative;
+        top: 3px;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    h3 {
+      color: #fff;
+    }
+  }
 }
 
 // Search page
