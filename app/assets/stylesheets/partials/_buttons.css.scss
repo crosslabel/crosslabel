@@ -50,7 +50,7 @@
   @extend .btn;
   width: 100%;
   color: #fff;
-  background: #16A085;
+  background: $default-btn-color;
   padding: 0.8em 1.5em;
   &:hover {
     color: #fff;
@@ -60,13 +60,13 @@
 
 .btn-purchase {
   @extend .btn;
+  margin: 0 auto;
+  margin-top: 2em;
   color: #fff;
-  background: #16A085;
+  background: $default-btn-color;
   width: 220px;
   padding: 0.5em;
-  margin: 0;
   font-size: 1.1em;
-  text-align: center;
   &:hover {
     color: #fff;
     background: #019875;

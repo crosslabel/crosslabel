@@ -304,12 +304,15 @@ img.liked-user-image {
     opacity: 1;
   }
   .product-detail-heading {
-  	margin: 0;
-  	font-size: 1.6em;
+  	font-size: 2em;
     font-weight: $light;
   }
 
   .product-info {
+    width: 60%;
+    margin: 0 auto;
+    padding: 1em 0 2em 0;
+    text-align: center;
     svg {
       vertical-align: middle;
       margin-right: 3px;
@@ -319,6 +322,19 @@ img.liked-user-image {
     }
     .product-info-price {
       margin: 1em 0;
+    }
+  }
+
+  .product-footer {
+    padding-top: 2em;
+    ul.product-footer-nav {
+        list-style: none;
+        padding-left: 0;
+        li {
+          display: inline-block;
+          padding: 0 15px;
+        }
+
     }
   }
 
@@ -381,9 +397,8 @@ img.liked-user-image {
 }
 
 .similar-items {
-  background: #f9f9f9;
   margin-top: 1em;
-  padding: 1em 0;
+  padding: 2em 0 4em 0;
   h3 {
     margin-bottom: 1em;
   }
