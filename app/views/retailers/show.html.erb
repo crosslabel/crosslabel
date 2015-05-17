@@ -1,7 +1,8 @@
 <section class="retailer-cover" style="background: #f9f9f9 url('http://818agency.com/wp-content/uploads/2015/02/FreePeople_Roshambo-Rock_May2013-10.jpg');background-size:cover;">
   <div class="container">
       <div class="retailer-card">
-        <h2><%= @retailer.name %></h2>
+        <h2 class="retailer-heading"><%= @retailer.name %></h2>
+        <h5 class="retailer-description"><%= @retailer.try(:description) %></h5>
         <ul class="nav navbar-nav retailer-social-list">
           <li class="retailer-social-icon"><i class="fa fa-facebook-official fa-2x"></i></li>
           <li class="retailer-social-icon"><i class="fa fa-twitter fa-2x"></i></li>

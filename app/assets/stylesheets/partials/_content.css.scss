@@ -524,6 +524,7 @@ img.liked-user-image {
   background: #f9f9f9;
   height: 400px;
   .retailer-card {
+    width: 50%;
     position: absolute;
     bottom: 100px;
     .retailer-social-icon {
@@ -542,7 +543,10 @@ img.liked-user-image {
         margin-right: 0;
       }
     }
-    h3 {
+    .retailer-heading {
+      color: #fff;
+    }
+    .retailer-description {
       color: #fff;
     }
   }
