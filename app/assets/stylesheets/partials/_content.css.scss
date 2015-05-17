@@ -194,8 +194,6 @@ div.breadcrumbs {
 
 }
 
-.liked-users {
-}
 
 img.liked-user-image {
   width: 32px;
@@ -203,7 +201,7 @@ img.liked-user-image {
   @include border-radius(50%);
   transition: 0.1s linear;
   border: 1px solid #fff;
-  margin-left: -3px;
+  margin-left: -10px;
   &:first-child {
     margin-left: 0;
   }
@@ -259,17 +257,17 @@ img.liked-user-image {
 
 .profile-page {
   width: 100%;
+  padding: 2em 0;
+  .user-heading-title {
+    margin-top: 0;
+  }
 
 }
-#user-header {
+.user-details {
   text-align: center;
-  padding: 2em 1em 2em 1em;
 }
 
 .user-favourites {
-  h4 {
-    padding-left: 15px;
-  }
 }
 
 #user-details {
