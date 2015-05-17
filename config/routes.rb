@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :retailers, param: :name do
     resources :products
   end
+
+
   resources :products do
     post '/vote' => 'upvotes#create'
     delete '/vote' => 'upvotes#destroy'
@@ -26,6 +28,9 @@ Rails.application.routes.draw do
 
 
   resources :retailers
+
+  get '/retailers/:name(/page/:page)' => 'retailers#show', :page => 1
+
 
   resources :users, param: :username
   post '/:username/upload_avatar' => 'users#upload_avatar', :as => :upload_avatar

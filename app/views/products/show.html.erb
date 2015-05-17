@@ -23,7 +23,7 @@
 
       <div class="product-info">
         <h3 class="product-detail-heading"><%= @product.title %></h3>
-        <h5 class="shop-heading">from <%= link_to @product.retailer.name, @product.retailer %></h5>
+        <h5 class="shop-heading">from <%= link_to @product.retailer.name, retailer_path(@product.retailer.name) %></h5>
 
         <div class="product-info-price" style="font-size:1.5em;">$<%= @product.original_price %></div>
         <div class="product-description">
