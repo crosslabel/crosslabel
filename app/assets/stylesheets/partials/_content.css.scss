@@ -338,9 +338,10 @@ img.liked-user-image {
     .product-liked-users {
       padding-top: 1em;
     }
-    .product-user-image {
+    .product-liked-user-image {
       width: 30px;
       height: 30px;
+      margin: 0 5px;
       @include border-radius(50%);
     }
   }
