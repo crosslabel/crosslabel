@@ -1,15 +1,13 @@
 <section class="profile-page">
   <div class="container">
-    <div class="col-lg-3">
-      <div class="user-details">
+      <div class="user-details col-lg-3">
         <div class="container">
           <%= image_tag @user.try(:avatar).url(:medium), class: 'profile-image' %>
           <h4><%= @user.try(:username) %></h4>
-          <%= link_to "Follow", "#", :class => "btn" %>
+          <%#= link_to "Follow", "#", :class => "btn" %>
           <%= link_to "Edit profile", edit_user_path(@user.username), :class => "link-user-edit" %>
         </div>
       </div>
-    </div>
     <div class="col-lg-9">
       <h4 class="user-heading-title">Liked</h4>
 
