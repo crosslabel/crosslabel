@@ -1,12 +1,13 @@
 .hero {
   padding-top: 1em;
+  position: relative;
 }
 
 .hero.sticky {
   padding-top: 0;
 }
 
-.retailer-hero {
+.retailer-hero, .category-hero {
   background: #ccc image-url('retailer_hero.jpg');
   background-position: 25% 35%;
   background-size: cover;

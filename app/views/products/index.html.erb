@@ -1,8 +1,26 @@
-<div class="container">
-<h3>Search results for <%= params[:query] %></h3>
-<% @products.each do |product| %>
-<div class="col-lg-3">
-  <%= render partial: 'products/product_w2', locals: {product: product} %>
-</div>
-<% end %>
+<section class="explore-hero hero">
+    <%= render partial: 'shared/header_secondary' %>
+    <div class="search">
+      <div class="container">
+        <%= form_tag products_path, :class => "form-search", :method => 'get' do %>
+        <div class="input-group">
+          <span class="input-group-addon" style="background:none;border-color:#fff;border-top: 0;border-left:0;border-radius:0;"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32"> <g transform="translate(0, 0)"> <rect x="4" y="1" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" width="24" height="30" stroke-linejoin="miter"></rect> <line data-cap="butt" data-color="color-2" fill="none" stroke="#ffffff" stroke-width="2" stroke-miterlimit="10" x1="17.5" y1="17.5" x2="22" y2="22" stroke-linejoin="miter" stroke-linecap="butt"></line> <circle data-color="color-2" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="14" cy="14" r="5" stroke-linejoin="miter"></circle> </g> </svg></span>
+          <%= text_field_tag :query, params[:query], class: 'form-control', id: 'product-search', autocomplete: 'off', placeholder: "Know what you're looking for? Search away!" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+</section>
+<div class="search-page">
+  <div class="container">
+    <h3>Search results for <span style="color:#666;"><%= params[:query] %></span></h3>
+
+    <div class="row">
+      <% @products.each do |product| %>
+      <div class="col-sm-6 col-md-20 col-lg-20">
+        <%= render partial: 'products/product_w2', locals: {product: product} %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

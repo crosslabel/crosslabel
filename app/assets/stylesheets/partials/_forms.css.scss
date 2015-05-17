@@ -97,8 +97,11 @@
     border-bottom-left-radius: 5px;
   }
 }
+.search {
+  position: absolute;
+  bottom: 20px;
+}
 .form-search {
-  margin-top: 1.3em;
   input.form-control {
     background: transparent;
     width: 100%;
@@ -109,7 +112,6 @@
     @include border-radius(0);
     box-shadow: none;
     border: 0;
-    border-style: double-underline;
     border-bottom: 1px solid #fff;
   }
   input::-webkit-input-placeholder {
@@ -124,12 +126,31 @@
   input:-ms-input-placeholder {
   	color: #fff;
   }
-  .input-group-btn {
-    width: 1%;
-    font-size: 1.2em;
-    padding: 0;
-    button.btn-search {
-      height: 50px;
+
+}
+
+.header {
+
+  .form-search {
+    input.form-control {
+      width: 500px;
+      font-size: 1em;
+      color: #888;
+      height: 40px;
+      border: 0;
+      padding: 0.5em;
+    }
+    input::-webkit-input-placeholder {
+  	color: #888;
+    }
+    input::-moz-placeholder {
+    	color: #888;
+    }
+    input:-moz-placeholder {   /* Older versions of Firefox */
+    	color: #888;
+    }
+    input:-ms-input-placeholder {
+    	color: #888;
     }
   }
 
