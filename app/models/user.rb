@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   validates :auth_token, uniqueness: true
   validates :email, :presence => true, :length => { maximum: 256}, :format => { with: VALID_EMAIL_REGEX }, :uniqueness => { case_sensitive: false}
-  validates :username, :presence => true, :uniqueness => :true, :length => { maximum: 15}
+  validates :username, :presence => true, :uniqueness => :true
 
   SOCIALS = {
     facebook: 'facebook',
