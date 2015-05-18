@@ -55,6 +55,8 @@ header.header-secondary {
     li {
       a {
         color: #fff;
+        font-size: 1.1em;
+        font-weight: $medium;
         text-shadow: none;
         &:hover {
           background: none;
@@ -112,6 +114,8 @@ header.header-secondary.sticky {
   ul {
     li {
       a {
+        font-size: 1.1em;
+        font-weight: $medium;
         color: #888;
       }
     }
@@ -143,6 +147,8 @@ header.header {
   ul {
     li {
       a {
+        font-size: 1.1em;
+        font-weight: $medium;
         color: #888;
         text-shadow: none;
         &:hover {
