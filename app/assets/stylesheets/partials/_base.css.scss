@@ -132,7 +132,18 @@ a {
   }
 }
 .prev {
-  margin-right: 2em;
+}
+.page {
+  font-size:1.1em;
+  margin: 6px;
+  a {
+    color: #252525;
+  }
+}
+
+.page.current {
+  border-color: $default-btn-color;
+  color: $default-btn-color;
 }
 .prev, .next {
   a {
