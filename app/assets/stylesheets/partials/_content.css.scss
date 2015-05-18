@@ -526,9 +526,9 @@ img.liked-user-image {
   .retailer-card {
     width: 50%;
     position: absolute;
-    bottom: 100px;
+    bottom: 40px;
     .retailer-social-icon {
-      margin-right: 20px;
+
       .fa-facebook-official {
         color: #3b5998;
       }
@@ -539,15 +539,22 @@ img.liked-user-image {
         position: relative;
         top: 3px;
       }
-      &:last-child {
-        margin-right: 0;
+      a {
+        &:hover {
+          background: none;
+        }
+        &:first-child {
+          padding-left: 0;
+        }
       }
     }
     .retailer-heading {
       color: #fff;
+      font-weight: $medium;
     }
     .retailer-description {
       color: #fff;
+      letter-spacing: 1px;
     }
   }
 }
