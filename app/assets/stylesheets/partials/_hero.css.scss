@@ -36,6 +36,30 @@
   }
 }
 
+.explore-hero {
+  background: #ccc image-url('explore-hero.jpg');
+  background-position: 25% 45%;
+  background-size: cover;
+  width: 100%;
+  min-height: 350px;
+  text-align: center;
+  padding-bottom: 2em;
+  .hero-overlay {
+    background: rgba(0,0,0, 0.15);
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    top: 0;
+    left: 0;
+  }
+  .explore-hero-heading {
+    color: #fff;
+    font-weight: $light;
+    padding-bottom: 10px;
+  }
+}
+
+
 
 .home-hero {
   background: #ccc image-url('home_page.jpg');
@@ -55,25 +79,14 @@
   .hero-content {
     padding-top: 6em;
   }
-  h1 {
+  .hero-heading {
     color: #fff;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-size: 3.2em;
+    font-weight: $light;
   }
-  h4 {
+  .hero-tagline {
     color: #fff;
+    font-weight: $light;
     margin-bottom: 2em;
-  }
-  .cta {
-    color: #fff;
-    background: #16A085;
-    padding: 0.6em 2.5em;
-    font-weight: $medium;
-    letter-spacing: 1px;
-    @include border-radius(999px);
-    &:hover {
-      color: #fff;
-      background: #16A085;
-    }
   }
 }

@@ -7,11 +7,23 @@
   border: 0;
   font-weight: $medium;
   letter-spacing: 1px;
-  @include border-radius(999px);
+  @include border-radius(6px);
   @include transition(opacity, 1s, ease);
   &:hover {
     color: #fff;
     background: #777;
+  }
+}
+
+.btn-cta {
+  @extend .btn;
+  display: inline;
+  margin: 0 auto;
+  font-size: 1.2em;
+  background: $default-btn-color;
+  padding: 0.8em 1.8em;
+  &:hover {
+    background: $default-btn-color;
   }
 }
 

@@ -203,9 +203,8 @@ img.liked-user-image {
   border-top: 0;
   padding: 10px 0 0 0;
   .product-heading {
-    font-size: 1.1em;
     margin-top: 0;
-    font-weight: $medium;
+    font-weight: $regular;
     margin-bottom: 5px;
   }
   .product-retailer-heading {
@@ -426,29 +425,6 @@ img.liked-user-image {
     margin-top: 0;
     padding-left: 15px;
     padding-bottom: 1em;
-  }
-}
-
-.explore-hero {
-  background: #ccc image-url('explore-hero.jpg');
-  background-position: 25% 45%;
-  background-size: cover;
-  width: 100%;
-  min-height: 350px;
-  text-align: center;
-  padding-bottom: 2em;
-  .hero-overlay {
-    background: rgba(0,0,0, 0.15);
-    position: absolute;
-    width: 100%;
-    height: inherit;
-    top: 0;
-    left: 0;
-  }
-  .explore-hero-heading {
-    color: #fff;
-    font-weight: $light;
-    padding-bottom: 10px;
   }
 }
 
