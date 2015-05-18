@@ -1,15 +1,28 @@
-class AfterOmniauthController < Wicked::WizardController
+class AfterOmniauthController < ApplicationController
+  include Wicked::Wizard
+
   steps :add_username
 
   def show
     @user = current_user
-    render_wizard
+    if @user
+      case step
+      when :add_username
+      end
+      render_wizard @user
+    else
+      redirect_to root_path
+    end
   end
 
   def update
     @user = current_user
-    @user.update_attributes(params[:user])
-    render_wizard
+    case step
+    when :add_username
+      @user.update_attribute(:username, params[:username])
+    end
+    sign_in(@user, :bypass => true)
+    render_wizard @user
   end
 
 end

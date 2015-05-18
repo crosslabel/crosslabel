@@ -1,6 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def all
     user = User.from_omniauth(env['omniauth.auth'], current_user)
+    redirect_to after_omniauth_path(user.id)
     if user.persisted?
       sign_in user
       Analytics.track(user_id: "#{current_user.try(:id)}", anonymous_id: "anonymous_user", event: "Logged In", properties: {})

@@ -34,11 +34,9 @@ class User < ActiveRecord::Base
         user = User.new
         user.password = Devise.friendly_token[0, 20]
         user.email = auth.info.email
-        user.username = "user" + Digest::SHA1.base64digest(auth.uid)
         user.password = Devise.friendly_token[0,20]
         user.avatar = URI.parse(auth.info.image)
-        user.save!
-        user.send_welcome_email
+        # user.send_welcome_email
       end
       authentication.user = user
       authentication.save

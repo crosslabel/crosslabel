@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+
   devise_for :users, :skip => [:sessions, :registrations], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :passwords => "users/passwords" }
   as :user do
     get 'signup' => 'users/registrations#new', :as => :new_user_registration
@@ -28,6 +29,9 @@ Rails.application.routes.draw do
 
 
   resources :retailers
+
+  resources :after_omniauth
+  
 
   get '/retailers/:name(/page/:page)' => 'retailers#show', :page => 1
 
