@@ -126,12 +126,15 @@
   input:-ms-input-placeholder {
   	color: #fff;
   }
-
+  .fa-search {
+    color: #fff;
+  }
 }
 
-.header {
+.header, .header-secondary.sticky {
 
   .form-search {
+    margin: 5px;
     input.form-control {
       width: 500px;
       font-size: 1em;
@@ -151,6 +154,9 @@
     }
     input:-ms-input-placeholder {
     	color: #888;
+    }
+    .fa-search {
+      color: #888;
     }
   }
 

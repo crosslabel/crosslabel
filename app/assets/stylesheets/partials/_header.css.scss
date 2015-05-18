@@ -69,6 +69,9 @@ header.header-secondary {
   .header-likes-count {
     vertical-align: middle;
   }
+  .form-group {
+    opacity: 0;
+  }
   .dropdown-menu {
     box-shadow: 0 0 0 1px rgba(100,100,100,0.2);
     border: 0;
@@ -101,6 +104,10 @@ header.header-secondary.sticky {
   border-bottom: 1px solid rgba(204,204,204,0.7);
   .navbar-brand {
     color: #252525;
+  }
+  .form-group {
+    
+    opacity: 1;
   }
   ul {
     li {

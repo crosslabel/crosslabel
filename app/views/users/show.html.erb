@@ -2,8 +2,8 @@
     <div class="profile-user-header">
     <div class="container">
         <div class="profile-user-content">
-          <%= image_tag current_user.try(:avatar), class: "profile-image" %></a>
-          <h4><%= current_user.username %></h4>
+          <%= image_tag @user.try(:avatar), class: "profile-image" %></a>
+          <h4><%= @user.username %></h4>
         </div>
         </div>
     </div>
