@@ -4,7 +4,7 @@ footer.footer {
   color: #444;
   height: 265px;
   width: 100%;
-  padding-top: 2em;
+  padding-top: 4em;
   ul {
     list-style: none;
     padding: 0;
@@ -12,5 +12,14 @@ footer.footer {
   }
   a {
     color: #808080;
+  }
+  .footer-brand {
+    color: #444;
+    font-family: 'loveloblack', 'sans-serif';
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+
   }
 }

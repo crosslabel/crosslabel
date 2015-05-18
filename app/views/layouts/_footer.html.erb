@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="container">
     <div class="row">
-      <div class="col-lg-2">
+      <div class="col-lg-4">
       <ul>
         <li>About</li>
         <li>Our team</li>
@@ -10,13 +10,17 @@
 
       </ul>
       </div>
-      <div class="col-lg-2">
+      <div class="col-lg-4">
       <ul>
         <li>Category list</li>
         <li>Shops list</li>
         <li></li>
       </ul>
       </div>
+    </div>
+    <%= link_to "CrossLabel", root_path, class: 'footer-brand' %>
+    <p>&copy; <%= Time.now.year %> CrossLabel, Inc.<p>
+    <div class="row">
     </div>
   </div>
 </footer>
