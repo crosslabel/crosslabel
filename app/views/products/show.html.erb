@@ -32,19 +32,19 @@
                   <% end %>
                 <% elsif current_user %>
                   <%= link_to product_vote_path(@product.id), remote: true, method: :post do %>
-                  <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M17,1c-2.1,0-3.9,1.1-5,2.7 C10.9,2.1,9.1,1,7,1C3.7,1,1,3.7,1,7c0,6,11,15,11,15s11-9,11-15C23,3.7,20.3,1,17,1z" stroke-linejoin="miter"></path> </g></svg>
+                  <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M17,1c-2.1,0-3.9,1.1-5,2.7 C10.9,2.1,9.1,1,7,1C3.7,1,1,3.7,1,7c0,6,11,15,11,15s11-9,11-15C23,3.7,20.3,1,17,1z" stroke-linejoin="miter"></path> </g></svg>
                   <% end %>
                 <% else %>
                   <%= link_to new_user_registration_path do %>
-                  <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M17,1c-2.1,0-3.9,1.1-5,2.7 C10.9,2.1,9.1,1,7,1C3.7,1,1,3.7,1,7c0,6,11,15,11,15s11-9,11-15C23,3.7,20.3,1,17,1z" stroke-linejoin="miter"></path> </g></svg>  <% end %>
+                  <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M17,1c-2.1,0-3.9,1.1-5,2.7 C10.9,2.1,9.1,1,7,1C3.7,1,1,3.7,1,7c0,6,11,15,11,15s11-9,11-15C23,3.7,20.3,1,17,1z" stroke-linejoin="miter"></path> </g></svg>  <% end %>
                 <% end %>
                 <p><%= pluralize(@product.liked_by_count, "like") %></p>
               </li>
               <li>
-                <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"> <g transform="translate(0, 0)"> <path fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M20,9c0,4.9-8,13-8,13 S4,13.9,4,9c0-5.1,4.1-8,8-8S20,3.9,20,9z" stroke-linejoin="miter"></path> <circle data-color="color-2" fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="12" cy="9" r="3" stroke-linejoin="miter"></circle> </g> </svg><p>United States</p>
+                <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"> <g transform="translate(0, 0)"> <path fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M20,9c0,4.9-8,13-8,13 S4,13.9,4,9c0-5.1,4.1-8,8-8S20,3.9,20,9z" stroke-linejoin="miter"></path> <circle data-color="color-2" fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="12" cy="9" r="3" stroke-linejoin="miter"></circle> </g> </svg><p>United States</p>
               </li>
               <li>
-                <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M2,12c0,0,4-6,10-6 c6,0,10,6,10,6s-4,6-10,6C6,18,2,12,2,12z" stroke-linejoin="miter"></path> <circle fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="12" cy="10" r="4" stroke-linejoin="miter"></circle> </g></svg><p><%= pluralize(@product.viewed_count, "view") %></p>
+                <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M2,12c0,0,4-6,10-6 c6,0,10,6,10,6s-4,6-10,6C6,18,2,12,2,12z" stroke-linejoin="miter"></path> <circle fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="12" cy="10" r="4" stroke-linejoin="miter"></circle> </g></svg><p><%= pluralize(@product.viewed_count, "view") %></p>
               </li>
             </ul>
             <!-- <div class="product-liked-users">
@@ -59,7 +59,11 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-8">
+      <div class="col-lg-8" style="position:relative;">
+        <span class="left slider-nav-icon"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"> <circle data-color="color-2" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22" stroke-linejoin="miter"></circle> <polyline fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="28,32 20,24 28,16 " stroke-linejoin="miter"></polyline> </g></svg></span>
+        <span class="right slider-nav-icon"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"> <circle data-color="color-2" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22" stroke-linejoin="miter"></circle> <polyline fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="20,16 28,24 20,32 " stroke-linejoin="miter"></polyline> </g></svg></span>
+
+        <div class="product-display">
         <% @product.product_variations.limit(1).each do |variation| %>
           <% variation.product_images.limit(4).each do |image| %>
             <%= image_tag "#{image.filepath}", :class => "product-image" %>
@@ -67,10 +71,9 @@
         <% end %>
       </div>
       </div>
+      </div>
     </div>
   </div>
-  <!-- <span class="left slider-nav-icon"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"> <circle data-color="color-2" fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22" stroke-linejoin="miter"></circle> <polyline fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="28,32 20,24 28,16 " stroke-linejoin="miter"></polyline> </g></svg></span> -->
-  <!-- <span class="right slider-nav-icon"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"> <circle data-color="color-2" fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22" stroke-linejoin="miter"></circle> <polyline fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="20,16 28,24 20,32 " stroke-linejoin="miter"></polyline> </g></svg></span> -->
     <hr style="width:82%;margin:0 auto;">
 
       <div class="row">

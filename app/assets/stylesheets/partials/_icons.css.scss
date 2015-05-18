@@ -30,16 +30,17 @@ svg.product-upvote-icon {
 
 .slider-nav-icon {
   cursor: pointer;
+  z-index: 100;
 }
 
 .left.slider-nav-icon {
   position: absolute;
-  top: 200px;
   left: 20px;
+  top: 200px;
 }
 
 .right.slider-nav-icon {
   position: absolute;
-  top: 200px;
   right: 20px;
+  top: 200px;
 }

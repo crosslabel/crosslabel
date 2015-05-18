@@ -300,6 +300,10 @@ img.liked-user-image {
   .product-display {
     position: relative;
     margin-bottom: 1em;
+    img {
+      max-width: 380px;
+      max-height: 500px;
+    }
   }
 
   div.slick-slide {
