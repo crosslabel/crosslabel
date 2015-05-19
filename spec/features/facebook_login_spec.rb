@@ -7,6 +7,6 @@ feature "Signing up with Facebook connect" do
   end
 
   scenario "should render home page" do
-    expect(page).to redirect_to root_path
+    expect(page).to have_content("Beyond the boundaries")
   end
 end

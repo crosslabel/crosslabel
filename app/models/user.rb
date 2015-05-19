@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   validates :auth_token, uniqueness: true
   validates :email, :presence => true, :length => { maximum: 256}, :format => { with: VALID_EMAIL_REGEX }, :uniqueness => { case_sensitive: false}
-  validates :username, :presence => true, :uniqueness => :true, :length => { maximum: 15}
+  # validates :username, :presence => true, :uniqueness => :true, :length => { maximum: 15}
 
   SOCIALS = {
     facebook: 'facebook',
@@ -36,7 +36,8 @@ class User < ActiveRecord::Base
         user.email = auth.info.email
         user.password = Devise.friendly_token[0,20]
         user.avatar = URI.parse(auth.info.image)
-        # user.send_welcome_email
+        user.save!
+        user.send_welcome_email
       end
       authentication.user = user
       authentication.save

@@ -9,9 +9,7 @@ class AfterOmniauthController < ApplicationController
       case step
       when :add_username
       end
-      render_wizard @user
-    else
-      redirect_to root_path
+      render_wizard
     end
   end
 
@@ -19,7 +17,7 @@ class AfterOmniauthController < ApplicationController
     @user = current_user
     case step
     when :add_username
-      @user.update_attribute(:username, params[:username])
+      @user.update_attributes(params[:user])
     end
     sign_in(@user, :bypass => true)
     render_wizard @user

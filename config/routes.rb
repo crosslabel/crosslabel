@@ -10,10 +10,12 @@ Rails.application.routes.draw do
     post 'signin' => 'users/sessions#create', :as => :user_session
     delete 'signout' => 'users/sessions#destroy', :as => :destroy_user_session
   end
+
+  resources :after_omniauth
+
   resources :retailers, param: :name do
     resources :products
   end
-
 
   resources :products do
     post '/vote' => 'upvotes#create'
@@ -29,9 +31,6 @@ Rails.application.routes.draw do
 
 
   resources :retailers
-
-  resources :after_omniauth
-  
 
   get '/retailers/:name(/page/:page)' => 'retailers#show', :page => 1
 

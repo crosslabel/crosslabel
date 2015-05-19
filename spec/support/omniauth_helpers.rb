@@ -1,6 +1,6 @@
 module Omniauth
   module AuthenticationHelpers
-    def set_omniauth(id)
+    def set_omniauth
         OmniAuth.config.test_mode = true
         stub_request(:get, "https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg").
          with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
