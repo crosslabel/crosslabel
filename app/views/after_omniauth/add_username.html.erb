@@ -1,14 +1,15 @@
 <% content_for :title do %> Complete your profile... <% end %>
-<div class="container">
-<%= link_to destroy_user_session_path, :method => :delete, :class => "btn-sign-out" do %>Sign out<% end %>
-<div class="form-wrapper-page">
 <div class="complete-profile-page">
+  <div class="container">
+    <%= link_to destroy_user_session_path, :method => :delete, :class => "btn-sign-out" do %>Sign out<% end %>
+
+  <div class="form-wrapper-page">
 <h1>We're almost done...</h1>
 <p>Only a couple of steps to go! All you have left to do is add a few more details</p>
 <%= form_for(@user, :url => wizard_path, :method => :put) do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username, :placeholder => "Choose a username", :class => 'form-control' %>
-  <%= f.submit 'Update my profile', :class => 'btn-login' %>
+  <%= f.submit 'Update my profile', :class => 'btn', style: "margin-top: 1em;" %>
 <% end %>
 </div>
 </div>
