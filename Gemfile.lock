@@ -169,7 +169,7 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
-    paperclip (3.5.4)
+    paperclip (4.2.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
@@ -339,7 +339,7 @@ DEPENDENCIES
   newrelic_rpm
   omniauth
   omniauth-facebook
-  paperclip (~> 3.5)
+  paperclip (~> 4.2)
   pg
   rails (= 4.1.6)
   rails_12factor

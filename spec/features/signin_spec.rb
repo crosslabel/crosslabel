@@ -12,4 +12,5 @@ feature 'User signing in with email' do
 
     current_path.should == explore_path
   end
+
 end

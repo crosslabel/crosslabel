@@ -6,7 +6,7 @@ class Authentication < ActiveRecord::Base
   end
 
   def self.create_with_omniauth(auth, user = nil)
-    user ||= User.create_with_omniauth(auth)
+    user ||= User.from_omniauth
     Authentication.create(user_id: user.id, uid: auth['uid'], provider: auth['provider'])
   end
 end

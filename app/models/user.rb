@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0, 20]
         user.email = auth.info.email
         user.password = Devise.friendly_token[0,20]
-        user.avatar = URI.parse(auth.info.image)
+        user.avatar = open(auth.info.image)
         user.save!
         user.send_welcome_email
       end
@@ -47,15 +47,6 @@ class User < ActiveRecord::Base
 
   def self.find_with_omniauth(auth)
     where(email: auth.info.email)
-  end
-
-  def self.create_with_omniauth(auth)
-    find_with_omniauth(auth).first_or_create do |user|
-      user.email = auth.info.email
-      user.username = "user" + Digest::SHA1.base64digest(auth.uid)
-      user.password = Devise.friendly_token[0,20]
-      user.profile_picture = auth.info.image
-    end
   end
 
   def self.new_with_session(params, session)
@@ -93,4 +84,7 @@ class User < ActiveRecord::Base
     UserMailer.welcome_email(self).deliver
   end
 
+  def activated?
+    self.activated
+  end
 end

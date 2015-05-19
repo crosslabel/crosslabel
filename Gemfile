@@ -40,7 +40,7 @@ gem 'uuidtools'
 
 gem 'thin' #web server
 
-gem 'paperclip', '~>3.5'
+gem 'paperclip', '~>4.2'
 gem 'aws-sdk', '< 2.0'
 
 gem "redis", "~> 3.0.1"

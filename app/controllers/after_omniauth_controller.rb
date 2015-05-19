@@ -1,6 +1,8 @@
 class AfterOmniauthController < ApplicationController
   include Wicked::Wizard
 
+  layout 'devise'
+
   steps :add_username
 
   def show
@@ -17,10 +19,15 @@ class AfterOmniauthController < ApplicationController
     @user = current_user
     case step
     when :add_username
-      @user.update_attributes(params[:user])
+      @user.activated = true
+      @user.update(user_params)
     end
-    sign_in(@user, :bypass => true)
     render_wizard @user
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:username)
   end
 
 end

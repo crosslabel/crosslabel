@@ -4,6 +4,7 @@
   <title><% if content_for :title %> <%= yield(:title) %> - CrossLabel <% else %> Discover and shop fashion from aronund the world - CrossLabel<% end %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="robots" content="noindex, nofollow">
   <script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>

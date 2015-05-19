@@ -3,6 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
 
+  before_action :activated_user
+
+  def activated_user
+    if current_user
+      redirect_to after_omniauth_path(:add_username)
+    end
+  end
+
   def logged_in_user
     unless current_user
       flash[:notice] = "Please log in."
