@@ -13,9 +13,11 @@ Rails.application.routes.draw do
 
   resources :after_omniauth
 
-  resources :retailers, param: :name do
+  resources :retailers, param: :name, except: :show do
     resources :products
   end
+  get '/retailers/:name(/page/:page)' => 'retailers#show', :page => 1
+
 
   resources :products do
     post '/vote' => 'upvotes#create'
@@ -30,9 +32,6 @@ Rails.application.routes.draw do
   get '/explore(/page/:page)' => 'home#explore', as: 'explore', :page => 1
 
 
-  resources :retailers
-
-  get '/retailers/:name(/page/:page)' => 'retailers#show', :page => 1
 
 
   resources :users, param: :username

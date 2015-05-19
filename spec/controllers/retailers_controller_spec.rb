@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe RetailersController, type: :controller do
-  let(:shop) { FactoryGirl.create(:shop)}
+  let(:retailer) { FactoryGirl.create(:retailer)}
 
   describe "GET #index" do
     it "returns http success" do
@@ -12,7 +12,7 @@ RSpec.describe RetailersController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      get :show, id: shop.id
+      get :show, name: retailer.name
       expect(response).to render_template(:show)
     end
   end

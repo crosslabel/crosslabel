@@ -4,6 +4,7 @@ FactoryGirl.define do
     sequence(:username) { |n| "exampleuser#{n}" }
     password "12345678"
     password_confirmation "12345678"
+    activated false
   end
 
 end

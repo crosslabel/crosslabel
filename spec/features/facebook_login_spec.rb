@@ -8,7 +8,7 @@ feature "Signing up with Facebook connect" do
     click_link_or_button 'Finish my registration!'
   end
 
-  scenario "redirects to root path" do
-    expect(current_url).to eq(root_path)
+  scenario "redirects to explore path" do
+    expect(current_url).to eq(root_url)
   end
 end

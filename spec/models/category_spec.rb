@@ -11,7 +11,7 @@ RSpec.describe Category, type: :model do
   describe "before save" do
     it "should downcase the title" do
       @category.save
-      expect(@category.title).to eq("mytitle")
+      expect(@category.name).to eq("mytitle")
     end
   end
 end
