@@ -5,7 +5,7 @@
 
   <div class="form-wrapper-page">
 <h1>We're almost done...</h1>
-<p>Only a couple of steps to go! All you have left to do is add a few more details</p>
+<p>Only a couple of steps to go, and you'll be ready to explore! All you have left to do is add a few more details</p>
 <%= form_for(@user, :url => wizard_path, :method => :put) do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username, :placeholder => "Choose a username", :class => 'form-control' %>

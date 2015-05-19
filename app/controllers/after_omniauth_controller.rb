@@ -1,6 +1,7 @@
 class AfterOmniauthController < ApplicationController
   include Wicked::Wizard
 
+  before_action :logged_in_user
   before_action :redirect_if_activated
 
   layout 'devise'
