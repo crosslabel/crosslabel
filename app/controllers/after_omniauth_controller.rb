@@ -1,6 +1,8 @@
 class AfterOmniauthController < ApplicationController
   include Wicked::Wizard
 
+  before_action :redirect_if_activated
+
   layout 'devise'
 
   steps :add_username
@@ -28,6 +30,10 @@ class AfterOmniauthController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:username)
+  end
+
+  def redirect_if_activated
+    redirect_to root_path if current_user.activated?
   end
 
 end

@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :activated_only
   def index
     @products = Product.all.order(created_at: :desc).limit(16)
     render :layout => "transparent_header"

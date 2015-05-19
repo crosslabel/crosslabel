@@ -2,12 +2,11 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
-
-  before_action :activated_user
-
-  def activated_user
+  
+  def activated_only
     if current_user
-      redirect_to after_omniauth_path(:add_username)
+        flash[:notice] = "Please complete your profile."
+        redirect_to after_omniauth_path(:add_username) unless current_user.activated?
     end
   end
 
