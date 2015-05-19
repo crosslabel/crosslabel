@@ -58,6 +58,16 @@
   }
 }
 
+.btn-sign-out {
+  background: none;
+  position: relative;
+  top: 2em;
+  color: #252525;
+  border: 1px solid #252525;
+  padding: 0.5em 1.5em;
+  @include border-radius(999px);
+}
+
 .btn-purchase {
   @extend .btn;
   margin: 0 auto;
