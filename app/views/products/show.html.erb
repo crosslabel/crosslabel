@@ -66,7 +66,9 @@
         <div class="product-display">
         <% @product.product_variations.limit(1).each do |variation| %>
           <% variation.product_images.limit(4).each do |image| %>
+            <div>
             <%= image_tag "#{image.filepath}", :class => "product-image" %>
+            </div>
           <% end %>
         <% end %>
       </div>
