@@ -75,6 +75,21 @@ div.breadcrumbs {
       margin: 0 auto;
     }
   }
+  .stores {
+    .store-container {
+      background: #f7fafa;
+      min-height: 150px;
+      padding: 1em;
+      @include border-radius(3px);
+      .store-avatar {
+        background: #fff;
+        width: 70px;
+        height: 70px;
+        margin-bottom: 1em;
+        @include border-radius(6px);
+      }
+    }
+  }
 }
 
 
@@ -572,8 +587,6 @@ img.liked-user-image {
     }
   }
 }
-
-// Sign up
 
 // Search page
 .search-page {

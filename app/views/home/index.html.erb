@@ -42,8 +42,12 @@
     <div class="container">
       <div class="row">
         <% Retailer.all.limit(4).each do |retailer| %>
-          <div class="col-sm-6 col-md-20 animated fadeIn">
-            <%= retailer.name %>
+          <div class="col-sm-4 col-md-4 animated fadeIn">
+            <div class="store-container">
+              <%= link_to retailer_path(retailer.name) do %><div class="store-avatar"></div><% end %>
+              <h3><%= link_to retailer.name, retailer_path(retailer.name) %></h3>
+              <h5>Retailer description goes here</h5>
+            </div>
           </div>
         <% end %>
       </div>
@@ -55,8 +59,8 @@
     <div class="overlay">
     <div class="container">
       <div class="signup-content">
-      <h1>Sign up is quick and simple.</h1>
-      <h3>What are you waiting for? Register and start shopping for brands and clothing from around the world.</h3>
+      <h1>What are you waiting for?</h1>
+      <h3>Sign up is quick and simple. Register and start shopping for brands and clothing from around the world.</h3>
       <%= link_to "Sign up now", new_user_registration_path, :class => 'btn-cta' %>
       </div>
     </div>
