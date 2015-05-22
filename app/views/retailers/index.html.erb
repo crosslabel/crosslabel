@@ -13,13 +13,19 @@
       </div>
     </div>
 </section>
-<section class="retailers-list">
+<section class="retailer-list">
   <div class="container">
       <h1>Shops</h1>
+      <div class="row">
       <% @retailers.each do |retailer| %>
+      <div class="col-sm-6 col-md-4 col-lg-4">
           <div class="retailer-container">
-              <%= link_to retailer.name, retailer_path(retailer.name) %>
+              <%= link_to retailer_path(retailer.name) do %><div class="retailer-avatar"></div><% end %>
+              <h3><%= link_to retailer.name, retailer_path(retailer.name) %></h3>
+              <h5>Retailer description goes here</h5>
           </div>
+      </div>
       <% end %>
+      </div>
   </div>
 </section>

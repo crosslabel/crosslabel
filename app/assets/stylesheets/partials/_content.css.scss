@@ -487,10 +487,8 @@ img.liked-user-image {
 
 // Retailers
 .retailer-page {
+  height: 100%;
   padding: 2em 0 4em 0;
-  .retailer-heading {
-    padding-left: 13px;
-  }
 }
 .retailer-cover {
   position: relative;
@@ -528,6 +526,34 @@ img.liked-user-image {
     .retailer-description {
       color: #fff;
       letter-spacing: 1px;
+    }
+  }
+}
+
+.retailer-list {
+  background: #f9f9f9;
+  height: 100%;
+  padding: 3em 0 6em 0;
+}
+
+.retailer-container {
+  background: #fff;
+  background-size: cover;
+  border-color: #ECEDEF;
+  padding: 1.2em;
+  margin: 1em 0;
+  min-height: 200px;
+  .retailer-avatar {
+    background: #f9f9f9;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1em;
+    @include border-radius(6px);
+  }
+  .retailer-container-heading {
+    a {
+      color: #fff;
+      font-weight: $regular;
     }
   }
 }
