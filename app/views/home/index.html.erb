@@ -13,7 +13,7 @@
   </div>
 
 </section>
-<section id="home-page">
+<section class="home-page">
   <div class="section-intro">
     <div class="container">
       <h3 class="section-intro-heading">What's popular</h3>
@@ -39,6 +39,11 @@
   <div class="stores">
     <div class="container">
       <div class="row">
+        <% Retailer.all.limit(4).each do |retailer| %>
+          <div class="col-sm-6 col-md-20 animated fadeIn">
+            <%= retailer.name %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
