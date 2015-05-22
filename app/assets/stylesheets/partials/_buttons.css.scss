@@ -15,6 +15,15 @@
   }
 }
 
+.btn-back {
+  @extend .btn;
+  color: #999;
+  font-size: 1.1em;
+  border: 1px solid #999;
+  background: none;
+  display: inline;
+  @include border-radius(999px)
+}
 .btn-cta {
   @extend .btn;
   display: inline;
