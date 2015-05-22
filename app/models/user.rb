@@ -24,25 +24,31 @@ class User < ActiveRecord::Base
 
   recommends :products
 
-  def self.from_omniauth(auth, current_user)
-    authentication = Authentication.where(:provider => auth.provider, :uid => auth.uid.to_s,
-                                      :token => auth.credentials.token)
-                                      .first_or_initialize
-    if authentication.user.blank?
-      user = current_user.nil? ? User.where('email = ?', auth['info']['email']).first : current_user
-      if user.blank?
-        user = User.new
-        user.password = Devise.friendly_token[0, 20]
-        user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
-        user.avatar = open(auth.info.image)
-        user.save!
-        user.send_welcome_email
-      end
-      authentication.user = user
-      authentication.save
+  # def self.from_omniauth(auth, current_user, authentication)
+  #   if authentication.user.blank?
+  #     user = current_user ||= User.where(email: auth.info.email).first
+  #     if user.blank?
+  #       user = User.new
+  #       user.password = Devise.friendly_token[0, 20]
+  #       user.email = auth.info.email
+  #       user.avatar = open(auth.info.image)
+  #       user.save!
+  #       user.send_welcome_email
+  #     end
+  #     authentication.user = user
+  #     authentication.save
+  #   end
+  #   authentication.user
+  # end
+
+  def self.create_with_omniauth(auth)
+    find_with_omniauth(auth).first_or_create do |user|
+      user.password = Devise.friendly_token[0, 20]
+      user.email = auth.info.email
+      user.avatar = open(auth.info.image)
+      user.save!
+      user.send_welcome_email
     end
-    authentication.user
   end
 
   def self.find_with_omniauth(auth)
