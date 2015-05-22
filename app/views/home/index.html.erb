@@ -17,6 +17,7 @@
   <div class="section-intro">
     <div class="container">
       <h3 class="section-intro-heading">What's popular</h3>
+      <%= link_to "See more", explore_path, class: 'btn-more' %>
     </div>
   </div>
   <div class="trending">
@@ -34,6 +35,7 @@
   <div class="section-intro">
     <div class="container">
       <h3 class="section-intro-heading">Shops</h3>
+      <%= link_to "See more", retailers_path, class: 'btn-more' %>
     </div>
   </div>
   <div class="stores">
@@ -47,4 +49,18 @@
       </div>
     </div>
   </div>
+  <% if current_user %>
+  <% else %>
+  <div class="signup">
+    <div class="overlay">
+    <div class="container">
+      <div class="signup-content">
+      <h1>Sign up is quick and simple.</h1>
+      <h3>What are you waiting for? Register and start shopping for brands and clothing from around the world.</h3>
+      <%= link_to "Sign up now", new_user_registration_path, :class => 'btn-cta' %>
+      </div>
+    </div>
+    </div>
+  </div>
+  <% end %>
 </section>

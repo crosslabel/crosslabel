@@ -46,8 +46,49 @@ div.breadcrumbs {
 }
 
 .home-page {
-  padding: 2em 0 5em 0;
+  padding-top: 2em;
+  .signup {
+    background: #ccc url('signup_cover.jpg');
+    background-size: cover;
+    background-position: 40% 60%;
+    height: 475px;
+    margin-top: 3em;
+    .overlay {
+      background: rgba(0,0,0, 0.15);
+      position: relative;
+      width: 100%;
+      height: inherit;
+      top: 0;
+      left: 0;
+    }
+    h1 {
+      color: #fff;
+    }
+    h3 {
+      color: #fff;
+      margin-bottom: 2em;
+    }
+    .signup-content {
+      position: relative;
+      top: 140px;
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
 }
+
+
+.section-intro {
+  margin-bottom: 2em;
+  .section-intro-heading {
+    display: inline-block;
+    font-size: 1.4em;
+  }
+  .secondary-heading {
+    color: #888;
+  }
+}
+
 
 .login-page, .signup-page, .password-page {
   background: #f7fafa;
@@ -68,15 +109,6 @@ div.breadcrumbs {
       text-decoration: underline;
     }
   }
-}
-
-.login-overlay {
-  // background: rgba(0,0,0, 0.2);
-  position: absolute;
-  width: 100%;
-  height: inherit;
-  top: 0;
-  left: 0;
 }
 
 
@@ -132,7 +164,7 @@ div.breadcrumbs {
 
     img.product-image {
       width: 100%;
-      height: 278px;
+      height: 300px;
       object-fit: cover;
     }
     &:hover .product-overlay {
@@ -461,18 +493,6 @@ img.liked-user-image {
   }
 }
 
-// Trending page
-
-.section-intro {
-  margin-bottom: 2em;
-  .section-intro-heading {
-    font-size: 1.4em;
-  }
-  .secondary-heading {
-    color: #888;
-  }
-}
-
 // Categories
 .category-heading {
   font-weight: $light;
@@ -552,6 +572,8 @@ img.liked-user-image {
     }
   }
 }
+
+// Sign up
 
 // Search page
 .search-page {
