@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'errors/file_not_found'
+
+  get 'errors/unprocessable'
+
+  get 'errors/internal_server_error'
+
   root 'home#index'
 
 
@@ -31,7 +37,9 @@ Rails.application.routes.draw do
   get '/categories/:name(/page/:page)' => 'categories#show', as: :category, :page => 1
   get '/explore(/page/:page)' => 'home#explore', as: 'explore', :page => 1
 
-
+  match '/404', to: 'errors#file_not_found', via: :all
+  match '/422', to: 'errors#unprocessable', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
 
 
   resources :users, param: :username

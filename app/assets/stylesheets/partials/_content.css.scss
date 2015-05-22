@@ -3,6 +3,7 @@
 // 2. Products
 // 3. User Profiles
 // 4. Product Detail Page
+// 5. Error page
 
 // 1. Defaults
 
@@ -518,4 +519,21 @@ img.liked-user-image {
   width: 80px;
   height: 80px;
   @include border-radius(4px);
+}
+
+// 5. Error Page
+.error-page {
+  background: #f9f9f9;
+  padding-top: 8em;
+  height: 100%;
+  .error-content {
+    margin: 0 auto;
+    width: 60%;
+  }
+  h4.brand {
+    font-family: 'loveloblack', 'sans-serif';
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
 }
