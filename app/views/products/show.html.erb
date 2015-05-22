@@ -64,8 +64,8 @@
         <span class="right slider-nav-icon"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"> <circle data-color="color-2" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22" stroke-linejoin="miter"></circle> <polyline fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="20,16 28,24 20,32 " stroke-linejoin="miter"></polyline> </g></svg></span>
 
         <div class="product-display">
-        <% @product.product_variations.limit(1).each do |variation| %>
-          <% variation.product_images.limit(4).each do |image| %>
+        <% @product.product_variations.each do |variation| %>
+          <% variation.product_images.each do |image| %>
             <div>
             <%= image_tag "#{image.filepath}", :class => "product-image" %>
             </div>
