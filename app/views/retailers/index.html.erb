@@ -1,18 +1,31 @@
-<section class="retailer-hero">
-  <div class="hero">
+<% content_for :title do %> Shops <% end %>
+
+<section class="retailer-hero hero">
     <%= render partial: 'shared/header_secondary' %>
-    <div class="hero-content">
-      <h3 class="explore-hero-heading">All journeys have secret destinations of which the traveler is unaware.</h3>
+    <div class="search">
+      <div class="container">
+        <%= form_tag products_path, :class => "form-search", :method => 'get' do %>
+        <div class="input-group">
+          <span class="input-group-addon" style="background:none;border-color:#fff;border-top: 0;border-left:0;border-radius:0;"><i class="fa fa-search fa-2x"></i></span>
+          <%= text_field_tag :query, params[:query], class: 'form-control', id: 'product-search', autocomplete: 'off', placeholder: "Know what you're looking for? Search away!" %>
+        </div>
+        <% end %>
+      </div>
     </div>
-  </div>
 </section>
-<section class="retailers-list">
+<section class="retailer-list">
   <div class="container">
       <h1>Shops</h1>
+      <div class="row">
       <% @retailers.each do |retailer| %>
+      <div class="col-sm-6 col-md-4 col-lg-4">
           <div class="retailer-container">
-              <%= link_to retailer.name, retailer_path(retailer.name) %>
+              <%= link_to retailer_path(retailer.name) do %><div class="retailer-avatar"></div><% end %>
+              <h3><%= link_to retailer.name, retailer_path(retailer.name) %></h3>
+              <h5>Retailer description goes here</h5>
           </div>
+      </div>
       <% end %>
+      </div>
   </div>
 </section>

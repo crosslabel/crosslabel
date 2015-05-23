@@ -15,14 +15,6 @@ div.breadcrumbs {
   padding: 20px;
 }
 
-.section-intro {
-  text-align: center;
-  margin-bottom: 2em;
-  .secondary-heading {
-    color: #888;
-  }
-}
-
 #home-trending-cities {
   position: relative;
   padding: 1em 0;
@@ -54,9 +46,65 @@ div.breadcrumbs {
 
 }
 
-#home-page {
-  padding: 2em 0 4em 0;
+.home-page {
+  padding-top: 2em;
+  .signup {
+    background: #ccc url('signup_cover.jpg');
+    background-size: cover;
+    background-position: 40% 60%;
+    height: 475px;
+    margin-top: 3em;
+    .overlay {
+      background: rgba(0,0,0, 0.15);
+      position: relative;
+      width: 100%;
+      height: inherit;
+      top: 0;
+      left: 0;
+    }
+    h1 {
+      color: #fff;
+    }
+    h3 {
+      color: #fff;
+      margin-bottom: 2em;
+    }
+    .signup-content {
+      position: relative;
+      top: 140px;
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+  .stores {
+    .store-container {
+      background: #f7fafa;
+      min-height: 150px;
+      padding: 1em;
+      @include border-radius(3px);
+      .store-avatar {
+        background: #fff;
+        width: 70px;
+        height: 70px;
+        margin-bottom: 1em;
+        @include border-radius(6px);
+      }
+    }
+  }
 }
+
+
+.section-intro {
+  margin-bottom: 2em;
+  .section-intro-heading {
+    display: inline-block;
+    font-size: 1.4em;
+  }
+  .secondary-heading {
+    color: #888;
+  }
+}
+
 
 .login-page, .signup-page, .password-page, .complete-profile-page {
   background: #f7fafa;
@@ -68,13 +116,8 @@ div.breadcrumbs {
     text-align: center;
   }
   p {
-    text-align: center;
-  }
-  .hero-overlay {
-    height: inherit;
-  }
-  p {
     font-size: 1.1em;
+    text-align: center;
   }
   .login-links {
     a {
@@ -82,15 +125,6 @@ div.breadcrumbs {
       text-decoration: underline;
     }
   }
-}
-
-.login-overlay {
-  // background: rgba(0,0,0, 0.2);
-  position: absolute;
-  width: 100%;
-  height: inherit;
-  top: 0;
-  left: 0;
 }
 
 
@@ -110,7 +144,7 @@ div.breadcrumbs {
 }
 
 .trending {
-  padding: 1em 0;
+  padding-bottom: 1em;
 
   ul {
     padding: 0;
@@ -146,6 +180,7 @@ div.breadcrumbs {
 
     img.product-image {
       width: 100%;
+      height: 300px;
       object-fit: cover;
     }
     &:hover .product-overlay {
@@ -167,7 +202,7 @@ div.breadcrumbs {
     }
 
     .product-overlay {
-      background: rgba(255,255,255, 0.1);
+      background: rgba(255,255,255, 0.2);
       position: absolute;
       width: 100%;
       height: 100%;
@@ -204,22 +239,20 @@ img.liked-user-image {
   @include border-radius(50%);
   transition: 0.1s linear;
   border: 1px solid #fff;
-  margin-left: -20px;
+  margin-left: -30px;
 }
 
 .product-details {
   border-top: 0;
   padding: 10px 0 0 0;
   .product-heading {
-    font-size: 1.1em;
     margin-top: 0;
-    font-weight: $medium;
+    font-weight: $regular;
     margin-bottom: 5px;
   }
   .product-retailer-heading {
-    font-size: 0.8em;
+    font-size: 0.9em;
     letter-spacing: 1px;
-    text-transform: uppercase;
     margin: 0;
     a:hover {
       opacity: 0.7;
@@ -239,7 +272,6 @@ img.liked-user-image {
   .product-country-heading {
 
   }
-
   .product-price {
     float: right;
   }
@@ -255,13 +287,22 @@ img.liked-user-image {
   border: 3px solid #fff;
 }
 
+
 .profile-page {
   width: 100%;
-  padding: 2em 0;
+  padding-bottom: 2em;
   .user-heading-title {
     margin-top: 0;
   }
-
+  .profile-user-header {
+    padding: 2em 0;
+    text-align: center;
+  }
+  .profile-user-content {
+  }
+  .profile-main-content {
+    padding: 2em 0 2em 0;
+  }
 }
 .user-details {
   text-align: center;
@@ -276,23 +317,26 @@ img.liked-user-image {
 .user-favourites {
 }
 
-.user-profile {
-  background: #f6f5f6;
-  height: 500px;
-}
-
 // 4. Product Detail Page
 
 .product-detail-page {
   position: relative;
-  padding: 0 0 4em 0;
+  padding: 2em 0 4em 0;
   .product {
     margin: 0 auto;
+  }
+
+  .product-main-content {
+    padding-bottom: 2em;
   }
 
   .product-display {
     position: relative;
     margin-bottom: 1em;
+    img {
+      max-width: 380px;
+      max-height: 500px;
+    }
   }
 
   div.slick-slide {
@@ -307,10 +351,8 @@ img.liked-user-image {
   }
 
   .product-info {
-    width: 60%;
     margin: 0 auto;
-    padding: 1em 0 2em 0;
-    text-align: center;
+    padding-bottom: 2em;
     svg {
       vertical-align: middle;
       margin-right: 3px;
@@ -325,6 +367,7 @@ img.liked-user-image {
 
   .product-footer {
     padding: 4em 0 2em 0;
+    text-align: center;
     ul.product-footer-nav {
         list-style: none;
         padding-left: 0;
@@ -428,35 +471,6 @@ img.liked-user-image {
   }
 }
 
-.explore-hero {
-  background: #ccc image-url('explore-hero.jpg');
-  background-position: 25% 45%;
-  background-size: cover;
-  width: 100%;
-  min-height: 350px;
-  text-align: center;
-  padding-bottom: 2em;
-  .hero-overlay {
-    background: rgba(0,0,0, 0.15);
-    position: absolute;
-    width: 100%;
-    height: inherit;
-    top: 0;
-    left: 0;
-  }
-  .explore-hero-heading {
-    color: #fff;
-    font-weight: $light;
-    padding-bottom: 10px;
-  }
-
-  .hero-content {
-    width: 50%;
-    margin: 0 auto;
-    padding-top: 4em;
-  }
-}
-
 .explore-sidebar {
   background: #f9f9f9;
   padding: 1em 2em;
@@ -495,16 +509,6 @@ img.liked-user-image {
   }
 }
 
-// Trending page
-
-.section-intro {
-  text-align: center;
-  margin-bottom: 2em;
-  .secondary-heading {
-    color: #888;
-  }
-}
-
 // Categories
 .category-heading {
   font-weight: $light;
@@ -513,12 +517,81 @@ img.liked-user-image {
 }
 
 // Retailers
-.retailer-container {
-  display: inline-block;
+.retailer-page {
+  height: 100%;
+  padding: 2em 0 4em 0;
+}
+.retailer-cover {
+  position: relative;
   background: #f9f9f9;
-  width: 80px;
-  height: 80px;
-  @include border-radius(4px);
+  height: 400px;
+  .retailer-card {
+    width: 50%;
+    position: absolute;
+    bottom: 40px;
+    .retailer-social-icon {
+
+      .fa-facebook-official {
+        color: #3b5998;
+      }
+      .fa-twitter {
+        color: #00aced;
+      }
+      svg {
+        position: relative;
+        top: 3px;
+      }
+      a {
+        &:hover {
+          background: none;
+        }
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+    .retailer-heading {
+      color: #fff;
+      font-weight: $medium;
+    }
+    .retailer-description {
+      color: #fff;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.retailer-list {
+  background: #f9f9f9;
+  height: 100%;
+  padding: 3em 0 6em 0;
+}
+
+.retailer-container {
+  background: #fff;
+  background-size: cover;
+  border-color: #ECEDEF;
+  padding: 1.2em;
+  margin: 1em 0;
+  min-height: 200px;
+  .retailer-avatar {
+    background: #f9f9f9;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1em;
+    @include border-radius(6px);
+  }
+  .retailer-container-heading {
+    a {
+      color: #fff;
+      font-weight: $regular;
+    }
+  }
+}
+
+// Search page
+.search-page {
+  padding: 2em 0;
 }
 
 // 5. Error Page

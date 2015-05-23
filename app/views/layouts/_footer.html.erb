@@ -1,21 +1,18 @@
 <footer class="footer">
   <div class="container">
     <div class="row">
-      <div class="col-lg-2">
-      <ul>
-        <li>About</li>
-        <li>Our team</li>
-        <li>Careers</li>
-        <li>Press</li>
-
-      </ul>
+      <div class="col-lg-3">
+        <%= link_to "CrossLabel", root_path, class: 'footer-brand' %>
       </div>
-      <div class="col-lg-2">
-      <ul>
-        <li>Category list</li>
-        <li>Shops list</li>
-        <li></li>
-      </ul>
+      <div class="col-lg-9">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "About us", "#" %></li>
+          <li><%= link_to "Team", "#" %></li>
+          <li><%= link_to "Careers", "#" %></li>
+          <li><%= link_to "Blog", "#" %></li>
+          <li><%= link_to "Terms", "#" %></li>
+          <li><%= link_to "Contact us", "#" %></li>
+        </ul>
       </div>
     </div>
   </div>

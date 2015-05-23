@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
     else
       @products = Product.all.page params[:page]
     end
+    render layout: 'transparent_header'
   end
 
   def autocomplete

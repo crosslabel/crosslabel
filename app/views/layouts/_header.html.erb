@@ -1,6 +1,6 @@
 <header class="header">
-  <div class="row">
   <div class="container">
+  <div class="row">
     <div class="navbar-header">
     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
       <i class="fa fa-bars fa-lg"></i>
@@ -11,6 +11,14 @@
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "Explore", explore_path %></li>
         <li><%= link_to "Shops", retailers_path %></li>
+        <%= form_tag products_path, :class => "form-search navbar-form navbar-left", :method => 'get' do %>
+        <div class="form-group">
+          <span class="input-group">
+            <span class="input-group-addon" style="background:none;border:0;border-radius:0;"><i class="fa fa-search fa-lg"></i></span>
+            <%= text_field_tag :query, params[:query], class: 'form-control', id: 'product-search', autocomplete: 'off', placeholder: "Know what you're looking for? Search away!" %>
+          </span>
+        </div>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
@@ -32,7 +40,7 @@
 
       <% else %>
       <li><%= link_to "Sign up", new_user_registration_path %></li>
-      <li><%= link_to "Log in", new_user_session_path, :class => "btn-header", :style => "border-color: #888;" %></li>
+      <li><%= link_to "Log in", new_user_session_path, :class => "btn-header" %></li>
       <% end %>
       </ul>
     </div>
