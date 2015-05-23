@@ -5,22 +5,25 @@
     <div class="hero">
       <%= render partial: 'shared/header_secondary' %>
         <div class="hero-content">
-        <h1>Beyond the boundaries</h1>
-        <h4>Discover and shop thousands of products from around the world.</h4>
-        <%= link_to "Get started", explore_path, :class => 'cta' %>
+        <h1 class="hero-heading">Explore Clothing, Everywhere.</h1>
+        <h3 class="hero-tagline">Discover and shop thousands of products from around the world.</h3>
+        <%= link_to "Get started", explore_path, :class => 'btn-cta' %>
         </div>
     </div>
   </div>
 
 </section>
-<section id="home-page">
+<section class="home-page">
   <div class="section-intro">
-    <h3>Trending products</h3>
-    <h5 class="secondary-heading">Some items currently trending around the world.</h5>
+    <div class="container">
+      <h3 class="section-intro-heading">What's popular</h3>
+      <%= link_to "See more", explore_path, class: 'btn-more' %>
+    </div>
   </div>
   <div class="trending">
-    <div class="row">
     <div class="container">
+      <div class="row">
+
       <% Product.all.limit(5).each do |product| %>
       <div class="product-container col-sm-6 col-md-20 animated fadeIn">
         <%= render partial: 'products/product', locals: {product: product} %>
@@ -29,4 +32,39 @@
     </div>
     </div>
   </div>
+  <div class="section-intro">
+    <div class="container">
+      <h3 class="section-intro-heading">Shops</h3>
+      <%= link_to "See more", retailers_path, class: 'btn-more' %>
+    </div>
+  </div>
+  <div class="stores">
+    <div class="container">
+      <div class="row">
+        <% Retailer.all.limit(4).each do |retailer| %>
+          <div class="col-sm-4 col-md-4 animated fadeIn">
+            <div class="store-container">
+              <%= link_to retailer_path(retailer.name) do %><div class="store-avatar"></div><% end %>
+              <h3><%= link_to retailer.name, retailer_path(retailer.name) %></h3>
+              <h5>Retailer description goes here</h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% if current_user %>
+  <% else %>
+  <div class="signup">
+    <div class="overlay">
+    <div class="container">
+      <div class="signup-content">
+      <h1>What are you waiting for?</h1>
+      <h3>Sign up is quick and simple. Register and start shopping for brands and clothing from around the world.</h3>
+      <%= link_to "Sign up now", new_user_registration_path, :class => 'btn-cta' %>
+      </div>
+    </div>
+    </div>
+  </div>
+  <% end %>
 </section>

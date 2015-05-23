@@ -1,8 +1,7 @@
-<%= image_tag "login_page.jpg", class: "bg" %>
 <div class="password-page">
-  <div class="login-overlay">
-  <%= render partial: 'shared/header_secondary' %>
   <div class="container">
+    <%= link_to "Go back", root_path, class: 'btn-back' %>
+
       <div class="form-wrapper-page">
         <h2>Forgot your password?</h2>
 
@@ -17,11 +16,9 @@
             <%= f.submit "Send me reset password instructions", class: 'btn-reset' %>
           </div>
         <% end %>
-        <div class="login-links">
-          <p>Don't have an account? <%= link_to "Sign up", new_user_registration_path, id: 'signup-link' %><br /></p>
-          <p>Already have an account? <%= link_to "Login", new_user_session_path, id: 'login-form-link' %></p>
-
+        <div class="form-links">
+          <span>Don't have an account? <%= link_to "Sign up", new_user_registration_path, id: 'signup-link' %></span><br/>
+          <span>Already have an account? <%= link_to "Login", new_user_session_path, id: 'login-form-link' %></span>
         </div>
       </div>
-  </div>
 </div>

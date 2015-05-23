@@ -1,17 +1,55 @@
 .btn {
   display: block;
   background: #999;
+  width: 100%;
   color: #fff;
   font-size: 1em;
   border-radius: 3px;
   border: 0;
   font-weight: $medium;
   letter-spacing: 1px;
-  @include border-radius(999px);
+  @include border-radius(6px);
   @include transition(opacity, 1s, ease);
   &:hover {
     color: #fff;
     background: #777;
+  }
+}
+
+.btn-more {
+  @extend .btn;
+  width: auto;
+  color: #333;
+  font-size: 1em;
+  border: 1px solid #333;
+  background: none;
+  display: inline;
+  float: right;
+  @include border-radius(999px);
+  &:hover {
+    background: none;
+    color: #777;
+    border-color: #777;
+  }
+}
+.btn-back {
+  @extend .btn;
+  color: #999;
+  font-size: 1.1em;
+  border: 1px solid #999;
+  background: none;
+  display: inline;
+  @include border-radius(999px)
+}
+.btn-cta {
+  @extend .btn;
+  display: inline;
+  margin: 0 auto;
+  font-size: 1.2em;
+  background: $default-btn-color;
+  padding: 0.8em 1.8em;
+  &:hover {
+    background: $default-btn-color;
   }
 }
 
@@ -56,6 +94,17 @@
     color: #fff;
     background: #16A085;
   }
+}
+
+.btn-sign-out {
+  background: none;
+  position: relative;
+  font-size: 1.1em;
+  top: 2em;
+  color: #252525;
+  border: 1px solid #252525;
+  padding: 0.5em 1.5em;
+  @include border-radius(999px);
 }
 
 .btn-purchase {

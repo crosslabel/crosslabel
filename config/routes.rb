@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  get 'errors/file_not_found'
+
+  get 'errors/unprocessable'
+
+  get 'errors/internal_server_error'
+
   root 'home#index'
+
 
   devise_for :users, :skip => [:sessions, :registrations], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :passwords => "users/passwords" }
   as :user do
@@ -9,9 +16,13 @@ Rails.application.routes.draw do
     post 'signin' => 'users/sessions#create', :as => :user_session
     delete 'signout' => 'users/sessions#destroy', :as => :destroy_user_session
   end
-  resources :retailers, param: :name do
+
+  resources :after_omniauth
+
+  resources :retailers, param: :name, except: :show do
     resources :products
   end
+  get '/retailers/:name(/page/:page)' => 'retailers#show', :page => 1
 
 
   resources :products do
@@ -26,10 +37,9 @@ Rails.application.routes.draw do
   get '/categories/:name(/page/:page)' => 'categories#show', as: :category, :page => 1
   get '/explore(/page/:page)' => 'home#explore', as: 'explore', :page => 1
 
-
-  resources :retailers
-
-  get '/retailers/:name(/page/:page)' => 'retailers#show', :page => 1
+  match '/404', to: 'errors#file_not_found', via: :all
+  match '/422', to: 'errors#unprocessable', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
 
 
   resources :users, param: :username

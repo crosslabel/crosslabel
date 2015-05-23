@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   validates :auth_token, uniqueness: true
   validates :email, :presence => true, :length => { maximum: 256}, :format => { with: VALID_EMAIL_REGEX }, :uniqueness => { case_sensitive: false}
-  validates :username, :presence => true, :uniqueness => :true
+  validates :username, :presence => true, :uniqueness => :true, :length => { maximum: 15}, if: :activated?
 
   SOCIALS = {
     facebook: 'facebook',
@@ -24,27 +24,22 @@ class User < ActiveRecord::Base
 
   recommends :products
 
-  def self.from_omniauth(auth, current_user)
-    authentication = Authentication.where(:provider => auth.provider, :uid => auth.uid.to_s,
-                                      :token => auth.credentials.token)
-                                      .first_or_initialize
-    if authentication.user.blank?
-      user = current_user.nil? ? User.where('email = ?', auth['info']['email']).first : current_user
-      if user.blank?
-        user = User.new
-        user.password = Devise.friendly_token[0, 20]
-        user.email = auth.info.email
-        user.username = "user" + Digest::SHA1.base64digest(auth.uid)
-        user.password = Devise.friendly_token[0,20]
-        user.avatar = URI.parse(auth.info.image)
-        user.save!
-        user.send_welcome_email
-      end
-      authentication.user = user
-      authentication.save
-    end
-    authentication.user
-  end
+  # def self.from_omniauth(auth, current_user, authentication)
+  #   if authentication.user.blank?
+  #     user = current_user ||= User.where(email: auth.info.email).first
+  #     if user.blank?
+  #       user = User.new
+  #       user.password = Devise.friendly_token[0, 20]
+  #       user.email = auth.info.email
+  #       user.avatar = open(auth.info.image)
+  #       user.save!
+  #       user.send_welcome_email
+  #     end
+  #     authentication.user = user
+  #     authentication.save
+  #   end
+  #   authentication.user
+  # end
 
   def self.find_with_omniauth(auth)
     where(email: auth.info.email)
@@ -52,11 +47,16 @@ class User < ActiveRecord::Base
 
   def self.create_with_omniauth(auth)
     find_with_omniauth(auth).first_or_create do |user|
+      user.password = Devise.friendly_token[0, 20]
       user.email = auth.info.email
-      user.username = "user" + Digest::SHA1.base64digest(auth.uid)
-      user.password = Devise.friendly_token[0,20]
-      user.profile_picture = auth.info.image
+      user.avatar = open(auth.info.image)
+      user.save!
+      user.send_welcome_email
     end
+  end
+
+  def self.find_with_omniauth(auth)
+    where(email: auth.info.email)
   end
 
   def self.new_with_session(params, session)
@@ -94,4 +94,7 @@ class User < ActiveRecord::Base
     UserMailer.welcome_email(self).deliver
   end
 
+  def activated?
+    activated == true
+  end
 end

@@ -6,68 +6,76 @@
 
 <% content_for :title do %><%= @product.title %><% end %>
 <div class="product-detail-page">
-  <div class="product-display">
-    <% @product.product_variations.each do |variation| %>
-      <% variation.product_images.each do |image| %>
-        <div>
-        <%= image_tag "#{image.filepath}", :class => "product-image" %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <span class="left slider-nav-icon"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"> <circle data-color="color-2" fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22" stroke-linejoin="miter"></circle> <polyline fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="28,32 20,24 28,16 " stroke-linejoin="miter"></polyline> </g></svg></span>
-  <span class="right slider-nav-icon"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"> <circle data-color="color-2" fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22" stroke-linejoin="miter"></circle> <polyline fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="20,16 28,24 20,32 " stroke-linejoin="miter"></polyline> </g></svg></span>
-    <!-- <%= breadcrumbs separator: " &rsaquo; " %> -->
-    <div class="row">
-      <div class="container">
+  <div class="product-main-content">
+    <div class="container">
+      <%= breadcrumbs separator: " &rsaquo; " %>
 
-      <div class="product-info">
-        <h3 class="product-detail-heading"><%= @product.title %></h3>
-        <h5 class="shop-heading">from <%= link_to @product.retailer.name, retailer_path(@product.retailer.name) %></h5>
+      <div class="row">
+      <div class="col-lg-4">
 
-        <div class="product-info-price" style="font-size:1.5em;">$<%= @product.original_price %></div>
-        <div class="product-description">
-          <h4>Features</h4>
-          <p><%= @product.description.html_safe %></p>
-        </div>
-        <%= link_to "Buy from #{@product.retailer.name}", @product.homepage_product_link, :class => "btn-purchase", :target => "_blank" %>
-        <div class="product-footer">
-          <ul class="product-footer-nav">
-            <li>
-              <% if @product.liked_by.include?(current_user) %>
-                <%= link_to product_vote_path(@product.id), remote: true, method: :delete do %>
-                <svg class="product-downvote-icon nc-icon glyph" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g> <path fill="#d94052" d="M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z"></path> </g></svg>
+        <div class="product-info">
+          <h3 class="product-detail-heading"><%= @product.title %></h3>
+          <h5 class="shop-heading">from <%= link_to @product.retailer.name, retailer_path(@product.retailer.name) %></h5>
+
+          <div class="product-info-price" style="font-size:1.5em;">$<%= @product.original_price %></div>
+          <div class="product-description">
+            <h4>Features</h4>
+            <p><%= @product.description.html_safe %></p>
+          </div>
+          <%= link_to "Buy from #{@product.retailer.name}", @product.homepage_product_link, :class => "btn-purchase", :target => "_blank" %>
+          <div class="product-footer">
+            <ul class="product-footer-nav">
+              <li>
+                <% if @product.liked_by.include?(current_user) %>
+                  <%= link_to product_vote_path(@product.id), remote: true, method: :delete do %>
+                  <svg class="product-downvote-icon nc-icon glyph" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g> <path fill="#d94052" d="M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z"></path> </g></svg>
+                  <% end %>
+                <% elsif current_user %>
+                  <%= link_to product_vote_path(@product.id), remote: true, method: :post do %>
+                  <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M17,1c-2.1,0-3.9,1.1-5,2.7 C10.9,2.1,9.1,1,7,1C3.7,1,1,3.7,1,7c0,6,11,15,11,15s11-9,11-15C23,3.7,20.3,1,17,1z" stroke-linejoin="miter"></path> </g></svg>
+                  <% end %>
+                <% else %>
+                  <%= link_to new_user_registration_path do %>
+                  <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M17,1c-2.1,0-3.9,1.1-5,2.7 C10.9,2.1,9.1,1,7,1C3.7,1,1,3.7,1,7c0,6,11,15,11,15s11-9,11-15C23,3.7,20.3,1,17,1z" stroke-linejoin="miter"></path> </g></svg>  <% end %>
                 <% end %>
-              <% elsif current_user %>
-                <%= link_to product_vote_path(@product.id), remote: true, method: :post do %>
-                <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M17,1c-2.1,0-3.9,1.1-5,2.7 C10.9,2.1,9.1,1,7,1C3.7,1,1,3.7,1,7c0,6,11,15,11,15s11-9,11-15C23,3.7,20.3,1,17,1z" stroke-linejoin="miter"></path> </g></svg>
-                <% end %>
-              <% else %>
-                <%= link_to new_user_registration_path do %>
-                <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M17,1c-2.1,0-3.9,1.1-5,2.7 C10.9,2.1,9.1,1,7,1C3.7,1,1,3.7,1,7c0,6,11,15,11,15s11-9,11-15C23,3.7,20.3,1,17,1z" stroke-linejoin="miter"></path> </g></svg>  <% end %>
+                <p><%= pluralize(@product.liked_by_count, "like") %></p>
+              </li>
+              <li>
+                <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"> <g transform="translate(0, 0)"> <path fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M20,9c0,4.9-8,13-8,13 S4,13.9,4,9c0-5.1,4.1-8,8-8S20,3.9,20,9z" stroke-linejoin="miter"></path> <circle data-color="color-2" fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="12" cy="9" r="3" stroke-linejoin="miter"></circle> </g> </svg><p>United States</p>
+              </li>
+              <li>
+                <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M2,12c0,0,4-6,10-6 c6,0,10,6,10,6s-4,6-10,6C6,18,2,12,2,12z" stroke-linejoin="miter"></path> <circle fill="none" stroke="#807e7e" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="12" cy="10" r="4" stroke-linejoin="miter"></circle> </g></svg><p><%= pluralize(@product.viewed_count, "view") %></p>
+              </li>
+            </ul>
+            <!-- <div class="product-liked-users">
+            <% @product.liked_by.each do |user| %>
+              <%= link_to user_path(user.try(:username)) do %>
+                <a href="<%= user_path(user.username) %>" class="product-user-image" data-container="body" data-toggle="popover" data-placement="bottom" data-content='<a href="<%= user_path(user.username) %>"><%= image_tag user.try(:avatar).url(:thumb), class: "popover-user-image" %></a><h5 class="popover-username"><%= user.username %></h5><a href="<%= user_path(user.username) %>" class="btn-popover">View profile</a>'>
+                <%= image_tag user.try(:avatar).url(:thumb), :class => "product-liked-user-image" %>
+                </a>
               <% end %>
-              <p><%= pluralize(@product.liked_by_count, "like") %></p>
-            </li>
-            <li>
-              <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"> <g transform="translate(0, 0)"> <path fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M20,9c0,4.9-8,13-8,13 S4,13.9,4,9c0-5.1,4.1-8,8-8S20,3.9,20,9z" stroke-linejoin="miter"></path> <circle data-color="color-2" fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="12" cy="9" r="3" stroke-linejoin="miter"></circle> </g> </svg><p>United States</p>
-            </li>
-            <li>
-              <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <path fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M2,12c0,0,4-6,10-6 c6,0,10,6,10,6s-4,6-10,6C6,18,2,12,2,12z" stroke-linejoin="miter"></path> <circle fill="none" stroke="#656565" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="12" cy="10" r="4" stroke-linejoin="miter"></circle> </g></svg><p><%= pluralize(@product.viewed_count, "view") %></p>
-            </li>
-          </ul>
-          <div class="product-liked-users">
-          <% @product.liked_by.each do |user| %>
-            <%= link_to user_path(user.try(:username)) do %>
-              <a href="<%= user_path(user.username) %>" class="product-user-image" data-container="body" data-toggle="popover" data-placement="bottom" data-content='<a href="<%= user_path(user.username) %>"><%= image_tag user.try(:avatar).url(:thumb), class: "popover-user-image" %></a><h5 class="popover-username"><%= user.username %></h5><a href="<%= user_path(user.username) %>" class="btn-popover">View profile</a>'>
-              <%= image_tag user.try(:avatar).url(:thumb), :class => "product-liked-user-image" %>
-              </a>
             <% end %>
-          <% end %>
+            </div> -->
           </div>
         </div>
       </div>
+      <div class="col-lg-8" style="position:relative;">
+        <span class="left slider-nav-icon"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"> <circle data-color="color-2" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22" stroke-linejoin="miter"></circle> <polyline fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="28,32 20,24 28,16 " stroke-linejoin="miter"></polyline> </g></svg></span>
+        <span class="right slider-nav-icon"><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"> <circle data-color="color-2" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="22" stroke-linejoin="miter"></circle> <polyline fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="20,16 28,24 20,32 " stroke-linejoin="miter"></polyline> </g></svg></span>
+
+        <div class="product-display">
+        <% @product.product_variations.each do |variation| %>
+          <% variation.product_images.each do |image| %>
+            <div>
+            <%= image_tag "#{image.filepath}", :class => "product-image" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      </div>
       </div>
     </div>
+  </div>
     <hr style="width:82%;margin:0 auto;">
 
       <div class="row">

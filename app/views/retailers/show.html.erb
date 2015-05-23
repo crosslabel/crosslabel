@@ -1,15 +1,25 @@
-<section class="explore-page">
+<section class="retailer-cover" style="background: #f9f9f9 url('http://818agency.com/wp-content/uploads/2015/02/FreePeople_Roshambo-Rock_May2013-10.jpg');background-size:cover;">
+  <div class="container">
+      <div class="retailer-card">
+        <h2 class="retailer-heading"><%= @retailer.name %></h2>
+        <h5 class="retailer-description"><%= @retailer.try(:description) %></h5>
+        <ul class="nav navbar-nav retailer-social-list">
+          <li class="retailer-social-icon"><%= link_to "#" do %><i class="fa fa-facebook-official fa-2x"></i><% end %></li>
+          <li class="retailer-social-icon"><%= link_to "#" do %><i class="fa fa-twitter fa-2x"></i><% end %></li>
+          <li class="retailer-social-icon"><%= link_to "#" do %><svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <rect x="1" y="2" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" width="22" height="20" stroke-linejoin="miter"></rect> <line fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="1" y1="6" x2="23" y2="6" stroke-linejoin="miter"></line> <line fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="6" y1="2" x2="6" y2="6" stroke-linejoin="miter"></line> <rect data-color="color-2" x="4" y="9" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" width="16" height="3" stroke-linejoin="miter"></rect> <rect data-color="color-2" x="4" y="15" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" width="3" height="4" stroke-linejoin="miter"></rect> <rect data-color="color-2" x="10" y="15" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" width="10" height="4" stroke-linejoin="miter"></rect> </g></svg><% end %></li>
+        </ul>
+      </div>
+  </div>
+</section>
+<section class="retailer-page">
   <div class="container">
     <div class="row">
-        <h3 class="explore-heading"><%= @retailer.name %></h3>
-    </div>
-    <div class="row">
-      <h3 class="explore-heading">Recommended items</h3>
+      <h3 class="retailer-heading">Recommended items</h3>
 
       <div id="products-list">
           <% @products.each do |product| %>
           <div class="product-container col-sm-6 col-md-20 animated fadeIn">
-            <%= render partial: 'products/product_w2', locals: { product: product } %>
+            <%= render partial: 'products/product', locals: { product: product } %>
           </div>
           <% end %>
         <div id="placeholder">

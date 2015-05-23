@@ -15,7 +15,7 @@ RSpec.describe CategoriesController, type: :controller do
   describe "GET #show" do
     context "visiting show page" do
       it "returns the index view" do
-        get :show, title: category.title
+        get :show, name: category.name
         expect(response).to render_template(:show)
       end
     end

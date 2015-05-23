@@ -9,17 +9,17 @@ $bold: 800;
 $base-font-family: 'Open Sans', sans-serif;
 $base-font-weight: $regular;
 $base-font-size: 14px;
-$base-line-height: 1.5;
-$base-font-color: #807E7E;
-$secondary-font-color: #807E7E;
+$base-line-height: 1.5em;
+$base-font-color: #888;
+$secondary-font-color: #888;
 $header-font-color: #FF5A5F;
 $gray-medium-light: #eaeaea;
 /*******
 Links
 *******/
 
-$default-link-color: #16A085;
-$default-hover-color: #16A085;
+$default-link-color: #00B16A;
+$default-hover-color: #00B16A;
 /********
 Icons
 *********/
@@ -34,4 +34,4 @@ Images
 /*********
 Buttons
 ********/
-$default-btn-color: #16A085;
+$default-btn-color: #00B16A;

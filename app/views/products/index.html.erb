@@ -1,8 +1,26 @@
-<div class="container">
-<h3>Search results for <%= params[:query] %></h3>
-<% @products.each do |product| %>
-<div class="col-lg-3">
-  <%= render partial: 'products/product_w2', locals: {product: product} %>
-</div>
-<% end %>
+<section class="explore-hero hero">
+    <%= render partial: 'shared/header_secondary' %>
+    <div class="search">
+      <div class="container">
+        <%= form_tag products_path, :class => "form-search", :method => 'get' do %>
+        <div class="input-group">
+          <span class="input-group-addon" style="background:none;border-color:#fff;border-top: 0;border-left:0;border-radius:0;"><i class="fa fa-search fa-2x"></i></span>
+          <%= text_field_tag :query, params[:query], class: 'form-control', id: 'product-search', autocomplete: 'off', placeholder: "Know what you're looking for? Search away!" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+</section>
+<div class="search-page">
+  <div class="container">
+    <h3>Search results for <span style="color:#666;"><%= params[:query] %></span></h3>
+
+    <div class="row">
+      <% @products.each do |product| %>
+      <div class="col-sm-6 col-md-20 col-lg-20">
+        <%= render partial: 'products/product', locals: {product: product} %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

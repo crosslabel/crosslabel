@@ -1,0 +1,255 @@
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="chart-wrapper widget">
+          <div class="chart-stage" id="chart-01">
+            <img data-src="holder.js/100%x120/white">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="chart-wrapper widget">
+          <div class="chart-stage" id="chart-02">
+            <img data-src="holder.js/100%x120/white">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="chart-wrapper widget">
+          <div class="chart-stage" id="chart-03">
+            <img data-src="holder.js/100%x120/white">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="chart-wrapper full">
+          <div class="chart-title">
+            Product views the previous 7 days
+          </div>
+          <div class="chart-stage" id="chart-05">
+            <div id="grid-1-1">
+              <img data-src="holder.js/100%x240/white/text:#grid-1-1">
+            </div>
+          </div>
+          <div class="chart-notes">
+            Notes about this chart
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="chart-wrapper full">
+          <div class="chart-title">
+          </div>
+          <div class="chart-stage" id="chart-06">
+            <img data-src="holder.js/100%x240/white">
+          </div>
+          <div class="chart-notes">
+            Notes about this chart
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8 col-md-8">
+        <div class="chart-wrapper full">
+          <div class="chart-title">
+            Total page views per category
+          </div>
+          <div class="chart-stage" id="chart-07">
+            <img data-src="holder.js/100%x120/white">
+          </div>
+          <div class="chart-notes">
+            Notes about this chart
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Cell Title
+          </div>
+          <div class="chart-stage" id="visitors-countries">
+            <img data-src="holder.js/100%x120/white">
+          </div>
+          <div class="chart-notes">
+            Notes about this chart
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Cell Title
+          </div>
+          <div class="chart-stage">
+            <img data-src="holder.js/100%x120/white">
+          </div>
+          <div class="chart-notes">
+            Notes about this chart
+          </div>
+        </div>
+      </div>
+  <!-- end of three -->
+      <div class="col-sm-6 col-md-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Cell Title
+          </div>
+          <div class="chart-stage">
+            <img data-src="holder.js/100%x120/white">
+          </div>
+          <div class="chart-notes">
+            Notes about this chart
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Cell Title
+          </div>
+          <div class="chart-stage">
+            <img data-src="holder.js/100%x120/white">
+          </div>
+          <div class="chart-notes">
+            Notes about this chart
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Cell Title
+          </div>
+          <div class="chart-stage">
+            <img data-src="holder.js/100%x120/white">
+          </div>
+          <div class="chart-notes">
+            Notes about this chart
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    var client = new Keen({
+      projectId: "553fce3a59949a26e7e04789",
+      readKey: "<%= current_admin.keen_scoped_key %>"
+    });
+
+      Keen.ready(function() {
+        var pageviews_timeline = new Keen.Query("count", {
+          eventCollection: "viewed_product",
+          interval: "hourly",
+          groupBy: "product.category",
+          timeframe: 'previous_7_days',
+          filters: [{
+            "property_name": "product.retailer",
+            "operator": "eq",
+            "property_value": "<%= current_admin.retailer.name %>"
+          }]
+        });
+
+        var pageviews_linechart = new Keen.Query("count", {
+          eventCollection: "viewed_product",
+          interval: "hourly",
+          groupBy: "product.category",
+          timeframe: 'previous_7_days'
+        });
+
+        var visitors_countries = new Keen.Query("count", {
+          eventCollection: "viewed_product",
+          groupBy: "ip_geo_info.country",
+        })
+
+        client.draw(visitors_countries, document.getElementById("visitors-countries", {
+          chartType: "piechart",
+          title: "Location of visitors"
+        }));
+
+        client.draw(pageviews_linechart, document.getElementById("chart-05"), {
+          chartType: "linechart",
+          title: "Total product views",
+          chartOptions: {
+            chartArea: {
+              height: "85%",
+              left: "5%",
+              top: "5%",
+              width: "80%"
+            },
+            isStacked: true
+          }
+        });
+
+
+        client.draw(pageviews_timeline, document.getElementById("chart-07"), {
+          chartType: "columnchart",
+          title: "Total page views per category",
+          chartOptions: {
+            isStacked: true
+          }
+        });
+
+        var signups = new Keen.Query("count_unique", {
+          eventCollection: "viewed_product",
+          targetProperty: "ip_address"
+        });
+        client.draw(signups, document.getElementById("chart-01"), {
+          chartType: "metric",
+          title: "Unique impressions",
+          colors: ["#49c5b1"]
+        });
+
+        var product_views = new Keen.Query("count", {
+          eventCollection: "viewed_product"
+        });
+        client.draw(product_views, document.getElementById("chart-02"), {
+          chartType: "metric",
+          title: "Total Products Viewed",
+          colors: ["#49c5b1"]
+        });
+
+
+        conversionMetric = new Keen.Dataviz()
+      .el(document.getElementById('chart-03'))
+      .chartType('metric')
+      .chartOptions({
+          label: 'Conversion',
+          suffix: '%'
+      })
+      .prepare(); // start spinner
+
+    // Create a set of steps for our funnel.
+    var step1CollectionName = 'viewed_product';
+    var step2CollectionName = 'clck_buy';
+    var actorProperty = 'user.id';
+
+    var s1 = {
+        eventCollection: step1CollectionName,
+        actorProperty: actorProperty,
+    };
+
+    var s2 = {
+        eventCollection: step2CollectionName,
+        actorProperty: actorProperty,
+    };
+
+    //Instantiate a new Keen.Query for those steps.
+    var myFunnel = new Keen.Query('funnel', {
+        steps: [s1, s2]
+    });
+
+    client.run(myFunnel, function(err, response){
+        // if (err) throw("Error!");
+
+        conversionMetric
+          .parseRawData({ result: 100 * response.result[1]/response.result[0] })
+          .title('Conversion')
+          .render();
+
+    });
+
+      });
+    </script>

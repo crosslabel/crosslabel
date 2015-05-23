@@ -1,16 +1,25 @@
 
 footer.footer {
-  background: #f0f0f0;
+  background: #f7f1f1;
   color: #444;
-  height: 265px;
+  min-height: 265px;
   width: 100%;
-  padding-top: 2em;
-  ul {
-    list-style: none;
-    padding: 0;
-    li {}
-  }
+  font-size: 1.15em;
+  padding: 5em 0 0 0;
   a {
     color: #808080;
+  }
+  ul.nav {
+    padding-left: 20px;
+  }
+  .footer-brand {
+    position: relative;
+    color: #666;
+    font-family: 'loveloblack', 'sans-serif';
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    top: 15px;
+
   }
 }

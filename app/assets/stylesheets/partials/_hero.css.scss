@@ -1,12 +1,13 @@
 .hero {
   padding-top: 1em;
+  position: relative;
 }
 
 .hero.sticky {
   padding-top: 0;
 }
 
-.retailer-hero {
+.retailer-hero, .category-hero {
   background: #ccc image-url('retailer_hero.jpg');
   background-position: 25% 35%;
   background-size: cover;
@@ -35,6 +36,30 @@
   }
 }
 
+.explore-hero {
+  background: #ccc image-url('explore-hero.jpg');
+  background-position: 25% 45%;
+  background-size: cover;
+  width: 100%;
+  min-height: 350px;
+  text-align: center;
+  padding-bottom: 2em;
+  .hero-overlay {
+    background: rgba(0,0,0, 0.15);
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    top: 0;
+    left: 0;
+  }
+  .explore-hero-heading {
+    color: #fff;
+    font-weight: $light;
+    padding-bottom: 10px;
+  }
+}
+
+
 
 .home-hero {
   background: #ccc image-url('home_page.jpg');
@@ -42,7 +67,6 @@
   background-position: 40% 40%;
   width: 100%;
   height: 600px;
-  text-align: center;
   .hero-overlay {
     background: rgba(0,0,0, 0.15);
     position: absolute;
@@ -52,27 +76,19 @@
     left: 0;
   }
   .hero-content {
-    padding-top: 6em;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    padding-top: 8em;
   }
-  h1 {
+  .hero-heading {
     color: #fff;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-size: 3.2em;
+    font-weight: $light;
   }
-  h4 {
+  .hero-tagline {
     color: #fff;
+    font-weight: $light;
     margin-bottom: 2em;
-  }
-  .cta {
-    color: #fff;
-    background: #16A085;
-    padding: 0.6em 2.5em;
-    font-weight: $medium;
-    letter-spacing: 1px;
-    @include border-radius(999px);
-    &:hover {
-      color: #fff;
-      background: #16A085;
-    }
   }
 }

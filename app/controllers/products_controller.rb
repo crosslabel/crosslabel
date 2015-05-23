@@ -1,11 +1,14 @@
 class ProductsController < ApplicationController
   before_action :logged_in_user, :only => [:create]
+  before_action :activated_only
+  
   def index
     if params[:query].present?
       @products = Product.search(params[:query], page: params[:page])
     else
       @products = Product.all.page params[:page]
     end
+    render layout: 'transparent_header'
   end
 
   def autocomplete

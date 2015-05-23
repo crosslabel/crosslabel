@@ -1,8 +1,16 @@
 h1, h2, h3, h4, h5, h6 {
-  color: #252525;
-  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  font-weight: $regular;
   margin-top: 0;
+  letter-spacing: 1px;
 }
-h1, h2, h3 {
-  letter-spacing: 2px;
-}
+h1 { font-size: 2.25em; }
+
+h2 { font-size: 1.5em; }
+
+h3 { font-size: 1.3125em;}
+h4 { font-size: 1.125em;}
+h5 { font-size: 1em;}
+
+p { font-size: 0.9375em;}
+a { font-size: 0.9375em;}

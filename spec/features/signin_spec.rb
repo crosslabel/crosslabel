@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'User signing in with email' do
-  let(:user) { FactoryGirl.create(:user)}
+  let(:user) { FactoryGirl.create(:user, :activated => true)}
   scenario "redirects to explore page" do
     visit new_user_session_path
     within('.new_user') do
@@ -12,4 +12,5 @@ feature 'User signing in with email' do
 
     current_path.should == explore_path
   end
+
 end

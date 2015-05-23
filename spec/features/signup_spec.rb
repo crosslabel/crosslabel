@@ -13,6 +13,6 @@ feature 'User signing up with email' do
       click_button 'Sign me up!'
     end
 
-    current_path.should == explore_path
+    current_path.should == root_path
   end
 end
